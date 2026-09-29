@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.1.2
+
+- Metadata-only release after the Zenodo repository webhook was verified active.
+- Numerical code, inputs, reference results, licenses and coverage remain unchanged from v0.1.0.
+
 ## v0.1.1
 
 - Metadata-only release after the author confirmed Zenodo repository integration is enabled.

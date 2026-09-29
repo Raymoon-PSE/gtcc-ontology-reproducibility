@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "Please cite this version of the supporting computational artifacts."
 type: software
 title: "GTCC Ontology-Driven Digital Twin: Supporting Computational Artifacts"
-version: 0.1.1
+version: 0.1.2
 license: MIT
 repository-code: "https://github.com/Raymoon-PSE/gtcc-ontology-reproducibility"
 authors:
