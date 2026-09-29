@@ -1,0 +1,5 @@
+numpy==2.5.3
+scipy==1.18.1
+CoolProp==8.0.0
+rdflib==7.6.0
+pyparsing==3.3.3

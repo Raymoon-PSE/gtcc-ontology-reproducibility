@@ -1,0 +1,68 @@
+{
+    "Compressor": {
+        "design_rpm": 3600,
+        "pressure_ratio_design": 18.1,
+        "stage_count": 17,
+        "polytropic_efficiency_design": 0.87,
+        "surge_margin_design_pct": 15.0,
+        "blade_material": "Inconel 718",
+        "rotor_mass_kg": 8500.0,
+        "bearing_span_mm": 3200.0,
+        "first_critical_rpm": 8200.0,
+        "k_degradation_per_khr": 0.002
+    },
+    "GT_Turbine": {
+        "TIT_design_C": 1371.0,
+        "stage_count": 4,
+        "blade_material": "CMSX-4",
+        "cooling_air_fraction": 0.20,
+        "cooling_effectiveness": 0.60,
+        "larson_miller_C": 20.0,
+        "larson_miller_LMP_rupture": 28500.0,
+        "design_stress_MPa": 150.0,
+        "eoh_per_start": 15.0,
+        "major_inspection_eoh": 24000.0,
+        "hot_gas_path_eoh": 48000.0
+    },
+    "Combustor": {
+        "liner_temp_ratio": 0.90,
+        "liner_material": "Hastelloy X",
+        "N_f_design_starts": 10000,
+        "inspection_interval_hr": 16000,
+        "delta_T_start_C": 800.0,
+        "coffin_manson_exponent": 2.0
+    },
+    "HRSG_Superheater": {
+        "tube_material": "P91",
+        "tube_OD_mm": 50.8,
+        "tube_wall_mm": 6.35,
+        "design_temp_C": 566.0,
+        "design_pressure_MPa": 16.5,
+        "larson_miller_C": 31.3,
+        "larson_miller_LMP_rupture": 32500.0,
+        "fouling_factor_design": 0.0002,
+        "k_fouling_per_khr": 0.003
+    },
+    "Reheater": {
+        "tube_material": "P22",
+        "tube_OD_mm": 50.8,
+        "tube_wall_mm": 4.57,
+        "design_temp_C": 566.0,
+        "design_pressure_MPa": 2.5,
+        "larson_miller_C": 20.0,
+        "larson_miller_LMP_rupture": 24500.0,
+        "fouling_factor_design": 0.0002,
+        "k_fouling_per_khr": 0.003
+    },
+    "HP_ST": {
+        "inlet_pressure_MPa": 16.5,
+        "inlet_temp_C": 566.0,
+        "reheat_temp_C": 566.0,
+        "blade_material": "12Cr steel",
+        "erosion_rate_coeff": 0.005,
+        "erosion_velocity_exponent": 2.5,
+        "reference_velocity_m_s": 300.0,
+        "blade_chord_mm": 80.0,
+        "max_erosion_depth_mm": 2.0
+    }
+}

@@ -1,0 +1,397 @@
+[
+  {
+    "name": "COMP-001_wrong_unit",
+    "invalid": true,
+    "split": "previously_missed"
+  },
+  {
+    "name": "EXP-001_wrong_unit",
+    "invalid": true,
+    "split": "previously_missed"
+  },
+  {
+    "name": "COMB-001_wrong_unit",
+    "invalid": true,
+    "split": "previously_missed"
+  },
+  {
+    "name": "HPSH-001_wrong_unit",
+    "invalid": true,
+    "split": "previously_missed"
+  },
+  {
+    "name": "RH-001_wrong_unit",
+    "invalid": true,
+    "split": "previously_missed"
+  },
+  {
+    "name": "HPTURB_wrong_unit",
+    "invalid": true,
+    "split": "previously_missed"
+  },
+  {
+    "name": "COMP_COMB_remove",
+    "invalid": true,
+    "split": "previously_missed"
+  },
+  {
+    "name": "COMP_COMB_reverse",
+    "invalid": true,
+    "split": "previously_missed"
+  },
+  {
+    "name": "COMP_COMB_replace",
+    "invalid": true,
+    "split": "previously_missed"
+  },
+  {
+    "name": "COMP-001_mech_deviceType",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "COMP-001_unit_id",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "COMP-001_module_id",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "COMP-001_part_of",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "COMP-001_duplicate_unit",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "EXP-001_mech_deviceType",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "EXP-001_unit_id",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "EXP-001_module_id",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "EXP-001_part_of",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "EXP-001_duplicate_unit",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "COMB-001_mech_deviceType",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "COMB-001_unit_id",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "COMB-001_module_id",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "COMB-001_part_of",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "COMB-001_duplicate_unit",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "HPSH-001_mech_deviceType",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "HPSH-001_unit_id",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "HPSH-001_module_id",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "HPSH-001_part_of",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "HPSH-001_duplicate_unit",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "RH-001_mech_deviceType",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "RH-001_unit_id",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "RH-001_module_id",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "RH-001_part_of",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "RH-001_duplicate_unit",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "HPTURB_mech_deviceType",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "HPTURB_unit_id",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "HPTURB_module_id",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "HPTURB_part_of",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "HPTURB_duplicate_unit",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "COMP-001_missing_type",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "COMP-001_bad_inlet",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "COMP-001_missing_outlet",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "COMB-001_missing_type",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "COMB-001_bad_inlet",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "COMB-001_missing_outlet",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "EXP-001_missing_type",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "EXP-001_bad_inlet",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "EXP-001_missing_outlet",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "Stream-2_wrong_medium",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "Stream-3_wrong_medium",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "Stream-5_wrong_medium",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "Stream-6_wrong_medium",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "Stream-7_wrong_medium",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "unregistered_device",
+    "invalid": true,
+    "split": "additional"
+  },
+  {
+    "name": "baseline",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "COMP-001_NONE",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "COMP-001_PARTIAL",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "COMP-001_explicit_binding",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "EXP-001_NONE",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "EXP-001_PARTIAL",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "EXP-001_explicit_binding",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "COMB-001_NONE",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "COMB-001_PARTIAL",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "COMB-001_explicit_binding",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "HPSH-001_NONE",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "HPSH-001_PARTIAL",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "HPSH-001_explicit_binding",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "RH-001_NONE",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "RH-001_PARTIAL",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "RH-001_explicit_binding",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "HPTURB_NONE",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "HPTURB_PARTIAL",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "HPTURB_explicit_binding",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "COMP-001_subclass",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "COMB-001_subclass",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "EXP-001_subclass",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "unrelated_annotation",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "unrelated_equipment",
+    "invalid": false,
+    "split": "additional"
+  },
+  {
+    "name": "declared_stream_replacement",
+    "invalid": false,
+    "split": "additional"
+  }
+]

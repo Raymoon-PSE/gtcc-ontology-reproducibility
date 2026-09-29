@@ -1,0 +1,171 @@
+@prefix pm:   <http://plantmind.io/ontology/gtcc#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# ═══════════════════════════════════════════════════════════════════
+# PlantMind GTCC Mechanical Model Ontology v1.0
+# Extends existing GT/HRSG/ST/M4 TTL files with mechanical properties.
+# Uses pm: namespace with mech_ prefix properties.
+# ═══════════════════════════════════════════════════════════════════
+
+# ── Classes ──────────────────────────────────────────────────────
+
+pm:MechanicalProperty a owl:Class ;
+    rdfs:label "Mechanical Property" ;
+    rdfs:comment "A mechanical property of a process unit." .
+
+pm:DataStatusValue a owl:Class ;
+    rdfs:label "Data Status Value" ;
+    rdfs:comment "Availability status for mechanical model data." .
+
+pm:PriorityLevel a owl:Class ;
+    rdfs:label "Priority Level" ;
+    rdfs:comment "Implementation priority for mechanical modeling." .
+
+# ── DataStatus individuals ───────────────────────────────────────
+
+pm:mech_DataStatus_FULL a pm:DataStatusValue ;
+    rdfs:label "FULL" ;
+    rdfs:comment "All required and optional parameters available." .
+
+pm:mech_DataStatus_PARTIAL a pm:DataStatusValue ;
+    rdfs:label "PARTIAL" ;
+    rdfs:comment "Required parameters available, optional filled from Reference DB." .
+
+pm:mech_DataStatus_NONE a pm:DataStatusValue ;
+    rdfs:label "NONE" ;
+    rdfs:comment "Required parameters missing, model inactive." .
+
+# ── Priority individuals ─────────────────────────────────────────
+
+pm:mech_Priority_P1 a pm:PriorityLevel ;
+    rdfs:label "P1" ;
+    pm:mech_priorityLevel "1"^^xsd:integer .
+
+pm:mech_Priority_P2 a pm:PriorityLevel ;
+    rdfs:label "P2" ;
+    pm:mech_priorityLevel "2"^^xsd:integer .
+
+pm:mech_Priority_P3 a pm:PriorityLevel ;
+    rdfs:label "P3" ;
+    pm:mech_priorityLevel "3"^^xsd:integer .
+
+# ── Object Properties ────────────────────────────────────────────
+
+pm:mech_hasDataStatus a owl:ObjectProperty ;
+    rdfs:domain pm:ProcessUnit ;
+    rdfs:range pm:DataStatusValue ;
+    rdfs:label "has data status" .
+
+pm:mech_hasPriority a owl:ObjectProperty ;
+    rdfs:domain pm:ProcessUnit ;
+    rdfs:range pm:PriorityLevel ;
+    rdfs:label "has priority" .
+
+# ── Datatype Properties (mechanical) ─────────────────────────────
+
+pm:mech_designRPM a owl:DatatypeProperty ;
+    rdfs:label "design RPM" ;
+    rdfs:range xsd:decimal .
+
+pm:mech_pressureRatioDesign a owl:DatatypeProperty ;
+    rdfs:label "design pressure ratio" ;
+    rdfs:range xsd:decimal .
+
+pm:mech_surgeMarginPct a owl:DatatypeProperty ;
+    rdfs:label "surge margin %" ;
+    rdfs:range xsd:decimal .
+
+pm:mech_efficiencyCurrent a owl:DatatypeProperty ;
+    rdfs:label "current efficiency" ;
+    rdfs:range xsd:decimal .
+
+pm:mech_degradationRatePctKhr a owl:DatatypeProperty ;
+    rdfs:label "degradation rate %/khr" ;
+    rdfs:range xsd:decimal .
+
+pm:mech_remainingLifeHr a owl:DatatypeProperty ;
+    rdfs:label "remaining life hours" ;
+    rdfs:range xsd:decimal .
+
+pm:mech_creepLifeFraction a owl:DatatypeProperty ;
+    rdfs:label "creep life fraction" ;
+    rdfs:range xsd:decimal .
+
+pm:mech_eohConsumed a owl:DatatypeProperty ;
+    rdfs:label "EOH consumed" ;
+    rdfs:range xsd:decimal .
+
+pm:mech_eohRemaining a owl:DatatypeProperty ;
+    rdfs:label "EOH remaining" ;
+    rdfs:range xsd:decimal .
+
+pm:mech_bladeTempC a owl:DatatypeProperty ;
+    rdfs:label "blade temperature C" ;
+    rdfs:range xsd:decimal .
+
+pm:mech_linerTempC a owl:DatatypeProperty ;
+    rdfs:label "liner temperature C" ;
+    rdfs:range xsd:decimal .
+
+pm:mech_fatigueLifeFraction a owl:DatatypeProperty ;
+    rdfs:label "fatigue life fraction" ;
+    rdfs:range xsd:decimal .
+
+pm:mech_hoopStressMPa a owl:DatatypeProperty ;
+    rdfs:label "hoop stress MPa" ;
+    rdfs:range xsd:decimal .
+
+pm:mech_creepRuptureHr a owl:DatatypeProperty ;
+    rdfs:label "creep rupture life hours" ;
+    rdfs:range xsd:decimal .
+
+pm:mech_foulingFactor a owl:DatatypeProperty ;
+    rdfs:label "fouling factor" ;
+    rdfs:range xsd:decimal .
+
+pm:mech_erosionDepthMm a owl:DatatypeProperty ;
+    rdfs:label "erosion depth mm" ;
+    rdfs:range xsd:decimal .
+
+pm:mech_erosionRateMmKhr a owl:DatatypeProperty ;
+    rdfs:label "erosion rate mm/khr" ;
+    rdfs:range xsd:decimal .
+
+# ── P1 Device Mechanical Extensions ──────────────────────────────
+# These extend existing individuals defined in GT/HRSG/ST modules.
+# No new individuals created — only new properties added.
+
+# Axial Compressor (COMP-001, unit 1-2)
+pm:COMP-001
+    pm:mech_hasDataStatus pm:mech_DataStatus_PARTIAL ;
+    pm:mech_hasPriority pm:mech_Priority_P1 ;
+    pm:mech_designRPM "3600"^^xsd:decimal ;
+    pm:mech_pressureRatioDesign "18.1"^^xsd:decimal .
+
+# GT HP/LP Turbine (EXP-001, unit 1-5)
+pm:EXP-001
+    pm:mech_hasDataStatus pm:mech_DataStatus_PARTIAL ;
+    pm:mech_hasPriority pm:mech_Priority_P1 .
+
+# Combustor (COMB-001, unit 1-4)
+pm:COMB-001
+    pm:mech_hasDataStatus pm:mech_DataStatus_PARTIAL ;
+    pm:mech_hasPriority pm:mech_Priority_P1 .
+
+# HP Superheater (HPSH-001, unit 2-1)
+pm:HPSH-001
+    pm:mech_hasDataStatus pm:mech_DataStatus_PARTIAL ;
+    pm:mech_hasPriority pm:mech_Priority_P1 .
+
+# Reheater (RH-001, unit 2-4)
+pm:RH-001
+    pm:mech_hasDataStatus pm:mech_DataStatus_PARTIAL ;
+    pm:mech_hasPriority pm:mech_Priority_P1 .
+
+# HP Steam Turbine (HPTURB, unit 3-1)
+pm:HPTURB
+    pm:mech_hasDataStatus pm:mech_DataStatus_PARTIAL ;
+    pm:mech_hasPriority pm:mech_Priority_P1 .

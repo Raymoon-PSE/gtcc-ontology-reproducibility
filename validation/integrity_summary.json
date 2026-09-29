@@ -1,0 +1,23 @@
+{
+  "n": 79,
+  "invalid": 54,
+  "valid": 25,
+  "rdf_detected": 54,
+  "non_rdf_detected": 54,
+  "rdf_false_reject": 0,
+  "non_rdf_false_reject": 0,
+  "all_expected": true,
+  "previously_missed_now_detected": 9,
+  "median_case_ms": {
+    "rdf": 0.334312,
+    "non_rdf": 0.008375
+  },
+  "extension": {
+    "example": "declared_stream_replacement",
+    "config_logical_fields_changed": 3,
+    "contract_logical_fields_changed": 3,
+    "rdf_executable_source_edits": 0,
+    "non_rdf_executable_source_edits": 0,
+    "note": "Both centralized representations use the same contract. No measured human productivity advantage."
+  }
+}

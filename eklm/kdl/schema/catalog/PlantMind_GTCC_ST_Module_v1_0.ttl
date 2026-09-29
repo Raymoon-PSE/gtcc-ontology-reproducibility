@@ -1,0 +1,451 @@
+@prefix pm:   <http://plantmind.io/ontology/gtcc#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<http://plantmind.io/ontology/gtcc/st>
+    rdf:type owl:Ontology ;
+    owl:versionInfo "1.0" ;
+    rdfs:label "PlantMind GTCC -- ST Module Ontology"@en ;
+    rdfs:comment "ABox population for ST Module (M3). TBox shared with GT/HRSG namespace."@en ;
+    owl:imports <PlantMind_GTCC_HRSG_Module_v1_1.ttl> .
+
+pm:ST-M3
+    rdf:type pm:ProcessModule ;
+    rdfs:label "ST Module M3" ;
+    pm:module_id "M3" ;
+    pm:module_name "Steam Turbine" ;
+    pm:phase "Phase 1" ;
+    pm:description "ST module: HP/IP/LP turbines, cold reheat line, LP inlet mixing, ST generator." .
+
+pm:HPTURB
+    rdf:type pm:ProcessUnit ;
+    rdfs:label "HP Turbine 3-1" ;
+    pm:unit_id "3-1" ;
+    pm:unit_name "HP Turbine" ;
+    pm:abbreviation "hpt" ;
+    pm:part_of pm:ST-M3 ;
+    pm:unit_calculation_pattern "TURB" ;
+    pm:upstream_of pm:CRH ;
+    pm:upstream_of pm:STGEN ;
+    pm:has_parameter pm:ETA-HPT ;
+    pm:has_parameter pm:MBLEED-HPT ;
+    pm:has_parameter pm:P-HPT-EXIT .
+
+pm:CRH
+    rdf:type pm:ProcessUnit ;
+    rdfs:label "Cold Reheat Line 3-2" ;
+    pm:unit_id "3-2" ;
+    pm:unit_name "Cold Reheat Line" ;
+    pm:abbreviation "crh" ;
+    pm:part_of pm:ST-M3 ;
+    pm:unit_calculation_pattern "PIPE-DP" ;
+    pm:has_parameter pm:DP-CRH .
+
+pm:IPTURB
+    rdf:type pm:ProcessUnit ;
+    rdfs:label "IP Turbine 3-3" ;
+    pm:unit_id "3-3" ;
+    pm:unit_name "IP Turbine" ;
+    pm:abbreviation "ipt" ;
+    pm:part_of pm:ST-M3 ;
+    pm:unit_calculation_pattern "TURB" ;
+    pm:upstream_of pm:LPMIX ;
+    pm:upstream_of pm:STGEN ;
+    pm:has_parameter pm:ETA-IPT ;
+    pm:has_parameter pm:P-CROSSOVER .
+
+pm:LPMIX
+    rdf:type pm:ProcessUnit ;
+    rdfs:label "LP Inlet Mixing Node 3-M" ;
+    pm:unit_id "3-M" ;
+    pm:unit_name "LP Inlet Mixing" ;
+    pm:abbreviation "lpmix" ;
+    pm:part_of pm:ST-M3 ;
+    pm:unit_calculation_pattern "MIXING" ;
+    pm:upstream_of pm:LPTURB .
+
+pm:LPTURB
+    rdf:type pm:ProcessUnit ;
+    rdfs:label "LP Turbine 3-4" ;
+    pm:unit_id "3-4" ;
+    pm:unit_name "LP Turbine" ;
+    pm:abbreviation "lpt" ;
+    pm:part_of pm:ST-M3 ;
+    pm:unit_calculation_pattern "TURB" ;
+    pm:upstream_of pm:STGEN ;
+    pm:has_parameter pm:ETA-LPT ;
+    pm:has_parameter pm:P-COND .
+
+pm:STGEN
+    rdf:type pm:ProcessUnit ;
+    rdfs:label "ST Generator 3-5" ;
+    pm:unit_id "3-5" ;
+    pm:unit_name "ST Generator" ;
+    pm:abbreviation "stgen" ;
+    pm:part_of pm:ST-M3 ;
+    pm:unit_calculation_pattern "GEN" ;
+    pm:has_parameter pm:ETA-STGEN ;
+    pm:computes_kpi pm:KPI-WST .
+
+pm:IS-01
+    rdf:type pm:MaterialStream ;
+    rdfs:label "HP Main Steam IS-01" ;
+    pm:stream_id "IS-01" ;
+    pm:stream_name "HP Main Steam" ;
+    pm:from_module "M2" ;
+    pm:to_module "M3" ;
+    pm:is_module_boundary_input "true"^^xsd:boolean ;
+    pm:is_tear_stream "false"^^xsd:boolean ;
+    pm:temperature "565.6"^^xsd:decimal ;
+    pm:pressure "16.65"^^xsd:decimal ;
+    pm:mass_flow_rate "392884"^^xsd:decimal ;
+    pm:specific_enthalpy "3472"^^xsd:decimal ;
+    pm:phase_state "superheated_steam" ;
+    pm:composition "H2O:1.0" ;
+    pm:feeds pm:HPTURB .
+
+pm:IS-03
+    rdf:type pm:MaterialStream ;
+    rdfs:label "Hot Reheat IS-03" ;
+    pm:stream_id "IS-03" ;
+    pm:stream_name "Hot Reheat" ;
+    pm:from_module "M2" ;
+    pm:to_module "M3" ;
+    pm:is_module_boundary_input "true"^^xsd:boolean ;
+    pm:is_tear_stream "false"^^xsd:boolean ;
+    pm:temperature "565.6"^^xsd:decimal ;
+    pm:pressure "2.379"^^xsd:decimal ;
+    pm:mass_flow_rate "454268"^^xsd:decimal ;
+    pm:phase_state "superheated_steam" ;
+    pm:composition "H2O:1.0" ;
+    pm:design_note "Includes former IS-04 flow merged at HRSG Node 2-4M (Session 8)" ;
+    pm:feeds pm:IPTURB .
+
+pm:IS-05
+    rdf:type pm:MaterialStream ;
+    rdfs:label "LP Steam IS-05" ;
+    pm:stream_id "IS-05" ;
+    pm:stream_name "LP Steam" ;
+    pm:from_module "M2" ;
+    pm:to_module "M3" ;
+    pm:is_module_boundary_input "true"^^xsd:boolean ;
+    pm:is_tear_stream "false"^^xsd:boolean ;
+    pm:pressure "0.655"^^xsd:decimal ;
+    pm:mass_flow_rate "7708"^^xsd:decimal ;
+    pm:phase_state "saturated_vapor" ;
+    pm:composition "H2O:1.0" ;
+    pm:feeds pm:LPMIX .
+
+pm:S-025
+    rdf:type pm:MaterialStream ;
+    rdfs:label "HP Turbine Exit S-025" ;
+    pm:stream_id "S-025" ;
+    pm:stream_name "HP Turbine Exit" ;
+    pm:is_module_boundary_input "false"^^xsd:boolean ;
+    pm:is_module_boundary_output "false"^^xsd:boolean ;
+    pm:is_tear_stream "false"^^xsd:boolean ;
+    pm:phase_state "superheated_steam" ;
+    pm:composition "H2O:1.0" ;
+    pm:feeds pm:CRH .
+
+pm:IS-02
+    rdf:type pm:MaterialStream ;
+    rdfs:label "Cold Reheat IS-02" ;
+    pm:stream_id "IS-02" ;
+    pm:stream_name "Cold Reheat" ;
+    pm:from_module "M3" ;
+    pm:to_module "M2" ;
+    pm:is_module_boundary_output "true"^^xsd:boolean ;
+    pm:is_tear_stream "true"^^xsd:boolean ;
+    pm:tear_stream_type "secondary" ;
+    pm:tear_stream_priority "2"^^xsd:integer ;
+    pm:temperature "308.8"^^xsd:decimal ;
+    pm:pressure "2.689"^^xsd:decimal ;
+    pm:mass_flow_rate "376455"^^xsd:decimal ;
+    pm:specific_enthalpy "3022"^^xsd:decimal ;
+    pm:phase_state "superheated_steam" ;
+    pm:composition "H2O:1.0" ;
+    pm:tear_init_temperature "308.8"^^xsd:decimal ;
+    pm:tear_init_pressure "2.689"^^xsd:decimal ;
+    pm:tear_init_mass_flow_rate "376455"^^xsd:decimal ;
+    pm:convergence_tolerance "1e-4" ;
+    pm:netl_source "NETL DOE/NETL-2010/1397 Ch.5 Case 13 Exhibit 5-11" .
+
+pm:S-026
+    rdf:type pm:MaterialStream ;
+    rdfs:label "IP Turbine Exit S-026" ;
+    pm:stream_id "S-026" ;
+    pm:stream_name "IP Turbine Exit" ;
+    pm:is_module_boundary_input "false"^^xsd:boolean ;
+    pm:is_module_boundary_output "false"^^xsd:boolean ;
+    pm:is_tear_stream "false"^^xsd:boolean ;
+    pm:pressure "0.507"^^xsd:decimal ;
+    pm:mass_flow_rate "454268"^^xsd:decimal ;
+    pm:phase_state "superheated_steam" ;
+    pm:composition "H2O:1.0" ;
+    pm:design_note "P = cross-over pipe pressure (NETL ~0.507 MPa = 73.5 psia)" ;
+    pm:feeds pm:LPMIX .
+
+pm:S-027
+    rdf:type pm:MaterialStream ;
+    rdfs:label "LP Turbine Inlet S-027" ;
+    pm:stream_id "S-027" ;
+    pm:stream_name "LP Turbine Inlet" ;
+    pm:is_module_boundary_input "false"^^xsd:boolean ;
+    pm:is_module_boundary_output "false"^^xsd:boolean ;
+    pm:is_tear_stream "false"^^xsd:boolean ;
+    pm:mass_flow_rate "461976"^^xsd:decimal ;
+    pm:composition "H2O:1.0" ;
+    pm:design_note "m_dot = S-026 + IS-05 after throttling. P = P_crossover = 0.507 MPa." ;
+    pm:feeds pm:LPTURB .
+
+pm:S-028
+    rdf:type pm:MaterialStream ;
+    rdfs:label "ST Exhaust S-028" ;
+    pm:stream_id "S-028" ;
+    pm:stream_name "ST Exhaust" ;
+    pm:from_module "M3" ;
+    pm:to_module "M4" ;
+    pm:is_module_boundary_output "true"^^xsd:boolean ;
+    pm:is_tear_stream "false"^^xsd:boolean ;
+    pm:pressure "0.00677"^^xsd:decimal ;
+    pm:mass_flow_rate "461976"^^xsd:decimal ;
+    pm:phase_state "wet_steam" ;
+    pm:composition "H2O:1.0" ;
+    pm:design_note "Wet steam expected (x<1). x^28 computed as design ref for blade erosion." .
+
+pm:ETA-HPT
+    rdf:type pm:ModelParameter ;
+    rdfs:label "eta_hpt" ;
+    pm:symbol "eta^(hpt)" ;
+    pm:description "HP turbine isentropic efficiency -- back-calculated from NETL IS-01 and IS-02" ;
+    pm:default_value "0.90"^^xsd:decimal ;
+    pm:unit "dimensionless" ;
+    pm:gui_exposed "true"^^xsd:boolean ;
+    pm:layer_tag "Ta" ;
+    pm:back_calculated "true"^^xsd:boolean ;
+    pm:back_calc_method "Direct: eta = (h_IS01 - h_IS02) / (h_IS01 - h_ref)" ;
+    pm:belongs_to_unit pm:HPTURB .
+
+pm:MBLEED-HPT
+    rdf:type pm:ModelParameter ;
+    rdfs:label "m_dot_bleed_hpt" ;
+    pm:symbol "m_dot^(bleed,hpt)" ;
+    pm:description "HP turbine bleed mass flow (Phase 1 parameter)" ;
+    pm:default_value "16429"^^xsd:decimal ;
+    pm:unit "kg/hr" ;
+    pm:gui_exposed "true"^^xsd:boolean ;
+    pm:layer_tag "Td" ;
+    pm:phase1_simplification "true"^^xsd:boolean ;
+    pm:netl_basis "m_dot(IS-01) - m_dot(IS-02) = 392884 - 376455 = 16429 kg/hr" ;
+    pm:belongs_to_unit pm:HPTURB .
+
+pm:P-HPT-EXIT
+    rdf:type pm:ModelParameter ;
+    rdfs:label "P_hpt_exit" ;
+    pm:symbol "P^(25)" ;
+    pm:description "HP turbine exit pressure -- derived from IS-02 tear stream + delta_P_crh" ;
+    pm:default_value "2.689"^^xsd:decimal ;
+    pm:unit "MPa" ;
+    pm:gui_exposed "false"^^xsd:boolean ;
+    pm:layer_tag "Td" ;
+    pm:derived_from "P(IS-02 tear) + DeltaP^(crh)" ;
+    pm:belongs_to_unit pm:HPTURB .
+
+pm:DP-CRH
+    rdf:type pm:ModelParameter ;
+    rdfs:label "delta_P_crh" ;
+    pm:symbol "DeltaP^(crh)" ;
+    pm:description "CRH pressure drop (adiabatic pipe -- isenthalpic)" ;
+    pm:default_value "0.0"^^xsd:decimal ;
+    pm:unit "MPa" ;
+    pm:gui_exposed "true"^^xsd:boolean ;
+    pm:layer_tag "Td" ;
+    pm:design_note "Default=0.0 (Phase 1). Typical: 0.03-0.10 MPa. No NETL piping data." ;
+    pm:belongs_to_unit pm:CRH .
+
+pm:ETA-IPT
+    rdf:type pm:ModelParameter ;
+    rdfs:label "eta_ipt" ;
+    pm:symbol "eta^(ipt)" ;
+    pm:description "IP turbine isentropic efficiency -- eta_common from total ST power back-calc" ;
+    pm:default_value "0.90"^^xsd:decimal ;
+    pm:unit "dimensionless" ;
+    pm:gui_exposed "true"^^xsd:boolean ;
+    pm:layer_tag "Ta" ;
+    pm:back_calculated "true"^^xsd:boolean ;
+    pm:back_calc_method "eta_ipt = eta_lpt = eta_common; 1-D root-find from W_dot_ST target" ;
+    pm:belongs_to_unit pm:IPTURB .
+
+pm:P-CROSSOVER
+    rdf:type pm:ModelParameter ;
+    rdfs:label "P_crossover" ;
+    pm:symbol "P^(26)" ;
+    pm:description "IP turbine exit pressure (cross-over pipe operating pressure)" ;
+    pm:default_value "0.507"^^xsd:decimal ;
+    pm:unit "MPa" ;
+    pm:gui_exposed "true"^^xsd:boolean ;
+    pm:layer_tag "Td" ;
+    pm:netl_basis "NETL ~73.5 psia = 0.507 MPa (Session 8)" ;
+    pm:belongs_to_unit pm:IPTURB .
+
+pm:ETA-LPT
+    rdf:type pm:ModelParameter ;
+    rdfs:label "eta_lpt" ;
+    pm:symbol "eta^(lpt)" ;
+    pm:description "LP turbine isentropic efficiency -- eta_common from total ST power back-calc" ;
+    pm:default_value "0.90"^^xsd:decimal ;
+    pm:unit "dimensionless" ;
+    pm:gui_exposed "true"^^xsd:boolean ;
+    pm:layer_tag "Ta" ;
+    pm:back_calculated "true"^^xsd:boolean ;
+    pm:back_calc_method "eta_ipt = eta_lpt = eta_common; 1-D root-find from W_dot_ST target" ;
+    pm:belongs_to_unit pm:LPTURB .
+
+pm:P-COND
+    rdf:type pm:ModelParameter ;
+    rdfs:label "P_condenser" ;
+    pm:symbol "P^(28)" ;
+    pm:description "LP turbine exit pressure (main condenser operating pressure)" ;
+    pm:default_value "0.00677"^^xsd:decimal ;
+    pm:unit "MPa" ;
+    pm:gui_exposed "true"^^xsd:boolean ;
+    pm:layer_tag "Td" ;
+    pm:netl_basis "NETL 50.8 mm Hg = 0.00677 MPa" ;
+    pm:belongs_to_unit pm:LPTURB .
+
+pm:ETA-STGEN
+    rdf:type pm:ModelParameter ;
+    rdfs:label "eta_stgen" ;
+    pm:symbol "eta^(stgen)" ;
+    pm:description "ST generator efficiency" ;
+    pm:default_value "0.984"^^xsd:decimal ;
+    pm:unit "dimensionless" ;
+    pm:gui_exposed "true"^^xsd:boolean ;
+    pm:layer_tag "Td" ;
+    pm:netl_basis "NETL Case 13 -- shared with GT generator efficiency" ;
+    pm:belongs_to_unit pm:STGEN .
+
+pm:W-HPT
+    rdf:type pm:ComputedScalar ;
+    rdfs:label "W_dot_hpt" ;
+    pm:symbol "W_dot^(hpt)" ;
+    pm:description "HP turbine mechanical power output" ;
+    pm:unit "kW" ;
+    pm:layer_tag "Td" ;
+    pm:equation "m_dot(IS-01) * (h(IS-01) - h(25))" ;
+    pm:computed_by pm:HPTURB .
+
+pm:W-IPT
+    rdf:type pm:ComputedScalar ;
+    rdfs:label "W_dot_ipt" ;
+    pm:symbol "W_dot^(ipt)" ;
+    pm:description "IP turbine mechanical power output" ;
+    pm:unit "kW" ;
+    pm:layer_tag "Td" ;
+    pm:equation "m_dot(IS-03) * (h(IS-03) - h(26))" ;
+    pm:computed_by pm:IPTURB .
+
+pm:W-LPT
+    rdf:type pm:ComputedScalar ;
+    rdfs:label "W_dot_lpt" ;
+    pm:symbol "W_dot^(lpt)" ;
+    pm:description "LP turbine mechanical power output" ;
+    pm:unit "kW" ;
+    pm:layer_tag "Td" ;
+    pm:equation "m_dot(27) * (h(27) - h(28))" ;
+    pm:computed_by pm:LPTURB .
+
+pm:X-S028
+    rdf:type pm:ComputedScalar ;
+    rdfs:label "x_S028" ;
+    pm:symbol "x^(28)" ;
+    pm:description "LP exhaust steam quality -- design reference for blade erosion check" ;
+    pm:unit "dimensionless" ;
+    pm:layer_tag "Td" ;
+    pm:is_design_reference "true"^^xsd:boolean ;
+    pm:design_limit "x >= 0.88 (blade erosion threshold)" ;
+    pm:equation "x(P28, h28) via CoolProp IAPWS-IF97" ;
+    pm:computed_by pm:LPTURB .
+
+pm:W-ST-SHAFT
+    rdf:type pm:ComputedScalar ;
+    rdfs:label "W_dot_ST_shaft" ;
+    pm:symbol "W_dot^(ST,shaft)" ;
+    pm:description "ST total shaft power (HP + IP + LP mechanical outputs)" ;
+    pm:unit "kW" ;
+    pm:layer_tag "Td" ;
+    pm:equation "W_dot^(hpt) + W_dot^(ipt) + W_dot^(lpt)" ;
+    pm:computed_by pm:STGEN .
+
+pm:KPI-WST
+    rdf:type pm:KPI ;
+    rdfs:label "ST Gross Electrical Power" ;
+    pm:symbol "W_dot^(ST)" ;
+    pm:description "ST gross electrical power output to grid" ;
+    pm:unit "kW" ;
+    pm:kpi_category "power" ;
+    pm:netl_reference_value "202500"^^xsd:decimal ;
+    pm:netl_tolerance "0.05"^^xsd:decimal ;
+    pm:equation "eta^(stgen) * W_dot^(ST,shaft)" ;
+    pm:computed_by pm:STGEN .
+
+pm:DR-M3-01
+    rdf:type pm:DesignRationale ;
+    rdfs:label "DR-M3-01 HP Bleed Energy Balance" ;
+    pm:rationale_id "DR-M3-01" ;
+    pm:decision "Option B: HP bleed as parameter; h_bleed approximated as h25" ;
+    pm:description "Phase 1 simplification. W_dot_hpt = m_dot_IS01*(h_IS01-h25). Error ~4.2%." ;
+    pm:applies_to pm:HPTURB .
+
+pm:DR-M3-02
+    rdf:type pm:DesignRationale ;
+    rdfs:label "DR-M3-02 eta_ipt equals eta_lpt" ;
+    pm:rationale_id "DR-M3-02" ;
+    pm:decision "eta_ipt = eta_lpt = eta_common; back-calculated from total ST power target" ;
+    pm:description "No NETL individual stage exit data. eta_common by 1-D root-find: W_dot_ST = 202500 kW." ;
+    pm:applies_to pm:IPTURB ;
+    pm:applies_to pm:LPTURB .
+
+pm:DR-M3-03
+    rdf:type pm:DesignRationale ;
+    rdfs:label "DR-M3-03 CRH Pressure Drop Default Zero" ;
+    pm:rationale_id "DR-M3-03" ;
+    pm:decision "DeltaP_crh default = 0.0 MPa" ;
+    pm:description "No NETL piping data. Default=0 (Phase 1). GUI-adjustable. Typical 0.03-0.10 MPa." ;
+    pm:applies_to pm:CRH .
+
+pm:DR-M3-04
+    rdf:type pm:DesignRationale ;
+    rdfs:label "DR-M3-04 IS-05 Throttling Included" ;
+    pm:rationale_id "DR-M3-04" ;
+    pm:decision "IS-05 throttled isenthalpically to P_crossover before mixing at Node 3-M" ;
+    pm:description "Physically accurate. 0.655 MPa to 0.507 MPa. CoolProp calls +2. Cost negligible." ;
+    pm:applies_to pm:LPMIX .
+
+pm:DR-M3-05
+    rdf:type pm:DesignRationale ;
+    rdfs:label "DR-M3-05 LP Exhaust Steam Quality" ;
+    pm:rationale_id "DR-M3-05" ;
+    pm:decision "x^28 computed as design reference" ;
+    pm:description "Wet steam expected at 0.00677 MPa. Reported for blade erosion check (limit x>=0.88)." ;
+    pm:applies_to pm:LPTURB .
+
+pm:DR-M3-06
+    rdf:type pm:DesignRationale ;
+    rdfs:label "DR-M3-06 IS-04 Not in M3 Inputs" ;
+    pm:rationale_id "DR-M3-06" ;
+    pm:decision "M3 inputs: IS-01, IS-03, IS-05 only (no IS-04)" ;
+    pm:description "IS-04 reclassified HRSG-internal at Session 8 (Node 2-4M). IS-03 includes IS-04 flow. Open Issue 17." ;
+    pm:applies_to pm:IPTURB .
+
+pm:MODE-ST-P1
+    rdf:type pm:OperatingMode ;
+    rdfs:label "ST Normal Operation Phase 1" ;
+    pm:mode_name "Normal Operation" ;
+    pm:phase "Phase 1" ;
+    pm:description "Full-load steady-state. No steam extraction. No GSC. No condensate pump in M3 scope." ;
+    pm:applies_to pm:ST-M3 .
+

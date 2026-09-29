@@ -1,0 +1,26 @@
+name: Reproduce supported paper results
+on:
+  push:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - run: python scripts/reproduce_runtime.py
+      - run: python scripts/reproduce_integrity.py
+      - run: python scripts/reproduce_numerical.py
+      - run: python scripts/export_tables.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: reproduction-outputs
+          path: outputs/

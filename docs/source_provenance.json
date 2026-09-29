@@ -1,0 +1,408 @@
+[
+  {
+    "file": "eklm/__init__.py",
+    "source_kind": "extracted_support_or_packaging",
+    "release_sha256": "b5cba93a543efe6a279d394748b105645306b2945a31c7fee3de807b010ad0cb"
+  },
+  {
+    "file": "eklm/kas/__init__.py",
+    "source_kind": "extracted_support_or_packaging",
+    "release_sha256": "b5cba93a543efe6a279d394748b105645306b2945a31c7fee3de807b010ad0cb"
+  },
+  {
+    "file": "eklm/kas/legacy_bridge/__init__.py",
+    "source_kind": "extracted_support_or_packaging",
+    "release_sha256": "b5cba93a543efe6a279d394748b105645306b2945a31c7fee3de807b010ad0cb"
+  },
+  {
+    "file": "eklm/kas/legacy_bridge/bayesian.py",
+    "source_kind": "compatible_runtime_support",
+    "original_sha256": "29638575a6ec4c5a00b303150079c86665b6e9a338786cfc3838c66c0f078fa1",
+    "release_sha256": "29638575a6ec4c5a00b303150079c86665b6e9a338786cfc3838c66c0f078fa1",
+    "note": "Compatible support API; default numerical behavior compared against archived results."
+  },
+  {
+    "file": "eklm/kas/legacy_bridge/diagnostics.py",
+    "source_kind": "current_support_module",
+    "original_sha256": "99e27c3a869867961395ddee08c320d9d7470fb543712230844034f28b5b9d6f",
+    "release_sha256": "99e27c3a869867961395ddee08c320d9d7470fb543712230844034f28b5b9d6f"
+  },
+  {
+    "file": "eklm/kas/legacy_bridge/graph.py",
+    "source_kind": "current_support_module",
+    "original_sha256": "a60389bfb50547e0f8f44bf292c98aa5541978b1c3623cebc4075483248b9fc0",
+    "release_sha256": "7546685e0a73fd19c3aa1310d43ef204419068df36da36cd3eb6daf28037bd18",
+    "packaging_change": "Restrict catalog to five manuscript ontology files."
+  },
+  {
+    "file": "eklm/kas/legacy_bridge/integrity.py",
+    "source_kind": "paper_guard_snapshot",
+    "original_sha256": "a12237a2d5f65c8af7c297bed695e1a215b38eaf97375b037400c255d7e80aba",
+    "release_sha256": "a12237a2d5f65c8af7c297bed695e1a215b38eaf97375b037400c255d7e80aba"
+  },
+  {
+    "file": "eklm/kas/legacy_bridge/integrity_contract.json",
+    "source_kind": "extracted_support_or_packaging",
+    "release_sha256": "36bbc46e4546d231b73127128da760d24d9ab1e4a7fdb0425cbb609ac0c6c485"
+  },
+  {
+    "file": "eklm/kas/legacy_bridge/mech_bridge.py",
+    "source_kind": "current_support_module",
+    "original_sha256": "4d613baa2f7307a3d6d798480d8d884e6ecf40d73fff2c137716aad05fa5acd8",
+    "release_sha256": "4d613baa2f7307a3d6d798480d8d884e6ecf40d73fff2c137716aad05fa5acd8"
+  },
+  {
+    "file": "eklm/kas/legacy_bridge/populate.py",
+    "source_kind": "current_support_module",
+    "original_sha256": "b25dea26ef37b51c561449edbfe08050a62943ad72683008a8a5779c98d22625",
+    "release_sha256": "b25dea26ef37b51c561449edbfe08050a62943ad72683008a8a5779c98d22625"
+  },
+  {
+    "file": "eklm/kas/legacy_bridge/query.py",
+    "source_kind": "current_support_module",
+    "original_sha256": "ed265fd4591030947146cf877dcb322d3cb5eeb77b488496c8d34068b094ef1b",
+    "release_sha256": "ed265fd4591030947146cf877dcb322d3cb5eeb77b488496c8d34068b094ef1b"
+  },
+  {
+    "file": "eklm/kas/legacy_bridge/runtime.py",
+    "source_kind": "paper_guard_snapshot",
+    "original_sha256": "ad74c6cd41a190680c1ca2ba4e882fd35e651bc4ae65acab6170252580babf9c",
+    "release_sha256": "79f6c3b57b31afe8bf07227cedc69e0ad20e24a46cf44a1d320955f8859374ff",
+    "packaging_change": "Optional later monitoring branch omitted; governed process/mechanical/diagnostic chain retained."
+  },
+  {
+    "file": "eklm/kdl/schema/catalog/PlantMind_GTCC_GT_Module_v1_2.ttl",
+    "source_kind": "extracted_support_or_packaging",
+    "release_sha256": "b2b6a4d2f869905020b763c1dd92a2767974c5fea9bf31b7beda826ce15910fb",
+    "packaging_change": "Local Windows owl:imports paths changed to relative file references where present."
+  },
+  {
+    "file": "eklm/kdl/schema/catalog/PlantMind_GTCC_HRSG_Module_v1_1.ttl",
+    "source_kind": "extracted_support_or_packaging",
+    "release_sha256": "39603d29ec860fce6e898138ccfffc4bd34bad2ec1ddcc96679c0b07344ff422",
+    "packaging_change": "Local Windows owl:imports paths changed to relative file references where present."
+  },
+  {
+    "file": "eklm/kdl/schema/catalog/PlantMind_GTCC_M4_Condenser_v1_0.ttl",
+    "source_kind": "extracted_support_or_packaging",
+    "release_sha256": "fa1594469b182b81c8ee1ee87e5ba0f14a4cbff3a2d02bb09d33278cedf81b7d",
+    "packaging_change": "Local Windows owl:imports paths changed to relative file references where present."
+  },
+  {
+    "file": "eklm/kdl/schema/catalog/PlantMind_GTCC_Mechanical_v1_0.ttl",
+    "source_kind": "extracted_support_or_packaging",
+    "release_sha256": "262065ad691244729556de3846f3e2a9845daa2d562023ab6e6a204489742767",
+    "packaging_change": "Local Windows owl:imports paths changed to relative file references where present."
+  },
+  {
+    "file": "eklm/kdl/schema/catalog/PlantMind_GTCC_ST_Module_v1_0.ttl",
+    "source_kind": "extracted_support_or_packaging",
+    "release_sha256": "886de60cafaafd21ffaa6a197c7abf43ed79bbd9f28cbcf480381fa38d06d55f",
+    "packaging_change": "Local Windows owl:imports paths changed to relative file references where present."
+  },
+  {
+    "file": "eklm/vdt/__init__.py",
+    "source_kind": "extracted_support_or_packaging",
+    "release_sha256": "b5cba93a543efe6a279d394748b105645306b2945a31c7fee3de807b010ad0cb"
+  },
+  {
+    "file": "eklm/vdt/analysis/__init__.py",
+    "source_kind": "extracted_support_or_packaging",
+    "release_sha256": "b5cba93a543efe6a279d394748b105645306b2945a31c7fee3de807b010ad0cb"
+  },
+  {
+    "file": "eklm/vdt/analysis/gtcc_loop.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "fdab2904fcde2ba447f1e9a1621adfe4fafa230fd1ce16603ea7c9e4bde816b4",
+    "release_sha256": "fdab2904fcde2ba447f1e9a1621adfe4fafa230fd1ce16603ea7c9e4bde816b4"
+  },
+  {
+    "file": "eklm/vdt/data/__init__.py",
+    "source_kind": "extracted_support_or_packaging",
+    "release_sha256": "b5cba93a543efe6a279d394748b105645306b2945a31c7fee3de807b010ad0cb"
+  },
+  {
+    "file": "eklm/vdt/data/fuels.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "365eee5d94db3b191b559371b9c3d0662220da48201ada6657e473f0f2c47904",
+    "release_sha256": "365eee5d94db3b191b559371b9c3d0662220da48201ada6657e473f0f2c47904"
+  },
+  {
+    "file": "eklm/vdt/data/properties.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "44fcbda52c9a69db4d05f738efada5d43b354d1d1d8595d1d9d83baa581d71b0",
+    "release_sha256": "44fcbda52c9a69db4d05f738efada5d43b354d1d1d8595d1d9d83baa581d71b0"
+  },
+  {
+    "file": "eklm/vdt/data/species.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "5051b9807b7a93981bcde22ffe08b29595b151edf37b8218c46cd8c5648ba714",
+    "release_sha256": "5051b9807b7a93981bcde22ffe08b29595b151edf37b8218c46cd8c5648ba714"
+  },
+  {
+    "file": "eklm/vdt/data/streams.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "323683e97367a0d94f45cc3861bb089b637e51c0fbdeccbd35b4b44b983f4c76",
+    "release_sha256": "323683e97367a0d94f45cc3861bb089b637e51c0fbdeccbd35b4b44b983f4c76"
+  },
+  {
+    "file": "eklm/vdt/gui_adapter.py",
+    "source_kind": "paper_guard_snapshot",
+    "original_sha256": "020a0408becfc8b38ca462e4bd7617a06f4ca6f7e200b060d10948a8ebe15d98",
+    "release_sha256": "020a0408becfc8b38ca462e4bd7617a06f4ca6f7e200b060d10948a8ebe15d98"
+  },
+  {
+    "file": "eklm/vdt/mechanical/__init__.py",
+    "source_kind": "archived_numerical_hash_match",
+    "release_sha256": "ec5a5623c7674514212fde799c60fe9a0d527310015e73e614fdab6623c69626"
+  },
+  {
+    "file": "eklm/vdt/mechanical/base.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "bceac07f6d7370339a4bbbfa2fc2a4f56fe76e3a777482346cf77b5fb705b36b",
+    "release_sha256": "bceac07f6d7370339a4bbbfa2fc2a4f56fe76e3a777482346cf77b5fb705b36b"
+  },
+  {
+    "file": "eklm/vdt/mechanical/combustor_model.py",
+    "source_kind": "archived_numerical_hash_match",
+    "release_sha256": "6cef8520af0614fff681fe28b3d22e0644c52b03ae644cafce9e5be9fa00929d"
+  },
+  {
+    "file": "eklm/vdt/mechanical/compressor_model.py",
+    "source_kind": "archived_numerical_hash_match",
+    "release_sha256": "37eaa75c5bf387c34b434e85b2669dea3f457530da61a7a8fc13dec9fda4b414"
+  },
+  {
+    "file": "eklm/vdt/mechanical/data_package.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "6db8ad4489e40e53c527b59c34f4b61cb92cb54d5af7d6740d0be15ba39f8bab",
+    "release_sha256": "6db8ad4489e40e53c527b59c34f4b61cb92cb54d5af7d6740d0be15ba39f8bab"
+  },
+  {
+    "file": "eklm/vdt/mechanical/gt_turbine_model.py",
+    "source_kind": "archived_numerical_hash_match",
+    "release_sha256": "a305d81d3408a3ab6526dbf81aef10ef2c3961debf86304f959ff183e42440d6"
+  },
+  {
+    "file": "eklm/vdt/mechanical/hp_st_turbine_model.py",
+    "source_kind": "archived_numerical_hash_match",
+    "release_sha256": "475a5602ad918e4f13041226e0d04efc7939fd6b9aef9d16f9918616ca7aebc0"
+  },
+  {
+    "file": "eklm/vdt/mechanical/hrsg_superheater_model.py",
+    "source_kind": "archived_numerical_hash_match",
+    "release_sha256": "3762924e68ccbd01f8b4b489e5948db4b26210aa1334a0fb28171557fe113dd0"
+  },
+  {
+    "file": "eklm/vdt/mechanical/model_router.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "1bae86ef73aa6c20ca3590670787b9ddf904768a727cb11ad269f6d955613958",
+    "release_sha256": "1bae86ef73aa6c20ca3590670787b9ddf904768a727cb11ad269f6d955613958"
+  },
+  {
+    "file": "eklm/vdt/mechanical/operating_point.py",
+    "source_kind": "compatible_runtime_support",
+    "original_sha256": "c35e2ea15c7a7222b7fb89fc68aa26926c9989f5bad4adfde0c037a46f9ec649",
+    "release_sha256": "c35e2ea15c7a7222b7fb89fc68aa26926c9989f5bad4adfde0c037a46f9ec649",
+    "note": "Compatible support API; default numerical behavior compared against archived results."
+  },
+  {
+    "file": "eklm/vdt/mechanical/reference_db.py",
+    "source_kind": "compatible_runtime_support",
+    "original_sha256": "ace90b1b813b4fc6c34ccabcb62da3189f27eee3280aacf239fb193a8a1d1047",
+    "release_sha256": "ace90b1b813b4fc6c34ccabcb62da3189f27eee3280aacf239fb193a8a1d1047",
+    "note": "Compatible support API; default numerical behavior compared against archived results."
+  },
+  {
+    "file": "eklm/vdt/mechanical/reheater_model.py",
+    "source_kind": "archived_numerical_hash_match",
+    "release_sha256": "fc841e8a8f9c31ccacc394519c727481516e97edda3b0c6e28b18224de74fcc8"
+  },
+  {
+    "file": "eklm/vdt/models/__init__.py",
+    "source_kind": "extracted_support_or_packaging",
+    "release_sha256": "b5cba93a543efe6a279d394748b105645306b2945a31c7fee3de807b010ad0cb"
+  },
+  {
+    "file": "eklm/vdt/models/m1_gt/__init__.py",
+    "source_kind": "extracted_support_or_packaging",
+    "release_sha256": "b5cba93a543efe6a279d394748b105645306b2945a31c7fee3de807b010ad0cb"
+  },
+  {
+    "file": "eklm/vdt/models/m1_gt/air_inlet.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "1197aef6f6c79cdc20d7fd907b4b3f525490bddfb5b5a75d949dec6bd09642db",
+    "release_sha256": "1197aef6f6c79cdc20d7fd907b4b3f525490bddfb5b5a75d949dec6bd09642db"
+  },
+  {
+    "file": "eklm/vdt/models/m1_gt/combustor.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "39236079043dbf962af37938aa07c1019a1a86e80a60cdb41ff95dba2c5322bf",
+    "release_sha256": "39236079043dbf962af37938aa07c1019a1a86e80a60cdb41ff95dba2c5322bf"
+  },
+  {
+    "file": "eklm/vdt/models/m1_gt/compressor.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "cf63c98a05b5702ae5a3d3e2d9ecdca6d0d68f3d520f7709c1a6cdf7103d69e7",
+    "release_sha256": "cf63c98a05b5702ae5a3d3e2d9ecdca6d0d68f3d520f7709c1a6cdf7103d69e7"
+  },
+  {
+    "file": "eklm/vdt/models/m1_gt/fuel_system.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "d4ea5a4cd5897a5d7b1468b617a681d21914078c0ea6266760eba556e0e3cf3c",
+    "release_sha256": "d4ea5a4cd5897a5d7b1468b617a681d21914078c0ea6266760eba556e0e3cf3c"
+  },
+  {
+    "file": "eklm/vdt/models/m1_gt/gt_expander.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "a9b41024badde755b39bf886d7659adf98386828f20c4b59ce8f5c9982171ebe",
+    "release_sha256": "a9b41024badde755b39bf886d7659adf98386828f20c4b59ce8f5c9982171ebe"
+  },
+  {
+    "file": "eklm/vdt/models/m1_gt/gt_generator.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "5aa10132300c6db8a6c1f314c76e855a9b877a8cbf36ec44b7601208da8a2d70",
+    "release_sha256": "5aa10132300c6db8a6c1f314c76e855a9b877a8cbf36ec44b7601208da8a2d70"
+  },
+  {
+    "file": "eklm/vdt/models/m2_hrsg/__init__.py",
+    "source_kind": "extracted_support_or_packaging",
+    "release_sha256": "b5cba93a543efe6a279d394748b105645306b2945a31c7fee3de807b010ad0cb"
+  },
+  {
+    "file": "eklm/vdt/models/m2_hrsg/bfp.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "4ec78f47e0e12e7480e0191f89c860b754d098a6d71821fac4c476fa8c50207c",
+    "release_sha256": "4ec78f47e0e12e7480e0191f89c860b754d098a6d71821fac4c476fa8c50207c"
+  },
+  {
+    "file": "eklm/vdt/models/m2_hrsg/deaerator.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "883d92e7ba795e252c46ef4fdb4db95e063a1d186da5b45f18cd0dd5e9c118fb",
+    "release_sha256": "883d92e7ba795e252c46ef4fdb4db95e063a1d186da5b45f18cd0dd5e9c118fb"
+  },
+  {
+    "file": "eklm/vdt/models/m2_hrsg/hp_economizer.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "38a23a78b7ea10369e70f3332e725c08341fedf5e7f257b79336f71fbb5ec2f2",
+    "release_sha256": "38a23a78b7ea10369e70f3332e725c08341fedf5e7f257b79336f71fbb5ec2f2"
+  },
+  {
+    "file": "eklm/vdt/models/m2_hrsg/hp_evaporator.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "139403bed3d5507c1956889b85552c5dacccfdfc6ea8636cff8e316513352de3",
+    "release_sha256": "139403bed3d5507c1956889b85552c5dacccfdfc6ea8636cff8e316513352de3"
+  },
+  {
+    "file": "eklm/vdt/models/m2_hrsg/hp_superheater.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "7711b05d022397083943ac0036f7711309dc96b07c8f1a56330b6ec7b997dc51",
+    "release_sha256": "7711b05d022397083943ac0036f7711309dc96b07c8f1a56330b6ec7b997dc51"
+  },
+  {
+    "file": "eklm/vdt/models/m2_hrsg/hrsg_solver.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "c752001010c1407be0e8167516c73295c2d60ddf819b04367d8ba6af23f0e9a8",
+    "release_sha256": "c752001010c1407be0e8167516c73295c2d60ddf819b04367d8ba6af23f0e9a8"
+  },
+  {
+    "file": "eklm/vdt/models/m2_hrsg/ip_economizer.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "69e3630620a8fab964530e291c8120bff1a9f6b61a20549653b2407238c1b7bb",
+    "release_sha256": "69e3630620a8fab964530e291c8120bff1a9f6b61a20549653b2407238c1b7bb"
+  },
+  {
+    "file": "eklm/vdt/models/m2_hrsg/ip_evaporator.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "5cee43659726003414f0245b52a53969bb2291cc5236a512e207495adc39d7bd",
+    "release_sha256": "5cee43659726003414f0245b52a53969bb2291cc5236a512e207495adc39d7bd"
+  },
+  {
+    "file": "eklm/vdt/models/m2_hrsg/ip_mixing_node.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "66fdd4e763fabd8494fd9b705ad1a56793b12c39c67ee189accdb419637b513c",
+    "release_sha256": "66fdd4e763fabd8494fd9b705ad1a56793b12c39c67ee189accdb419637b513c"
+  },
+  {
+    "file": "eklm/vdt/models/m2_hrsg/ip_superheater.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "c555b7b821f05165d1136c6e42907bbfc4970a9b2badacd2217c9799496d56fb",
+    "release_sha256": "c555b7b821f05165d1136c6e42907bbfc4970a9b2badacd2217c9799496d56fb"
+  },
+  {
+    "file": "eklm/vdt/models/m2_hrsg/lp_economizer.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "35ee0ad026aa67292e57ee1361e2931b1b601ea6511aae00da81376a00af43eb",
+    "release_sha256": "35ee0ad026aa67292e57ee1361e2931b1b601ea6511aae00da81376a00af43eb"
+  },
+  {
+    "file": "eklm/vdt/models/m2_hrsg/lp_evaporator.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "552b5ba1045ef722453f3162efe6ae591dbd609c33b5e497b484b0de0afb57b1",
+    "release_sha256": "552b5ba1045ef722453f3162efe6ae591dbd609c33b5e497b484b0de0afb57b1"
+  },
+  {
+    "file": "eklm/vdt/models/m2_hrsg/reheater.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "9aaabe4fdcb3627b7f44c540421bb1c37ec7baa981025de3ca3578234b9b220e",
+    "release_sha256": "9aaabe4fdcb3627b7f44c540421bb1c37ec7baa981025de3ca3578234b9b220e"
+  },
+  {
+    "file": "eklm/vdt/models/m3_st/__init__.py",
+    "source_kind": "extracted_support_or_packaging",
+    "release_sha256": "b5cba93a543efe6a279d394748b105645306b2945a31c7fee3de807b010ad0cb"
+  },
+  {
+    "file": "eklm/vdt/models/m3_st/crh_line.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "594f4680fa4c27b92f10bebd047dbd5db8d1069f02403f19194d7f8f5dd0a6a4",
+    "release_sha256": "594f4680fa4c27b92f10bebd047dbd5db8d1069f02403f19194d7f8f5dd0a6a4"
+  },
+  {
+    "file": "eklm/vdt/models/m3_st/hp_turbine.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "fcd63e4edbfed08d7b10b63a9782c5c94d1e9a1b2669ce733e5517d930f8b4b0",
+    "release_sha256": "fcd63e4edbfed08d7b10b63a9782c5c94d1e9a1b2669ce733e5517d930f8b4b0"
+  },
+  {
+    "file": "eklm/vdt/models/m3_st/ip_turbine.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "09caffe7606546a06b046ca4024a915dbe893b02f720ab3a98542fcc96da16e9",
+    "release_sha256": "09caffe7606546a06b046ca4024a915dbe893b02f720ab3a98542fcc96da16e9"
+  },
+  {
+    "file": "eklm/vdt/models/m3_st/lp_mixing_node.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "e7d697183f93c5a62b91b1ceaedccca62c571cf7f3b2141b93df6a6f77b19dc2",
+    "release_sha256": "e7d697183f93c5a62b91b1ceaedccca62c571cf7f3b2141b93df6a6f77b19dc2"
+  },
+  {
+    "file": "eklm/vdt/models/m3_st/lp_turbine.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "ced2420403da0ec2624a2a22060af82e6065eb4c173b69f35342781f256d4779",
+    "release_sha256": "ced2420403da0ec2624a2a22060af82e6065eb4c173b69f35342781f256d4779"
+  },
+  {
+    "file": "eklm/vdt/models/m3_st/st_generator.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "10ceddf88e3b5ea5f0d9f6f58e206ef4e7ab292d8f53aaa31a327e6aa95e7ff2",
+    "release_sha256": "10ceddf88e3b5ea5f0d9f6f58e206ef4e7ab292d8f53aaa31a327e6aa95e7ff2"
+  },
+  {
+    "file": "eklm/vdt/models/m3_st/st_solver.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "e808bcbca026901113426f388a1724c4d08fe42b67a69d760c0a7a2ebf026ad4",
+    "release_sha256": "e808bcbca026901113426f388a1724c4d08fe42b67a69d760c0a7a2ebf026ad4"
+  },
+  {
+    "file": "eklm/vdt/models/m4_condenser/__init__.py",
+    "source_kind": "extracted_support_or_packaging",
+    "release_sha256": "b5cba93a543efe6a279d394748b105645306b2945a31c7fee3de807b010ad0cb"
+  },
+  {
+    "file": "eklm/vdt/models/m4_condenser/condenser_solver.py",
+    "source_kind": "archived_numerical_hash_match",
+    "original_sha256": "ebc739f48ab646f4214f542b95b134851cdadedd17cd507eaf2e79ec209d4a67",
+    "release_sha256": "ebc739f48ab646f4214f542b95b134851cdadedd17cd507eaf2e79ec209d4a67"
+  }
+]

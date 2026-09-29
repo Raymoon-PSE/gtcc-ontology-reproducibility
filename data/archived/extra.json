@@ -1,0 +1,1238 @@
+{
+  "10000": {
+    "mechanical": [
+      {
+        "device_id": "COMP-001",
+        "device_type": "Compressor",
+        "status": "ACTIVE_UNCERTAIN",
+        "outputs": {
+          "mech_comp_surge_margin_pct": 15.0,
+          "mech_comp_efficiency_current": 0.85,
+          "mech_comp_degradation_rate_pct_khr": 0.2,
+          "mech_comp_remaining_life_hr": 25000.0
+        },
+        "warnings": [],
+        "uncertain_params": []
+      },
+      {
+        "device_id": "EXP-001",
+        "device_type": "GT_Turbine",
+        "status": "ACTIVE_UNCERTAIN",
+        "outputs": {
+          "mech_gt_blade_temp_C": 785.8,
+          "mech_gt_creep_life_fraction": 0.001219,
+          "mech_gt_creep_rupture_hr": 8204701.0,
+          "mech_gt_eoh_consumed": 13000.0,
+          "mech_gt_eoh_remaining": 11000.0
+        },
+        "warnings": [],
+        "uncertain_params": []
+      },
+      {
+        "device_id": "COMB-001",
+        "device_type": "Combustor",
+        "status": "ACTIVE_UNCERTAIN",
+        "outputs": {
+          "mech_comb_liner_temp_C": 1173.5,
+          "mech_comb_fatigue_life_fraction": 0.051913,
+          "mech_comb_remaining_starts": 3652,
+          "mech_comb_hour_life_fraction": 0.625,
+          "mech_comb_remaining_life_hr": 6000,
+          "mech_comb_combined_life_fraction": 0.625
+        },
+        "warnings": [
+          "R-11: Combustor combined life fraction 62.50% > 50% WARNING"
+        ],
+        "uncertain_params": []
+      },
+      {
+        "device_id": "HPSH-001",
+        "device_type": "HRSG_Superheater",
+        "status": "ACTIVE_UNCERTAIN",
+        "outputs": {
+          "mech_hpsh_hoop_stress_MPa": 66.6,
+          "mech_hpsh_creep_rupture_hr": 3513225.0,
+          "mech_hpsh_creep_life_fraction": 0.002846,
+          "mech_hpsh_fouling_factor": 0.000206,
+          "mech_hpsh_metal_temp_C": 585.6
+        },
+        "warnings": [],
+        "uncertain_params": []
+      },
+      {
+        "device_id": "RH-001",
+        "device_type": "Reheater",
+        "status": "ACTIVE_UNCERTAIN",
+        "outputs": {
+          "mech_rh_hoop_stress_MPa": 13.79,
+          "mech_rh_creep_rupture_hr": 158923777.0,
+          "mech_rh_creep_life_fraction": 6.3e-05,
+          "mech_rh_fouling_factor": 0.000206,
+          "mech_rh_metal_temp_C": 595.6
+        },
+        "warnings": [],
+        "uncertain_params": []
+      },
+      {
+        "device_id": "HPTURB",
+        "device_type": "HP_ST",
+        "status": "ACTIVE_UNCERTAIN",
+        "outputs": {
+          "mech_hpst_erosion_rate_mm_khr": 0.00319,
+          "mech_hpst_erosion_depth_mm": 0.0319,
+          "mech_hpst_steam_velocity_m_s": 250.7,
+          "mech_hpst_moisture_loss_pct": 0.0,
+          "mech_hpst_remaining_life_hr": 616708.0
+        },
+        "warnings": [],
+        "uncertain_params": []
+      }
+    ],
+    "exergy": [
+      {
+        "unit": "GT (M1)",
+        "Ed_kW": 426171.53976953914,
+        "Ed_pct": 39.01448283003207
+      },
+      {
+        "unit": "HRSG (M2)",
+        "Ed_kW": 33750.397916811286,
+        "Ed_pct": 3.089728424249647
+      },
+      {
+        "unit": "ST (M3)",
+        "Ed_kW": 25222.164781486907,
+        "Ed_pct": 2.3089991305747315
+      },
+      {
+        "unit": "Condenser (M4)",
+        "Ed_kW": 17915.647506091824,
+        "Ed_pct": 1.6401135617674243
+      }
+    ],
+    "streams": [
+      {
+        "id": "S1",
+        "desc": "Ambient Air",
+        "T": 15.0,
+        "P": 0.1013,
+        "m_dot": 3154735,
+        "h": null,
+        "s": null,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7732,
+          "O2": 0.2074,
+          "CO2": 0.0003,
+          "H2O": 0.0099,
+          "Ar": 0.0092
+        }
+      },
+      {
+        "id": "S2",
+        "desc": "Conditioned Air",
+        "T": 15.0,
+        "P": 0.1013,
+        "m_dot": 3154735,
+        "h": null,
+        "s": null,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7732,
+          "O2": 0.2074,
+          "CO2": 0.0003,
+          "H2O": 0.0099,
+          "Ar": 0.0092
+        }
+      },
+      {
+        "id": "S3",
+        "desc": "Compressed Air",
+        "T": 440.37431533030167,
+        "P": 1.83353,
+        "m_dot": 3154735.0,
+        "h": 854.5820075047068,
+        "s": 3.9463769988479656,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7732,
+          "O2": 0.2074,
+          "CO2": 0.0003,
+          "H2O": 0.0099,
+          "Ar": 0.0092
+        }
+      },
+      {
+        "id": "S5",
+        "desc": "Fuel to Combustor",
+        "T": 38.0,
+        "P": 3.1,
+        "m_dot": 75901.0,
+        "h": 27.581830900000003,
+        "s": -1.5509393887850116,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "CH4": 0.86205,
+          "C2H6": 0.05553,
+          "C3H8": 0.01781,
+          "C4H10": 0.01342,
+          "CO2": 0.0254,
+          "N2": 0.02579
+        }
+      },
+      {
+        "id": "S6",
+        "desc": "Combustor Exit (TIT)",
+        "T": 1303.8784510018181,
+        "P": 1.7785241,
+        "m_dot": 3230636.0,
+        "h": 1532.0202522577533,
+        "s": 7.9373034792214305,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S7",
+        "desc": "GT Exhaust",
+        "T": 636.4229129251107,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 685.7277850734522,
+        "s": 8.076865734692381,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S8",
+        "desc": "FG after HP SH",
+        "T": 542.6917172610999,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 574.2951652450602,
+        "s": 7.947598609798615,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S9",
+        "desc": "FG after Reheater",
+        "T": 484.4922878046044,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 506.3819129303148,
+        "s": 7.861244786935698,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S10",
+        "desc": "FG after HP Evap",
+        "T": 390.64037343511336,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 398.89849511316686,
+        "s": 7.7098300144901835,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S11",
+        "desc": "FG after IP SH",
+        "T": 373.27902166805643,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 379.27916469228694,
+        "s": 7.679880368752199,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S12",
+        "desc": "FG after HP Eco",
+        "T": 268.73635650604183,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 262.73820223277716,
+        "s": 7.483292860933647,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S13",
+        "desc": "FG after IP Evap",
+        "T": 233.5660924135562,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 224.10248046915194,
+        "s": 7.4095781545651995,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S14",
+        "desc": "FG after IP Eco",
+        "T": 222.31270273923042,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 211.79635034704222,
+        "s": 7.385018469969153,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S15",
+        "desc": "FG after LP Evap",
+        "T": 196.71394604795853,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 183.90045288028503,
+        "s": 7.327210375577607,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S16",
+        "desc": "Stack Gas",
+        "T": 106.0,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 86.07539538949275,
+        "s": 7.095949222106368,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "IS-01",
+        "desc": "HP Main Steam",
+        "T": 565.6,
+        "P": 16.65,
+        "m_dot": 392884.0,
+        "h": 3475.8826816904543,
+        "s": 6.510114034271117,
+        "x": null,
+        "phase": "steam",
+        "w": {
+          "H2O": 1.0
+        }
+      },
+      {
+        "id": "IS-02",
+        "desc": "Cold Reheat",
+        "T": 308.8000000000005,
+        "P": 2.482,
+        "m_dot": 376455.0,
+        "h": 3031.272052821511,
+        "s": 6.686582817946098,
+        "x": null,
+        "phase": "steam",
+        "w": {
+          "H2O": 1.0
+        }
+      },
+      {
+        "id": "IS-03",
+        "desc": "Hot Reheat",
+        "T": 565.6077004636946,
+        "P": 2.482,
+        "m_dot": 454350.0,
+        "h": 3609.5011809825996,
+        "s": 7.510854834469442,
+        "x": null,
+        "phase": "steam",
+        "w": {
+          "H2O": 1.0
+        }
+      },
+      {
+        "id": "IS-05",
+        "desc": "LP Steam",
+        "T": 162.2846835656659,
+        "P": 0.655,
+        "m_dot": 42272.0,
+        "h": 2759.927503193181,
+        "s": 6.729591728787006,
+        "x": null,
+        "phase": "steam",
+        "w": {
+          "H2O": 1.0
+        }
+      },
+      {
+        "id": "IS-06",
+        "desc": "Condensate",
+        "T": 38.45744572042855,
+        "P": 0.896,
+        "m_dot": 514240.0,
+        "h": 161.87651703344073,
+        "s": 0.5514281169559888,
+        "x": null,
+        "phase": "water",
+        "w": {
+          "H2O": 1.0
+        }
+      },
+      {
+        "id": "S25",
+        "desc": "HP Turb Exit",
+        "T": 308.8000000000005,
+        "P": 2.482,
+        "m_dot": 376455.0,
+        "h": 3031.272052821511,
+        "s": 6.686582817946098,
+        "x": null,
+        "phase": "steam",
+        "w": {
+          "H2O": 1.0
+        }
+      },
+      {
+        "id": "S26",
+        "desc": "IP Turb Exit",
+        "T": 335.95162893662746,
+        "P": 0.507,
+        "m_dot": 454350.0,
+        "h": 3138.793451406197,
+        "s": 7.5806965025162,
+        "x": null,
+        "phase": "steam",
+        "w": {
+          "H2O": 1.0
+        }
+      },
+      {
+        "id": "S27",
+        "desc": "LP Turb Inlet",
+        "T": 320.38337300998535,
+        "P": 0.507,
+        "m_dot": 496622.0,
+        "h": 3106.544736361635,
+        "s": 7.527063587551019,
+        "x": null,
+        "phase": "steam",
+        "w": {
+          "H2O": 1.0
+        }
+      },
+      {
+        "id": "S-028",
+        "desc": "ST Exhaust",
+        "T": 38.37888457506426,
+        "P": 0.00677,
+        "m_dot": 496622.0,
+        "h": 2397.1375830518714,
+        "s": 7.729435468181708,
+        "x": 0.9280155434338053,
+        "phase": "two-phase",
+        "w": {
+          "H2O": 1.0
+        }
+      }
+    ],
+    "operating_point": {
+      "compressor_inlet_T_C": 15.0,
+      "compressor_outlet_T_C": 440.37431533030167,
+      "compressor_outlet_P_MPa": 1.83353,
+      "compressor_inlet_P_MPa": 0.1013,
+      "mass_flow_kg_s": 876.3152777777777,
+      "TIT_C": 1303.8784510018181,
+      "GT_power_kW": 367724.0803466409,
+      "GT_efficiency": 0.37035386068762066,
+      "GT_exhaust_T_C": 636.4229129251107,
+      "HP_steam_T_C": 565.6,
+      "HP_steam_P_MPa": 16.65,
+      "reheat_steam_T_C": 565.6077004636946,
+      "reheat_steam_P_MPa": 2.482,
+      "ST_power_kW": 202500.00000000012,
+      "condenser_pressure_kPa": 896.0,
+      "load_factor": 1.0,
+      "cumulative_hours": 10000,
+      "start_stop_count": 200
+    },
+    "keys": [
+      "W_GT",
+      "W_ST",
+      "W_net",
+      "W_CWS",
+      "W_BFP",
+      "W_CP",
+      "W_GT_aux",
+      "W_ST_aux",
+      "W_misc_bop",
+      "eta_net_LHV",
+      "eta_net_HHV",
+      "eta_hpt",
+      "eta_ipt",
+      "eta_lpt",
+      "T_stack",
+      "convergence_iter",
+      "x_28",
+      "TPC_per_kW",
+      "TOC_per_kW",
+      "COE_mills_kWh",
+      "LCOE_mills_kWh",
+      "CO2_total_thr",
+      "CO2_kg_MWh",
+      "NOx_ppmvd_DLN",
+      "NOx_ppmvd",
+      "CW_consumption_m3min",
+      "streams",
+      "hrsg_duties",
+      "gas_T_profile",
+      "Q_fuel",
+      "Q_stack_loss",
+      "Q_condenser",
+      "Q_radiation_loss",
+      "tq_gas_Q",
+      "tq_gas_T",
+      "pinch_points",
+      "tq_steam_Q",
+      "tq_steam_T",
+      "gt_cycle_Ts",
+      "st_cycle_Ts",
+      "st_cycle_Ph",
+      "sat_curve_T",
+      "sat_curve_s_liq",
+      "sat_curve_s_vap",
+      "sat_curve_P",
+      "sat_curve_h_liq",
+      "sat_curve_h_vap",
+      "exergy_streams",
+      "exergy_fuel",
+      "exergy_product",
+      "exergy_efficiency",
+      "exergy_destruction",
+      "mech_results",
+      "mech_comp_surge_margin_pct",
+      "mech_comp_efficiency_current",
+      "mech_comp_degradation_rate_pct_khr",
+      "mech_comp_remaining_life_hr",
+      "mech_gt_blade_temp_C",
+      "mech_gt_creep_life_fraction",
+      "mech_gt_creep_rupture_hr",
+      "mech_gt_eoh_consumed",
+      "mech_gt_eoh_remaining",
+      "mech_comb_liner_temp_C",
+      "mech_comb_fatigue_life_fraction",
+      "mech_comb_remaining_starts",
+      "mech_comb_hour_life_fraction",
+      "mech_comb_remaining_life_hr",
+      "mech_comb_combined_life_fraction",
+      "mech_hpsh_hoop_stress_MPa",
+      "mech_hpsh_creep_rupture_hr",
+      "mech_hpsh_creep_life_fraction",
+      "mech_hpsh_fouling_factor",
+      "mech_hpsh_metal_temp_C",
+      "mech_rh_hoop_stress_MPa",
+      "mech_rh_creep_rupture_hr",
+      "mech_rh_creep_life_fraction",
+      "mech_rh_fouling_factor",
+      "mech_rh_metal_temp_C",
+      "mech_hpst_erosion_rate_mm_khr",
+      "mech_hpst_erosion_depth_mm",
+      "mech_hpst_steam_velocity_m_s",
+      "mech_hpst_moisture_loss_pct",
+      "mech_hpst_remaining_life_hr"
+    ]
+  },
+  "50000": {
+    "mechanical": [
+      {
+        "device_id": "COMP-001",
+        "device_type": "Compressor",
+        "status": "ACTIVE_UNCERTAIN",
+        "outputs": {
+          "mech_comp_surge_margin_pct": 15.0,
+          "mech_comp_efficiency_current": 0.8,
+          "mech_comp_degradation_rate_pct_khr": 0.2,
+          "mech_comp_remaining_life_hr": 0.0
+        },
+        "warnings": [
+          "R-09: Compressor remaining life 0 hr < 5000 hr WARNING"
+        ],
+        "uncertain_params": []
+      },
+      {
+        "device_id": "EXP-001",
+        "device_type": "GT_Turbine",
+        "status": "ACTIVE_UNCERTAIN",
+        "outputs": {
+          "mech_gt_blade_temp_C": 785.8,
+          "mech_gt_creep_life_fraction": 0.006094,
+          "mech_gt_creep_rupture_hr": 8204701.0,
+          "mech_gt_eoh_consumed": 65000.0,
+          "mech_gt_eoh_remaining": 0.0
+        },
+        "warnings": [
+          "R-10: GT EOH remaining 0 hr < 2000 WARNING"
+        ],
+        "uncertain_params": []
+      },
+      {
+        "device_id": "COMB-001",
+        "device_type": "Combustor",
+        "status": "ACTIVE_UNCERTAIN",
+        "outputs": {
+          "mech_comb_liner_temp_C": 1173.5,
+          "mech_comb_fatigue_life_fraction": 0.259564,
+          "mech_comb_remaining_starts": 2852,
+          "mech_comb_hour_life_fraction": 3.125,
+          "mech_comb_remaining_life_hr": 0.0,
+          "mech_comb_combined_life_fraction": 3.125
+        },
+        "warnings": [
+          "R-11: Combustor combined life fraction 312.50% > 80% FAULT"
+        ],
+        "uncertain_params": []
+      },
+      {
+        "device_id": "HPSH-001",
+        "device_type": "HRSG_Superheater",
+        "status": "ACTIVE_UNCERTAIN",
+        "outputs": {
+          "mech_hpsh_hoop_stress_MPa": 66.6,
+          "mech_hpsh_creep_rupture_hr": 3513225.0,
+          "mech_hpsh_creep_life_fraction": 0.014232,
+          "mech_hpsh_fouling_factor": 0.00023,
+          "mech_hpsh_metal_temp_C": 585.6
+        },
+        "warnings": [],
+        "uncertain_params": []
+      },
+      {
+        "device_id": "RH-001",
+        "device_type": "Reheater",
+        "status": "ACTIVE_UNCERTAIN",
+        "outputs": {
+          "mech_rh_hoop_stress_MPa": 13.79,
+          "mech_rh_creep_rupture_hr": 158923777.0,
+          "mech_rh_creep_life_fraction": 0.000315,
+          "mech_rh_fouling_factor": 0.00023,
+          "mech_rh_metal_temp_C": 595.6
+        },
+        "warnings": [],
+        "uncertain_params": []
+      },
+      {
+        "device_id": "HPTURB",
+        "device_type": "HP_ST",
+        "status": "ACTIVE_UNCERTAIN",
+        "outputs": {
+          "mech_hpst_erosion_rate_mm_khr": 0.00319,
+          "mech_hpst_erosion_depth_mm": 0.1596,
+          "mech_hpst_steam_velocity_m_s": 250.7,
+          "mech_hpst_moisture_loss_pct": 0.0,
+          "mech_hpst_remaining_life_hr": 576708.0
+        },
+        "warnings": [],
+        "uncertain_params": []
+      }
+    ],
+    "exergy": [
+      {
+        "unit": "GT (M1)",
+        "Ed_kW": 426171.53976953914,
+        "Ed_pct": 39.01448283003207
+      },
+      {
+        "unit": "HRSG (M2)",
+        "Ed_kW": 33750.397916811286,
+        "Ed_pct": 3.089728424249647
+      },
+      {
+        "unit": "ST (M3)",
+        "Ed_kW": 25222.164781486907,
+        "Ed_pct": 2.3089991305747315
+      },
+      {
+        "unit": "Condenser (M4)",
+        "Ed_kW": 17915.647506091824,
+        "Ed_pct": 1.6401135617674243
+      }
+    ],
+    "streams": [
+      {
+        "id": "S1",
+        "desc": "Ambient Air",
+        "T": 15.0,
+        "P": 0.1013,
+        "m_dot": 3154735,
+        "h": null,
+        "s": null,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7732,
+          "O2": 0.2074,
+          "CO2": 0.0003,
+          "H2O": 0.0099,
+          "Ar": 0.0092
+        }
+      },
+      {
+        "id": "S2",
+        "desc": "Conditioned Air",
+        "T": 15.0,
+        "P": 0.1013,
+        "m_dot": 3154735,
+        "h": null,
+        "s": null,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7732,
+          "O2": 0.2074,
+          "CO2": 0.0003,
+          "H2O": 0.0099,
+          "Ar": 0.0092
+        }
+      },
+      {
+        "id": "S3",
+        "desc": "Compressed Air",
+        "T": 440.37431533030167,
+        "P": 1.83353,
+        "m_dot": 3154735.0,
+        "h": 854.5820075047068,
+        "s": 3.9463769988479656,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7732,
+          "O2": 0.2074,
+          "CO2": 0.0003,
+          "H2O": 0.0099,
+          "Ar": 0.0092
+        }
+      },
+      {
+        "id": "S5",
+        "desc": "Fuel to Combustor",
+        "T": 38.0,
+        "P": 3.1,
+        "m_dot": 75901.0,
+        "h": 27.581830900000003,
+        "s": -1.5509393887850116,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "CH4": 0.86205,
+          "C2H6": 0.05553,
+          "C3H8": 0.01781,
+          "C4H10": 0.01342,
+          "CO2": 0.0254,
+          "N2": 0.02579
+        }
+      },
+      {
+        "id": "S6",
+        "desc": "Combustor Exit (TIT)",
+        "T": 1303.8784510018181,
+        "P": 1.7785241,
+        "m_dot": 3230636.0,
+        "h": 1532.0202522577533,
+        "s": 7.9373034792214305,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S7",
+        "desc": "GT Exhaust",
+        "T": 636.4229129251107,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 685.7277850734522,
+        "s": 8.076865734692381,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S8",
+        "desc": "FG after HP SH",
+        "T": 542.6917172610999,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 574.2951652450602,
+        "s": 7.947598609798615,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S9",
+        "desc": "FG after Reheater",
+        "T": 484.4922878046044,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 506.3819129303148,
+        "s": 7.861244786935698,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S10",
+        "desc": "FG after HP Evap",
+        "T": 390.64037343511336,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 398.89849511316686,
+        "s": 7.7098300144901835,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S11",
+        "desc": "FG after IP SH",
+        "T": 373.27902166805643,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 379.27916469228694,
+        "s": 7.679880368752199,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S12",
+        "desc": "FG after HP Eco",
+        "T": 268.73635650604183,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 262.73820223277716,
+        "s": 7.483292860933647,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S13",
+        "desc": "FG after IP Evap",
+        "T": 233.5660924135562,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 224.10248046915194,
+        "s": 7.4095781545651995,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S14",
+        "desc": "FG after IP Eco",
+        "T": 222.31270273923042,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 211.79635034704222,
+        "s": 7.385018469969153,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S15",
+        "desc": "FG after LP Evap",
+        "T": 196.71394604795853,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 183.90045288028503,
+        "s": 7.327210375577607,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "S16",
+        "desc": "Stack Gas",
+        "T": 106.0,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "h": 86.07539538949275,
+        "s": 7.095949222106368,
+        "x": null,
+        "phase": "gas",
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276112,
+          "CO2": 0.06247583357199764,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        }
+      },
+      {
+        "id": "IS-01",
+        "desc": "HP Main Steam",
+        "T": 565.6,
+        "P": 16.65,
+        "m_dot": 392884.0,
+        "h": 3475.8826816904543,
+        "s": 6.510114034271117,
+        "x": null,
+        "phase": "steam",
+        "w": {
+          "H2O": 1.0
+        }
+      },
+      {
+        "id": "IS-02",
+        "desc": "Cold Reheat",
+        "T": 308.8000000000005,
+        "P": 2.482,
+        "m_dot": 376455.0,
+        "h": 3031.272052821511,
+        "s": 6.686582817946098,
+        "x": null,
+        "phase": "steam",
+        "w": {
+          "H2O": 1.0
+        }
+      },
+      {
+        "id": "IS-03",
+        "desc": "Hot Reheat",
+        "T": 565.6077004636946,
+        "P": 2.482,
+        "m_dot": 454350.0,
+        "h": 3609.5011809825996,
+        "s": 7.510854834469442,
+        "x": null,
+        "phase": "steam",
+        "w": {
+          "H2O": 1.0
+        }
+      },
+      {
+        "id": "IS-05",
+        "desc": "LP Steam",
+        "T": 162.2846835656659,
+        "P": 0.655,
+        "m_dot": 42272.0,
+        "h": 2759.927503193181,
+        "s": 6.729591728787006,
+        "x": null,
+        "phase": "steam",
+        "w": {
+          "H2O": 1.0
+        }
+      },
+      {
+        "id": "IS-06",
+        "desc": "Condensate",
+        "T": 38.45744572042855,
+        "P": 0.896,
+        "m_dot": 514240.0,
+        "h": 161.87651703344073,
+        "s": 0.5514281169559888,
+        "x": null,
+        "phase": "water",
+        "w": {
+          "H2O": 1.0
+        }
+      },
+      {
+        "id": "S25",
+        "desc": "HP Turb Exit",
+        "T": 308.8000000000005,
+        "P": 2.482,
+        "m_dot": 376455.0,
+        "h": 3031.272052821511,
+        "s": 6.686582817946098,
+        "x": null,
+        "phase": "steam",
+        "w": {
+          "H2O": 1.0
+        }
+      },
+      {
+        "id": "S26",
+        "desc": "IP Turb Exit",
+        "T": 335.95162893662746,
+        "P": 0.507,
+        "m_dot": 454350.0,
+        "h": 3138.793451406197,
+        "s": 7.5806965025162,
+        "x": null,
+        "phase": "steam",
+        "w": {
+          "H2O": 1.0
+        }
+      },
+      {
+        "id": "S27",
+        "desc": "LP Turb Inlet",
+        "T": 320.38337300998535,
+        "P": 0.507,
+        "m_dot": 496622.0,
+        "h": 3106.544736361635,
+        "s": 7.527063587551019,
+        "x": null,
+        "phase": "steam",
+        "w": {
+          "H2O": 1.0
+        }
+      },
+      {
+        "id": "S-028",
+        "desc": "ST Exhaust",
+        "T": 38.37888457506426,
+        "P": 0.00677,
+        "m_dot": 496622.0,
+        "h": 2397.1375830518714,
+        "s": 7.729435468181708,
+        "x": 0.9280155434338053,
+        "phase": "two-phase",
+        "w": {
+          "H2O": 1.0
+        }
+      }
+    ],
+    "operating_point": {
+      "compressor_inlet_T_C": 15.0,
+      "compressor_outlet_T_C": 440.37431533030167,
+      "compressor_outlet_P_MPa": 1.83353,
+      "compressor_inlet_P_MPa": 0.1013,
+      "mass_flow_kg_s": 876.3152777777777,
+      "TIT_C": 1303.8784510018181,
+      "GT_power_kW": 367724.0803466409,
+      "GT_efficiency": 0.37035386068762066,
+      "GT_exhaust_T_C": 636.4229129251107,
+      "HP_steam_T_C": 565.6,
+      "HP_steam_P_MPa": 16.65,
+      "reheat_steam_T_C": 565.6077004636946,
+      "reheat_steam_P_MPa": 2.482,
+      "ST_power_kW": 202500.00000000012,
+      "condenser_pressure_kPa": 896.0,
+      "load_factor": 1.0,
+      "cumulative_hours": 50000,
+      "start_stop_count": 1000
+    },
+    "keys": [
+      "W_GT",
+      "W_ST",
+      "W_net",
+      "W_CWS",
+      "W_BFP",
+      "W_CP",
+      "W_GT_aux",
+      "W_ST_aux",
+      "W_misc_bop",
+      "eta_net_LHV",
+      "eta_net_HHV",
+      "eta_hpt",
+      "eta_ipt",
+      "eta_lpt",
+      "T_stack",
+      "convergence_iter",
+      "x_28",
+      "TPC_per_kW",
+      "TOC_per_kW",
+      "COE_mills_kWh",
+      "LCOE_mills_kWh",
+      "CO2_total_thr",
+      "CO2_kg_MWh",
+      "NOx_ppmvd_DLN",
+      "NOx_ppmvd",
+      "CW_consumption_m3min",
+      "streams",
+      "hrsg_duties",
+      "gas_T_profile",
+      "Q_fuel",
+      "Q_stack_loss",
+      "Q_condenser",
+      "Q_radiation_loss",
+      "tq_gas_Q",
+      "tq_gas_T",
+      "pinch_points",
+      "tq_steam_Q",
+      "tq_steam_T",
+      "gt_cycle_Ts",
+      "st_cycle_Ts",
+      "st_cycle_Ph",
+      "sat_curve_T",
+      "sat_curve_s_liq",
+      "sat_curve_s_vap",
+      "sat_curve_P",
+      "sat_curve_h_liq",
+      "sat_curve_h_vap",
+      "exergy_streams",
+      "exergy_fuel",
+      "exergy_product",
+      "exergy_efficiency",
+      "exergy_destruction",
+      "mech_results",
+      "mech_comp_surge_margin_pct",
+      "mech_comp_efficiency_current",
+      "mech_comp_degradation_rate_pct_khr",
+      "mech_comp_remaining_life_hr",
+      "mech_gt_blade_temp_C",
+      "mech_gt_creep_life_fraction",
+      "mech_gt_creep_rupture_hr",
+      "mech_gt_eoh_consumed",
+      "mech_gt_eoh_remaining",
+      "mech_comb_liner_temp_C",
+      "mech_comb_fatigue_life_fraction",
+      "mech_comb_remaining_starts",
+      "mech_comb_hour_life_fraction",
+      "mech_comb_remaining_life_hr",
+      "mech_comb_combined_life_fraction",
+      "mech_hpsh_hoop_stress_MPa",
+      "mech_hpsh_creep_rupture_hr",
+      "mech_hpsh_creep_life_fraction",
+      "mech_hpsh_fouling_factor",
+      "mech_hpsh_metal_temp_C",
+      "mech_rh_hoop_stress_MPa",
+      "mech_rh_creep_rupture_hr",
+      "mech_rh_creep_life_fraction",
+      "mech_rh_fouling_factor",
+      "mech_rh_metal_temp_C",
+      "mech_hpst_erosion_rate_mm_khr",
+      "mech_hpst_erosion_depth_mm",
+      "mech_hpst_steam_velocity_m_s",
+      "mech_hpst_moisture_loss_pct",
+      "mech_hpst_remaining_life_hr"
+    ]
+  }
+}

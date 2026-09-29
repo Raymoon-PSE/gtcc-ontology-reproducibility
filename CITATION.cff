@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "Please cite this version of the supporting computational artifacts."
+type: software
+title: "GTCC Ontology-Driven Digital Twin: Supporting Computational Artifacts"
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/Raymoon-PSE/gtcc-ontology-reproducibility"
+authors:
+  - family-names: Hwang
+    given-names: Raymoon
+  - family-names: Joo
+    given-names: Hwajoo
+  - family-names: Joo
+    given-names: Yongjin
+  - family-names: Huh
+    given-names: John Jaewon
+  - family-names: Oh
+    given-names: Min
+keywords:
+  - ontology
+  - digital twin
+  - combined cycle
+  - reproducibility
+abstract: "Standalone supporting artifacts for the manuscript From Conceptual Model to Runtime Governance: An Ontology-Driven Multi-Domain Digital Twin for Combined Cycle Power Plants. Includes archived numerical inputs/results, simulation kernels, ontology runtime, and 79 engineering-contract cases. See docs/COVERAGE.md for the unrecovered original 55-case comparison and other scope limits."

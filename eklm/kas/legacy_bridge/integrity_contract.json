@@ -1,0 +1,101 @@
+{
+  "version": "gtcc-integrity-v1",
+  "authority": "Configured public NETL-based EKLM topology; not an independent plant drawing",
+  "devices": {
+    "http://plantmind.io/ontology/gtcc#COMP-001": {
+      "model": "Compressor",
+      "unit_id": "1-2",
+      "module_id": "M1",
+      "part_of": "http://plantmind.io/ontology/gtcc#GT-001",
+      "class": "http://plantmind.io/ontology/gtcc#Compressor"
+    },
+    "http://plantmind.io/ontology/gtcc#EXP-001": {
+      "model": "GT_Turbine",
+      "unit_id": "1-5",
+      "module_id": "M1",
+      "part_of": "http://plantmind.io/ontology/gtcc#GT-001",
+      "class": "http://plantmind.io/ontology/gtcc#GTExpander"
+    },
+    "http://plantmind.io/ontology/gtcc#COMB-001": {
+      "model": "Combustor",
+      "unit_id": "1-4",
+      "module_id": "M1",
+      "part_of": "http://plantmind.io/ontology/gtcc#GT-001",
+      "class": "http://plantmind.io/ontology/gtcc#Combustor"
+    },
+    "http://plantmind.io/ontology/gtcc#HPSH-001": {
+      "model": "HRSG_Superheater",
+      "unit_id": "2-1",
+      "module_id": "M2",
+      "part_of": "http://plantmind.io/ontology/gtcc#HRSG-M2-001",
+      "class": "http://plantmind.io/ontology/gtcc#ProcessUnit"
+    },
+    "http://plantmind.io/ontology/gtcc#RH-001": {
+      "model": "Reheater",
+      "unit_id": "2-4",
+      "module_id": "M2",
+      "part_of": "http://plantmind.io/ontology/gtcc#HRSG-M2-001",
+      "class": "http://plantmind.io/ontology/gtcc#ProcessUnit"
+    },
+    "http://plantmind.io/ontology/gtcc#HPTURB": {
+      "model": "HP_ST",
+      "unit_id": "3-1",
+      "module_id": "M3",
+      "part_of": "http://plantmind.io/ontology/gtcc#ST-M3",
+      "class": "http://plantmind.io/ontology/gtcc#ProcessUnit"
+    }
+  },
+  "upstream": {
+    "http://plantmind.io/ontology/gtcc#AI-001": [
+      "http://plantmind.io/ontology/gtcc#COMP-001"
+    ],
+    "http://plantmind.io/ontology/gtcc#COMP-001": [
+      "http://plantmind.io/ontology/gtcc#COMB-001"
+    ],
+    "http://plantmind.io/ontology/gtcc#FUEL-001": [
+      "http://plantmind.io/ontology/gtcc#COMB-001"
+    ],
+    "http://plantmind.io/ontology/gtcc#COMB-001": [
+      "http://plantmind.io/ontology/gtcc#EXP-001"
+    ],
+    "http://plantmind.io/ontology/gtcc#EXP-001": [
+      "http://plantmind.io/ontology/gtcc#GEN-001"
+    ]
+  },
+  "ports": {
+    "http://plantmind.io/ontology/gtcc#COMP-001": {
+      "has_inlet_stream": [
+        "http://plantmind.io/ontology/gtcc#Stream-2"
+      ],
+      "has_outlet_stream": [
+        "http://plantmind.io/ontology/gtcc#Stream-3",
+        "http://plantmind.io/ontology/gtcc#Stream-bleed"
+      ]
+    },
+    "http://plantmind.io/ontology/gtcc#COMB-001": {
+      "has_inlet_stream": [
+        "http://plantmind.io/ontology/gtcc#Stream-3",
+        "http://plantmind.io/ontology/gtcc#Stream-5"
+      ],
+      "has_outlet_stream": [
+        "http://plantmind.io/ontology/gtcc#Stream-6"
+      ]
+    },
+    "http://plantmind.io/ontology/gtcc#EXP-001": {
+      "has_inlet_stream": [
+        "http://plantmind.io/ontology/gtcc#Stream-6",
+        "http://plantmind.io/ontology/gtcc#Stream-bleed"
+      ],
+      "has_outlet_stream": [
+        "http://plantmind.io/ontology/gtcc#Stream-7"
+      ]
+    }
+  },
+  "stream_classes": {
+    "http://plantmind.io/ontology/gtcc#Stream-2": "http://plantmind.io/ontology/gtcc#AirStream",
+    "http://plantmind.io/ontology/gtcc#Stream-3": "http://plantmind.io/ontology/gtcc#AirStream",
+    "http://plantmind.io/ontology/gtcc#Stream-5": "http://plantmind.io/ontology/gtcc#FuelStream",
+    "http://plantmind.io/ontology/gtcc#Stream-6": "http://plantmind.io/ontology/gtcc#FlueGasStream",
+    "http://plantmind.io/ontology/gtcc#Stream-7": "http://plantmind.io/ontology/gtcc#FlueGasStream"
+  }
+}

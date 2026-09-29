@@ -1,0 +1,620 @@
+@prefix :     <http://plantmind.io/ontology/gtcc#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+###############################################################################
+#  PlantMind GTCC — M4 Condenser + CWS Module Ontology v1.0
+#  Session 11 | 2026-04-04
+#  Imports: M3_ST v1.0 → M2_HRSG v1.1 → M1_GT v1.2 (auto via chain)
+###############################################################################
+
+<http://www.plantmind.ai/gtcc/M4_Condenser>
+    a owl:Ontology ;
+    owl:versionInfo "1.0" ;
+    owl:imports <http://www.plantmind.ai/gtcc/M3_ST> ;
+    rdfs:label  "PlantMind GTCC M4 Condenser + CWS Module Ontology v1.0"@en ;
+    rdfs:comment "Condenser + CWS Module. 6 process units. IS-06 primary tear stream."@en .
+
+###############################################################################
+#  MODULE
+###############################################################################
+
+:M4_Condenser_CWS_Module
+    a :Module ;
+    :module_id      "M4"^^xsd:string ;
+    :module_name    "Condenser + CWS"^^xsd:string ;
+    rdfs:label      "Condenser + CWS Module M4"@en .
+
+###############################################################################
+#  PROCESS UNITS
+###############################################################################
+
+:Unit_4_1_MainCondenser
+    a :ProcessUnit ;
+    :unit_id        "4-1"^^xsd:string ;
+    :abbreviation   "cond"^^xsd:string ;
+    :unit_pattern   "CONDENSER_CP_sub"^^xsd:string ;
+    rdfs:label      "Main Condenser"@en ;
+    :part_of        :M4_Condenser_CWS_Module ;
+    :has_inlet      :Stream_S028 ;
+    :has_inlet      :Stream_S031 ;
+    :has_outlet     :Stream_IS06 ;
+    :has_outlet     :Stream_S032 ;
+    :has_parameter  :Param_M4_cond_P_cond ;
+    :has_parameter  :Param_M4_cond_m_dot_gsc ;
+    :has_parameter  :Param_M4_cond_h_gsc ;
+    :has_parameter  :Param_M4_cond_m_dot_cond_muw ;
+    :has_parameter  :Param_M4_cond_T_muw ;
+    :has_parameter  :Param_M4_cond_P_cp_out ;
+    :has_parameter  :Param_M4_cond_eta_cp ;
+    :has_computed   :CS_M4_Q_cond ;
+    :has_computed   :CS_M4_W_cp ;
+    :computes_kpi   :KPI_M4_Q_cond ;
+    :has_rationale  :DR_M4_01 ;
+    :has_rationale  :DR_M4_02 ;
+    :has_rationale  :DR_M4_03 .
+
+:Unit_4_2_VacuumSystem
+    a :ProcessUnit ;
+    :unit_id        "4-2"^^xsd:string ;
+    :abbreviation   "vac"^^xsd:string ;
+    :unit_pattern   "PARAMETRIC_POWER"^^xsd:string ;
+    rdfs:label      "Vacuum System"@en ;
+    :part_of        :M4_Condenser_CWS_Module ;
+    :has_parameter  :Param_M4_vac_W_vac ;
+    :computes_kpi   :KPI_M4_W_CWS ;
+    :has_rationale  :DR_M4_04 .
+
+:Unit_4_3_CWP
+    a :ProcessUnit ;
+    :unit_id        "4-3"^^xsd:string ;
+    :abbreviation   "cwp"^^xsd:string ;
+    :unit_pattern   "PUMP"^^xsd:string ;
+    rdfs:label      "Circulating Water Pump"@en ;
+    :part_of        :M4_Condenser_CWS_Module ;
+    :has_inlet      :Stream_S033 ;
+    :has_outlet     :Stream_S031 ;
+    :has_parameter  :Param_M4_cwp_T_cw_in ;
+    :has_parameter  :Param_M4_cwp_dT_cw ;
+    :has_parameter  :Param_M4_cwp_P_cw_suction ;
+    :has_parameter  :Param_M4_cwp_P_cw_discharge ;
+    :has_parameter  :Param_M4_cwp_eta_cwp ;
+    :has_computed   :CS_M4_m_dot_cw ;
+    :has_computed   :CS_M4_W_cwp ;
+    :computes_kpi   :KPI_M4_W_CWS ;
+    :has_rationale  :DR_M4_06 ;
+    :has_rationale  :DR_M4_07 .
+
+:Unit_4_4_CoolingTower
+    a :ProcessUnit ;
+    :unit_id        "4-4"^^xsd:string ;
+    :abbreviation   "ct"^^xsd:string ;
+    :unit_pattern   "EVAP_TOWER"^^xsd:string ;
+    rdfs:label      "Cooling Tower"@en ;
+    :part_of        :M4_Condenser_CWS_Module ;
+    :has_inlet      :Stream_S032 ;
+    :has_inlet      :Stream_S034 ;
+    :has_outlet     :Stream_S033 ;
+    :has_outlet     :Stream_S035 ;
+    :has_parameter  :Param_M4_ct_f_evap ;
+    :has_parameter  :Param_M4_ct_COC ;
+    :has_parameter  :Param_M4_ct_f_drift ;
+    :has_parameter  :Param_M4_ct_W_ct_fan ;
+    :has_computed   :CS_M4_T_cw_out ;
+    :has_computed   :CS_M4_m_dot_evap ;
+    :has_computed   :CS_M4_m_dot_blow ;
+    :has_computed   :CS_M4_m_dot_drift ;
+    :has_computed   :CS_M4_m_dot_muw_ct ;
+    :computes_kpi   :KPI_M4_W_CWS ;
+    :has_rationale  :DR_M4_08 ;
+    :has_rationale  :DR_M4_09 .
+
+:Unit_4_5_AuxCooling
+    a :ProcessUnit ;
+    :unit_id        "4-5"^^xsd:string ;
+    :abbreviation   "auxc"^^xsd:string ;
+    :unit_pattern   "PARAMETRIC_DUTY"^^xsd:string ;
+    rdfs:label      "Auxiliary Cooling"@en ;
+    :part_of        :M4_Condenser_CWS_Module ;
+    :has_parameter  :Param_M4_auxc_Q_auxc ;
+    :has_parameter  :Param_M4_auxc_W_auxc ;
+    :computes_kpi   :KPI_M4_W_CWS ;
+    :has_rationale  :DR_M4_05 .
+
+:Unit_4_6_MakeupWater
+    a :ProcessUnit ;
+    :unit_id        "4-6"^^xsd:string ;
+    :abbreviation   "muw"^^xsd:string ;
+    :unit_pattern   "SOURCE"^^xsd:string ;
+    rdfs:label      "Makeup Water"@en ;
+    :part_of        :M4_Condenser_CWS_Module ;
+    :has_outlet     :Stream_S034 ;
+    :has_parameter  :Param_M4_muw_T_muw ;
+    :has_parameter  :Param_M4_muw_P_muw ;
+    :has_computed   :CS_M4_m_dot_muw_total ;
+    :computes_kpi   :KPI_M4_m_muw_total .
+
+###############################################################################
+#  MATERIAL STREAMS
+###############################################################################
+
+#  IS-06 — Primary Tear Stream (Condensate → HRSG LP Eco)
+#  P redefined to 0.896 MPa (condensate pump outlet) per #19 resolution.
+#  Reference values from NETL Exhibit 5-11 at condensate pump outlet.
+
+:Stream_IS06
+    a :MaterialStream ;
+    :stream_id          "IS-06"^^xsd:string ;
+    :stream_label       "Condensate Primary Tear"^^xsd:string ;
+    :stream_phase       "compressed_liquid"^^xsd:string ;
+    :is_tear_stream     "true"^^xsd:boolean ;
+    :is_primary_tear    "true"^^xsd:boolean ;
+    :has_alias          "HotWellCondensate_PostPump"^^xsd:string ;
+    :reference_T        "38.5"^^xsd:float ;
+    :reference_P        "0.896"^^xsd:float ;
+    :reference_m_dot    "514240.0"^^xsd:float ;
+    :reference_h        "161.7"^^xsd:float ;
+    :composition        "H2O:1.0"^^xsd:string ;
+    rdfs:label          "IS-06 Condensate Return to HRSG LP Eco"@en ;
+    rdfs:comment        "Primary tear stream. P = 0.896 MPa (condensate pump outlet). Reference ṁ = 514,240 kg/hr (NETL). PlantMind Phase 1 computes ~467,749 kg/hr; gap tracked in Open Issue #18."@en .
+
+#  S-031 — CW Supply (CWP outlet → Condenser water side inlet)
+
+:Stream_S031
+    a :MaterialStream ;
+    :stream_id          "S-031"^^xsd:string ;
+    :stream_label       "CW Supply to Condenser"^^xsd:string ;
+    :stream_phase       "compressed_liquid"^^xsd:string ;
+    :is_tear_stream     "false"^^xsd:boolean ;
+    :reference_T        "18.3"^^xsd:float ;
+    :reference_P        "0.35"^^xsd:float ;
+    :composition        "H2O:1.0"^^xsd:string ;
+    rdfs:label          "S-031 CW Supply (CWP outlet)"@en .
+
+#  S-032 — CW Return (Condenser water side outlet → CT inlet)
+
+:Stream_S032
+    a :MaterialStream ;
+    :stream_id          "S-032"^^xsd:string ;
+    :stream_label       "CW Return from Condenser"^^xsd:string ;
+    :stream_phase       "compressed_liquid"^^xsd:string ;
+    :is_tear_stream     "false"^^xsd:boolean ;
+    :reference_T        "35.3"^^xsd:float ;
+    :reference_P        "0.35"^^xsd:float ;
+    :composition        "H2O:1.0"^^xsd:string ;
+    rdfs:label          "S-032 CW Return to Cooling Tower"@en .
+
+#  S-033 — CT Outlet (CT outlet → CWP inlet)
+
+:Stream_S033
+    a :MaterialStream ;
+    :stream_id          "S-033"^^xsd:string ;
+    :stream_label       "CT Cold CW to CWP"^^xsd:string ;
+    :stream_phase       "compressed_liquid"^^xsd:string ;
+    :is_tear_stream     "false"^^xsd:boolean ;
+    :reference_T        "18.3"^^xsd:float ;
+    :reference_P        "0.101"^^xsd:float ;
+    :composition        "H2O:1.0"^^xsd:string ;
+    rdfs:label          "S-033 CT Outlet to CWP"@en .
+
+#  S-034 — Makeup Water (raw water supply)
+
+:Stream_S034
+    a :MaterialStream ;
+    :stream_id          "S-034"^^xsd:string ;
+    :stream_label       "Makeup Water Supply"^^xsd:string ;
+    :stream_phase       "compressed_liquid"^^xsd:string ;
+    :is_tear_stream     "false"^^xsd:boolean ;
+    :reference_T        "15.0"^^xsd:float ;
+    :reference_P        "0.30"^^xsd:float ;
+    :reference_m_dot    "534000.0"^^xsd:float ;
+    :composition        "H2O:1.0"^^xsd:string ;
+    rdfs:label          "S-034 Raw Water Makeup Supply"@en ;
+    rdfs:comment        "Total raw water withdrawal. NETL Exhibit 5-10: 9.0 m3/min = 534,000 kg/hr (includes CT + condenser makeup)."@en .
+
+#  S-035 — CT Blowdown (discharge)
+
+:Stream_S035
+    a :MaterialStream ;
+    :stream_id          "S-035"^^xsd:string ;
+    :stream_label       "CT Blowdown"^^xsd:string ;
+    :stream_phase       "compressed_liquid"^^xsd:string ;
+    :is_tear_stream     "false"^^xsd:boolean ;
+    :reference_T        "35.3"^^xsd:float ;
+    :reference_P        "0.35"^^xsd:float ;
+    :composition        "H2O:1.0"^^xsd:string ;
+    rdfs:label          "S-035 Cooling Tower Blowdown"@en .
+
+###############################################################################
+#  MODEL PARAMETERS — Unit 4-1 Main Condenser
+###############################################################################
+
+:Param_M4_cond_P_cond
+    a :ModelParameter ;
+    :param_symbol       "P_cond"^^xsd:string ;
+    :param_description  "Condenser absolute pressure"^^xsd:string ;
+    :default_value      "0.00677"^^xsd:float ;
+    :param_unit         "MPa"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "Condenser Pressure"@en .
+
+:Param_M4_cond_m_dot_gsc
+    a :ModelParameter ;
+    :param_symbol       "m_dot_gsc"^^xsd:string ;
+    :param_description  "GSC condensate flow to hot well"^^xsd:string ;
+    :default_value      "635.0"^^xsd:float ;
+    :param_unit         "kg/hr"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "GSC Condensate Flow"@en ;
+    rdfs:comment        "NETL Exhibit 5-11: 1,400 lb/hr = 635 kg/hr. See DR-M4-02."@en .
+
+:Param_M4_cond_h_gsc
+    a :ModelParameter ;
+    :param_symbol       "h_gsc"^^xsd:string ;
+    :param_description  "Enthalpy of GSC condensate"^^xsd:string ;
+    :default_value      "160.7"^^xsd:float ;
+    :param_unit         "kJ/kg"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "GSC Condensate Enthalpy"@en .
+
+:Param_M4_cond_m_dot_cond_muw
+    a :ModelParameter ;
+    :param_symbol       "m_dot_cond_muw"^^xsd:string ;
+    :param_description  "Condenser makeup water to hot well"^^xsd:string ;
+    :default_value      "5138.0"^^xsd:float ;
+    :param_unit         "kg/hr"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "Condenser Makeup Water Flow"@en ;
+    rdfs:comment        "NETL Exhibit 5-11: 11,327 lb/hr = 5,138 kg/hr (ST Makeup to hot well)."@en .
+
+:Param_M4_cond_T_muw
+    a :ModelParameter ;
+    :param_symbol       "T_muw_cond"^^xsd:string ;
+    :param_description  "Makeup water temperature entering hot well"^^xsd:string ;
+    :default_value      "15.0"^^xsd:float ;
+    :param_unit         "degC"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "Condenser Makeup Water Temperature"@en .
+
+:Param_M4_cond_P_cp_out
+    a :ModelParameter ;
+    :param_symbol       "P_cp_out"^^xsd:string ;
+    :param_description  "Condensate pump outlet pressure"^^xsd:string ;
+    :default_value      "0.896"^^xsd:float ;
+    :param_unit         "MPa"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "Condensate Pump Outlet Pressure"@en ;
+    rdfs:comment        "NETL Exhibit 5-11: 130 psia = 0.896 MPa. IS-06 pressure per Open Issue #19 resolution."@en .
+
+:Param_M4_cond_eta_cp
+    a :ModelParameter ;
+    :param_symbol       "eta_cp"^^xsd:string ;
+    :param_description  "Condensate pump isentropic efficiency"^^xsd:string ;
+    :default_value      "0.80"^^xsd:float ;
+    :param_unit         "-"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "Condensate Pump Efficiency"@en .
+
+###############################################################################
+#  MODEL PARAMETERS — Unit 4-2 Vacuum System
+###############################################################################
+
+:Param_M4_vac_W_vac
+    a :ModelParameter ;
+    :param_symbol       "W_vac"^^xsd:string ;
+    :param_description  "Vacuum system power consumption"^^xsd:string ;
+    :default_value      "100.0"^^xsd:float ;
+    :param_unit         "kW"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "Vacuum System Power"@en ;
+    rdfs:comment        "Parametric. Industry typical for 2x50pct steam jet ejectors. See DR-M4-04."@en .
+
+###############################################################################
+#  MODEL PARAMETERS — Unit 4-3 CWP
+###############################################################################
+
+:Param_M4_cwp_T_cw_in
+    a :ModelParameter ;
+    :param_symbol       "T_cw_in"^^xsd:string ;
+    :param_description  "CW supply temperature (CT outlet, Phase 1 parameter)"^^xsd:string ;
+    :default_value      "18.3"^^xsd:float ;
+    :param_unit         "degC"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "CW Supply Temperature"@en ;
+    rdfs:comment        "Phase 1 parameter. NETL ambient 15 degC, CT approach ~7 degC, CT outlet ~18.3 degC. See DR-M4-06."@en .
+
+:Param_M4_cwp_dT_cw
+    a :ModelParameter ;
+    :param_symbol       "dT_cw"^^xsd:string ;
+    :param_description  "CW temperature rise across condenser"^^xsd:string ;
+    :default_value      "17.0"^^xsd:float ;
+    :param_unit         "degC"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "CW Temperature Rise"@en ;
+    rdfs:comment        "From TTD = 3 degC at T_sat = 38.4 degC. T_cw_out = 35.3 degC < T_sat. See DR-M4-07."@en .
+
+:Param_M4_cwp_P_cw_suction
+    a :ModelParameter ;
+    :param_symbol       "P_cw_suction"^^xsd:string ;
+    :param_description  "CWP suction pressure (CT basin)"^^xsd:string ;
+    :default_value      "0.101"^^xsd:float ;
+    :param_unit         "MPa"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "CWP Suction Pressure"@en .
+
+:Param_M4_cwp_P_cw_discharge
+    a :ModelParameter ;
+    :param_symbol       "P_cw_discharge"^^xsd:string ;
+    :param_description  "CWP discharge pressure to condenser"^^xsd:string ;
+    :default_value      "0.35"^^xsd:float ;
+    :param_unit         "MPa"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "CWP Discharge Pressure"@en .
+
+:Param_M4_cwp_eta_cwp
+    a :ModelParameter ;
+    :param_symbol       "eta_cwp"^^xsd:string ;
+    :param_description  "CWP isentropic efficiency"^^xsd:string ;
+    :default_value      "0.85"^^xsd:float ;
+    :param_unit         "-"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "CWP Efficiency"@en .
+
+###############################################################################
+#  MODEL PARAMETERS — Unit 4-4 Cooling Tower
+###############################################################################
+
+:Param_M4_ct_f_evap
+    a :ModelParameter ;
+    :param_symbol       "f_evap"^^xsd:string ;
+    :param_description  "Fraction of heat rejected by evaporation"^^xsd:string ;
+    :default_value      "0.80"^^xsd:float ;
+    :param_unit         "-"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "CT Evaporation Fraction"@en ;
+    rdfs:comment        "Standard for mechanical draft cooling towers. Full Merkel model deferred to Phase 2. See DR-M4-08."@en .
+
+:Param_M4_ct_COC
+    a :ModelParameter ;
+    :param_symbol       "COC"^^xsd:string ;
+    :param_description  "Cycles of concentration (blowdown control)"^^xsd:string ;
+    :default_value      "5.0"^^xsd:float ;
+    :param_unit         "-"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "CT Cycles of Concentration"@en .
+
+:Param_M4_ct_f_drift
+    a :ModelParameter ;
+    :param_symbol       "f_drift"^^xsd:string ;
+    :param_description  "Drift loss fraction of CW flow"^^xsd:string ;
+    :default_value      "0.0001"^^xsd:float ;
+    :param_unit         "-"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "CT Drift Loss Fraction"@en .
+
+:Param_M4_ct_W_ct_fan
+    a :ModelParameter ;
+    :param_symbol       "W_ct_fan"^^xsd:string ;
+    :param_description  "Cooling tower fan power"^^xsd:string ;
+    :default_value      "500.0"^^xsd:float ;
+    :param_unit         "kW"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "CT Fan Power"@en ;
+    rdfs:comment        "Parametric. NETL Case 13 does not report CT fan power separately. See DR-M4-09."@en .
+
+###############################################################################
+#  MODEL PARAMETERS — Unit 4-5 Auxiliary Cooling
+###############################################################################
+
+:Param_M4_auxc_Q_auxc
+    a :ModelParameter ;
+    :param_symbol       "Q_auxc"^^xsd:string ;
+    :param_description  "Auxiliary cooling total duty"^^xsd:string ;
+    :default_value      "35000.0"^^xsd:float ;
+    :param_unit         "kW"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "Auxiliary Cooling Duty"@en ;
+    rdfs:comment        "Covers GT/ST lube oil, air, H2, seal oil coolers. See DR-M4-05."@en .
+
+:Param_M4_auxc_W_auxc
+    a :ModelParameter ;
+    :param_symbol       "W_auxc"^^xsd:string ;
+    :param_description  "Auxiliary cooling pump power"^^xsd:string ;
+    :default_value      "200.0"^^xsd:float ;
+    :param_unit         "kW"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "Auxiliary Cooling Pump Power"@en .
+
+###############################################################################
+#  MODEL PARAMETERS — Unit 4-6 Makeup Water
+###############################################################################
+
+:Param_M4_muw_T_muw
+    a :ModelParameter ;
+    :param_symbol       "T_muw"^^xsd:string ;
+    :param_description  "Raw water supply temperature"^^xsd:string ;
+    :default_value      "15.0"^^xsd:float ;
+    :param_unit         "degC"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "Makeup Water Temperature"@en .
+
+:Param_M4_muw_P_muw
+    a :ModelParameter ;
+    :param_symbol       "P_muw"^^xsd:string ;
+    :param_description  "Raw water supply pressure"^^xsd:string ;
+    :default_value      "0.30"^^xsd:float ;
+    :param_unit         "MPa"^^xsd:string ;
+    :is_gui_exposed     "true"^^xsd:boolean ;
+    rdfs:label          "Makeup Water Supply Pressure"@en .
+
+###############################################################################
+#  COMPUTED SCALARS
+###############################################################################
+
+:CS_M4_Q_cond
+    a :ComputedScalar ;
+    :scalar_symbol      "Q_cond"^^xsd:string ;
+    :scalar_unit        "kJ/hr"^^xsd:string ;
+    :netl_reference     "1139000000.0"^^xsd:float ;
+    rdfs:label          "Condenser Heat Duty"@en .
+
+:CS_M4_W_cp
+    a :ComputedScalar ;
+    :scalar_symbol      "W_cp"^^xsd:string ;
+    :scalar_unit        "kW"^^xsd:string ;
+    rdfs:label          "Condensate Pump Power"@en ;
+    rdfs:comment        "Sub-calculation within Unit 4-1. W_cp = m_dot_IS06 * v_f * (P_cp_out - P_cond) / eta_cp / 3600."@en .
+
+:CS_M4_m_dot_cw
+    a :ComputedScalar ;
+    :scalar_symbol      "m_dot_cw"^^xsd:string ;
+    :scalar_unit        "kg/hr"^^xsd:string ;
+    rdfs:label          "CW Circulation Rate"@en ;
+    rdfs:comment        "m_dot_cw = Q_cond / (Cp_w * dT_cw). Phase 1 estimate ~16,040,000 kg/hr."@en .
+
+:CS_M4_W_cwp
+    a :ComputedScalar ;
+    :scalar_symbol      "W_cwp"^^xsd:string ;
+    :scalar_unit        "kW"^^xsd:string ;
+    rdfs:label          "CWP Shaft Power"@en .
+
+:CS_M4_T_cw_out
+    a :ComputedScalar ;
+    :scalar_symbol      "T_cw_out"^^xsd:string ;
+    :scalar_unit        "degC"^^xsd:string ;
+    rdfs:label          "CW Outlet Temperature from Condenser"@en ;
+    rdfs:comment        "T_cw_out = T_cw_in + dT_cw. Feasibility check: T_cw_out < T_sat(P_cond)."@en .
+
+:CS_M4_m_dot_evap
+    a :ComputedScalar ;
+    :scalar_symbol      "m_dot_evap"^^xsd:string ;
+    :scalar_unit        "kg/hr"^^xsd:string ;
+    rdfs:label          "CT Evaporation Rate"@en .
+
+:CS_M4_m_dot_blow
+    a :ComputedScalar ;
+    :scalar_symbol      "m_dot_blow"^^xsd:string ;
+    :scalar_unit        "kg/hr"^^xsd:string ;
+    rdfs:label          "CT Blowdown Rate"@en .
+
+:CS_M4_m_dot_drift
+    a :ComputedScalar ;
+    :scalar_symbol      "m_dot_drift"^^xsd:string ;
+    :scalar_unit        "kg/hr"^^xsd:string ;
+    rdfs:label          "CT Drift Loss Rate"@en .
+
+:CS_M4_m_dot_muw_ct
+    a :ComputedScalar ;
+    :scalar_symbol      "m_dot_muw_ct"^^xsd:string ;
+    :scalar_unit        "kg/hr"^^xsd:string ;
+    rdfs:label          "CT Makeup Water Requirement"@en ;
+    rdfs:comment        "m_dot_muw_ct = m_dot_evap + m_dot_blow + m_dot_drift."@en .
+
+:CS_M4_m_dot_muw_total
+    a :ComputedScalar ;
+    :scalar_symbol      "m_dot_muw_total"^^xsd:string ;
+    :scalar_unit        "kg/hr"^^xsd:string ;
+    rdfs:label          "Total Raw Water Withdrawal"@en ;
+    rdfs:comment        "m_dot_muw_total = m_dot_muw_ct + m_dot_cond_muw. Environmental KPI."@en .
+
+###############################################################################
+#  KPIs
+###############################################################################
+
+:KPI_M4_Q_cond
+    a :KPI ;
+    :kpi_symbol         "Q_cond_kpi"^^xsd:string ;
+    :kpi_unit           "kJ/hr"^^xsd:string ;
+    :netl_target        "1139000000.0"^^xsd:float ;
+    :tolerance_pct      "5.0"^^xsd:float ;
+    rdfs:label          "Condenser Duty KPI"@en ;
+    rdfs:comment        "Primary thermal validation target for M4. NETL: 1,139 x 10^6 kJ/hr."@en .
+
+:KPI_M4_W_CWS
+    a :KPI ;
+    :kpi_symbol         "W_CWS"^^xsd:string ;
+    :kpi_unit           "kW"^^xsd:string ;
+    rdfs:label          "Total CWS Auxiliary Power KPI"@en ;
+    rdfs:comment        "W_CWS = W_cp + W_vac + W_cwp + W_ct_fan + W_auxc. Feeds plant-level COE calculation."@en .
+
+:KPI_M4_m_muw_total
+    a :KPI ;
+    :kpi_symbol         "m_muw_total_kpi"^^xsd:string ;
+    :kpi_unit           "kg/hr"^^xsd:string ;
+    :netl_target        "534000.0"^^xsd:float ;
+    :tolerance_pct      "15.0"^^xsd:float ;
+    rdfs:label          "Total Raw Water Withdrawal KPI"@en ;
+    rdfs:comment        "Environmental performance indicator. NETL Exhibit 5-10: 9.0 m3/min = 534,000 kg/hr. Wider tolerance due to auxc CT load not explicitly modeled."@en .
+
+###############################################################################
+#  DESIGN RATIONALE
+###############################################################################
+
+:DR_M4_01
+    a :DesignRationale ;
+    :dr_id              "DR-M4-01"^^xsd:string ;
+    :dr_text            "IS-06 pressure redefined to 0.896 MPa (condensate pump outlet, NETL Exhibit 5-11: 130 psia) per Open Issue #19 resolution. Original NETL hot well value was 1.0 psia (0.00689 MPa). The 0.896 MPa value is required to match HRSG LP Eco inlet pressure requirement."^^xsd:string ;
+    rdfs:label          "DR-M4-01 IS-06 Pressure Redefinition"@en ;
+    :documents          :Unit_4_1_MainCondenser .
+
+:DR_M4_02
+    a :DesignRationale ;
+    :dr_id              "DR-M4-02"^^xsd:string ;
+    :dr_text            "GSC condensate m_dot_gsc default = 635 kg/hr directly from NETL Exhibit 5-11 (1,400 lb/hr gland steam to GSC). GSC condensate joins hot well. h_gsc approximated as h_f at condenser conditions. Phase 1 simplification; GUI-adjustable."^^xsd:string ;
+    rdfs:label          "DR-M4-02 GSC Condensate Default"@en ;
+    :documents          :Unit_4_1_MainCondenser .
+
+:DR_M4_03
+    a :DesignRationale ;
+    :dr_id              "DR-M4-03"^^xsd:string ;
+    :dr_text            "IS-06 mass flow discrepancy: PlantMind Phase 1 computes 467,749 kg/hr vs NETL 514,240 kg/hr (gap = 46,491 kg/hr, ~9%). Root cause: M3 LP Turbine is single-admission; NETL uses triple-admission LP with additional steam sources. Open Issue #18 tracks resolution. Coding phase must include explicit mass balance check and warning."^^xsd:string ;
+    rdfs:label          "DR-M4-03 IS-06 Mass Balance Gap"@en ;
+    :documents          :Unit_4_1_MainCondenser .
+
+:DR_M4_04
+    a :DesignRationale ;
+    :dr_id              "DR-M4-04"^^xsd:string ;
+    :dr_text            "Vacuum system modeled as parametric power (100 kW default). NETL Case 13 does not report vacuum system power separately. Phase 2: replace with jet ejector steam consumption or vacuum pump shaft power model."^^xsd:string ;
+    rdfs:label          "DR-M4-04 Vacuum System Parametric"@en ;
+    :documents          :Unit_4_2_VacuumSystem .
+
+:DR_M4_05
+    a :DesignRationale ;
+    :dr_id              "DR-M4-05"^^xsd:string ;
+    :dr_text            "Auxiliary cooling modeled as parametric duty (Q_auxc = 35,000 kW) and power (W_auxc = 200 kW). Covers GT/ST lube oil, air, H2, seal oil coolers. Not in main H&MB critical path; affects COE auxiliary power only. Phase 2: compute from equipment heat loads."^^xsd:string ;
+    rdfs:label          "DR-M4-05 Auxiliary Cooling Parametric"@en ;
+    :documents          :Unit_4_5_AuxCooling .
+
+:DR_M4_06
+    a :DesignRationale ;
+    :dr_id              "DR-M4-06"^^xsd:string ;
+    :dr_text            "CW supply temperature T_cw_in = 18.3 degC (65 degF) is a Phase 1 parameter, not computed from CT model. NETL ambient 15 degC, CT approach ~7 degC. Phase 2: make T_cw_in an output of Unit 4-4 full Merkel model."^^xsd:string ;
+    rdfs:label          "DR-M4-06 T_cw_in as Phase 1 Parameter"@en ;
+    :documents          :Unit_4_3_CWP .
+
+:DR_M4_07
+    a :DesignRationale ;
+    :dr_id              "DR-M4-07"^^xsd:string ;
+    :dr_text            "CW temperature rise dT_cw = 17 degC default. Derived from TTD = 3 degC at T_sat(P_cond) = 38.4 degC: T_cw_out = 35.3 degC, dT_cw = 35.3 - 18.3 = 17.0 degC. Feasibility check enforced: T_cw_out < T_sat(P_cond)."^^xsd:string ;
+    rdfs:label          "DR-M4-07 dT_cw Default"@en ;
+    :documents          :Unit_4_3_CWP .
+
+:DR_M4_08
+    a :DesignRationale ;
+    :dr_id              "DR-M4-08"^^xsd:string ;
+    :dr_text            "CT evaporation fraction model: m_dot_evap = f_evap * Q_cond / h_fg(T_avg). f_evap = 0.80 is standard for mechanical draft towers. Full Merkel NTU equation requires air-side data (wet-bulb, air flow); deferred to Phase 2."^^xsd:string ;
+    rdfs:label          "DR-M4-08 CT Evaporation Fraction Model"@en ;
+    :documents          :Unit_4_4_CoolingTower .
+
+:DR_M4_09
+    a :DesignRationale ;
+    :dr_id              "DR-M4-09"^^xsd:string ;
+    :dr_text            "CT fan power W_ct_fan = 500 kW (parametric default). NETL Case 13 auxiliary power breakdown does not report CT fan power separately. Phase 2: compute from CT fan curve and air flow model."^^xsd:string ;
+    rdfs:label          "DR-M4-09 CT Fan Power Parametric"@en ;
+    :documents          :Unit_4_4_CoolingTower .
+
+###############################################################################
+#  END OF FILE
+###############################################################################

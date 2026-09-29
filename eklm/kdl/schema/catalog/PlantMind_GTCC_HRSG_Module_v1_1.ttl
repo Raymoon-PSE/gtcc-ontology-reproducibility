@@ -1,0 +1,1371 @@
+# ============================================================
+# PlantMind GTCC Simulator
+# Ontology: HRSG Module (M2) — OWL/Turtle
+# Version:  1.0  |  2026-04-03  |  Session 8
+# Schema:   PlantMind Ontology v1.1 (same namespace as GT Module v1.2)
+# Ref:      HRSG_Module_Math_Model_v1_6_COMPLETE.md
+#           NETL DOE/NETL-2010/1397 Ch.5 Case 13
+# ============================================================
+
+@prefix pm:   <http://plantmind.io/ontology/gtcc#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# ============================================================
+# ONTOLOGY HEADER
+# ============================================================
+
+<http://plantmind.io/ontology/gtcc/hrsg>
+    rdf:type owl:Ontology ;
+    owl:versionInfo "1.0" ;
+    rdfs:label "PlantMind GTCC — HRSG Module Ontology"@en ;
+    rdfs:comment "ABox population for HRSG Module (M2). TBox shared with GT Module namespace."@en ;
+    owl:imports <PlantMind_GTCC_GT_Module_v1_2.ttl> .
+
+# ============================================================
+# SECTION 1 — TBox: CLASSES
+# (Same schema as GT Module v1.2. Included for standalone loading.)
+# ============================================================
+
+pm:PlantEntity
+    rdf:type owl:Class ;
+    rdfs:label "Plant Entity"@en .
+
+pm:KnowledgeEntity
+    rdf:type owl:Class ;
+    rdfs:label "Knowledge Entity"@en .
+
+pm:Equipment
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:PlantEntity ;
+    rdfs:label "Equipment"@en .
+
+pm:ProcessModule
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:Equipment ;
+    rdfs:label "Process Module"@en ;
+    rdfs:comment "Top-level process module (M1 GT, M2 HRSG, M3 ST, M4 Condenser)."@en .
+
+pm:ProcessUnit
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:Equipment ;
+    rdfs:label "Process Unit"@en ;
+    rdfs:comment "Individual process unit within a module."@en .
+
+pm:MaterialStream
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:PlantEntity ;
+    rdfs:label "Material Stream"@en ;
+    rdfs:comment "Thermodynamic state vector: {T, P, m_dot, w, h, s}."@en .
+
+pm:Variable
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:PlantEntity ;
+    rdfs:label "Variable"@en .
+
+pm:ModelParameter
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:Variable ;
+    rdfs:label "Model Parameter"@en ;
+    rdfs:comment "Back-calculated or assumed parameter (Ta layer)."@en .
+
+pm:ComputedScalar
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:Variable ;
+    rdfs:label "Computed Scalar"@en ;
+    rdfs:comment "Unit-local scalar computed by Td layer (Q_dot, W_dot, etc.)."@en .
+
+pm:KPI
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:Variable ;
+    rdfs:label "KPI"@en ;
+    rdfs:comment "Key performance indicator."@en .
+
+pm:CompositionVariable
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:Variable ;
+    rdfs:label "Composition Variable"@en .
+
+pm:DesignRationale
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:KnowledgeEntity ;
+    rdfs:label "Design Rationale"@en .
+
+pm:Fault
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:KnowledgeEntity ;
+    rdfs:label "Fault"@en .
+
+pm:LatentRegime
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:KnowledgeEntity ;
+    rdfs:label "Latent Regime"@en .
+
+pm:OperatingMode
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:KnowledgeEntity ;
+    rdfs:label "Operating Mode"@en .
+
+# ============================================================
+# SECTION 2 — TBox: OBJECT PROPERTIES
+# ============================================================
+
+pm:has_part
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:ProcessModule ;
+    rdfs:range pm:ProcessUnit ;
+    owl:inverseOf pm:part_of ;
+    rdfs:label "has part"@en .
+
+pm:part_of
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:ProcessUnit ;
+    rdfs:range pm:ProcessModule ;
+    owl:inverseOf pm:has_part ;
+    rdfs:label "part of"@en .
+
+pm:upstream_of
+    rdf:type owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range pm:Equipment ;
+    rdfs:label "upstream of"@en ;
+    rdfs:comment "Transitive: if A upstream_of B and B upstream_of C, then A upstream_of C."@en .
+
+pm:has_inlet_stream
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range pm:MaterialStream ;
+    rdfs:label "has inlet stream"@en .
+
+pm:has_outlet_stream
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range pm:MaterialStream ;
+    rdfs:label "has outlet stream"@en .
+
+pm:feeds
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:MaterialStream ;
+    rdfs:range pm:Equipment ;
+    rdfs:label "feeds"@en .
+
+pm:produces
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range pm:MaterialStream ;
+    rdfs:label "produces"@en .
+
+pm:has_parameter
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range pm:Variable ;
+    rdfs:label "has parameter"@en ;
+    rdfs:comment "Renamed from has_state_variable (Session 7). Equipment-local scalar only."@en .
+
+pm:computes_kpi
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range pm:KPI ;
+    rdfs:label "computes kpi"@en ;
+    rdfs:comment "Direct Equipment→KPI link (added Session 7)."@en .
+
+pm:has_composition
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:MaterialStream ;
+    rdfs:range pm:CompositionVariable ;
+    rdfs:label "has composition"@en .
+
+pm:has_heat_duty
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range pm:ComputedScalar ;
+    rdfs:label "has heat duty"@en .
+
+pm:has_work_output
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range pm:ComputedScalar ;
+    rdfs:label "has work output"@en .
+
+pm:affects
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "affects"@en ;
+    rdfs:comment "Causal relationship for To layer reasoning. Domain/Range open."@en .
+
+pm:justified_by
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range pm:DesignRationale ;
+    rdfs:label "justified by"@en .
+
+pm:sets_condition
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:OperatingMode ;
+    rdfs:range pm:Variable ;
+    rdfs:label "sets condition"@en .
+
+pm:maps_to
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:OperatingMode ;
+    rdfs:range pm:LatentRegime ;
+    rdfs:label "maps to"@en .
+
+pm:has_fault
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range pm:Fault ;
+    rdfs:label "has fault"@en .
+
+pm:consumes
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "consumes"@en .
+
+# ============================================================
+# SECTION 3 — TBox: DATA PROPERTIES
+# ============================================================
+
+pm:stream_T
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:MaterialStream ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "stream temperature (°C)"@en .
+
+pm:stream_P
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:MaterialStream ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "stream pressure (MPa abs)"@en .
+
+pm:stream_m_dot
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:MaterialStream ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "stream mass flow (kg/hr)"@en .
+
+pm:stream_h
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:MaterialStream ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "stream specific enthalpy (kJ/kg)"@en .
+
+pm:stream_s
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:MaterialStream ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "stream specific entropy (kJ/kg/K)"@en .
+
+pm:stream_phase
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:MaterialStream ;
+    rdfs:range xsd:string ;
+    rdfs:label "stream phase"@en .
+
+pm:stream_fluid_type
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:MaterialStream ;
+    rdfs:range xsd:string ;
+    rdfs:label "fluid type"@en .
+
+pm:stream_alias
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:MaterialStream ;
+    rdfs:range xsd:string ;
+    rdfs:label "stream alias"@en ;
+    rdfs:comment "Alternative name (e.g. NETL stream ID)."@en .
+
+pm:is_tear_stream
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:MaterialStream ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "is tear stream"@en .
+
+pm:tear_priority
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:MaterialStream ;
+    rdfs:range xsd:string ;
+    rdfs:label "tear stream priority"@en .
+
+pm:var_value
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:Variable ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "variable value"@en .
+
+pm:var_unit
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:Variable ;
+    rdfs:range xsd:string ;
+    rdfs:label "variable unit"@en .
+
+pm:var_min
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:Variable ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "variable minimum"@en .
+
+pm:var_max
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:Variable ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "variable maximum"@en .
+
+pm:var_default
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:Variable ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "variable default"@en .
+
+pm:layer_tag
+    rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "MHMP layer tag"@en .
+
+pm:kpi_status
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:KPI ;
+    rdfs:range xsd:string ;
+    rdfs:label "KPI computation status"@en .
+
+pm:tag
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range xsd:string ;
+    rdfs:label "equipment tag"@en .
+
+pm:unit_id
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range xsd:string ;
+    rdfs:label "unit ID"@en .
+
+pm:module_id
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range xsd:string ;
+    rdfs:label "module ID"@en .
+
+pm:vendor_flag
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "vendor flag"@en .
+
+pm:calc_order
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:ProcessUnit ;
+    rdfs:range xsd:string ;
+    rdfs:label "calculation order in gas path"@en .
+
+pm:pattern
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:ProcessUnit ;
+    rdfs:range xsd:string ;
+    rdfs:label "unit calculation pattern"@en .
+
+pm:dr_selected
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:DesignRationale ;
+    rdfs:range xsd:string ;
+    rdfs:label "selected option"@en .
+
+pm:dr_rationale
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:DesignRationale ;
+    rdfs:range xsd:string ;
+    rdfs:label "rationale text"@en .
+
+pm:dr_session
+    rdf:type owl:DatatypeProperty ;
+    rdfs:domain pm:DesignRationale ;
+    rdfs:range xsd:string ;
+    rdfs:label "decision session"@en .
+
+# ============================================================
+# SECTION 4 — ABox: HRSG MODULE
+# ============================================================
+
+# --- Process Module ---
+
+pm:HRSG-M2-001
+    rdf:type pm:ProcessModule ;
+    rdfs:label "HRSG Module M2"@en ;
+    pm:tag        "HRSG-M2" ;
+    pm:module_id  "M2" ;
+    pm:vendor_flag false ;
+    pm:has_part   pm:HPSH-001 ;
+    pm:has_part   pm:RH-001 ;
+    pm:has_part   pm:HPEV-001 ;
+    pm:has_part   pm:IPSH-001 ;
+    pm:has_part   pm:HPEC-001 ;
+    pm:has_part   pm:IPEV-001 ;
+    pm:has_part   pm:IPEC-001 ;
+    pm:has_part   pm:LPEV-001 ;
+    pm:has_part   pm:LPEC-001 ;
+    pm:has_part   pm:IPMX-001 ;
+    pm:has_inlet_stream  pm:S7 ;
+    pm:has_inlet_stream  pm:IS-02 ;
+    pm:has_inlet_stream  pm:IS-06 ;
+    pm:has_outlet_stream pm:IS-01 ;
+    pm:has_outlet_stream pm:IS-03 ;
+    pm:has_outlet_stream pm:IS-05 ;
+    pm:has_outlet_stream pm:S16 .
+
+# ============================================================
+# SECTION 5 — ABox: PROCESS UNITS (Gas path order: 2-1→2-4→2-2→2-5→2-3→2-6→2-7→2-8→2-9)
+# ============================================================
+
+# --- Unit 2-1: HP Superheater ---
+pm:HPSH-001
+    rdf:type pm:ProcessUnit ;
+    rdfs:label "HP Superheater 2-1"@en ;
+    pm:tag         "HPSH-001" ;
+    pm:unit_id     "2-1" ;
+    pm:module_id   "M2" ;
+    pm:vendor_flag false ;
+    pm:calc_order  "1" ;
+    pm:pattern     "SH" ;
+    pm:part_of     pm:HRSG-M2-001 ;
+    pm:has_inlet_stream  pm:S7 ;
+    pm:has_inlet_stream  pm:S19 ;
+    pm:has_outlet_stream pm:S8 ;
+    pm:has_outlet_stream pm:IS-01 ;
+    pm:has_parameter pm:P_HP ;
+    pm:has_parameter pm:T_IS01 ;
+    pm:has_parameter pm:dP_fg_hpsh ;
+    pm:has_parameter pm:dP_st_hpsh ;
+    pm:has_heat_duty pm:Q_hpsh ;
+    pm:computes_kpi  pm:KPI-hpsh-duty ;
+    pm:computes_kpi  pm:KPI-TTD-hpsh-cold ;
+    pm:justified_by  pm:DR-M2-001 ;
+    pm:upstream_of   pm:RH-001 .
+
+# --- Unit 2-4: Reheater ---
+pm:RH-001
+    rdf:type pm:ProcessUnit ;
+    rdfs:label "Reheater 2-4"@en ;
+    pm:tag         "RH-001" ;
+    pm:unit_id     "2-4" ;
+    pm:module_id   "M2" ;
+    pm:vendor_flag false ;
+    pm:calc_order  "2" ;
+    pm:pattern     "SH-tear" ;
+    pm:part_of     pm:HRSG-M2-001 ;
+    pm:has_inlet_stream  pm:S8 ;
+    pm:has_inlet_stream  pm:IS-02 ;
+    pm:has_outlet_stream pm:S9 ;
+    pm:has_outlet_stream pm:S24 ;
+    pm:has_parameter pm:T_S24 ;
+    pm:has_parameter pm:dP_fg_rh ;
+    pm:has_parameter pm:dP_st_rh ;
+    pm:has_heat_duty pm:Q_rh ;
+    pm:computes_kpi  pm:KPI-rh-duty ;
+    pm:computes_kpi  pm:KPI-TTD-rh-cold ;
+    pm:upstream_of   pm:HPEV-001 .
+
+# --- Unit 2-2: HP Evaporator ---
+pm:HPEV-001
+    rdf:type pm:ProcessUnit ;
+    rdfs:label "HP Evaporator 2-2"@en ;
+    pm:tag         "HPEV-001" ;
+    pm:unit_id     "2-2" ;
+    pm:module_id   "M2" ;
+    pm:vendor_flag false ;
+    pm:calc_order  "3" ;
+    pm:pattern     "EVA-PTD" ;
+    pm:part_of     pm:HRSG-M2-001 ;
+    pm:has_inlet_stream  pm:S9 ;
+    pm:has_inlet_stream  pm:S18 ;
+    pm:has_outlet_stream pm:S10 ;
+    pm:has_outlet_stream pm:S19 ;
+    pm:has_parameter pm:P_HP ;
+    pm:has_parameter pm:PTD_HP ;
+    pm:has_parameter pm:dP_fg_hpev ;
+    pm:has_heat_duty pm:Q_hpev ;
+    pm:computes_kpi  pm:KPI-hpev-duty ;
+    pm:computes_kpi  pm:KPI-PTD-HP ;
+    pm:upstream_of   pm:IPSH-001 .
+
+# --- Unit 2-5: IP Superheater ---
+pm:IPSH-001
+    rdf:type pm:ProcessUnit ;
+    rdfs:label "IP Superheater 2-5"@en ;
+    pm:tag         "IPSH-001" ;
+    pm:unit_id     "2-5" ;
+    pm:module_id   "M2" ;
+    pm:vendor_flag false ;
+    pm:calc_order  "4" ;
+    pm:pattern     "SH" ;
+    pm:part_of     pm:HRSG-M2-001 ;
+    pm:has_inlet_stream  pm:S10 ;
+    pm:has_inlet_stream  pm:S22 ;
+    pm:has_outlet_stream pm:S11 ;
+    pm:has_outlet_stream pm:IS-04 ;
+    pm:has_parameter pm:P_IP ;
+    pm:has_parameter pm:T_IS04 ;
+    pm:has_parameter pm:dP_fg_ipsh ;
+    pm:has_heat_duty pm:Q_ipsh ;
+    pm:computes_kpi  pm:KPI-ipsh-duty ;
+    pm:computes_kpi  pm:KPI-TTD-ipsh-cold ;
+    pm:upstream_of   pm:HPEC-001 .
+
+# --- Unit 2-3: HP Economizer ---
+pm:HPEC-001
+    rdf:type pm:ProcessUnit ;
+    rdfs:label "HP Economizer 2-3"@en ;
+    pm:tag         "HPEC-001" ;
+    pm:unit_id     "2-3" ;
+    pm:module_id   "M2" ;
+    pm:vendor_flag false ;
+    pm:calc_order  "5" ;
+    pm:pattern     "ECO" ;
+    pm:part_of     pm:HRSG-M2-001 ;
+    pm:has_inlet_stream  pm:S11 ;
+    pm:has_inlet_stream  pm:S17 ;
+    pm:has_outlet_stream pm:S12 ;
+    pm:has_outlet_stream pm:S18 ;
+    pm:has_parameter pm:T_S17 ;
+    pm:has_parameter pm:P_HP ;
+    pm:has_parameter pm:dP_fg_hpec ;
+    pm:has_heat_duty pm:Q_hpec ;
+    pm:computes_kpi  pm:KPI-hpec-duty ;
+    pm:computes_kpi  pm:KPI-approach-hpec ;
+    pm:upstream_of   pm:IPEV-001 .
+
+# --- Unit 2-6: IP Evaporator ---
+pm:IPEV-001
+    rdf:type pm:ProcessUnit ;
+    rdfs:label "IP Evaporator 2-6"@en ;
+    pm:tag         "IPEV-001" ;
+    pm:unit_id     "2-6" ;
+    pm:module_id   "M2" ;
+    pm:vendor_flag false ;
+    pm:calc_order  "6" ;
+    pm:pattern     "EVA-PTD" ;
+    pm:part_of     pm:HRSG-M2-001 ;
+    pm:has_inlet_stream  pm:S12 ;
+    pm:has_inlet_stream  pm:S21 ;
+    pm:has_outlet_stream pm:S13 ;
+    pm:has_outlet_stream pm:S22 ;
+    pm:has_parameter pm:P_IP ;
+    pm:has_parameter pm:PTD_IP ;
+    pm:has_parameter pm:dP_fg_ipev ;
+    pm:has_heat_duty pm:Q_ipev ;
+    pm:computes_kpi  pm:KPI-ipev-duty ;
+    pm:computes_kpi  pm:KPI-PTD-IP ;
+    pm:upstream_of   pm:IPEC-001 .
+
+# --- Unit 2-7: IP Economizer ---
+pm:IPEC-001
+    rdf:type pm:ProcessUnit ;
+    rdfs:label "IP Economizer 2-7"@en ;
+    pm:tag         "IPEC-001" ;
+    pm:unit_id     "2-7" ;
+    pm:module_id   "M2" ;
+    pm:vendor_flag false ;
+    pm:calc_order  "7" ;
+    pm:pattern     "ECO" ;
+    pm:part_of     pm:HRSG-M2-001 ;
+    pm:has_inlet_stream  pm:S13 ;
+    pm:has_inlet_stream  pm:S20 ;
+    pm:has_outlet_stream pm:S14 ;
+    pm:has_outlet_stream pm:S21 ;
+    pm:has_parameter pm:T_S20 ;
+    pm:has_parameter pm:P_IP ;
+    pm:has_parameter pm:dP_fg_ipec ;
+    pm:has_heat_duty pm:Q_ipec ;
+    pm:computes_kpi  pm:KPI-ipec-duty ;
+    pm:upstream_of   pm:LPEV-001 .
+
+# --- Unit 2-8: LP Evaporator ---
+pm:LPEV-001
+    rdf:type pm:ProcessUnit ;
+    rdfs:label "LP Evaporator 2-8"@en ;
+    pm:tag         "LPEV-001" ;
+    pm:unit_id     "2-8" ;
+    pm:module_id   "M2" ;
+    pm:vendor_flag false ;
+    pm:calc_order  "8" ;
+    pm:pattern     "EVA-PTD" ;
+    pm:part_of     pm:HRSG-M2-001 ;
+    pm:has_inlet_stream  pm:S14 ;
+    pm:has_outlet_stream pm:S15 ;
+    pm:has_outlet_stream pm:IS-05 ;
+    pm:has_parameter pm:P_LP ;
+    pm:has_parameter pm:PTD_LP ;
+    pm:has_parameter pm:dP_fg_lpev ;
+    pm:has_heat_duty pm:Q_lpev ;
+    pm:computes_kpi  pm:KPI-lpev-duty ;
+    pm:computes_kpi  pm:KPI-PTD-LP ;
+    pm:justified_by  pm:DR-M2-002 ;
+    pm:upstream_of   pm:LPEC-001 .
+
+# --- Unit 2-9: LP Economizer (Stack) ---
+pm:LPEC-001
+    rdf:type pm:ProcessUnit ;
+    rdfs:label "LP Economizer 2-9"@en ;
+    pm:tag         "LPEC-001" ;
+    pm:unit_id     "2-9" ;
+    pm:module_id   "M2" ;
+    pm:vendor_flag false ;
+    pm:calc_order  "9" ;
+    pm:pattern     "STACK-ECO" ;
+    pm:part_of     pm:HRSG-M2-001 ;
+    pm:has_inlet_stream  pm:S15 ;
+    pm:has_inlet_stream  pm:IS-06 ;
+    pm:has_outlet_stream pm:S16 ;
+    pm:has_outlet_stream pm:S23 ;
+    pm:has_parameter pm:T_stack ;
+    pm:has_parameter pm:dP_fg_lpec ;
+    pm:has_heat_duty pm:Q_lpec ;
+    pm:computes_kpi  pm:KPI-lpec-duty ;
+    pm:computes_kpi  pm:KPI-stack-T .
+
+# --- Node 2-4M: IP Mixing Node ---
+pm:IPMX-001
+    rdf:type pm:ProcessUnit ;
+    rdfs:label "IP Mixing Node 2-4M"@en ;
+    rdfs:comment "Adiabatic mixing of S24 (reheated cold reheat) + IS-04 (IP steam) → IS-03 (hot reheat). Calculated after Unit 2-5."@en ;
+    pm:tag         "IPMX-001" ;
+    pm:unit_id     "2-4M" ;
+    pm:module_id   "M2" ;
+    pm:vendor_flag false ;
+    pm:calc_order  "4M" ;
+    pm:pattern     "MIXING" ;
+    pm:part_of     pm:HRSG-M2-001 ;
+    pm:has_inlet_stream  pm:S24 ;
+    pm:has_inlet_stream  pm:IS-04 ;
+    pm:has_outlet_stream pm:IS-03 ;
+    pm:justified_by pm:DR-M2-003 .
+
+# ============================================================
+# SECTION 6 — ABox: MATERIAL STREAMS
+# ============================================================
+
+# --- Flue Gas Path ---
+
+pm:S7
+    rdf:type pm:MaterialStream ;
+    rdfs:label "S7: GT Exhaust Gas"@en ;
+    pm:stream_alias   "NETL-S3" ;
+    pm:stream_fluid_type "flue_gas" ;
+    pm:stream_phase   "vapor" ;
+    pm:stream_T       629.0 ;
+    pm:stream_P       0.1048 ;
+    pm:stream_m_dot   3230636.0 ;
+    pm:stream_h       835.81 ;
+    pm:feeds          pm:HPSH-001 .
+
+pm:S8
+    rdf:type pm:MaterialStream ;
+    rdfs:label "S8: FG after HP SH"@en ;
+    pm:stream_fluid_type "flue_gas" ;
+    pm:stream_phase   "vapor" ;
+    pm:feeds          pm:RH-001 .
+
+pm:S9
+    rdf:type pm:MaterialStream ;
+    rdfs:label "S9: FG after Reheater"@en ;
+    pm:stream_fluid_type "flue_gas" ;
+    pm:stream_phase   "vapor" ;
+    pm:feeds          pm:HPEV-001 .
+
+pm:S10
+    rdf:type pm:MaterialStream ;
+    rdfs:label "S10: FG after HP Evaporator"@en ;
+    pm:stream_fluid_type "flue_gas" ;
+    pm:stream_phase   "vapor" ;
+    pm:feeds          pm:IPSH-001 .
+
+pm:S11
+    rdf:type pm:MaterialStream ;
+    rdfs:label "S11: FG after IP SH"@en ;
+    pm:stream_fluid_type "flue_gas" ;
+    pm:stream_phase   "vapor" ;
+    pm:feeds          pm:HPEC-001 .
+
+pm:S12
+    rdf:type pm:MaterialStream ;
+    rdfs:label "S12: FG after HP Economizer"@en ;
+    pm:stream_fluid_type "flue_gas" ;
+    pm:stream_phase   "vapor" ;
+    pm:feeds          pm:IPEV-001 .
+
+pm:S13
+    rdf:type pm:MaterialStream ;
+    rdfs:label "S13: FG after IP Evaporator"@en ;
+    pm:stream_fluid_type "flue_gas" ;
+    pm:stream_phase   "vapor" ;
+    pm:feeds          pm:IPEC-001 .
+
+pm:S14
+    rdf:type pm:MaterialStream ;
+    rdfs:label "S14: FG after IP Economizer"@en ;
+    pm:stream_fluid_type "flue_gas" ;
+    pm:stream_phase   "vapor" ;
+    pm:feeds          pm:LPEV-001 .
+
+pm:S15
+    rdf:type pm:MaterialStream ;
+    rdfs:label "S15: FG after LP Evaporator"@en ;
+    pm:stream_fluid_type "flue_gas" ;
+    pm:stream_phase   "vapor" ;
+    pm:feeds          pm:LPEC-001 .
+
+pm:S16
+    rdf:type pm:MaterialStream ;
+    rdfs:label "S16: Stack Gas"@en ;
+    pm:stream_alias   "NETL-S4" ;
+    pm:stream_fluid_type "flue_gas" ;
+    pm:stream_phase   "vapor" ;
+    pm:stream_T       106.0 ;
+    pm:stream_m_dot   3230636.0 .
+
+# --- HP Steam / Water Circuit ---
+
+pm:S17
+    rdf:type pm:MaterialStream ;
+    rdfs:label "S17: HP Feedwater (HP BFP outlet)"@en ;
+    pm:stream_fluid_type "water" ;
+    pm:stream_phase   "liquid" ;
+    pm:stream_T       151.8 ;
+    pm:stream_P       17.51 ;
+    pm:feeds          pm:HPEC-001 .
+
+pm:S18
+    rdf:type pm:MaterialStream ;
+    rdfs:label "S18: Subcooled HP Water (HP Eco outlet / HP Evap inlet)"@en ;
+    rdfs:comment "State determined by HP Evaporator (back-calculated). Used as HP Eco steam-side outlet target."@en ;
+    pm:stream_fluid_type "water" ;
+    pm:stream_phase   "liquid" ;
+    pm:feeds          pm:HPEV-001 .
+
+pm:S19
+    rdf:type pm:MaterialStream ;
+    rdfs:label "S19: HP Saturated Vapor (HP Evap outlet)"@en ;
+    pm:stream_fluid_type "steam" ;
+    pm:stream_phase   "saturated_vapor" ;
+    pm:feeds          pm:HPSH-001 .
+
+pm:IS-01
+    rdf:type pm:MaterialStream ;
+    rdfs:label "IS-01: HP Main Steam"@en ;
+    pm:stream_alias   "NETL-S5" ;
+    pm:stream_fluid_type "steam" ;
+    pm:stream_phase   "superheated" ;
+    pm:stream_T       565.6 ;
+    pm:stream_P       16.65 ;
+    pm:stream_m_dot   392884.0 ;
+    pm:stream_h       3472.36 .
+
+# --- Reheat Circuit ---
+
+pm:IS-02
+    rdf:type pm:MaterialStream ;
+    rdfs:label "IS-02: Cold Reheat (Secondary Tear Stream)"@en ;
+    pm:stream_fluid_type "steam" ;
+    pm:stream_phase   "superheated" ;
+    pm:stream_T       308.8 ;
+    pm:stream_P       2.689 ;
+    pm:stream_m_dot   376455.0 ;
+    pm:stream_h       3022.0 ;
+    pm:is_tear_stream true ;
+    pm:tear_priority  "secondary" ;
+    pm:feeds          pm:RH-001 .
+
+pm:S24
+    rdf:type pm:MaterialStream ;
+    rdfs:label "S24: Reheated Cold Reheat (RH outlet, before IP mixing)"@en ;
+    rdfs:comment "Intermediate stream. Exits Reheater and enters IP Mixing Node (IPMX-001). Added Session 8."@en ;
+    pm:stream_fluid_type "steam" ;
+    pm:stream_phase   "superheated" ;
+    pm:stream_T       565.6 ;
+    pm:stream_P       2.379 ;
+    pm:stream_m_dot   376455.0 ;
+    pm:feeds          pm:IPMX-001 .
+
+pm:IS-04
+    rdf:type pm:MaterialStream ;
+    rdfs:label "IS-04: IP Steam (internal — feeds IP Mixing Node)"@en ;
+    rdfs:comment "HRSG internal stream. Reclassified Session 8: was module boundary, now feeds Node 2-4M to form IS-03."@en ;
+    pm:stream_fluid_type "steam" ;
+    pm:stream_phase   "superheated" ;
+    pm:stream_T       568.3 ;
+    pm:stream_P       2.482 ;
+    pm:stream_m_dot   77895.0 ;
+    pm:feeds          pm:IPMX-001 .
+
+pm:IS-03
+    rdf:type pm:MaterialStream ;
+    rdfs:label "IS-03: Hot Reheat Steam (module boundary)"@en ;
+    pm:stream_fluid_type "steam" ;
+    pm:stream_phase   "superheated" ;
+    pm:stream_T       565.6 ;
+    pm:stream_P       2.379 ;
+    pm:stream_m_dot   454268.0 .
+
+# --- IP Steam / Water Circuit ---
+
+pm:S20
+    rdf:type pm:MaterialStream ;
+    rdfs:label "S20: IP Feedwater (IP BFP outlet)"@en ;
+    pm:stream_fluid_type "water" ;
+    pm:stream_phase   "liquid" ;
+    pm:stream_T       150.0 ;
+    pm:stream_P       2.758 ;
+    pm:feeds          pm:IPEC-001 .
+
+pm:S21
+    rdf:type pm:MaterialStream ;
+    rdfs:label "S21: Subcooled IP Water (IP Eco outlet / IP Evap inlet)"@en ;
+    rdfs:comment "State determined by IP Evaporator (back-calculated). IP Eco steam-side outlet target."@en ;
+    pm:stream_fluid_type "water" ;
+    pm:stream_phase   "liquid" ;
+    pm:feeds          pm:IPEV-001 .
+
+pm:S22
+    rdf:type pm:MaterialStream ;
+    rdfs:label "S22: IP Saturated Vapor (IP Evap outlet)"@en ;
+    pm:stream_fluid_type "steam" ;
+    pm:stream_phase   "saturated_vapor" ;
+    pm:feeds          pm:IPSH-001 .
+
+# --- LP Steam / Water Circuit ---
+
+pm:IS-06
+    rdf:type pm:MaterialStream ;
+    rdfs:label "IS-06: Condensate (Primary Tear Stream)"@en ;
+    pm:stream_alias   "NETL-S6" ;
+    pm:stream_fluid_type "water" ;
+    pm:stream_phase   "liquid" ;
+    pm:stream_T       38.4 ;
+    pm:stream_P       0.00690 ;
+    pm:stream_m_dot   514240.0 ;
+    pm:stream_h       160.61 ;
+    pm:is_tear_stream true ;
+    pm:tear_priority  "primary" ;
+    pm:feeds          pm:LPEC-001 .
+
+pm:S23
+    rdf:type pm:MaterialStream ;
+    rdfs:label "S23: Preheated Condensate (LP Eco outlet → BFP distribution)"@en ;
+    rdfs:comment "Total condensate (514,240 kg/hr) preheated by LP Eco. Goes to Deaerator/BFP, NOT LP Evap. Reclassified Session 8."@en ;
+    pm:stream_fluid_type "water" ;
+    pm:stream_phase   "liquid" ;
+    pm:stream_T       149.0 ;
+    pm:stream_m_dot   514240.0 .
+
+pm:IS-05
+    rdf:type pm:MaterialStream ;
+    rdfs:label "IS-05: LP Steam (module boundary)"@en ;
+    rdfs:comment "LP saturated vapor from LP drum. Joins IP turbine exhaust at cross-over pipe (~0.507 MPa). Issue #8 CLOSED Session 8."@en ;
+    pm:stream_fluid_type "steam" ;
+    pm:stream_phase   "saturated_vapor" ;
+    pm:stream_P       0.655 ;
+    pm:stream_m_dot   7708.0 .
+
+# ============================================================
+# SECTION 7 — ABox: VARIABLES (Design Parameters & KPIs)
+# ============================================================
+
+# --- Shared Pressure Parameters ---
+
+pm:P_HP
+    rdf:type pm:ModelParameter ;
+    rdfs:label "P_HP: HP steam pressure"@en ;
+    pm:var_value   16.65 ;
+    pm:var_unit    "MPa" ;
+    pm:var_default 16.65 ;
+    pm:layer_tag   "Td" .
+
+pm:P_IP
+    rdf:type pm:ModelParameter ;
+    rdfs:label "P_IP: IP steam pressure"@en ;
+    pm:var_value   2.482 ;
+    pm:var_unit    "MPa" ;
+    pm:var_default 2.482 ;
+    pm:layer_tag   "Td" .
+
+pm:P_LP
+    rdf:type pm:ModelParameter ;
+    rdfs:label "P_LP: LP steam pressure"@en ;
+    rdfs:comment "Confirmed Session 8: 0.655 MPa (95 psia) from NETL LP feedwater stream. Issue #8 CLOSED."@en ;
+    pm:var_value   0.655 ;
+    pm:var_unit    "MPa" ;
+    pm:var_default 0.655 ;
+    pm:layer_tag   "Td" .
+
+# --- Unit 2-1 HP SH Parameters ---
+
+pm:T_IS01
+    rdf:type pm:ModelParameter ;
+    rdfs:label "T_IS01: HP main steam temperature"@en ;
+    pm:var_value   565.6 ;
+    pm:var_unit    "°C" ;
+    pm:var_default 565.6 ;
+    pm:layer_tag   "Td" .
+
+pm:dP_fg_hpsh
+    rdf:type pm:ModelParameter ;
+    rdfs:label "dP_fg_hpsh: HP SH FG pressure drop"@en ;
+    pm:var_value   0.0 ;
+    pm:var_unit    "MPa" ;
+    pm:var_default 0.0 ;
+    pm:layer_tag   "Td" .
+
+pm:dP_st_hpsh
+    rdf:type pm:ModelParameter ;
+    rdfs:label "dP_st_hpsh: HP SH steam pressure drop"@en ;
+    pm:var_value   0.0 ;
+    pm:var_unit    "MPa" ;
+    pm:var_default 0.0 ;
+    pm:layer_tag   "Td" .
+
+# --- Unit 2-4 Reheater Parameters ---
+
+pm:T_S24
+    rdf:type pm:ModelParameter ;
+    rdfs:label "T_S24: Reheater steam outlet temperature"@en ;
+    rdfs:comment "Approx equal to T_IS03 (565.6°C) since IP mixing thermal effect is minimal."@en ;
+    pm:var_value   565.6 ;
+    pm:var_unit    "°C" ;
+    pm:var_default 565.6 ;
+    pm:layer_tag   "Td" .
+
+pm:dP_fg_rh
+    rdf:type pm:ModelParameter ;
+    rdfs:label "dP_fg_rh: Reheater FG pressure drop"@en ;
+    pm:var_value   0.0 ;
+    pm:var_unit    "MPa" ;
+    pm:var_default 0.0 ;
+    pm:layer_tag   "Td" .
+
+pm:dP_st_rh
+    rdf:type pm:ModelParameter ;
+    rdfs:label "dP_st_rh: Reheater steam pressure drop"@en ;
+    pm:var_value   0.310 ;
+    pm:var_unit    "MPa" ;
+    pm:var_default 0.310 ;
+    pm:layer_tag   "Td" .
+
+# --- Unit 2-2 HP Evaporator Parameters ---
+
+pm:PTD_HP
+    rdf:type pm:ModelParameter ;
+    rdfs:label "PTD_HP: HP Evaporator Pinch Temperature Difference"@en ;
+    pm:var_value   10.0 ;
+    pm:var_unit    "°C" ;
+    pm:var_min     3.0 ;
+    pm:var_max     25.0 ;
+    pm:var_default 10.0 ;
+    pm:layer_tag   "Td" .
+
+pm:dP_fg_hpev
+    rdf:type pm:ModelParameter ;
+    rdfs:label "dP_fg_hpev: HP Evap FG pressure drop"@en ;
+    pm:var_value   0.0 ;
+    pm:var_unit    "MPa" ;
+    pm:var_default 0.0 ;
+    pm:layer_tag   "Td" .
+
+# --- Unit 2-5 IP SH Parameters ---
+
+pm:T_IS04
+    rdf:type pm:ModelParameter ;
+    rdfs:label "T_IS04: IP steam outlet temperature"@en ;
+    pm:var_value   568.3 ;
+    pm:var_unit    "°C" ;
+    pm:var_default 568.3 ;
+    pm:layer_tag   "Td" .
+
+pm:dP_fg_ipsh
+    rdf:type pm:ModelParameter ;
+    rdfs:label "dP_fg_ipsh: IP SH FG pressure drop"@en ;
+    pm:var_value   0.0 ;
+    pm:var_unit    "MPa" ;
+    pm:var_default 0.0 ;
+    pm:layer_tag   "Td" .
+
+# --- Unit 2-3 HP Eco Parameters ---
+
+pm:T_S17
+    rdf:type pm:ModelParameter ;
+    rdfs:label "T_S17: HP feedwater inlet temperature"@en ;
+    rdfs:comment "HP BFP outlet temperature. Phase 1 parameter; replaced by BFP model result later."@en ;
+    pm:var_value   150.0 ;
+    pm:var_unit    "°C" ;
+    pm:var_default 150.0 ;
+    pm:layer_tag   "Td" .
+
+pm:dP_fg_hpec
+    rdf:type pm:ModelParameter ;
+    rdfs:label "dP_fg_hpec: HP Eco FG pressure drop"@en ;
+    pm:var_value   0.0 ;
+    pm:var_unit    "MPa" ;
+    pm:var_default 0.0 ;
+    pm:layer_tag   "Td" .
+
+# --- Unit 2-6 IP Evaporator Parameters ---
+
+pm:PTD_IP
+    rdf:type pm:ModelParameter ;
+    rdfs:label "PTD_IP: IP Evaporator Pinch Temperature Difference"@en ;
+    pm:var_value   10.0 ;
+    pm:var_unit    "°C" ;
+    pm:var_min     3.0 ;
+    pm:var_max     25.0 ;
+    pm:var_default 10.0 ;
+    pm:layer_tag   "Td" .
+
+pm:dP_fg_ipev
+    rdf:type pm:ModelParameter ;
+    rdfs:label "dP_fg_ipev: IP Evap FG pressure drop"@en ;
+    pm:var_value   0.0 ;
+    pm:var_unit    "MPa" ;
+    pm:var_default 0.0 ;
+    pm:layer_tag   "Td" .
+
+# --- Unit 2-7 IP Eco Parameters ---
+
+pm:T_S20
+    rdf:type pm:ModelParameter ;
+    rdfs:label "T_S20: IP feedwater inlet temperature"@en ;
+    rdfs:comment "IP BFP interstage outlet. Phase 1 parameter; same deaerator source as T_S17."@en ;
+    pm:var_value   150.0 ;
+    pm:var_unit    "°C" ;
+    pm:var_default 150.0 ;
+    pm:layer_tag   "Td" .
+
+pm:dP_fg_ipec
+    rdf:type pm:ModelParameter ;
+    rdfs:label "dP_fg_ipec: IP Eco FG pressure drop"@en ;
+    pm:var_value   0.0 ;
+    pm:var_unit    "MPa" ;
+    pm:var_default 0.0 ;
+    pm:layer_tag   "Td" .
+
+# --- Unit 2-8 LP Evaporator Parameters ---
+
+pm:PTD_LP
+    rdf:type pm:ModelParameter ;
+    rdfs:label "PTD_LP: LP Evaporator Pinch Temperature Difference"@en ;
+    pm:var_value   10.0 ;
+    pm:var_unit    "°C" ;
+    pm:var_min     3.0 ;
+    pm:var_max     25.0 ;
+    pm:var_default 10.0 ;
+    pm:layer_tag   "Td" .
+
+pm:dP_fg_lpev
+    rdf:type pm:ModelParameter ;
+    rdfs:label "dP_fg_lpev: LP Evap FG pressure drop"@en ;
+    pm:var_value   0.0 ;
+    pm:var_unit    "MPa" ;
+    pm:var_default 0.0 ;
+    pm:layer_tag   "Td" .
+
+# --- Unit 2-9 LP Eco Parameters ---
+
+pm:T_stack
+    rdf:type pm:ModelParameter ;
+    rdfs:label "T_stack: Stack gas temperature design target"@en ;
+    pm:var_value   106.0 ;
+    pm:var_unit    "°C" ;
+    pm:var_min     90.0 ;
+    pm:var_max     150.0 ;
+    pm:var_default 106.0 ;
+    pm:layer_tag   "Td" .
+
+pm:dP_fg_lpec
+    rdf:type pm:ModelParameter ;
+    rdfs:label "dP_fg_lpec: LP Eco FG pressure drop"@en ;
+    pm:var_value   0.0 ;
+    pm:var_unit    "MPa" ;
+    pm:var_default 0.0 ;
+    pm:layer_tag   "Td" .
+
+# --- KPIs ---
+
+pm:Q_hpsh
+    rdf:type pm:ComputedScalar ;
+    rdfs:label "Q_hpsh: HP Superheater heat duty"@en ;
+    pm:var_unit  "kJ/hr" ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:Q_rh
+    rdf:type pm:ComputedScalar ;
+    rdfs:label "Q_rh: Reheater heat duty"@en ;
+    pm:var_unit  "kJ/hr" ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:Q_hpev
+    rdf:type pm:ComputedScalar ;
+    rdfs:label "Q_hpev: HP Evaporator heat duty"@en ;
+    pm:var_unit  "kJ/hr" ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:Q_ipsh
+    rdf:type pm:ComputedScalar ;
+    rdfs:label "Q_ipsh: IP Superheater heat duty"@en ;
+    pm:var_unit  "kJ/hr" ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:Q_hpec
+    rdf:type pm:ComputedScalar ;
+    rdfs:label "Q_hpec: HP Economizer heat duty"@en ;
+    pm:var_unit  "kJ/hr" ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:Q_ipev
+    rdf:type pm:ComputedScalar ;
+    rdfs:label "Q_ipev: IP Evaporator heat duty"@en ;
+    pm:var_unit  "kJ/hr" ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:Q_ipec
+    rdf:type pm:ComputedScalar ;
+    rdfs:label "Q_ipec: IP Economizer heat duty"@en ;
+    pm:var_unit  "kJ/hr" ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:Q_lpev
+    rdf:type pm:ComputedScalar ;
+    rdfs:label "Q_lpev: LP Evaporator heat duty"@en ;
+    pm:var_unit  "kJ/hr" ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:Q_lpec
+    rdf:type pm:ComputedScalar ;
+    rdfs:label "Q_lpec: LP Economizer heat duty"@en ;
+    pm:var_unit  "kJ/hr" ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:KPI-hpsh-duty
+    rdf:type pm:KPI ;
+    rdfs:label "KPI: HP SH total duty"@en ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:KPI-TTD-hpsh-cold
+    rdf:type pm:KPI ;
+    rdfs:label "KPI: HP SH cold-end TTD (pinch)"@en ;
+    pm:var_unit  "°C" ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:KPI-rh-duty
+    rdf:type pm:KPI ;
+    rdfs:label "KPI: Reheater total duty"@en ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:KPI-TTD-rh-cold
+    rdf:type pm:KPI ;
+    rdfs:label "KPI: Reheater cold-end TTD (pinch)"@en ;
+    pm:var_unit  "°C" ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:KPI-hpev-duty
+    rdf:type pm:KPI ;
+    rdfs:label "KPI: HP Evap total duty"@en ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:KPI-PTD-HP
+    rdf:type pm:KPI ;
+    rdfs:label "KPI: HP Evap Pinch Temperature Difference"@en ;
+    pm:var_unit  "°C" ;
+    pm:var_value 10.0 ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:KPI-ipsh-duty
+    rdf:type pm:KPI ;
+    rdfs:label "KPI: IP SH total duty"@en ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:KPI-TTD-ipsh-cold
+    rdf:type pm:KPI ;
+    rdfs:label "KPI: IP SH cold-end TTD"@en ;
+    pm:var_unit  "°C" ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:KPI-hpec-duty
+    rdf:type pm:KPI ;
+    rdfs:label "KPI: HP Eco total duty"@en ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:KPI-approach-hpec
+    rdf:type pm:KPI ;
+    rdfs:label "KPI: HP Eco cold-end approach (no temperature cross check)"@en ;
+    pm:var_unit  "°C" ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:KPI-ipev-duty
+    rdf:type pm:KPI ;
+    rdfs:label "KPI: IP Evap total duty"@en ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:KPI-PTD-IP
+    rdf:type pm:KPI ;
+    rdfs:label "KPI: IP Evap Pinch Temperature Difference"@en ;
+    pm:var_unit  "°C" ;
+    pm:var_value 10.0 ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:KPI-ipec-duty
+    rdf:type pm:KPI ;
+    rdfs:label "KPI: IP Eco total duty"@en ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:KPI-lpev-duty
+    rdf:type pm:KPI ;
+    rdfs:label "KPI: LP Evap total duty"@en ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:KPI-PTD-LP
+    rdf:type pm:KPI ;
+    rdfs:label "KPI: LP Evap Pinch Temperature Difference"@en ;
+    pm:var_unit  "°C" ;
+    pm:var_value 10.0 ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:KPI-lpec-duty
+    rdf:type pm:KPI ;
+    rdfs:label "KPI: LP Eco total duty"@en ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+pm:KPI-stack-T
+    rdf:type pm:KPI ;
+    rdfs:label "KPI: Stack temperature"@en ;
+    pm:var_unit  "°C" ;
+    pm:var_value 106.0 ;
+    pm:layer_tag "Td" ;
+    pm:kpi_status "not_computed" .
+
+# ============================================================
+# SECTION 8 — ABox: DESIGN RATIONALES
+# ============================================================
+
+pm:DR-M2-001
+    rdf:type pm:DesignRationale ;
+    rdfs:label "DR-M2-001: HP SH — T_IS01 specification method"@en ;
+    pm:dr_selected  "Design specification: T_IS01 = 565.6°C, P_HP = 16.65 MPa. Steam outlet state fully determined." ;
+    pm:dr_rationale "NETL Case 13 design point. Both T and P specified at module boundary (IS-01). DOF=0 without iteration." ;
+    pm:dr_session   "Session 7, 2026-04-03" .
+
+pm:DR-M2-002
+    rdf:type pm:DesignRationale ;
+    rdfs:label "DR-M2-002: LP pressure determination (Issue #8)"@en ;
+    pm:dr_selected  "P_LP = 0.655 MPa (95 psia). T_sat = ~162°C. IS-05 = saturated vapor, no LP SH in Phase 1." ;
+    pm:dr_rationale "NETL Exhibit 5-11 LP feedwater stream at 95 psia. Cross-over pipe at ~73.5 psia (page 6/7). IS-05 mass confirmed by mass balance: LP turbine inlet (1,018,502 lb/hr) = IP exhaust (1,001,509) + IS-05 (16,993). Issue #8 CLOSED." ;
+    pm:dr_session   "Session 8, 2026-04-03" .
+
+pm:DR-M2-003
+    rdf:type pm:DesignRationale ;
+    rdfs:label "DR-M2-003: IS-04 reclassification + Node 2-4M addition"@en ;
+    pm:dr_selected  "IS-04 reclassified from module boundary to HRSG internal stream. Node 2-4M (IP Mixing) added. IS-03 = S24 + IS-04 (adiabatic mixing)." ;
+    pm:dr_rationale "NETL: m_dot(IS-03) = m_dot(IS-02) + m_dot(IS-04) exactly (in lb/hr). IP steam joins reheated cold reheat inside HRSG. Confirmed by NETL page 4: IP steam mixed with hot reheat, combined admitted to IP turbine." ;
+    pm:dr_session   "Session 8, 2026-04-03" .
+
+pm:DR-M2-004
+    rdf:type pm:DesignRationale ;
+    rdfs:label "DR-M2-004: LP Eco stream map correction"@en ;
+    pm:dr_selected  "LP Eco heats total condensate IS-06 (514,240 kg/hr) → S23 → BFP distribution. LP Evap uses separate LP feedwater (Phase 1 parameter)." ;
+    pm:dr_rationale "NETL BFP design: single HP BFP with interstage bleeds for IP and LP (page 24). LP BFP: 379 lpm at 95 psia. Original stream map (IS-06 → LP Eco → LP Evap directly) was physically incorrect. LP Evap handles only LP drum feedwater (~7,708 kg/hr steam equivalent)." ;
+    pm:dr_session   "Session 8, 2026-04-03" .
+
+pm:DR-M2-005
+    rdf:type pm:DesignRationale ;
+    rdfs:label "DR-M2-005: Sequential Modular convergence strategy"@en ;
+    pm:dr_selected  "SM with Wegstein acceleration. Primary tear: IS-06. Secondary tear: IS-02." ;
+    pm:dr_rationale "Phase 1 target is NETL ±5% validation. SM is sufficient; EO is over-engineering. Modular debugging essential. HRSG internal calculation order: gas flow direction (Unit 2-1 → 2-9)." ;
+    pm:dr_session   "Session 5, 2026-04-01" .
+
+# ============================================================
+# SECTION 9 — ABox: OPERATING MODE (reference to GT Module)
+# ============================================================
+
+pm:OM-NETL-Case13
+    rdf:type pm:OperatingMode ;
+    rdfs:label "NETL Case 13 — NGCC 555 MW, 50.2% HHV"@en ;
+    pm:sets_condition pm:P_HP ;
+    pm:sets_condition pm:P_IP ;
+    pm:sets_condition pm:P_LP ;
+    pm:sets_condition pm:T_IS01 ;
+    pm:sets_condition pm:T_IS04 ;
+    pm:sets_condition pm:T_stack .
+
+# ============================================================
+# SECTION 10 — ABox: KEY affects CHAINS (To layer)
+# ============================================================
+
+# Gas temperature propagation (core HRSG reasoning)
+pm:S7    pm:affects pm:S8 .
+pm:S8    pm:affects pm:S9 .
+pm:S9    pm:affects pm:S10 .
+pm:S10   pm:affects pm:S11 .
+pm:S11   pm:affects pm:S12 .
+pm:S12   pm:affects pm:S13 .
+pm:S13   pm:affects pm:S14 .
+pm:S14   pm:affects pm:S15 .
+pm:S15   pm:affects pm:S16 .
+
+# Steam pressure/temperature propagation
+pm:P_HP  pm:affects pm:IS-01 .
+pm:P_HP  pm:affects pm:S19 .
+pm:P_HP  pm:affects pm:S18 .
+pm:P_IP  pm:affects pm:IS-04 .
+pm:P_IP  pm:affects pm:S22 .
+pm:P_LP  pm:affects pm:IS-05 .
+
+# PTD affects gas outlet and duty
+pm:PTD_HP pm:affects pm:Q_hpev .
+pm:PTD_IP pm:affects pm:Q_ipev .
+pm:PTD_LP pm:affects pm:Q_lpev .
+pm:PTD_HP pm:affects pm:S10 .
+pm:PTD_IP pm:affects pm:S13 .
+pm:PTD_LP pm:affects pm:S15 .
+
+# Stack temperature affects condensate outlet temp
+pm:T_stack pm:affects pm:S23 .
+
+# IS-06 (tear stream) affects entire HRSG energy balance
+pm:IS-06 pm:affects pm:S23 .
+pm:IS-06 pm:affects pm:Q_lpec .
+
+# IS-02 (secondary tear stream) affects Reheater balance
+pm:IS-02 pm:affects pm:S24 .
+pm:IS-02 pm:affects pm:Q_rh .
+pm:IS-02 pm:affects pm:IS-03 .
+
+# Node 2-4M: IS-04 affects IS-03
+pm:IS-04 pm:affects pm:IS-03 .
+pm:S24   pm:affects pm:IS-03 .
+
+# ============================================================
+# END OF FILE
+# PlantMind_GTCC_HRSG_Module_v1_0.ttl
+# Estimated triples: ~850+
+# ============================================================

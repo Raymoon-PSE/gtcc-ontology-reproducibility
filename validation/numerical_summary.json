@@ -1,0 +1,11 @@
+{
+  "quick": false,
+  "records": 583,
+  "mismatch_count": 0,
+  "maximum_scaled_numeric_difference": 4.417547461889557e-11,
+  "tolerance": {
+    "rtol": 1e-06,
+    "atol": 1e-05
+  },
+  "errors": []
+}

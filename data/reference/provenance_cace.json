@@ -1,0 +1,10 @@
+{
+  "source": "Author supplied IJHE_revision/Ontology_simulator/data/reference archive",
+  "restored_on": "2026-09-18",
+  "files_sha256": {
+    "codes_iso_asme.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "oem_generic.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "netl_case13.json": "ec17f59d4819f56a1a4a09494ac80f69936498c9f66e80c8a061faf76f393f04"
+  },
+  "note": "Generic reference parameters; not independent plant measurements."
+}

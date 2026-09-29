@@ -1,0 +1,18 @@
+{
+  "scope": "Synthetic engineering consistency, not physical fault diagnosis or independent field validation",
+  "arms": [
+    "existing RDF runtime without engineering guard",
+    "RDF with guard",
+    "centralized non-RDF with same guard"
+  ],
+  "fairness": "Same authoritative contract and common validation engine. RDF class closure is projected to equivalent plain records; equality tests adapter fidelity, not independent algorithm replication. Non-RDF is a strong centralized control.",
+  "split": "Nine previously missed development cases. Additional predeclared perturbations and valid edits are supplemental synthetic cases, not blinded independently sourced holdout.",
+  "timing": "30 repetitions per case, alternating order; in-memory validation only. RDF includes graph projection/class closure; JSON starts with equivalent resolved records. Parsing, physical solve and human editing time excluded.",
+  "contract_sha256": "36bbc46e4546d231b73127128da760d24d9ab1e4a7fdb0425cbb609ac0c6c485",
+  "metrics": [
+    "case detection",
+    "valid-case false rejection",
+    "guard execution milliseconds",
+    "logical contract fields and executable source edits for one declared extension"
+  ]
+}

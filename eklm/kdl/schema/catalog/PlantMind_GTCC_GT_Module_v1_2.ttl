@@ -1,0 +1,1104 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix pm:   <http://plantmind.io/ontology/gtcc#> .
+
+# ============================================================
+# PlantMind GTCC Ontology — GT Module (M1)
+# Version : 1.2
+# Date    : 2026-04-03
+# Session : 6
+# Source  : GTCC_Ontology_Core_Schema_v1.0 + Session 6 updates
+# Symbol  : PlantMind_Symbol_Convention_v1.1
+# ============================================================
+
+<http://plantmind.io/ontology/gtcc>
+    rdf:type owl:Ontology ;
+    rdfs:label "PlantMind GTCC Ontology — GT Module"@en ;
+    rdfs:comment "Ontology for the Gas Turbine module of the NETL Case 13 GTCC simulator. Implements the MHMP To layer (semantic spine)."@en ;
+    owl:versionInfo "1.2" .
+
+
+# ============================================================
+# SECTION 1: CLASS HIERARCHY (TBox)
+# ============================================================
+
+# ── Top-level ──────────────────────────────────────────────
+
+pm:PlantEntity
+    rdf:type owl:Class ;
+    rdfs:label "Plant Entity"@en ;
+    rdfs:comment "Root class for all physical and conceptual entities in the plant."@en .
+
+pm:KnowledgeEntity
+    rdf:type owl:Class ;
+    rdfs:label "Knowledge Entity"@en ;
+    rdfs:comment "Root class for design knowledge and operating mode representations."@en .
+
+# ── Equipment hierarchy ────────────────────────────────────
+
+pm:Equipment
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:PlantEntity ;
+    rdfs:label "Equipment"@en ;
+    rdfs:comment "A physical unit or module in the plant."@en .
+
+pm:ProcessModule
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:Equipment ;
+    rdfs:label "Process Module"@en ;
+    rdfs:comment "A high-level module composed of multiple units (e.g., M1, M2, M3)."@en .
+
+pm:ProcessUnit
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:Equipment ;
+    rdfs:label "Process Unit"@en ;
+    rdfs:comment "An individual process unit within a module (e.g., Compressor, Combustor)."@en .
+
+pm:GasTurbineModule
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:ProcessModule ;
+    rdfs:label "Gas Turbine Module"@en ;
+    rdfs:comment "Module M1: complete gas turbine train including compressor, combustor, expander, and generator."@en .
+
+pm:AirInlet
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:ProcessUnit ;
+    rdfs:label "Air Inlet"@en ;
+    rdfs:comment "Unit 1-1: inlet filter and duct. Applies pressure drop to ambient air."@en .
+
+pm:Compressor
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:ProcessUnit ;
+    rdfs:label "Compressor"@en ;
+    rdfs:comment "Unit 1-2: isentropic compression of air. PR and eta back-calculated via Ta layer."@en .
+
+pm:FuelSystem
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:ProcessUnit ;
+    rdfs:label "Fuel System"@en ;
+    rdfs:comment "Unit 1-3: fuel preparation, LHV/HHV calculation, stoichiometry. Supports NG, NG+H2, NG+NH3, NG+H2+NH3."@en .
+
+pm:Combustor
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:ProcessUnit ;
+    rdfs:label "Combustor"@en ;
+    rdfs:comment "Unit 1-4: combustion energy balance. Mode A default (fuel flow given, TIT calculated)."@en .
+
+pm:GTExpander
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:ProcessUnit ;
+    rdfs:label "GT Expander"@en ;
+    rdfs:comment "Unit 1-5: isentropic expansion of combustion gas. Shaft work production. Bleed air rejoins at outlet."@en .
+
+pm:GTGenerator
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:ProcessUnit ;
+    rdfs:label "GT Generator"@en ;
+    rdfs:comment "Unit 1-6: shaft power to gross electrical output conversion."@en .
+
+# ── Stream hierarchy ───────────────────────────────────────
+
+pm:MaterialStream
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:PlantEntity ;
+    rdfs:label "Material Stream"@en ;
+    rdfs:comment "A material stream connecting two units. State: S^(n) = {T, P, m_dot, w, h, s}."@en .
+
+pm:AirStream
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:MaterialStream ;
+    rdfs:label "Air Stream"@en ;
+    rdfs:comment "Stream carrying air (ambient, conditioned, or compressed). Composition: N2, O2, CO2, H2O, Ar."@en .
+
+pm:FuelStream
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:MaterialStream ;
+    rdfs:label "Fuel Stream"@en ;
+    rdfs:comment "Stream carrying fuel mixture. Supported blends: NG, NG+H2, NG+NH3, NG+H2+NH3."@en .
+
+pm:FlueGasStream
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:MaterialStream ;
+    rdfs:label "Flue Gas Stream"@en ;
+    rdfs:comment "Stream carrying post-combustion gas mixture: N2, O2(excess), CO2, H2O, Ar."@en .
+
+pm:BleedStream
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:AirStream ;
+    rdfs:label "Bleed Stream"@en ;
+    rdfs:comment "Compressor bleed air. f_bleed=0 in Phase 1 (null stream); structure reserved for Phase 2."@en .
+
+pm:InterfaceStream
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:MaterialStream ;
+    rdfs:label "Interface Stream"@en ;
+    rdfs:comment "Module boundary stream (IS-01 through IS-06). Connects M1, M2, M3, M4."@en .
+
+# ── Variable hierarchy ─────────────────────────────────────
+
+pm:Variable
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:PlantEntity ;
+    rdfs:label "Variable"@en ;
+    rdfs:comment "A unit-local scalar variable: model parameter or computed scalar NOT stored in a stream object. Follows Symbol Convention: X^(unit_id)_subscript."@en .
+
+pm:ModelParameter
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:Variable ;
+    rdfs:label "Model Parameter"@en ;
+    rdfs:comment "A parameter given by user input or back-calculated via Ta layer. Examples: eta^(comp), PR^(comp), eta^(comb)."@en .
+
+pm:ComputedScalar
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:Variable ;
+    rdfs:label "Computed Scalar"@en ;
+    rdfs:comment "A scalar computed by the unit but not stored in any stream object. Examples: W_dot^(GT), Q_dot^(comb), AFR, NOx."@en .
+
+pm:CompositionVariable
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:Variable ;
+    rdfs:label "Composition Variable"@en ;
+    rdfs:comment "An individual stream composition component (mass fraction w^(n)_k). Linked to stream via HAS_COMPOSITION."@en .
+
+# ── KPI ────────────────────────────────────────────────────
+
+pm:KPI
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:PlantEntity ;
+    rdfs:label "KPI"@en ;
+    rdfs:comment "Plant-level or module-level key performance indicator. Validated against NETL reference values."@en .
+
+# ── Knowledge entities ─────────────────────────────────────
+
+pm:DesignRationale
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:KnowledgeEntity ;
+    rdfs:label "Design Rationale"@en ;
+    rdfs:comment "Engineering decision record: what was decided, why, and what alternatives were considered. PlantMind living design memory."@en .
+
+pm:Fault
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:KnowledgeEntity ;
+    rdfs:label "Fault"@en ;
+    rdfs:comment "Known fault type for diagnosis support. Phase 1: schema stub only. Phase 2: populated with fault library."@en .
+
+pm:OperatingMode
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:KnowledgeEntity ;
+    rdfs:label "Operating Mode"@en ;
+    rdfs:comment "A distinct operating condition or case study. Links simulator runs to ontology. Supports C-CS sweep (C17)."@en .
+
+pm:LatentRegime
+    rdf:type owl:Class ;
+    rdfs:subClassOf pm:KnowledgeEntity ;
+    rdfs:label "Latent Regime"@en ;
+    rdfs:comment "World model seed for JEPA-style latent learning (Phase 5-6). Phase 1: label only, state_vector empty."@en .
+
+
+# ============================================================
+# SECTION 2: PROPERTY DEFINITIONS (TBox)
+# ============================================================
+
+# ── Object properties ──────────────────────────────────────
+
+# Rstruct
+pm:part_of
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:ProcessUnit ;
+    rdfs:range  pm:ProcessModule ;
+    rdfs:label "part_of"@en ;
+    rdfs:comment "A ProcessUnit is structurally part of a ProcessModule."@en ;
+    owl:inverseOf pm:has_part .
+
+pm:has_part
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:ProcessModule ;
+    rdfs:range  pm:ProcessUnit ;
+    rdfs:label "has_part"@en ;
+    rdfs:comment "A ProcessModule has a ProcessUnit as a component."@en .
+
+# Rtopo
+pm:has_inlet_stream
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range  pm:MaterialStream ;
+    rdfs:label "has_inlet_stream"@en ;
+    rdfs:comment "Equipment receives this stream as inlet."@en .
+
+pm:has_outlet_stream
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range  pm:MaterialStream ;
+    rdfs:label "has_outlet_stream"@en ;
+    rdfs:comment "Equipment produces this stream as outlet."@en .
+
+pm:upstream_of
+    rdf:type owl:ObjectProperty , owl:TransitiveProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range  pm:Equipment ;
+    rdfs:label "upstream_of"@en ;
+    rdfs:comment "Equipment A is upstream of equipment B in the process flow direction. Transitive."@en .
+
+pm:feeds
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:MaterialStream ;
+    rdfs:range  pm:Equipment ;
+    rdfs:label "feeds"@en ;
+    rdfs:comment "A stream feeds (supplies material to) an equipment unit."@en .
+
+# Rstate
+pm:has_parameter
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range  pm:Variable ;
+    rdfs:label "has_parameter"@en ;
+    rdfs:comment "Equipment owns a unit-local variable (model parameter or computed scalar). Stream state variables (T, P, m_dot, h, s) are stored as stream properties, not linked via this relationship."@en .
+
+pm:has_composition
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:MaterialStream ;
+    rdfs:range  pm:CompositionVariable ;
+    rdfs:label "has_composition"@en ;
+    rdfs:comment "Stream has an individual composition component as a Variable node. Enables component-level affects chain."@en .
+
+# Rfunc
+pm:consumes
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range  pm:MaterialStream ;
+    rdfs:label "consumes"@en ;
+    rdfs:comment "Equipment consumes this stream (material is destroyed/transformed, not just passing through). Used for combustion reactants."@en .
+
+pm:produces
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range  pm:MaterialStream ;
+    rdfs:label "produces"@en ;
+    rdfs:comment "Equipment produces this stream (material is created/transformed)."@en .
+
+# Rcausal
+pm:affects
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "affects"@en ;
+    rdfs:comment "Causal influence relationship. A change in the subject propagates to the object. Enables To-layer graph traversal for design change impact tracking (C14)."@en .
+
+# Rthermo
+pm:has_heat_duty
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range  pm:ComputedScalar ;
+    rdfs:label "has_heat_duty"@en ;
+    rdfs:comment "Equipment is associated with a heat duty variable (Q_dot)."@en .
+
+pm:has_work_output
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range  pm:ComputedScalar ;
+    rdfs:label "has_work_output"@en ;
+    rdfs:comment "Equipment produces a work output variable (W_dot)."@en .
+
+# Reval (new in Session 6)
+pm:computes_kpi
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range  pm:KPI ;
+    rdfs:label "computes_kpi"@en ;
+    rdfs:comment "Equipment directly computes or contributes to a KPI value. Distinct from affects: this is a direct computation link, not a causal chain."@en .
+
+# Knowledge relationships
+pm:justified_by
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range  pm:DesignRationale ;
+    rdfs:label "justified_by"@en ;
+    rdfs:comment "Equipment design decision is justified by a DesignRationale node."@en .
+
+pm:has_fault
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:Equipment ;
+    rdfs:range  pm:Fault ;
+    rdfs:label "has_fault"@en ;
+    rdfs:comment "Equipment has an associated known fault type. Phase 2 population."@en .
+
+pm:sets_condition
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:OperatingMode ;
+    rdfs:range  pm:Variable ;
+    rdfs:label "sets_condition"@en ;
+    rdfs:comment "An OperatingMode sets the value of a Variable (e.g., fuel composition, load)."@en .
+
+pm:maps_to
+    rdf:type owl:ObjectProperty ;
+    rdfs:domain pm:OperatingMode ;
+    rdfs:range  pm:LatentRegime ;
+    rdfs:label "maps_to"@en ;
+    rdfs:comment "An OperatingMode maps to a LatentRegime seed in the World Model (Tw layer)."@en .
+
+# ── Data properties ────────────────────────────────────────
+
+# Equipment
+pm:tag            rdf:type owl:DatatypeProperty ; rdfs:domain pm:Equipment ; rdfs:range xsd:string ;
+                  rdfs:label "tag"@en ; rdfs:comment "Equipment tag (e.g., COMP-001)."@en .
+pm:unit_id        rdf:type owl:DatatypeProperty ; rdfs:domain pm:Equipment ; rdfs:range xsd:string ;
+                  rdfs:label "unit_id"@en ; rdfs:comment "Unit identifier (e.g., 1-2, M1)."@en .
+pm:module_id      rdf:type owl:DatatypeProperty ; rdfs:domain pm:Equipment ; rdfs:range xsd:string ;
+                  rdfs:label "module_id"@en ; rdfs:comment "Module identifier (M1-M5)."@en .
+pm:vendor_flag    rdf:type owl:DatatypeProperty ; rdfs:domain pm:Equipment ; rdfs:range xsd:boolean ;
+                  rdfs:label "vendor_flag"@en ; rdfs:comment "True = vendor-specific equipment."@en .
+
+# Stream
+pm:stream_id      rdf:type owl:DatatypeProperty ; rdfs:domain pm:MaterialStream ; rdfs:range xsd:string ;
+                  rdfs:label "stream_id"@en ; rdfs:comment "Global stream number (e.g., 7, IS-01, bleed)."@en .
+pm:stream_alias   rdf:type owl:DatatypeProperty ; rdfs:domain pm:MaterialStream ; rdfs:range xsd:string ;
+                  rdfs:label "stream_alias"@en ; rdfs:comment "Human-readable alias. e.g., Stream-6 alias = TIT. Stream-7 alias = GT_exhaust."@en .
+pm:stream_T       rdf:type owl:DatatypeProperty ; rdfs:domain pm:MaterialStream ; rdfs:range xsd:decimal ;
+                  rdfs:label "T"@en ; rdfs:comment "Temperature (°C)."@en .
+pm:stream_P       rdf:type owl:DatatypeProperty ; rdfs:domain pm:MaterialStream ; rdfs:range xsd:decimal ;
+                  rdfs:label "P"@en ; rdfs:comment "Absolute pressure (MPa)."@en .
+pm:stream_m_dot   rdf:type owl:DatatypeProperty ; rdfs:domain pm:MaterialStream ; rdfs:range xsd:decimal ;
+                  rdfs:label "m_dot"@en ; rdfs:comment "Mass flow rate (kg/hr)."@en .
+pm:stream_h       rdf:type owl:DatatypeProperty ; rdfs:domain pm:MaterialStream ; rdfs:range xsd:decimal ;
+                  rdfs:label "h"@en ; rdfs:comment "Specific enthalpy (kJ/kg)."@en .
+pm:stream_s       rdf:type owl:DatatypeProperty ; rdfs:domain pm:MaterialStream ; rdfs:range xsd:decimal ;
+                  rdfs:label "s"@en ; rdfs:comment "Specific entropy (kJ/kg·K)."@en .
+pm:stream_phase   rdf:type owl:DatatypeProperty ; rdfs:domain pm:MaterialStream ; rdfs:range xsd:string ;
+                  rdfs:label "phase"@en ; rdfs:comment "Thermodynamic phase: gas, liquid, mixture, supercritical."@en .
+pm:layer_tag      rdf:type owl:DatatypeProperty ;
+                  rdfs:label "layer_tag"@en ; rdfs:comment "MHMP layer that computed this entity: Td, Ta, Ti, Tp, To, Tw."@en .
+pm:netl_ref       rdf:type owl:DatatypeProperty ; rdfs:domain pm:MaterialStream ; rdfs:range xsd:string ;
+                  rdfs:label "netl_ref"@en ; rdfs:comment "Corresponding NETL stream number for validation."@en .
+
+# Variable
+pm:symbol         rdf:type owl:DatatypeProperty ; rdfs:domain pm:Variable ; rdfs:range xsd:string ;
+                  rdfs:label "symbol"@en ; rdfs:comment "Variable type symbol (e.g., eta, PR, W_dot). Greek/LaTeX name."@en .
+pm:var_unit_id    rdf:type owl:DatatypeProperty ; rdfs:domain pm:Variable ; rdfs:range xsd:string ;
+                  rdfs:label "unit_id"@en ; rdfs:comment "Model abbreviation or stream ID (superscript in symbol convention)."@en .
+pm:subscript      rdf:type owl:DatatypeProperty ; rdfs:domain pm:Variable ; rdfs:range xsd:string ;
+                  rdfs:label "subscript"@en ; rdfs:comment "Subscript qualifier (component or modifier)."@en .
+pm:var_value      rdf:type owl:DatatypeProperty ; rdfs:domain pm:Variable ; rdfs:range xsd:decimal ;
+                  rdfs:label "value"@en ; rdfs:comment "Computed value (SI units)."@en .
+pm:var_unit       rdf:type owl:DatatypeProperty ; rdfs:domain pm:Variable ; rdfs:range xsd:string ;
+                  rdfs:label "unit"@en ; rdfs:comment "SI unit string."@en .
+pm:var_role       rdf:type owl:DatatypeProperty ; rdfs:domain pm:Variable ; rdfs:range xsd:string ;
+                  rdfs:label "role"@en ; rdfs:comment "parameter | computed | composition"@en .
+pm:default_value  rdf:type owl:DatatypeProperty ; rdfs:domain pm:Variable ; rdfs:range xsd:decimal ;
+                  rdfs:label "default_value"@en ; rdfs:comment "Default value (user can override via GUI)."@en .
+pm:user_override  rdf:type owl:DatatypeProperty ; rdfs:domain pm:Variable ; rdfs:range xsd:boolean ;
+                  rdfs:label "user_override"@en ; rdfs:comment "True = user has overridden the default."@en .
+
+# KPI
+pm:kpi_name       rdf:type owl:DatatypeProperty ; rdfs:domain pm:KPI ; rdfs:range xsd:string ;
+                  rdfs:label "name"@en .
+pm:kpi_value      rdf:type owl:DatatypeProperty ; rdfs:domain pm:KPI ; rdfs:range xsd:decimal ;
+                  rdfs:label "value"@en .
+pm:kpi_unit       rdf:type owl:DatatypeProperty ; rdfs:domain pm:KPI ; rdfs:range xsd:string ;
+                  rdfs:label "unit"@en .
+pm:kpi_target     rdf:type owl:DatatypeProperty ; rdfs:domain pm:KPI ; rdfs:range xsd:decimal ;
+                  rdfs:label "target"@en ; rdfs:comment "NETL reference target value."@en .
+pm:kpi_tolerance  rdf:type owl:DatatypeProperty ; rdfs:domain pm:KPI ; rdfs:range xsd:decimal ;
+                  rdfs:label "tolerance"@en ; rdfs:comment "Acceptable deviation (±fraction, e.g., 0.05 = ±5%)."@en .
+pm:kpi_status     rdf:type owl:DatatypeProperty ; rdfs:domain pm:KPI ; rdfs:range xsd:string ;
+                  rdfs:label "status"@en ; rdfs:comment "within_target | out_of_target | not_computed"@en .
+
+# DesignRationale
+pm:decision_id    rdf:type owl:DatatypeProperty ; rdfs:domain pm:DesignRationale ; rdfs:range xsd:string .
+pm:decision_text  rdf:type owl:DatatypeProperty ; rdfs:domain pm:DesignRationale ; rdfs:range xsd:string .
+pm:selected       rdf:type owl:DatatypeProperty ; rdfs:domain pm:DesignRationale ; rdfs:range xsd:string .
+pm:alternatives   rdf:type owl:DatatypeProperty ; rdfs:domain pm:DesignRationale ; rdfs:range xsd:string .
+pm:rationale      rdf:type owl:DatatypeProperty ; rdfs:domain pm:DesignRationale ; rdfs:range xsd:string .
+pm:source         rdf:type owl:DatatypeProperty ; rdfs:domain pm:DesignRationale ; rdfs:range xsd:string .
+pm:decision_date  rdf:type owl:DatatypeProperty ; rdfs:domain pm:DesignRationale ; rdfs:range xsd:string .
+
+# OperatingMode
+pm:case_id        rdf:type owl:DatatypeProperty ; rdfs:domain pm:OperatingMode ; rdfs:range xsd:string .
+pm:mode_type      rdf:type owl:DatatypeProperty ; rdfs:domain pm:OperatingMode ; rdfs:range xsd:string .
+pm:load_pct       rdf:type owl:DatatypeProperty ; rdfs:domain pm:OperatingMode ; rdfs:range xsd:decimal .
+pm:fuel_type      rdf:type owl:DatatypeProperty ; rdfs:domain pm:OperatingMode ; rdfs:range xsd:string .
+pm:x_H2           rdf:type owl:DatatypeProperty ; rdfs:domain pm:OperatingMode ; rdfs:range xsd:decimal .
+pm:x_NH3          rdf:type owl:DatatypeProperty ; rdfs:domain pm:OperatingMode ; rdfs:range xsd:decimal .
+pm:ambient_T      rdf:type owl:DatatypeProperty ; rdfs:domain pm:OperatingMode ; rdfs:range xsd:decimal .
+
+
+# ============================================================
+# SECTION 3: INDIVIDUALS (ABox) — GT Module M1
+# ============================================================
+
+# ── 3.1 Equipment Individuals ──────────────────────────────
+
+pm:GT-001
+    rdf:type pm:GasTurbineModule ;
+    pm:tag        "GT-001" ;
+    pm:unit_id    "M1" ;
+    pm:module_id  "M1" ;
+    pm:vendor_flag false ;
+    rdfs:label    "Gas Turbine Module M1"@en ;
+    rdfs:comment  "NETL Case 13: 2×F-class GT, 184,400 kW ISO base each. PlantMind models single train."@en .
+
+pm:AI-001
+    rdf:type pm:AirInlet ;
+    pm:tag        "AI-001" ;
+    pm:unit_id    "1-1" ;
+    pm:module_id  "M1" ;
+    pm:vendor_flag false ;
+    rdfs:label    "Air Inlet 1-1"@en ;
+    rdfs:comment  "Unit 1-1: Applies inlet filter pressure drop dP^(ai). Default dP=0."@en .
+
+pm:COMP-001
+    rdf:type pm:Compressor ;
+    pm:tag        "COMP-001" ;
+    pm:unit_id    "1-2" ;
+    pm:module_id  "M1" ;
+    pm:vendor_flag false ;
+    rdfs:label    "Compressor 1-2"@en ;
+    rdfs:comment  "Unit 1-2: Isentropic compression. PR^(comp) and eta^(comp) back-calculated via Ta layer."@en .
+
+pm:FUEL-001
+    rdf:type pm:FuelSystem ;
+    pm:tag        "FUEL-001" ;
+    pm:unit_id    "1-3" ;
+    pm:module_id  "M1" ;
+    pm:vendor_flag false ;
+    rdfs:label    "Fuel System 1-3"@en ;
+    rdfs:comment  "Unit 1-3: NG baseline. Supports NG+H2, NG+NH3, NG+H2+NH3 blends. Pure H2/NH3 not supported Phase 1."@en .
+
+pm:COMB-001
+    rdf:type pm:Combustor ;
+    pm:tag        "COMB-001" ;
+    pm:unit_id    "1-4" ;
+    pm:module_id  "M1" ;
+    pm:vendor_flag false ;
+    rdfs:label    "Combustor 1-4"@en ;
+    rdfs:comment  "Unit 1-4: Mode A default (m_dot_fuel given, TIT calculated). eta^(comb)=0.998, delta^(comb)=0.03."@en .
+
+pm:EXP-001
+    rdf:type pm:GTExpander ;
+    pm:tag        "EXP-001" ;
+    pm:unit_id    "1-5" ;
+    pm:module_id  "M1" ;
+    pm:vendor_flag false ;
+    rdfs:label    "GT Expander 1-5"@en ;
+    rdfs:comment  "Unit 1-5: Isentropic expansion. eta^(turb) back-calculated via Ta. Bleed air rejoins at outlet."@en .
+
+pm:GEN-001
+    rdf:type pm:GTGenerator ;
+    pm:tag        "GEN-001" ;
+    pm:unit_id    "1-6" ;
+    pm:module_id  "M1" ;
+    pm:vendor_flag false ;
+    rdfs:label    "GT Generator 1-6"@en ;
+    rdfs:comment  "Unit 1-6: eta^(gen)=0.984. Separate from eta^(stgen)."@en .
+
+# Rstruct
+pm:AI-001    pm:part_of pm:GT-001 .
+pm:COMP-001  pm:part_of pm:GT-001 .
+pm:FUEL-001  pm:part_of pm:GT-001 .
+pm:COMB-001  pm:part_of pm:GT-001 .
+pm:EXP-001   pm:part_of pm:GT-001 .
+pm:GEN-001   pm:part_of pm:GT-001 .
+pm:GT-001    pm:has_part pm:AI-001 ;
+             pm:has_part pm:COMP-001 ;
+             pm:has_part pm:FUEL-001 ;
+             pm:has_part pm:COMB-001 ;
+             pm:has_part pm:EXP-001 ;
+             pm:has_part pm:GEN-001 .
+
+# Upstream chain (transitive — full chain inferred automatically)
+pm:AI-001    pm:upstream_of pm:COMP-001 .
+pm:COMP-001  pm:upstream_of pm:COMB-001 .
+pm:FUEL-001  pm:upstream_of pm:COMB-001 .
+pm:COMB-001  pm:upstream_of pm:EXP-001 .
+pm:EXP-001   pm:upstream_of pm:GEN-001 .
+
+
+# ── 3.2 Stream Individuals ─────────────────────────────────
+# Note: T, P, m_dot, h, s values populated after simulator run.
+# NETL reference values shown as comments.
+
+pm:Stream-1
+    rdf:type pm:AirStream ;
+    pm:stream_id    "1" ;
+    pm:stream_alias "ambient_air" ;
+    pm:stream_T     15.0 ;       # NETL: 15°C
+    pm:stream_P     0.1013 ;     # NETL: 0.1013 MPa
+    pm:stream_m_dot 3154735.0 ;  # NETL: 3,154,735 kg/hr
+    pm:stream_phase "gas" ;
+    pm:layer_tag    "Td" ;
+    pm:netl_ref     "NETL-Stream-1" ;
+    rdfs:label      "S1: Ambient Air (plant boundary)"@en .
+
+pm:Stream-2
+    rdf:type pm:AirStream ;
+    pm:stream_id    "2" ;
+    pm:stream_alias "conditioned_air" ;
+    pm:stream_phase "gas" ;
+    pm:layer_tag    "Td" ;
+    rdfs:label      "S2: Conditioned Air (after Air Inlet)"@en ;
+    rdfs:comment    "T2=T1, P2=P1-dP^(ai). Default dP=0 so S2≈S1 in Phase 1."@en .
+
+pm:Stream-3
+    rdf:type pm:AirStream ;
+    pm:stream_id    "3" ;
+    pm:stream_alias "compressed_air" ;
+    pm:stream_phase "gas" ;
+    pm:layer_tag    "Td" ;
+    rdfs:label      "S3: Compressed Air (Compressor outlet)"@en ;
+    rdfs:comment    "P3 = PR^(comp) × P2. T3 from isentropic efficiency model."@en .
+
+pm:Stream-4
+    rdf:type pm:FuelStream ;
+    pm:stream_id    "4" ;
+    pm:stream_alias "fuel_inlet" ;
+    pm:stream_T     38.0 ;       # NETL: 38°C
+    pm:stream_P     3.1 ;        # NETL: 3.1 MPa
+    pm:stream_m_dot 75901.0 ;    # NETL: 75,901 kg/hr
+    pm:stream_phase "gas" ;
+    pm:layer_tag    "Td" ;
+    pm:netl_ref     "NETL-Stream-2" ;
+    rdfs:label      "S4: Fuel Inlet (plant boundary)"@en .
+
+pm:Stream-5
+    rdf:type pm:FuelStream ;
+    pm:stream_id    "5" ;
+    pm:stream_alias "prepared_fuel" ;
+    pm:stream_phase "gas" ;
+    pm:layer_tag    "Td" ;
+    rdfs:label      "S5: Prepared Fuel (Fuel System outlet)"@en ;
+    rdfs:comment    "T5=T4 (isothermal). Composition processed by Lib_fuel (w→y conversion internal only)."@en .
+
+pm:Stream-6
+    rdf:type pm:FlueGasStream ;
+    pm:stream_id    "6" ;
+    pm:stream_alias "TIT" ;      # TIT = Stream-6.T (alias, not duplicate node)
+    pm:stream_T     1371.0 ;     # NETL: 1371°C TIT
+    pm:stream_phase "gas" ;
+    pm:layer_tag    "Td" ;
+    rdfs:label      "S6: Combustion Gas / TIT (Combustor outlet)"@en ;
+    rdfs:comment    "TIT is Stream-6.T. No separate TIT variable node needed."@en .
+
+pm:Stream-7
+    rdf:type pm:FlueGasStream ;
+    pm:stream_id    "7" ;
+    pm:stream_alias "GT_exhaust" ;
+    pm:stream_T     629.0 ;      # NETL: 629°C
+    pm:stream_P     0.1048 ;     # NETL: 0.1048 MPa
+    pm:stream_m_dot 3230636.0 ;  # NETL: 3,230,636 kg/hr
+    pm:stream_phase "gas" ;
+    pm:layer_tag    "Td" ;
+    pm:netl_ref     "NETL-Stream-3" ;
+    rdfs:label      "S7: GT Exhaust → M2 HRSG (module boundary)"@en .
+
+pm:Stream-bleed
+    rdf:type pm:BleedStream ;
+    pm:stream_id    "bleed" ;
+    pm:stream_alias "compressor_bleed" ;
+    pm:stream_m_dot 0.0 ;        # Phase 1: f_bleed=0, null stream
+    pm:stream_phase "gas" ;
+    pm:layer_tag    "Td" ;
+    rdfs:label      "S-bleed: Compressor Bleed (null in Phase 1)"@en ;
+    rdfs:comment    "f_bleed=0 in Phase 1. m_dot=0. Structure reserved for Phase 2."@en .
+
+# Rtopo: Equipment → Stream connections
+pm:AI-001    pm:has_inlet_stream  pm:Stream-1 ;
+             pm:has_outlet_stream pm:Stream-2 .
+pm:COMP-001  pm:has_inlet_stream  pm:Stream-2 ;
+             pm:has_outlet_stream pm:Stream-3 ;
+             pm:has_outlet_stream pm:Stream-bleed .
+pm:FUEL-001  pm:has_inlet_stream  pm:Stream-4 ;
+             pm:has_outlet_stream pm:Stream-5 .
+pm:COMB-001  pm:has_inlet_stream  pm:Stream-3 ;
+             pm:has_inlet_stream  pm:Stream-5 ;
+             pm:has_outlet_stream pm:Stream-6 .
+pm:EXP-001   pm:has_inlet_stream  pm:Stream-6 ;
+             pm:has_inlet_stream  pm:Stream-bleed ;
+             pm:has_outlet_stream pm:Stream-7 .
+
+# Rfunc: consumes / produces
+pm:COMB-001  pm:consumes pm:Stream-3 ;   # air consumed in combustion
+             pm:consumes pm:Stream-5 ;   # fuel consumed
+             pm:produces pm:Stream-6 .
+pm:COMP-001  pm:produces pm:Stream-3 .
+pm:EXP-001   pm:produces pm:Stream-7 .
+
+# feeds: Stream → next Equipment
+pm:Stream-2  pm:feeds pm:COMP-001 .
+pm:Stream-3  pm:feeds pm:COMB-001 .
+pm:Stream-5  pm:feeds pm:COMB-001 .
+pm:Stream-6  pm:feeds pm:EXP-001 .
+pm:Stream-7  pm:feeds pm:HRSG-001 .       # placeholder: M2 boundary
+
+
+# ── 3.3 Composition Variables (Stream-1 air) ───────────────
+
+pm:w_1_N2
+    rdf:type pm:CompositionVariable ;
+    pm:symbol     "w" ; pm:var_unit_id "1" ; pm:subscript "N2" ;
+    pm:var_value  0.7554 ;   # mass fraction from NETL mole fraction conversion
+    pm:var_unit   "—" ; pm:var_role "composition" ;
+    pm:layer_tag  "Td" ;
+    rdfs:label    "w^(1)_N2: N2 mass fraction in ambient air"@en .
+
+pm:w_1_O2
+    rdf:type pm:CompositionVariable ;
+    pm:symbol     "w" ; pm:var_unit_id "1" ; pm:subscript "O2" ;
+    pm:var_value  0.2314 ;
+    pm:var_unit   "—" ; pm:var_role "composition" ;
+    pm:layer_tag  "Td" ;
+    rdfs:label    "w^(1)_O2: O2 mass fraction in ambient air"@en .
+
+pm:w_1_H2O
+    rdf:type pm:CompositionVariable ;
+    pm:symbol     "w" ; pm:var_unit_id "1" ; pm:subscript "H2O" ;
+    pm:var_value  0.0062 ;
+    pm:var_unit   "—" ; pm:var_role "composition" ;
+    pm:layer_tag  "Td" ;
+    rdfs:label    "w^(1)_H2O: H2O mass fraction in ambient air"@en .
+
+pm:w_1_CO2
+    rdf:type pm:CompositionVariable ;
+    pm:symbol     "w" ; pm:var_unit_id "1" ; pm:subscript "CO2" ;
+    pm:var_value  0.0005 ;
+    pm:var_unit   "—" ; pm:var_role "composition" ;
+    pm:layer_tag  "Td" ;
+    rdfs:label    "w^(1)_CO2: CO2 mass fraction in ambient air"@en .
+
+pm:w_1_Ar
+    rdf:type pm:CompositionVariable ;
+    pm:symbol     "w" ; pm:var_unit_id "1" ; pm:subscript "Ar" ;
+    pm:var_value  0.0128 ;
+    pm:var_unit   "—" ; pm:var_role "composition" ;
+    pm:layer_tag  "Td" ;
+    rdfs:label    "w^(1)_Ar: Ar mass fraction in ambient air"@en .
+
+pm:Stream-1  pm:has_composition pm:w_1_N2 ;
+             pm:has_composition pm:w_1_O2 ;
+             pm:has_composition pm:w_1_H2O ;
+             pm:has_composition pm:w_1_CO2 ;
+             pm:has_composition pm:w_1_Ar .
+
+# Fuel composition (Stream-4/5, NETL NG baseline)
+pm:w_4_CH4
+    rdf:type pm:CompositionVariable ;
+    pm:symbol "w" ; pm:var_unit_id "4" ; pm:subscript "CH4" ;
+    pm:var_value 0.9117 ; pm:var_unit "—" ; pm:var_role "composition" ;
+    pm:layer_tag "Td" ;
+    rdfs:label "w^(4)_CH4: CH4 mass fraction in fuel inlet"@en .
+
+pm:w_4_C2H6
+    rdf:type pm:CompositionVariable ;
+    pm:symbol "w" ; pm:var_unit_id "4" ; pm:subscript "C2H6" ;
+    pm:var_value 0.0457 ; pm:var_unit "—" ; pm:var_role "composition" ;
+    pm:layer_tag "Td" ;
+    rdfs:label "w^(4)_C2H6: C2H6 mass fraction in fuel inlet"@en .
+
+pm:w_4_C3H8
+    rdf:type pm:CompositionVariable ;
+    pm:symbol "w" ; pm:var_unit_id "4" ; pm:subscript "C3H8" ;
+    pm:var_value 0.0105 ; pm:var_unit "—" ; pm:var_role "composition" ;
+    pm:layer_tag "Td" ;
+    rdfs:label "w^(4)_C3H8: C3H8 mass fraction in fuel inlet"@en .
+
+pm:w_4_C4H10
+    rdf:type pm:CompositionVariable ;
+    pm:symbol "w" ; pm:var_unit_id "4" ; pm:subscript "C4H10" ;
+    pm:var_value 0.0038 ; pm:var_unit "—" ; pm:var_role "composition" ;
+    pm:layer_tag "Td" ;
+    rdfs:label "w^(4)_C4H10: C4H10 mass fraction in fuel inlet"@en .
+
+pm:w_4_N2
+    rdf:type pm:CompositionVariable ;
+    pm:symbol "w" ; pm:var_unit_id "4" ; pm:subscript "N2" ;
+    pm:var_value 0.0070 ; pm:var_unit "—" ; pm:var_role "composition" ;
+    pm:layer_tag "Td" ;
+    rdfs:label "w^(4)_N2: N2 mass fraction in fuel inlet"@en .
+
+pm:w_4_CO2
+    rdf:type pm:CompositionVariable ;
+    pm:symbol "w" ; pm:var_unit_id "4" ; pm:subscript "CO2" ;
+    pm:var_value 0.0213 ; pm:var_unit "—" ; pm:var_role "composition" ;
+    pm:layer_tag "Td" ;
+    rdfs:label "w^(4)_CO2: CO2 mass fraction in fuel inlet"@en .
+
+pm:Stream-4  pm:has_composition pm:w_4_CH4 ;
+             pm:has_composition pm:w_4_C2H6 ;
+             pm:has_composition pm:w_4_C3H8 ;
+             pm:has_composition pm:w_4_C4H10 ;
+             pm:has_composition pm:w_4_N2 ;
+             pm:has_composition pm:w_4_CO2 .
+
+
+# ── 3.4 Variable Individuals (unit-local) ──────────────────
+
+# Compressor parameters (Ta layer — back-calculated from NETL)
+pm:eta_comp
+    rdf:type pm:ModelParameter ;
+    pm:symbol "eta" ; pm:var_unit_id "comp" ; pm:subscript "" ;
+    pm:var_unit "—" ; pm:var_role "parameter" ;
+    pm:layer_tag "Ta" ;
+    pm:user_override true ;
+    rdfs:label "eta^(comp): Compressor isentropic efficiency"@en ;
+    rdfs:comment "Back-calculated from NETL. Open Issue #10."@en .
+
+pm:PR_comp
+    rdf:type pm:ModelParameter ;
+    pm:symbol "PR" ; pm:var_unit_id "comp" ; pm:subscript "" ;
+    pm:var_unit "—" ; pm:var_role "parameter" ;
+    pm:layer_tag "Ta" ;
+    pm:user_override true ;
+    rdfs:label "PR^(comp): Compressor pressure ratio"@en ;
+    rdfs:comment "Back-calculated from NETL. Open Issue #10."@en .
+
+pm:f_bleed
+    rdf:type pm:ModelParameter ;
+    pm:symbol "f" ; pm:var_unit_id "bleed" ; pm:subscript "" ;
+    pm:var_value 0.0 ; pm:default_value 0.0 ;
+    pm:var_unit "—" ; pm:var_role "parameter" ;
+    pm:layer_tag "Td" ;
+    pm:user_override true ;
+    rdfs:label "f_bleed: Bleed air fraction"@en ;
+    rdfs:comment "Default 0 (Phase 1). Structure ready for Phase 2."@en .
+
+pm:W_dot_comp
+    rdf:type pm:ComputedScalar ;
+    pm:symbol "W_dot" ; pm:var_unit_id "comp" ; pm:subscript "" ;
+    pm:var_unit "kW" ; pm:var_role "computed" ;
+    pm:layer_tag "Td" ;
+    rdfs:label "W_dot^(comp): Compressor power"@en .
+
+# Combustor parameters
+pm:eta_comb
+    rdf:type pm:ModelParameter ;
+    pm:symbol "eta" ; pm:var_unit_id "comb" ; pm:subscript "" ;
+    pm:var_value 0.998 ; pm:default_value 0.998 ;
+    pm:var_unit "—" ; pm:var_role "parameter" ;
+    pm:layer_tag "Td" ;
+    pm:user_override true ;
+    rdfs:label "eta^(comb): Combustor thermal efficiency"@en .
+
+pm:delta_comb
+    rdf:type pm:ModelParameter ;
+    pm:symbol "delta" ; pm:var_unit_id "comb" ; pm:subscript "" ;
+    pm:var_value 0.03 ; pm:default_value 0.03 ;
+    pm:var_unit "—" ; pm:var_role "parameter" ;
+    pm:layer_tag "Td" ;
+    pm:user_override true ;
+    rdfs:label "delta^(comb): Combustor pressure drop fraction"@en .
+
+pm:Q_dot_comb
+    rdf:type pm:ComputedScalar ;
+    pm:symbol "Q_dot" ; pm:var_unit_id "comb" ; pm:subscript "" ;
+    pm:var_unit "kJ/hr" ; pm:var_role "computed" ;
+    pm:layer_tag "Td" ;
+    rdfs:label "Q_dot^(comb): Combustor heat release rate"@en .
+
+pm:AFR
+    rdf:type pm:ComputedScalar ;
+    pm:symbol "AFR" ; pm:var_unit_id "comb" ; pm:subscript "" ;
+    pm:var_unit "—" ; pm:var_role "computed" ;
+    pm:layer_tag "Td" ;
+    rdfs:label "AFR: Air-fuel ratio (mass basis)"@en .
+
+pm:lambda
+    rdf:type pm:ComputedScalar ;
+    pm:symbol "lambda" ; pm:var_unit_id "comb" ; pm:subscript "" ;
+    pm:var_unit "—" ; pm:var_role "computed" ;
+    pm:layer_tag "Td" ;
+    rdfs:label "lambda: Excess air ratio"@en .
+
+pm:NOx_ppm
+    rdf:type pm:ComputedScalar ;
+    pm:symbol "NOx" ; pm:var_unit_id "comb" ; pm:subscript "ppm" ;
+    pm:var_unit "ppm" ; pm:var_role "computed" ;
+    pm:layer_tag "Td" ;
+    rdfs:label "NOx_ppm: NOx emission (empirical correlation)"@en ;
+    rdfs:comment "Open Issue #11: correlation constants alpha, beta for H2/NH3 blends needed."@en .
+
+# GT Expander parameters (Ta layer)
+pm:eta_turb
+    rdf:type pm:ModelParameter ;
+    pm:symbol "eta" ; pm:var_unit_id "turb" ; pm:subscript "" ;
+    pm:var_unit "—" ; pm:var_role "parameter" ;
+    pm:layer_tag "Ta" ;
+    pm:user_override true ;
+    rdfs:label "eta^(turb): GT Expander isentropic efficiency"@en ;
+    rdfs:comment "Back-calculated from NETL. Open Issue #10."@en .
+
+pm:W_dot_turb
+    rdf:type pm:ComputedScalar ;
+    pm:symbol "W_dot" ; pm:var_unit_id "turb" ; pm:subscript "" ;
+    pm:var_unit "kW" ; pm:var_role "computed" ;
+    pm:layer_tag "Td" ;
+    rdfs:label "W_dot^(turb): GT Expander power output"@en .
+
+# GT Generator parameters
+pm:eta_gen
+    rdf:type pm:ModelParameter ;
+    pm:symbol "eta" ; pm:var_unit_id "gen" ; pm:subscript "" ;
+    pm:var_value 0.984 ; pm:default_value 0.984 ;
+    pm:var_unit "—" ; pm:var_role "parameter" ;
+    pm:layer_tag "Td" ;
+    pm:user_override true ;
+    rdfs:label "eta^(gen): GT Generator efficiency"@en ;
+    rdfs:comment "Independent of eta^(stgen). Both default 0.984 per NETL."@en .
+
+pm:W_dot_shaft
+    rdf:type pm:ComputedScalar ;
+    pm:symbol "W_dot" ; pm:var_unit_id "shaft" ; pm:subscript "" ;
+    pm:var_unit "kW" ; pm:var_role "computed" ;
+    pm:layer_tag "Td" ;
+    rdfs:label "W_dot^(shaft): GT Net shaft power"@en ;
+    rdfs:comment "= W_dot^(turb) - W_dot^(comp). NETL: 368,089 kW."@en .
+
+pm:W_dot_GT
+    rdf:type pm:ComputedScalar ;
+    pm:symbol "W_dot" ; pm:var_unit_id "GT" ; pm:subscript "" ;
+    pm:var_unit "kW" ; pm:var_role "computed" ;
+    pm:layer_tag "Td" ;
+    rdfs:label "W_dot^(GT): GT Gross electrical power"@en ;
+    rdfs:comment "= eta^(gen) × W_dot^(shaft). NETL: 362,200 kWe."@en .
+
+# Equipment → Variable links (has_parameter)
+pm:COMP-001  pm:has_parameter pm:eta_comp ;
+             pm:has_parameter pm:PR_comp ;
+             pm:has_parameter pm:f_bleed ;
+             pm:has_parameter pm:W_dot_comp .
+
+pm:COMB-001  pm:has_parameter pm:eta_comb ;
+             pm:has_parameter pm:delta_comb ;
+             pm:has_parameter pm:Q_dot_comb ;
+             pm:has_parameter pm:AFR ;
+             pm:has_parameter pm:lambda ;
+             pm:has_parameter pm:NOx_ppm .
+
+pm:EXP-001   pm:has_parameter pm:eta_turb ;
+             pm:has_parameter pm:W_dot_turb .
+
+pm:GEN-001   pm:has_parameter pm:eta_gen ;
+             pm:has_parameter pm:W_dot_shaft ;
+             pm:has_parameter pm:W_dot_GT .
+
+# has_heat_duty, has_work_output
+pm:COMB-001  pm:has_heat_duty  pm:Q_dot_comb .
+pm:EXP-001   pm:has_work_output pm:W_dot_turb .
+pm:COMP-001  pm:has_work_output pm:W_dot_comp .
+pm:GEN-001   pm:has_work_output pm:W_dot_GT .
+
+
+# ── 3.5 KPI Individuals ────────────────────────────────────
+
+pm:KPI-gt_power
+    rdf:type pm:KPI ;
+    pm:kpi_name "gt_power" ; pm:kpi_unit "kWe" ;
+    pm:kpi_target 362200.0 ; pm:kpi_tolerance 0.05 ;
+    pm:kpi_status "not_computed" ;
+    pm:layer_tag "Td" ;
+    rdfs:label "KPI: GT Gross Power"@en .
+
+pm:KPI-net_power
+    rdf:type pm:KPI ;
+    pm:kpi_name "net_power" ; pm:kpi_unit "kWe" ;
+    pm:kpi_target 555080.0 ; pm:kpi_tolerance 0.05 ;
+    pm:kpi_status "not_computed" ;
+    pm:layer_tag "Td" ;
+    rdfs:label "KPI: Net Plant Power"@en .
+
+pm:KPI-net_efficiency_HHV
+    rdf:type pm:KPI ;
+    pm:kpi_name "net_efficiency_HHV" ; pm:kpi_unit "—" ;
+    pm:kpi_target 0.502 ; pm:kpi_tolerance 0.01 ;
+    pm:kpi_status "not_computed" ;
+    pm:layer_tag "Td" ;
+    rdfs:label "KPI: Net Plant Efficiency (HHV)"@en .
+
+pm:KPI-exhaust_T
+    rdf:type pm:KPI ;
+    pm:kpi_name "gt_exhaust_T" ; pm:kpi_unit "°C" ;
+    pm:kpi_target 629.0 ; pm:kpi_tolerance 5.0 ;
+    pm:kpi_status "not_computed" ;
+    pm:layer_tag "Td" ;
+    rdfs:label "KPI: GT Exhaust Temperature"@en .
+
+pm:KPI-TIT
+    rdf:type pm:KPI ;
+    pm:kpi_name "TIT" ; pm:kpi_unit "°C" ;
+    pm:kpi_target 1371.0 ; pm:kpi_tolerance 10.0 ;
+    pm:kpi_status "not_computed" ;
+    pm:layer_tag "Td" ;
+    rdfs:label "KPI: Turbine Inlet Temperature"@en .
+
+# computes_kpi links
+pm:GEN-001   pm:computes_kpi pm:KPI-gt_power .
+pm:EXP-001   pm:computes_kpi pm:KPI-exhaust_T .
+pm:COMB-001  pm:computes_kpi pm:KPI-TIT .
+pm:GT-001    pm:computes_kpi pm:KPI-gt_power ;
+             pm:computes_kpi pm:KPI-net_power ;
+             pm:computes_kpi pm:KPI-net_efficiency_HHV .
+
+
+# ── 3.6 affects Chain (Rcausal) ────────────────────────────
+# Principle: Stream nodes participate directly.
+# TIT = Stream-6.T, referenced via Stream-6.
+
+# Parameter → Stream level (Ta/Td)
+pm:eta_comp   pm:affects pm:Stream-3 .
+pm:PR_comp    pm:affects pm:Stream-3 .
+pm:Stream-3   pm:affects pm:Stream-6 .       # compressed air → combustion T
+pm:eta_comb   pm:affects pm:Stream-6 .
+pm:delta_comb pm:affects pm:Stream-6 .
+pm:Stream-6   pm:affects pm:W_dot_turb .     # TIT → turbine power
+pm:Stream-6   pm:affects pm:KPI-TIT .
+pm:eta_turb   pm:affects pm:W_dot_turb .
+pm:W_dot_turb pm:affects pm:W_dot_shaft .
+pm:W_dot_comp pm:affects pm:W_dot_shaft .
+pm:W_dot_shaft pm:affects pm:W_dot_GT .
+pm:eta_gen    pm:affects pm:W_dot_GT .
+pm:W_dot_GT   pm:affects pm:KPI-gt_power .
+pm:KPI-gt_power pm:affects pm:KPI-net_power .
+pm:KPI-net_power pm:affects pm:KPI-net_efficiency_HHV .
+
+# Stream-7 in causal chain (for HRSG and stack)
+pm:Stream-6   pm:affects pm:Stream-7 .       # combustion T → exhaust T
+pm:Stream-7   pm:affects pm:KPI-exhaust_T .
+
+
+# ── 3.7 DesignRationale Individuals ───────────────────────
+
+pm:DR-M1-001
+    rdf:type pm:DesignRationale ;
+    pm:decision_id    "DR-M1-001" ;
+    pm:decision_text  "Bleed air treatment" ;
+    pm:selected       "f_bleed=0 (Phase 1 only)" ;
+    pm:alternatives   "Explicit bleed fraction with separate stream" ;
+    pm:rationale      "NETL does not separate bleed flow. Phase 1 simplified for PoC. Structure reserved for Phase 2." ;
+    pm:source         "Session 5, 2026-04-01" ;
+    pm:decision_date  "2026-04-01" ;
+    rdfs:label        "DR-M1-001: Bleed air treatment"@en .
+
+pm:DR-M1-002
+    rdf:type pm:DesignRationale ;
+    pm:decision_id    "DR-M1-002" ;
+    pm:decision_text  "Combustor operating mode default" ;
+    pm:selected       "Mode A: fuel flow given, TIT calculated" ;
+    pm:alternatives   "Mode B: TIT given, fuel flow calculated" ;
+    pm:rationale      "Mode A is more general. NETL uses Mode B only for validation. Both modes explicitly supported." ;
+    pm:source         "Session 5, 2026-04-01" ;
+    pm:decision_date  "2026-04-01" ;
+    rdfs:label        "DR-M1-002: Combustor operating mode"@en .
+
+pm:DR-M1-003
+    rdf:type pm:DesignRationale ;
+    pm:decision_id    "DR-M1-003" ;
+    pm:decision_text  "Humidity treatment in air stream" ;
+    pm:selected       "Included in w^(1) as-is from NETL" ;
+    pm:alternatives   "Separate psychrometric calculation" ;
+    pm:rationale      "NETL provides combined composition including H2O. No separate psychrometric calc needed for Phase 1." ;
+    pm:source         "Session 5, 2026-04-01" ;
+    pm:decision_date  "2026-04-01" ;
+    rdfs:label        "DR-M1-003: Humidity treatment"@en .
+
+pm:DR-M1-004
+    rdf:type pm:DesignRationale ;
+    pm:decision_id    "DR-M1-004" ;
+    pm:decision_text  "GT exhaust duct as separate unit" ;
+    pm:selected       "No separate exhaust duct unit" ;
+    pm:alternatives   "Unit 1-7 Exhaust Duct with explicit pressure drop" ;
+    pm:rationale      "Simple pressure drop not warranted as separate unit in Phase 1. dP included in EXP-001 outlet pressure." ;
+    pm:source         "Session 5, 2026-04-01" ;
+    pm:decision_date  "2026-04-01" ;
+    rdfs:label        "DR-M1-004: Exhaust duct treatment"@en .
+
+pm:DR-M1-005
+    rdf:type pm:DesignRationale ;
+    pm:decision_id    "DR-M1-005" ;
+    pm:decision_text  "NOx model selection" ;
+    pm:selected       "Option C: fuel-blend correlation NOx = NOx_NG(1 + alpha*x_H2 + beta*x_NH3)" ;
+    pm:alternatives   "Option A: constant; Option B: TIT correlation only" ;
+    pm:rationale      "C17 requires fuel-dependent NOx comparison across H2/NH3 blends." ;
+    pm:source         "Session 5, 2026-04-01" ;
+    pm:decision_date  "2026-04-01" ;
+    rdfs:label        "DR-M1-005: NOx model"@en .
+
+pm:DR-M1-006
+    rdf:type pm:DesignRationale ;
+    pm:decision_id    "DR-M1-006" ;
+    pm:decision_text  "Combustor efficiency default" ;
+    pm:selected       "eta^(comb) = 0.998" ;
+    pm:alternatives   "1.0 (perfect combustion)" ;
+    pm:rationale      "Typical F-class value. User override allowed." ;
+    pm:source         "Session 5, 2026-04-01" ;
+    pm:decision_date  "2026-04-01" ;
+    rdfs:label        "DR-M1-006: Combustor efficiency default"@en .
+
+pm:DR-M1-007
+    rdf:type pm:DesignRationale ;
+    pm:decision_id    "DR-M1-007" ;
+    pm:decision_text  "Combustor pressure drop default" ;
+    pm:selected       "delta^(comb) = 0.03 (3%)" ;
+    pm:alternatives   "0% (no pressure drop)" ;
+    pm:rationale      "Typical F-class value. User override allowed." ;
+    pm:source         "Session 5, 2026-04-01" ;
+    pm:decision_date  "2026-04-01" ;
+    rdfs:label        "DR-M1-007: Combustor pressure drop default"@en .
+
+# justified_by links
+pm:COMP-001  pm:justified_by pm:DR-M1-001 .  # bleed decision
+pm:COMB-001  pm:justified_by pm:DR-M1-002 ;
+             pm:justified_by pm:DR-M1-005 ;
+             pm:justified_by pm:DR-M1-006 ;
+             pm:justified_by pm:DR-M1-007 .
+pm:AI-001    pm:justified_by pm:DR-M1-003 ;
+             pm:justified_by pm:DR-M1-004 .
+
+
+# ── 3.8 OperatingMode Individuals ─────────────────────────
+
+pm:OM-NETL-Case13
+    rdf:type pm:OperatingMode ;
+    pm:case_id      "NETL-Case13" ;
+    pm:mode_type    "design" ;
+    pm:load_pct     100.0 ;
+    pm:fuel_type    "NG" ;
+    pm:x_H2         0.0 ;
+    pm:x_NH3        0.0 ;
+    pm:ambient_T    15.0 ;
+    rdfs:label      "OM: NETL Case 13 Design Point"@en ;
+    rdfs:comment    "Base case. NGCC 2x2x1, 555 MW, 50.2% HHV. Phase 1 validation target."@en .
+
+
+# ── 3.9 LatentRegime Individuals (stubs) ──────────────────
+
+pm:R-A
+    rdf:type pm:LatentRegime ;
+    rdfs:label "LatentRegime: clean_full_load"@en ;
+    rdfs:comment "State vector empty. Phase 6: populated by JEPA learning on C-CS sweep."@en .
+
+pm:OM-NETL-Case13  pm:maps_to pm:R-A .
+
+
+# ── 3.10 Fault Stubs (Phase 1 schema only) ────────────────
+
+pm:F-COMP-001
+    rdf:type pm:Fault ;
+    rdfs:label "Fault: CompressorFouling"@en ;
+    rdfs:comment "Phase 1 stub. Symptom: gradual decrease in PR^(comp), eta^(comp). Phase 2: populated."@en .
+
+pm:F-COMB-001
+    rdf:type pm:Fault ;
+    rdfs:label "Fault: CombustorHotSpot"@en ;
+    rdfs:comment "Phase 1 stub. Phase 2: populated."@en .
+
+pm:F-EXP-001
+    rdf:type pm:Fault ;
+    rdfs:label "Fault: TurbineBladeErosion"@en ;
+    rdfs:comment "Phase 1 stub. Symptom: decrease in eta^(turb). Phase 2: populated."@en .
+
+pm:COMP-001  pm:has_fault pm:F-COMP-001 .
+pm:COMB-001  pm:has_fault pm:F-COMB-001 .
+pm:EXP-001   pm:has_fault pm:F-EXP-001 .
+
+
+# ============================================================
+# END OF FILE
+# PlantMind_GTCC_GT_Module_v1_0.ttl
+# ============================================================
