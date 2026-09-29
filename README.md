@@ -51,4 +51,4 @@ The public benchmark is NETL, *Cost and Performance Baseline for Fossil Energy P
 
 ## Citation and reuse
 
-Use `CITATION.cff` and identify release `v0.1.0`. A Zenodo DOI has **not yet been issued**; do not substitute an invented DOI. Until archival publication, cite the versioned GitHub release. Code: [MIT](LICENSE). Author-created data, ontology/configuration descriptions and prose: [CC BY 4.0](LICENSE-DATA.md). Third-party dependencies retain their licenses.
+Use `CITATION.cff` and identify release `v0.1.1`. A Zenodo DOI has **not yet been issued**; do not substitute an invented DOI. Until archival publication, cite the versioned GitHub release. Code: [MIT](LICENSE). Author-created data, ontology/configuration descriptions and prose: [CC BY 4.0](LICENSE-DATA.md). Third-party dependencies retain their licenses.

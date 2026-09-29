@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.1.1
+
+- Metadata-only release after the author confirmed Zenodo repository integration is enabled.
+- Numerical code, inputs, reference results, licenses and declared coverage are unchanged from v0.1.0.
+- This release initiates archival processing; DOI publication must be verified separately.
+
 ## v0.1.0
 
 - Extracted a standalone paper computation and ontology runtime package.
