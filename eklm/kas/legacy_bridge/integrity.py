@@ -114,6 +114,21 @@ def require_valid_graph(g, contract=None):
 def clear_runtime_evidence(g, output=None):
     """Invalidate previous evidence even when preflight fails before a solve."""
     from eklm.kas.legacy_bridge.mech_bridge import _PROP_MAP
+    # Restore values that existed before runtime publication. They are static
+    # configuration/reference values, never marked as current-run observations.
+    for subject, prop in list(g.subject_objects(PM.runtime_ownedPredicate)):
+        g.remove((subject, prop, None))
+    for record in list(g.subjects(PM.runtime_baselineSubject, None)):
+        subject=g.value(record, PM.runtime_baselineSubject)
+        prop=g.value(record, PM.runtime_baselinePredicate)
+        for value in list(g.objects(record, PM.runtime_baselineObject)):
+            g.add((subject, prop, value))
+        g.remove((record, None, None))
+    g.remove((None, PM.runtime_ownedPredicate, None))
+    g.remove((None, PM.runtime_state_updated, None))
+    g.remove((None, PM.runtime_unboundedOutput, None))
+    g.remove((None, PM.runtime_censoredOutput, None))
+    g.remove((None, PM.runtime_exergyDestructionPct, None))
     for prop in set(_PROP_MAP.values()):
         g.remove((None, prop, None))
     for subject in list(set(g.subjects())):
@@ -124,3 +139,16 @@ def clear_runtime_evidence(g, output=None):
         output.pop('mech_results', None)
         for key in _PROP_MAP:
             output.pop(key, None)
+
+
+def own_runtime_field(g, subject, predicate):
+    """Record pre-execution values once so invalidation preserves static data."""
+    from rdflib import BNode
+    if (subject, PM.runtime_ownedPredicate, predicate) in g:
+        return
+    node=BNode()
+    g.add((node, PM.runtime_baselineSubject, subject))
+    g.add((node, PM.runtime_baselinePredicate, predicate))
+    for value in list(g.objects(subject, predicate)):
+        g.add((node, PM.runtime_baselineObject, value))
+    g.add((subject, PM.runtime_ownedPredicate, predicate))

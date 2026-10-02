@@ -1051,7 +1051,7 @@
         "warnings": [
           "R-11: Combustor combined life fraction 62.50% > 50% WARNING"
         ],
-        "graph_triples": 2776,
+        "graph_triples": 3070,
         "evidence_origin": "current process results and graph-published mechanical outputs"
       },
       "mechanical": [
@@ -2254,7 +2254,7 @@
         "warnings": [
           "R-11: Combustor combined life fraction 62.50% > 50% WARNING"
         ],
-        "graph_triples": 2776,
+        "graph_triples": 3070,
         "evidence_origin": "current process results and graph-published mechanical outputs"
       },
       "mechanical": [
@@ -3453,7 +3453,7 @@
           "R-11: Combustor combined life fraction 62.50% > 50% WARNING",
           "COMP-001: DataStatus=NONE, model inactive"
         ],
-        "graph_triples": 2775,
+        "graph_triples": 3057,
         "evidence_origin": "current process results and graph-published mechanical outputs"
       },
       "mechanical": [

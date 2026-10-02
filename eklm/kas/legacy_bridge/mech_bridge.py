@@ -6,12 +6,19 @@ to write device-level mechanical model outputs to existing TTL individuals.
 
 from rdflib import Graph, Literal, URIRef
 from rdflib.namespace import XSD
+import math
 
 from eklm.kas.legacy_bridge.graph import PM
 from eklm.vdt.mechanical.base import DeviceResult
 
 # Output key → TTL property mapping
 _PROP_MAP = {
+    "mech_comb_remaining_starts": PM.mech_remainingStarts,
+    "mech_comb_hour_life_fraction": PM.mech_hourLifeFraction,
+    "mech_hpsh_metal_temp_C": PM.mech_metalTempC,
+    "mech_rh_metal_temp_C": PM.mech_metalTempC,
+    "mech_hpst_steam_velocity_m_s": PM.mech_steamVelocityMs,
+    "mech_hpst_moisture_loss_pct": PM.mech_moistureLossPct,
     "mech_comp_surge_margin_pct": PM.mech_surgeMarginPct,
     "mech_comp_efficiency_current": PM.mech_efficiencyCurrent,
     "mech_comp_degradation_rate_pct_khr": PM.mech_degradationRatePctKhr,
@@ -63,7 +70,13 @@ def populate_mech(g: Graph, mech_results: list[DeviceResult]) -> int:
             prop = _PROP_MAP.get(key)
             if prop is None:
                 continue
-            if value == -1:
+            from eklm.kas.legacy_bridge.integrity import own_runtime_field
+            own_runtime_field(g, uri, prop)
+            if value == -1 and key.endswith(('rupture_hr','remaining_life_hr')):
+                g.add((uri, PM.runtime_censoredOutput, Literal(key)))
+                continue
+            if math.isinf(value):
+                g.add((uri, PM.runtime_unboundedOutput, Literal(key)))
                 continue
             g.remove((uri, prop, None))
             g.add((uri, prop, Literal(round(value, 6), datatype=XSD.decimal)))

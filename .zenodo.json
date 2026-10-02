@@ -1,7 +1,7 @@
 {
   "title": "GTCC Ontology-Driven Digital Twin: Supporting Computational Artifacts",
   "upload_type": "software",
-  "description": "Corrected EKLM simulation artifacts: 72 paired routing cases, 104 engineering-contract cases, 36 evidence-lifecycle checks, 95 diagnostic threshold checks, six matched graph/conventional queries, and 583 physical replay records. Independent conventional validation control; no field-accuracy or representation-specific superiority claim. Historical 55-case records unavailable. Code MIT; author-created data/prose CC BY 4.0.",
+  "description": "EKLM governance evaluation with staged publication, typed parameter checks and explicit lifetime sentinels. Includes 72 routing cases, 104 contract cases, 36 lifecycle checks, 95 threshold checks, 17 failure scenarios, four non-default overrides, eight indicator-extension cases, six matched query tasks and 583 physical replay records. No field-accuracy or RDF-specific superiority claim. Code MIT; author-created data/prose CC BY 4.0.",
   "creators": [
     {
       "name": "Hwang, Raymoon"
@@ -21,7 +21,7 @@
   ],
   "access_right": "open",
   "license": "mit",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "keywords": [
     "ontology",
     "digital twin",

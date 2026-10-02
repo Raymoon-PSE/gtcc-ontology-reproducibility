@@ -117,6 +117,63 @@ def run_mechanical(op, params: dict) -> list[DeviceResult]:
 
 
 def run_gtcc(params: dict) -> tuple[dict, GTCCResult]:
+    """Publish a governed run atomically, or expose only static configuration.
+
+    Single-call/single-writer graph ownership is assumed. Physical equations
+    remain in _run_gtcc; this wrapper governs evidence and parameter validity.
+    """
+    if not params.get('ontology_runtime', False):
+        return _run_gtcc(params)
+    from copy import deepcopy
+    import math
+    from uuid import uuid4
+    from rdflib import Literal, Graph
+    from eklm.kas.legacy_bridge.graph import load_graph, PM
+    from eklm.kas.legacy_bridge.integrity import clear_runtime_evidence, require_valid_graph
+    from eklm.kas.legacy_bridge.runtime import packages_from_graph
+    from eklm.vdt.mechanical.reference_db import ReferenceDatabase
+    g=params.get('ontology_graph')
+    if g is None:g=load_graph(params.get('ontology_dir'))
+    if not isinstance(g,Graph):raise TypeError('ontology_graph must be an rdflib.Graph')
+    clear_runtime_evidence(g)
+    g.set((PM.RuntimeExecution,PM.runtime_runId,Literal(str(uuid4()))))
+    g.set((PM.RuntimeExecution,PM.runtime_executionStatus,Literal('running')))
+    try:
+        require_valid_graph(g,params.get('engineering_contract'))
+        list(packages_from_graph(g,ReferenceDatabase(params.get('mechanical_reference_dir'))))
+        for key,value in params.items():
+            if isinstance(value,(int,float)) and not isinstance(value,bool) and not math.isfinite(value):
+                raise ValueError('Nonfinite simulation input: '+key)
+        for key in ('eta_comp','eta_turb'):
+            if key in params and (isinstance(params[key],bool) or not 0<params[key]<=1):
+                raise ValueError('Efficiency outside (0,1]: '+key)
+        for key in ('cumulative_hours','start_stop_count'):
+            if key in params and (isinstance(params[key],bool) or params[key]<0):
+                raise ValueError('Invalid operating history: '+key)
+        for key,value in params.get('diagnostic_reference',{}).items():
+            if isinstance(value,bool) or not isinstance(value,(int,float)) or not math.isfinite(value):
+                raise ValueError('Nonfinite/nonnumeric diagnostic reference: '+key)
+            if key in ('W_GT','W_ST','W_net') and value<=0:
+                raise ValueError('Reference powers must be positive')
+        for key,value in params.get('runtime_observation_overrides',{}).items():
+            if isinstance(value,bool) or not isinstance(value,(int,float)) or not math.isfinite(value):
+                raise ValueError('Nonfinite/nonnumeric observation: '+key)
+        staged=deepcopy(g)
+        output,result=_run_gtcc({**params,'ontology_graph':staged})
+        for key,value in output.items():
+            if not key.startswith('mech_') and isinstance(value,float) and not math.isfinite(value):
+                raise ValueError('Nonfinite process output: '+key)
+        staged.set((PM.RuntimeExecution,PM.runtime_executionStatus,Literal('complete')))
+    except Exception:
+        clear_runtime_evidence(g)
+        g.set((PM.RuntimeExecution,PM.runtime_executionStatus,Literal('failed')))
+        raise
+    g.remove((None,None,None))
+    for triple in staged:g.add(triple)
+    return output,result
+
+
+def _run_gtcc(params: dict) -> tuple[dict, GTCCResult]:
     """Run full GTCC simulation from GUI params.
 
     Args:

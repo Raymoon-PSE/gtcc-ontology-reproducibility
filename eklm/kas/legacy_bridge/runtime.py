@@ -41,7 +41,15 @@ def _parameters(g, device, predicate):
     raw = _one(g, device, predicate)
     if raw is None:
         return {}
-    value = json.loads(str(raw))
+    def reject_constant(value):
+        raise ValueError('Non-standard JSON numeric constant: '+value)
+    def unique_object(pairs):
+        result={}
+        for key,value in pairs:
+            if key in result:raise ValueError('Duplicate JSON parameter: '+key)
+            result[key]=value
+        return result
+    value = json.loads(str(raw), parse_constant=reject_constant, object_pairs_hook=unique_object)
     if not isinstance(value, dict):
         raise ValueError(f'{predicate} must encode a JSON object')
     return value
@@ -77,27 +85,16 @@ def packages_from_graph(g: Graph, ref_db: ReferenceDatabase):
         defaults = ref_db.get_defaults(dtype)
         supplied = _parameters(g, device, PM.mech_requiredParameters)
         optional = _parameters(g, device, PM.mech_optionalParameters)
-        if declared is DataStatus.NONE:
-            required = {}
-        elif not defaults:
-            raise ValueError(f'No reference parameter schema for {dtype}')
-        elif declared is DataStatus.FULL:
-            missing = [k for k in defaults if supplied.get(k) is None]
-            if missing:
-                raise ValueError(f'{name} declares FULL but lacks explicit data: {missing}')
-            required = supplied
-        else:
-            required = {**defaults, **supplied}
-            if any(v is None for v in required.values()):
-                raise ValueError(f'{name} contains null required data')
+        from eklm.kas.legacy_bridge.input_policy import resolve_parameters
+        required, supplied_all = resolve_parameters(defaults, supplied, optional, declared.value)
         package = DeviceDataPackage(name, dtype, unit, required, optional)
         # Declared policy is accepted only after the data checks above.
         package.status = declared
         provenance = {
             'device_id': name, 'declared_status': declared.value,
-            'reference_parameters': sorted(k for k in defaults if k not in supplied)
+            'reference_parameters': sorted(k for k in defaults if k not in supplied_all)
                 if declared is DataStatus.PARTIAL else [],
-            'explicit_parameters': sorted(supplied),
+            'explicit_parameters': sorted(supplied_all),
         }
         yield package, provenance
 
@@ -111,6 +108,8 @@ def run_graph_mechanical(g, operating_point, ref_db):
     for package, provenance in packages_from_graph(g, ref_db):
         model = router.route(package)
         result = model.run(operating_point)
+        from eklm.kas.legacy_bridge.input_policy import validate_outputs
+        validate_outputs(result, package)
         result.uncertain_params = sorted(set(result.uncertain_params)
                                         | set(provenance['reference_parameters']))
         provenance.update(model=type(model).__name__, result_status=result.status)

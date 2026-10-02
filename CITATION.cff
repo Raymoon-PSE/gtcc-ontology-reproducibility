@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "Please cite this version of the supporting computational artifacts."
 type: software
 title: "GTCC Ontology-Driven Digital Twin: Supporting Computational Artifacts"
-version: 0.2.0
+version: 0.3.0
 license: MIT
 repository-code: "https://github.com/Raymoon-PSE/gtcc-ontology-reproducibility"
 authors:
@@ -21,4 +21,4 @@ keywords:
   - digital twin
   - combined cycle
   - reproducibility
-abstract: "Corrected simulation-based evaluation: 72 routing cases, 104 contract configurations, 36 lifecycle checks, 95 threshold checks, six matched queries and 583 physical replay records. No field validation or representation-specific superiority claim."
+abstract: "Corrected simulation-based evaluation: 72 routing cases, 104 contract configurations, 36 lifecycle checks, 95 threshold checks, six matched queries, 17 failure-path cases, eight indicator-extension cases and 583 physical replay records. No field validation or representation-specific superiority claim."

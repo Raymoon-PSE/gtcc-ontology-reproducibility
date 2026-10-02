@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.3.0
+
+- Stage governed execution; failed runs restore static references and invalidate all owned evidence.
+- Enforce typed parameters and explicit precedence across both input maps; label lifetime sentinels.
+- Bind all mechanical outputs and reject unregistered outputs.
+- Add 17 failure cases, four non-default overrides and an eight-case indicator-extension comparison.
+- Preserve physical model kernels and all 583 physical replay outcomes.
+
 ## v0.2.0
 
 - Require all six contract devices to declare exactly one supported status; explicit NONE remains valid.

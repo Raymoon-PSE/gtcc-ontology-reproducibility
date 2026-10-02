@@ -1,0 +1,9 @@
+{
+  "failed_runs": 17,
+  "all_failures_clear_evidence_and_restore_static": true,
+  "nondefault_overrides": 4,
+  "all_override_values_and_provenance_correct": true,
+  "unbounded_lifetime_sentinel_labelled": true,
+  "plain_input_policy_checks": 7,
+  "scope": "Development regression, single-writer graph; two failures are deliberately injected to test late publication boundaries."
+}

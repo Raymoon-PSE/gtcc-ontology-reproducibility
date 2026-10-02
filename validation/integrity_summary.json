@@ -9,8 +9,8 @@
   "all_expected": true,
   "previously_missed_now_detected": 9,
   "median_case_ms": {
-    "rdf": 0.3173435,
-    "non_rdf": 0.01008325
+    "rdf": 0.34752075000000004,
+    "non_rdf": 0.0111875
   },
   "extension": {
     "example": "declared_stream_replacement",

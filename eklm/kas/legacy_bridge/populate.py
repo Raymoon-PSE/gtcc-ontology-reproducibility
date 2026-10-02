@@ -10,6 +10,7 @@ from rdflib.namespace import XSD
 from eklm.kas.legacy_bridge.graph import PM, PM4
 from eklm.vdt.analysis.gtcc_loop import GTCCResult
 from eklm.vdt.data.streams import Stream
+from eklm.kas.legacy_bridge.integrity import own_runtime_field
 
 
 def _set_stream_values(g: Graph, uri: URIRef, s: Stream) -> None:
@@ -25,6 +26,7 @@ def _set_stream_values(g: Graph, uri: URIRef, s: Stream) -> None:
         props[PM.stream_s] = s.s / 1000.0  # J/kg/K -> kJ/kg/K
 
     for pred in (PM.stream_T, PM.stream_P, PM.stream_m_dot, PM.stream_h, PM.stream_s):
+        own_runtime_field(g, uri, pred)
         g.remove((uri, pred, None))
     g.set((uri, PM.runtime_state_updated, Literal(True)))
     for pred, val in props.items():
@@ -33,6 +35,7 @@ def _set_stream_values(g: Graph, uri: URIRef, s: Stream) -> None:
 
 def _set_var_value(g: Graph, uri: URIRef, value: float) -> None:
     """Set a variable's computed value."""
+    own_runtime_field(g, uri, PM.var_value)
     g.remove((uri, PM.var_value, None))
     g.add((uri, PM.var_value, Literal(round(value, 6), datatype=XSD.decimal)))
 
@@ -40,6 +43,8 @@ def _set_var_value(g: Graph, uri: URIRef, value: float) -> None:
 def _set_kpi(g: Graph, uri: URIRef, value: float,
              target: float | None = None, tol: float | None = None) -> None:
     """Set KPI value and compute status."""
+    own_runtime_field(g, uri, PM.kpi_value)
+    own_runtime_field(g, uri, PM.kpi_status)
     g.remove((uri, PM.kpi_value, None))
     g.add((uri, PM.kpi_value, Literal(round(value, 4), datatype=XSD.decimal)))
 

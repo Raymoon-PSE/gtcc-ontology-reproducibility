@@ -1,0 +1,12 @@
+{
+  "cases": 8,
+  "valid": 4,
+  "invalid": 4,
+  "all_expected_and_paired_checks_pass": true,
+  "arm_specific_declaration_changes": {
+    "rdf": 4,
+    "json": 4
+  },
+  "shared_plugin_sha256": "2c7a0f9817ac99c176ef920800099ade1a903139a78cb8a710b7246f6d26bb95",
+  "benefit_demonstrated": "Traceable propagation and failure handling for one declared indicator extension in both arms, not lower effort or representation superiority."
+}

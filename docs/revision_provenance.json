@@ -1,6 +1,6 @@
 {
-  "version": "0.2.0",
-  "created_utc": "2026-10-02T01:05:04.453293+00:00",
+  "version": "0.3.0",
+  "created_utc": "2026-10-02T01:28:58.850369+00:00",
   "source_baseline": "v0.1.0 computational subset; v0.1.1/v0.1.2 were metadata-only releases",
   "changed_python_files": [
     "scripts/reproduce_numerical.py",
@@ -10,11 +10,19 @@
     "scripts/plot_revision.py",
     "scripts/conventional_control.py",
     "scripts/evaluate_audit_fixes.py",
+    "scripts/evaluate_transaction.py",
+    "scripts/inspection_extension.py",
+    "scripts/evaluate_extension.py",
+    "eklm/vdt/gui_adapter.py",
+    "eklm/kas/legacy_bridge/runtime.py",
     "eklm/kas/legacy_bridge/mech_bridge.py",
+    "eklm/kas/legacy_bridge/populate.py",
     "eklm/kas/legacy_bridge/bayesian.py",
-    "eklm/kas/legacy_bridge/integrity.py"
+    "eklm/kas/legacy_bridge/integrity.py",
+    "eklm/kas/legacy_bridge/input_policy.py"
   ],
   "physical_kernel_changes": [],
+  "orchestration_adapter_changed": "eklm/vdt/gui_adapter.py",
   "title_changed": false,
   "AI_assistance": {
     "tool": "Codex",
