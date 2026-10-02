@@ -23,6 +23,7 @@ _PROP_MAP = {
     "mech_gt_eoh_remaining": PM.mech_eohRemaining,
     "mech_comb_liner_temp_C": PM.mech_linerTempC,
     "mech_comb_fatigue_life_fraction": PM.mech_fatigueLifeFraction,
+    "mech_comb_combined_life_fraction": PM.mech_combinedLifeFraction,
     "mech_comb_remaining_life_hr": PM.mech_remainingLifeHr,
     "mech_hpsh_hoop_stress_MPa": PM.mech_hoopStressMPa,
     "mech_hpsh_creep_rupture_hr": PM.mech_creepRuptureHr,

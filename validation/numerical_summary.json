@@ -7,5 +7,232 @@
     "rtol": 1e-06,
     "atol": 1e-05
   },
-  "errors": []
+  "errors": [],
+  "comparison_scope": "Physical scalar outputs and success/failure outcomes; diagnostic differences from the explicit threshold-equality correction are reported separately.",
+  "diagnostic_changes": [
+    {
+      "case": "eta_0.825",
+      "mode": "process_only",
+      "fault": "F-01",
+      "archived": 0.41693944221026347,
+      "current": 0.2823968759107673
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "process_only",
+      "fault": "F-06",
+      "archived": 0.17295160887013264,
+      "current": 0.2128605908655687
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "process_only",
+      "fault": "F-03",
+      "archived": 0.09943727484109605,
+      "current": 0.12238265498048075
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "process_only",
+      "fault": "F-08",
+      "archived": 0.09885007811588888,
+      "current": 0.12165996125919468
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "process_only",
+      "fault": "F-04",
+      "archived": 0.09414293153894181,
+      "current": 0.11586662977066162
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "process_only",
+      "fault": "F-02",
+      "archived": 0.047071465769470903,
+      "current": 0.05793331488533081
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "process_only",
+      "fault": "F-07",
+      "archived": 0.047071465769470903,
+      "current": 0.05793331488533081
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "process_only",
+      "fault": "F-05",
+      "archived": 0.023535732884735452,
+      "current": 0.028966657442665404
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "design",
+      "fault": "F-01",
+      "archived": 0.3426299994997826,
+      "current": 0.24982689141413866
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "design",
+      "fault": "F-06",
+      "archived": 0.19499380928879873,
+      "current": 0.22252173351072346
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "design",
+      "fault": "F-03",
+      "archived": 0.11211027832138881,
+      "current": 0.12793725896918198
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "design",
+      "fault": "F-08",
+      "archived": 0.11144824501046408,
+      "current": 0.12718176421553143
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "design",
+      "fault": "F-04",
+      "archived": 0.1061411857242515,
+      "current": 0.12112548972907757
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "design",
+      "fault": "F-02",
+      "archived": 0.05307059286212575,
+      "current": 0.06056274486453878
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "design",
+      "fault": "F-07",
+      "archived": 0.05307059286212575,
+      "current": 0.06056274486453878
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "design",
+      "fault": "F-05",
+      "archived": 0.026535296431062876,
+      "current": 0.03028137243226939
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "assumed",
+      "fault": "F-01",
+      "archived": 0.4464507571564536,
+      "current": 0.34007467162247873
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "assumed",
+      "fault": "F-06",
+      "archived": 0.1641977507474616,
+      "current": 0.19575178899043666
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "assumed",
+      "fault": "F-03",
+      "archived": 0.09440430751716894,
+      "current": 0.11254607326049469
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "assumed",
+      "fault": "F-08",
+      "archived": 0.09384683145692777,
+      "current": 0.11188146649482406
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "assumed",
+      "fault": "F-04",
+      "archived": 0.0893779347208836,
+      "current": 0.10655377761411816
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "assumed",
+      "fault": "F-02",
+      "archived": 0.0446889673604418,
+      "current": 0.05327688880705908
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "assumed",
+      "fault": "F-07",
+      "archived": 0.0446889673604418,
+      "current": 0.05327688880705908
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "assumed",
+      "fault": "F-05",
+      "archived": 0.0223444836802209,
+      "current": 0.02663844440352954
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "fixed10",
+      "fault": "F-01",
+      "archived": 0.46170307109140196,
+      "current": 0.3540170106500285
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "fixed10",
+      "fault": "F-06",
+      "archived": 0.1596734998805509,
+      "current": 0.19161611228582512
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "fixed10",
+      "fault": "F-03",
+      "archived": 0.09180312225013348,
+      "current": 0.11016829589365963
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "fixed10",
+      "fault": "F-08",
+      "archived": 0.09126100670206344,
+      "current": 0.10951773037242762
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "fixed10",
+      "fault": "F-04",
+      "archived": 0.08691524447815567,
+      "current": 0.10430260035469298
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "fixed10",
+      "fault": "F-02",
+      "archived": 0.043457622239077835,
+      "current": 0.05215130017734649
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "fixed10",
+      "fault": "F-07",
+      "archived": 0.043457622239077835,
+      "current": 0.05215130017734649
+    },
+    {
+      "case": "eta_0.825",
+      "mode": "fixed10",
+      "fault": "F-05",
+      "archived": 0.021728811119538918,
+      "current": 0.026075650088673245
+    }
+  ]
 }

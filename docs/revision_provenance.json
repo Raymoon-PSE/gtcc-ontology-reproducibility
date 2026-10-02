@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "created_utc": "2026-10-02T01:05:04.453293+00:00",
+  "source_baseline": "v0.1.0 computational subset; v0.1.1/v0.1.2 were metadata-only releases",
+  "changed_python_files": [
+    "scripts/reproduce_numerical.py",
+    "scripts/reproduce_integrity.py",
+    "scripts/export_tables.py",
+    "scripts/evaluate_revision.py",
+    "scripts/plot_revision.py",
+    "scripts/conventional_control.py",
+    "scripts/evaluate_audit_fixes.py",
+    "eklm/kas/legacy_bridge/mech_bridge.py",
+    "eklm/kas/legacy_bridge/bayesian.py",
+    "eklm/kas/legacy_bridge/integrity.py"
+  ],
+  "physical_kernel_changes": [],
+  "title_changed": false,
+  "AI_assistance": {
+    "tool": "Codex",
+    "model": "GPT-6",
+    "developer": "OpenAI",
+    "uses": [
+      "code review",
+      "regression and conventional-control scripts",
+      "document revision",
+      "Matplotlib code for data plots and explanatory diagrams"
+    ],
+    "generative_image_model_used": false
+  },
+  "threshold_policy": "strict exceedance outside abs 1e-10 / rel 1e-12 equality band"
+}

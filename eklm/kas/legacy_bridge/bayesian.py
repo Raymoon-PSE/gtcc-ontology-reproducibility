@@ -1,12 +1,14 @@
 """Bayesian Fault Diagnosis for GTCC plant.
 
-Uses Bayes' theorem to compute posterior probability of each fault
-given observed deviations from design values.
+Uses Bayesian-style normalization of geometric-mean symptom scores.
+The returned legacy field name `posterior` denotes an uncalibrated normalized
+hypothesis score, not a measured or calibrated fault probability.
 
 P(Fault_i | obs) = P(obs | Fault_i) * P(Fault_i) / P(obs)
 """
 
 from dataclasses import dataclass, field
+import math
 
 import numpy as np
 
@@ -119,8 +121,8 @@ FAULT_LIBRARY = [
     ),
 ]
 
-# Design reference values (NETL calibrated baseline)
-DESIGN_REF = {
+# Historical mixed reference, retained only for replay of archived results.
+LEGACY_DESIGN_REF = {
     "eta_comp": 0.845,
     "eta_turb": 0.876,
     "W_GT": 362_200,
@@ -132,6 +134,10 @@ DESIGN_REF = {
     "x_28": 0.919,
     "mech_comp_surge_margin_pct": 15.0,
 }
+
+# Fixed nominal EKLM reference for revised diagnostic evaluation.
+# This is a simulation baseline, not measured healthy-plant data.
+DESIGN_REF = {'eta_comp': 0.845, 'eta_turb': 0.876, 'W_GT': 367724.0803469602, 'W_ST': 202500.0, 'W_net': 560604.0803469602, 'T_stack': 106.0, 'PTD_HP': 10.0, 'P_cond': 0.00677, 'x_28': 0.9280155434338059, 'mech_comp_surge_margin_pct': 15.0}
 
 RECOMMENDATIONS = {
     "F-01": "Compressor borescope inspection recommended. Check intake filter dP.",
@@ -166,8 +172,23 @@ def _extract_observations(result: GTCCResult, reference: dict | None = None) -> 
     return obs
 
 
+THRESHOLD_ABS_TOL = 1e-10
+THRESHOLD_REL_TOL = 1e-12
+
+
+def threshold_exceeded(deviation: float, threshold: float, direction: str) -> bool:
+    """Strict exceedance; roundoff-close equality is a non-match.
+
+    Tolerances are numerical guards in each channel's native units, not
+    uncertainty bounds or fitted engineering alarm margins.
+    """
+    signed = -deviation if direction == 'down' else deviation
+    return signed > threshold and not math.isclose(
+        signed, threshold, rel_tol=THRESHOLD_REL_TOL, abs_tol=THRESHOLD_ABS_TOL)
+
+
 def _compute_likelihood(fault: Fault, obs: dict[str, float], reference: dict | None = None) -> float:
-    """Compute P(observations | fault) using symptom matching."""
+    """Compute an uncalibrated symptom match score."""
     ref = {**DESIGN_REF, **(reference or {})}
     if not fault.symptoms:
         return 0.1  # minimal likelihood for faults with no symptoms defined
@@ -192,11 +213,11 @@ def _compute_likelihood(fault: Fault, obs: dict[str, float], reference: dict | N
             deviation = 0
 
         # Check if deviation matches expected direction
-        if direction == "down" and deviation < -threshold:
+        if direction == "down" and threshold_exceeded(deviation, threshold, direction):
             # Matches: stronger deviation → higher likelihood
             strength = min(abs(deviation) / threshold, 3.0) / 3.0
             match_scores.append(max_likelihood * (0.5 + 0.5 * strength))
-        elif direction == "up" and deviation > threshold:
+        elif direction == "up" and threshold_exceeded(deviation, threshold, direction):
             strength = min(abs(deviation) / threshold, 3.0) / 3.0
             match_scores.append(max_likelihood * (0.5 + 0.5 * strength))
         else:

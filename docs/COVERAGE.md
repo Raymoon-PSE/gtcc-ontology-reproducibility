@@ -1,21 +1,9 @@
-# Coverage and limitations
+# Coverage of version 0.2.0
 
-| Manuscript evidence | Included artifacts and reproduction status |
-|---|---|
-| NETL design-point comparison | Recomputed from archived kernels/inputs; GT/net power and HHV efficiency checked |
-| Mechanical life and efficiency scenarios | Six scenarios, original device models and reference assumptions; outputs checked against archives |
-| Diagnostic margin sensitivity | Archived prescribed margins plus eight fault posteriors for each scenario; numerical replay |
-| DataStatus/runtime chain | Three governed runs; NONE disables compressor evidence; FULL rejects missing explicit parameters |
-| 500 Monte Carlo attempts | All successful and failed inputs retained; 479/21 outcome reproduced; exact sampler source version unrecovered, replay uses archived inputs |
-| H2/NH3 fuel grid | All 77 attempted inputs; 70/7 outcome reproduced |
-| Engineering contract | Original 79-case construction and raw archived results; RDF and non-RDF cases regenerated |
-| Initial 55-case matched comparison | **Original case-level implementation/results not recovered. Not independently reproducible from this release.** No replacement experiment is presented as the historical experiment |
-| Physical field validation | Not claimed or supplied; this is a public reference/synthetic evaluation |
-| Exact figure typography/layout | Not regenerated; underlying recorded values can be exported as CSV |
-| All EKLM features and later upgrades | Out of scope |
+The current README identifies the supported experiments, corrected threshold policy, and comparison boundaries. This version includes new 72-case routing, 104-case contract, 36-check lifecycle and 95-check threshold evaluations, plus six matched retrieval tasks. Counts describe different development/regression tests and must not be pooled as independent physical-validation samples.
 
-This package should not be described as making every manuscript claim fully reproducible. Recover the initial 55-case artifacts or explicitly state their unavailability when finalizing the data availability statement. Publishing this repository does not by itself establish journal policy compliance or editorial acceptance.
+Physical replay preserves 583 outcomes. Thirty-two diagnostic entries change under the corrected equality rule; physical and diagnostic checks are reported separately. The diagnostic reference is the nominal EKLM point. Archived historical results remain intact under data/archived/.
 
-The original engineering benchmark uses a shared validator and an RDF-to-records adapter. The resolved non-RDF control is strong and centralized. Identical decisions demonstrate policy equivalence/adapter fidelity, not superiority of the ontology representation.
+The independent conventional validator shares the engineering contract and resolved class membership, but not production validation code. Conventional queries receive the same populated relation snapshot. Shared data and specifications limit independence; no superiority or human-productivity benefit follows from agreement.
 
-Archived timings are retained as historical measurements; new timings are logged separately. Cross-version floating-point deviations are checked against a stated tolerance, not forced to match by altering saved results.
+No live plant connection, field measurements, labelled fault records, calibrated diagnostic probabilities, dynamic validation, or cross-plant transfer is supplied. Original 55-case records and the original Monte Carlo sampler version remain unavailable. See README.md for reproduction commands.

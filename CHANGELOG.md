@@ -1,5 +1,14 @@
 # Changelog
 
+## v0.2.0
+
+- Require all six contract devices to declare exactly one supported status; explicit NONE remains valid.
+- Define non-matching threshold equality with documented numerical tolerance; regenerate diagnostic results.
+- Add 72 matched routing cases, 104 contract cases with an independently implemented conventional control, 36 lifecycle checks and 95 threshold checks.
+- Compare all six SPARQL queries with conventional JSON joins and retain a lossless N-Triples snapshot.
+- Preserve all 583 physical replay outcomes; report 32 changed historical diagnostic entries separately.
+- Supply corrected provenance, result summaries, figure scripts and full/reviewer computational archives.
+
 ## v0.1.2
 
 - Metadata-only release after the Zenodo repository webhook was verified active.

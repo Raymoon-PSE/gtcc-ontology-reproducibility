@@ -44,7 +44,7 @@ def graph_records(g, contract=None):
     # devices, so unknown devices cannot disappear through scope filtering.
     from rdflib import URIRef
     subjects = set(g.subjects(PM.mech_hasDataStatus, None))
-    subjects.update(URIRef(s) for section in ('ports','upstream','stream_classes') for s in c[section])
+    subjects.update(URIRef(s) for section in ('devices','ports','upstream','stream_classes') for s in c[section])
     rows = {}
     for s in subjects:
         rec = {p: sorted(str(o) for o in g.objects(s, PM[p])) for p in props}
@@ -63,6 +63,12 @@ def validate_records(rows, contract=None):
     findings = []
     def emit(code,s,p,expected,actual):
         findings.append(Finding(code,s,p,json.dumps(expected,sort_keys=True),json.dumps(actual,sort_keys=True)))
+    # Closed-world device coverage: absence must never mean explicit NONE.
+    allowed_statuses = {str(PM['mech_DataStatus_'+v]) for v in ('FULL','PARTIAL','NONE')}
+    for s in sorted(c['devices']):
+        statuses = rows.get(s, {}).get('mech_hasDataStatus', [])
+        if len(statuses) != 1 or statuses[0] not in allowed_statuses:
+            emit('data_status',s,'mech_hasDataStatus',sorted(allowed_statuses),statuses)
     # A contract record anchors BOTH descriptive identifiers and runtime routing.
     for s, rec in sorted(rows.items()):
         if not rec.get('mech_hasDataStatus'): continue

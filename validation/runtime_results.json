@@ -130,9 +130,9 @@
           "PTD_HP": 10.0,
           "P_cond": 0.00677,
           "x_28": 0.9280155434338059,
-          "W_GT_pct": 1.5251464237880263,
+          "W_GT_pct": 0.0,
           "W_ST_pct": 0.0,
-          "W_net_pct": -3.5622728677611626,
+          "W_net_pct": 0.0,
           "mech_comp_surge_margin_pct": 15.0
         },
         "observation_provenance": {
@@ -153,13 +153,13 @@
         "reference": {
           "eta_comp": 0.845,
           "eta_turb": 0.876,
-          "W_GT": 362200,
-          "W_ST": 202500,
-          "W_net": 581312,
+          "W_GT": 367724.0803469602,
+          "W_ST": 202500.0,
+          "W_net": 560604.0803469602,
           "T_stack": 106.0,
           "PTD_HP": 10.0,
           "P_cond": 0.00677,
-          "x_28": 0.919,
+          "x_28": 0.9280155434338059,
           "mech_comp_surge_margin_pct": 15.0
         },
         "residual_assessment": null,
@@ -169,48 +169,32 @@
             "fault_id": "F-01",
             "fault_name": "Compressor fouling",
             "prior": 0.25,
-            "likelihood": 0.18920514304927746,
-            "posterior": 0.2781174504710194,
+            "likelihood": 0.10000000000000002,
+            "posterior": 0.25,
             "recommendation": "Compressor borescope inspection recommended. Check intake filter dP."
-          },
-          {
-            "fault_id": "F-06",
-            "fault_name": "Condenser fouling",
-            "prior": 0.15,
-            "likelihood": 0.2449489742783178,
-            "posterior": 0.216034035197556,
-            "recommendation": "Condenser tube cleaning. Check CW chemistry and biofouling."
-          },
-          {
-            "fault_id": "F-08",
-            "fault_name": "Sensor drift",
-            "prior": 0.07,
-            "likelihood": 0.3,
-            "posterior": 0.12347373577197716,
-            "recommendation": "Sensor calibration check. Compare redundant instruments."
-          },
-          {
-            "fault_id": "F-03",
-            "fault_name": "Combustor degradation",
-            "prior": 0.08,
-            "likelihood": 0.25041279270287586,
-            "posterior": 0.11778820190521061,
-            "recommendation": "Combustion tuning required. Check fuel nozzle wear and flame monitor."
           },
           {
             "fault_id": "F-04",
             "fault_name": "HRSG tube fouling",
             "prior": 0.2,
             "likelihood": 0.10000000000000002,
-            "posterior": 0.11759403406854971,
+            "posterior": 0.2,
             "recommendation": "HRSG gas-side cleaning (soot blowing). Check economizer fin condition."
+          },
+          {
+            "fault_id": "F-06",
+            "fault_name": "Condenser fouling",
+            "prior": 0.15,
+            "likelihood": 0.1,
+            "posterior": 0.14999999999999997,
+            "recommendation": "Condenser tube cleaning. Check CW chemistry and biofouling."
           },
           {
             "fault_id": "F-02",
             "fault_name": "GT blade erosion",
             "prior": 0.1,
             "likelihood": 0.10000000000000002,
-            "posterior": 0.058797017034274854,
+            "posterior": 0.1,
             "recommendation": "GT hot gas path inspection. Check TBC condition and blade profile."
           },
           {
@@ -218,15 +202,31 @@
             "fault_name": "CW system degradation",
             "prior": 0.1,
             "likelihood": 0.1,
-            "posterior": 0.058797017034274854,
+            "posterior": 0.1,
             "recommendation": "CT fill inspection. Check CWP vibration and performance curve."
+          },
+          {
+            "fault_id": "F-03",
+            "fault_name": "Combustor degradation",
+            "prior": 0.08,
+            "likelihood": 0.1,
+            "posterior": 0.07999999999999999,
+            "recommendation": "Combustion tuning required. Check fuel nozzle wear and flame monitor."
+          },
+          {
+            "fault_id": "F-08",
+            "fault_name": "Sensor drift",
+            "prior": 0.07,
+            "likelihood": 0.1,
+            "posterior": 0.06999999999999999,
+            "recommendation": "Sensor calibration check. Compare redundant instruments."
           },
           {
             "fault_id": "F-05",
             "fault_name": "ST blade erosion",
             "prior": 0.05,
             "likelihood": 0.1,
-            "posterior": 0.029398508517137427,
+            "posterior": 0.05,
             "recommendation": "ST LP section inspection. Check last-stage blade erosion pattern."
           }
         ],
@@ -987,48 +987,32 @@
             "fault_id": "F-01",
             "fault_name": "Compressor fouling",
             "prior": 0.25,
-            "likelihood": 0.16132426794319715,
-            "posterior": 0.24726839627187006,
+            "likelihood": 0.1,
+            "posterior": 0.25,
             "recommendation": "Compressor borescope inspection recommended. Check intake filter dP."
-          },
-          {
-            "fault_id": "F-06",
-            "fault_name": "Condenser fouling",
-            "prior": 0.15,
-            "likelihood": 0.2449489742783178,
-            "posterior": 0.2252660711638206,
-            "recommendation": "Condenser tube cleaning. Check CW chemistry and biofouling."
-          },
-          {
-            "fault_id": "F-08",
-            "fault_name": "Sensor drift",
-            "prior": 0.07,
-            "likelihood": 0.3,
-            "posterior": 0.12875028383299694,
-            "recommendation": "Sensor calibration check. Compare redundant instruments."
-          },
-          {
-            "fault_id": "F-03",
-            "fault_name": "Combustor degradation",
-            "prior": 0.08,
-            "likelihood": 0.25041279270287586,
-            "posterior": 0.12282178337489026,
-            "recommendation": "Combustion tuning required. Check fuel nozzle wear and flame monitor."
           },
           {
             "fault_id": "F-04",
             "fault_name": "HRSG tube fouling",
             "prior": 0.2,
             "likelihood": 0.10000000000000002,
-            "posterior": 0.12261931793618759,
+            "posterior": 0.20000000000000004,
             "recommendation": "HRSG gas-side cleaning (soot blowing). Check economizer fin condition."
+          },
+          {
+            "fault_id": "F-06",
+            "fault_name": "Condenser fouling",
+            "prior": 0.15,
+            "likelihood": 0.1,
+            "posterior": 0.15,
+            "recommendation": "Condenser tube cleaning. Check CW chemistry and biofouling."
           },
           {
             "fault_id": "F-02",
             "fault_name": "GT blade erosion",
             "prior": 0.1,
             "likelihood": 0.10000000000000002,
-            "posterior": 0.061309658968093796,
+            "posterior": 0.10000000000000002,
             "recommendation": "GT hot gas path inspection. Check TBC condition and blade profile."
           },
           {
@@ -1036,22 +1020,38 @@
             "fault_name": "CW system degradation",
             "prior": 0.1,
             "likelihood": 0.1,
-            "posterior": 0.061309658968093796,
+            "posterior": 0.10000000000000002,
             "recommendation": "CT fill inspection. Check CWP vibration and performance curve."
+          },
+          {
+            "fault_id": "F-03",
+            "fault_name": "Combustor degradation",
+            "prior": 0.08,
+            "likelihood": 0.1,
+            "posterior": 0.08,
+            "recommendation": "Combustion tuning required. Check fuel nozzle wear and flame monitor."
+          },
+          {
+            "fault_id": "F-08",
+            "fault_name": "Sensor drift",
+            "prior": 0.07,
+            "likelihood": 0.1,
+            "posterior": 0.07,
+            "recommendation": "Sensor calibration check. Compare redundant instruments."
           },
           {
             "fault_id": "F-05",
             "fault_name": "ST blade erosion",
             "prior": 0.05,
             "likelihood": 0.1,
-            "posterior": 0.030654829484046898,
+            "posterior": 0.05000000000000001,
             "recommendation": "ST LP section inspection. Check last-stage blade erosion pattern."
           }
         ],
         "warnings": [
           "R-11: Combustor combined life fraction 62.50% > 50% WARNING"
         ],
-        "graph_triples": 2775,
+        "graph_triples": 2776,
         "evidence_origin": "current process results and graph-published mechanical outputs"
       },
       "mechanical": [
@@ -1333,9 +1333,9 @@
           "PTD_HP": 10.0,
           "P_cond": 0.00677,
           "x_28": 0.9280155434338059,
-          "W_GT_pct": -0.6748348188776565,
+          "W_GT_pct": -2.166932351402362,
           "W_ST_pct": 0.0,
-          "W_net_pct": -4.933022492908257,
+          "W_net_pct": -1.4213831722386772,
           "mech_comp_surge_margin_pct": 15.0
         },
         "observation_provenance": {
@@ -1356,13 +1356,13 @@
         "reference": {
           "eta_comp": 0.845,
           "eta_turb": 0.876,
-          "W_GT": 362200,
-          "W_ST": 202500,
-          "W_net": 581312,
+          "W_GT": 367724.0803469602,
+          "W_ST": 202500.0,
+          "W_net": 560604.0803469602,
           "T_stack": 106.0,
           "PTD_HP": 10.0,
           "P_cond": 0.00677,
-          "x_28": 0.919,
+          "x_28": 0.9280155434338059,
           "mech_comp_surge_margin_pct": 15.0
         },
         "residual_assessment": null,
@@ -1372,32 +1372,24 @@
             "fault_id": "F-01",
             "fault_name": "Compressor fouling",
             "prior": 0.25,
-            "likelihood": 0.3739043904092962,
-            "posterior": 0.4300035986120248,
+            "likelihood": 0.18898815748423103,
+            "posterior": 0.31035116879499935,
             "recommendation": "Compressor borescope inspection recommended. Check intake filter dP."
           },
           {
             "fault_id": "F-06",
             "fault_name": "Condenser fouling",
             "prior": 0.15,
-            "likelihood": 0.2449489742783178,
-            "posterior": 0.1690201181655591,
+            "likelihood": 0.21027085324025954,
+            "posterior": 0.20718061682382835,
             "recommendation": "Condenser tube cleaning. Check CW chemistry and biofouling."
-          },
-          {
-            "fault_id": "F-03",
-            "fault_name": "Combustor degradation",
-            "prior": 0.08,
-            "likelihood": 0.264575131106459,
-            "posterior": 0.09736671632402172,
-            "recommendation": "Combustion tuning required. Check fuel nozzle wear and flame monitor."
           },
           {
             "fault_id": "F-08",
             "fault_name": "Sensor drift",
             "prior": 0.07,
-            "likelihood": 0.3,
-            "posterior": 0.09660304401312547,
+            "likelihood": 0.2921383172238677,
+            "posterior": 0.13432762895835454,
             "recommendation": "Sensor calibration check. Compare redundant instruments."
           },
           {
@@ -1405,7 +1397,7 @@
             "fault_name": "HRSG tube fouling",
             "prior": 0.2,
             "likelihood": 0.10000000000000002,
-            "posterior": 0.0920028990601195,
+            "posterior": 0.13137380581993124,
             "recommendation": "HRSG gas-side cleaning (soot blowing). Check economizer fin condition."
           },
           {
@@ -1413,7 +1405,7 @@
             "fault_name": "GT blade erosion",
             "prior": 0.1,
             "likelihood": 0.10000000000000002,
-            "posterior": 0.04600144953005975,
+            "posterior": 0.06568690290996562,
             "recommendation": "GT hot gas path inspection. Check TBC condition and blade profile."
           },
           {
@@ -1421,15 +1413,23 @@
             "fault_name": "CW system degradation",
             "prior": 0.1,
             "likelihood": 0.1,
-            "posterior": 0.04600144953005975,
+            "posterior": 0.06568690290996562,
             "recommendation": "CT fill inspection. Check CWP vibration and performance curve."
+          },
+          {
+            "fault_id": "F-03",
+            "fault_name": "Combustor degradation",
+            "prior": 0.08,
+            "likelihood": 0.1,
+            "posterior": 0.05254952232797249,
+            "recommendation": "Combustion tuning required. Check fuel nozzle wear and flame monitor."
           },
           {
             "fault_id": "F-05",
             "fault_name": "ST blade erosion",
             "prior": 0.05,
             "likelihood": 0.1,
-            "posterior": 0.023000724765029876,
+            "posterior": 0.03284345145498281,
             "recommendation": "ST LP section inspection. Check last-stage blade erosion pattern."
           }
         ],
@@ -2190,32 +2190,24 @@
             "fault_id": "F-01",
             "fault_name": "Compressor fouling",
             "prior": 0.25,
-            "likelihood": 0.26888738251558564,
-            "posterior": 0.35170708153046226,
+            "likelihood": 0.1611854897735313,
+            "posterior": 0.27735764705009275,
             "recommendation": "Compressor borescope inspection recommended. Check intake filter dP."
           },
           {
             "fault_id": "F-06",
             "fault_name": "Condenser fouling",
             "prior": 0.15,
-            "likelihood": 0.2449489742783178,
-            "posterior": 0.19223725872443387,
+            "likelihood": 0.21027085324025954,
+            "posterior": 0.21709235432993923,
             "recommendation": "Condenser tube cleaning. Check CW chemistry and biofouling."
-          },
-          {
-            "fault_id": "F-03",
-            "fault_name": "Combustor degradation",
-            "prior": 0.08,
-            "likelihood": 0.264575131106459,
-            "posterior": 0.11074131789918222,
-            "recommendation": "Combustion tuning required. Check fuel nozzle wear and flame monitor."
           },
           {
             "fault_id": "F-08",
             "fault_name": "Sensor drift",
             "prior": 0.07,
-            "likelihood": 0.3,
-            "posterior": 0.10987274513279326,
+            "likelihood": 0.2921383172238677,
+            "posterior": 0.14075400329039744,
             "recommendation": "Sensor calibration check. Compare redundant instruments."
           },
           {
@@ -2223,7 +2215,7 @@
             "fault_name": "HRSG tube fouling",
             "prior": 0.2,
             "likelihood": 0.10000000000000002,
-            "posterior": 0.10464070965027931,
+            "posterior": 0.1376588661621021,
             "recommendation": "HRSG gas-side cleaning (soot blowing). Check economizer fin condition."
           },
           {
@@ -2231,7 +2223,7 @@
             "fault_name": "GT blade erosion",
             "prior": 0.1,
             "likelihood": 0.10000000000000002,
-            "posterior": 0.05232035482513966,
+            "posterior": 0.06882943308105105,
             "recommendation": "GT hot gas path inspection. Check TBC condition and blade profile."
           },
           {
@@ -2239,22 +2231,30 @@
             "fault_name": "CW system degradation",
             "prior": 0.1,
             "likelihood": 0.1,
-            "posterior": 0.05232035482513966,
+            "posterior": 0.06882943308105105,
             "recommendation": "CT fill inspection. Check CWP vibration and performance curve."
+          },
+          {
+            "fault_id": "F-03",
+            "fault_name": "Combustor degradation",
+            "prior": 0.08,
+            "likelihood": 0.1,
+            "posterior": 0.05506354646484083,
+            "recommendation": "Combustion tuning required. Check fuel nozzle wear and flame monitor."
           },
           {
             "fault_id": "F-05",
             "fault_name": "ST blade erosion",
             "prior": 0.05,
             "likelihood": 0.1,
-            "posterior": 0.02616017741256983,
+            "posterior": 0.034414716540525525,
             "recommendation": "ST LP section inspection. Check last-stage blade erosion pattern."
           }
         ],
         "warnings": [
           "R-11: Combustor combined life fraction 62.50% > 50% WARNING"
         ],
-        "graph_triples": 2775,
+        "graph_triples": 2776,
         "evidence_origin": "current process results and graph-published mechanical outputs"
       },
       "mechanical": [
@@ -2525,9 +2525,9 @@
           "PTD_HP": 10.0,
           "P_cond": 0.00677,
           "x_28": 0.9280155434338059,
-          "W_GT_pct": -0.6748348188776565,
+          "W_GT_pct": -2.166932351402362,
           "W_ST_pct": 0.0,
-          "W_net_pct": -4.933022492908257
+          "W_net_pct": -1.4213831722386772
         },
         "observation_provenance": {
           "eta_comp": "model_parameter_not_sensor",
@@ -2546,13 +2546,13 @@
         "reference": {
           "eta_comp": 0.845,
           "eta_turb": 0.876,
-          "W_GT": 362200,
-          "W_ST": 202500,
-          "W_net": 581312,
+          "W_GT": 367724.0803469602,
+          "W_ST": 202500.0,
+          "W_net": 560604.0803469602,
           "T_stack": 106.0,
           "PTD_HP": 10.0,
           "P_cond": 0.00677,
-          "x_28": 0.919,
+          "x_28": 0.9280155434338059,
           "mech_comp_surge_margin_pct": 15.0
         },
         "residual_assessment": null,
@@ -2562,32 +2562,24 @@
             "fault_id": "F-01",
             "fault_name": "Compressor fouling",
             "prior": 0.25,
-            "likelihood": 0.3739043904092962,
-            "posterior": 0.4300035986120248,
+            "likelihood": 0.18898815748423103,
+            "posterior": 0.31035116879499935,
             "recommendation": "Compressor borescope inspection recommended. Check intake filter dP."
           },
           {
             "fault_id": "F-06",
             "fault_name": "Condenser fouling",
             "prior": 0.15,
-            "likelihood": 0.2449489742783178,
-            "posterior": 0.1690201181655591,
+            "likelihood": 0.21027085324025954,
+            "posterior": 0.20718061682382835,
             "recommendation": "Condenser tube cleaning. Check CW chemistry and biofouling."
-          },
-          {
-            "fault_id": "F-03",
-            "fault_name": "Combustor degradation",
-            "prior": 0.08,
-            "likelihood": 0.264575131106459,
-            "posterior": 0.09736671632402172,
-            "recommendation": "Combustion tuning required. Check fuel nozzle wear and flame monitor."
           },
           {
             "fault_id": "F-08",
             "fault_name": "Sensor drift",
             "prior": 0.07,
-            "likelihood": 0.3,
-            "posterior": 0.09660304401312547,
+            "likelihood": 0.2921383172238677,
+            "posterior": 0.13432762895835454,
             "recommendation": "Sensor calibration check. Compare redundant instruments."
           },
           {
@@ -2595,7 +2587,7 @@
             "fault_name": "HRSG tube fouling",
             "prior": 0.2,
             "likelihood": 0.10000000000000002,
-            "posterior": 0.0920028990601195,
+            "posterior": 0.13137380581993124,
             "recommendation": "HRSG gas-side cleaning (soot blowing). Check economizer fin condition."
           },
           {
@@ -2603,7 +2595,7 @@
             "fault_name": "GT blade erosion",
             "prior": 0.1,
             "likelihood": 0.10000000000000002,
-            "posterior": 0.04600144953005975,
+            "posterior": 0.06568690290996562,
             "recommendation": "GT hot gas path inspection. Check TBC condition and blade profile."
           },
           {
@@ -2611,15 +2603,23 @@
             "fault_name": "CW system degradation",
             "prior": 0.1,
             "likelihood": 0.1,
-            "posterior": 0.04600144953005975,
+            "posterior": 0.06568690290996562,
             "recommendation": "CT fill inspection. Check CWP vibration and performance curve."
+          },
+          {
+            "fault_id": "F-03",
+            "fault_name": "Combustor degradation",
+            "prior": 0.08,
+            "likelihood": 0.1,
+            "posterior": 0.05254952232797249,
+            "recommendation": "Combustion tuning required. Check fuel nozzle wear and flame monitor."
           },
           {
             "fault_id": "F-05",
             "fault_name": "ST blade erosion",
             "prior": 0.05,
             "likelihood": 0.1,
-            "posterior": 0.023000724765029876,
+            "posterior": 0.03284345145498281,
             "recommendation": "ST LP section inspection. Check last-stage blade erosion pattern."
           }
         ],
@@ -3388,32 +3388,24 @@
             "fault_id": "F-01",
             "fault_name": "Compressor fouling",
             "prior": 0.25,
-            "likelihood": 0.3739043904092962,
-            "posterior": 0.4300035986120248,
+            "likelihood": 0.18898815748423103,
+            "posterior": 0.31035116879499935,
             "recommendation": "Compressor borescope inspection recommended. Check intake filter dP."
           },
           {
             "fault_id": "F-06",
             "fault_name": "Condenser fouling",
             "prior": 0.15,
-            "likelihood": 0.2449489742783178,
-            "posterior": 0.1690201181655591,
+            "likelihood": 0.21027085324025954,
+            "posterior": 0.20718061682382835,
             "recommendation": "Condenser tube cleaning. Check CW chemistry and biofouling."
-          },
-          {
-            "fault_id": "F-03",
-            "fault_name": "Combustor degradation",
-            "prior": 0.08,
-            "likelihood": 0.264575131106459,
-            "posterior": 0.09736671632402172,
-            "recommendation": "Combustion tuning required. Check fuel nozzle wear and flame monitor."
           },
           {
             "fault_id": "F-08",
             "fault_name": "Sensor drift",
             "prior": 0.07,
-            "likelihood": 0.3,
-            "posterior": 0.09660304401312547,
+            "likelihood": 0.2921383172238677,
+            "posterior": 0.13432762895835454,
             "recommendation": "Sensor calibration check. Compare redundant instruments."
           },
           {
@@ -3421,7 +3413,7 @@
             "fault_name": "HRSG tube fouling",
             "prior": 0.2,
             "likelihood": 0.10000000000000002,
-            "posterior": 0.0920028990601195,
+            "posterior": 0.13137380581993124,
             "recommendation": "HRSG gas-side cleaning (soot blowing). Check economizer fin condition."
           },
           {
@@ -3429,7 +3421,7 @@
             "fault_name": "GT blade erosion",
             "prior": 0.1,
             "likelihood": 0.10000000000000002,
-            "posterior": 0.04600144953005975,
+            "posterior": 0.06568690290996562,
             "recommendation": "GT hot gas path inspection. Check TBC condition and blade profile."
           },
           {
@@ -3437,15 +3429,23 @@
             "fault_name": "CW system degradation",
             "prior": 0.1,
             "likelihood": 0.1,
-            "posterior": 0.04600144953005975,
+            "posterior": 0.06568690290996562,
             "recommendation": "CT fill inspection. Check CWP vibration and performance curve."
+          },
+          {
+            "fault_id": "F-03",
+            "fault_name": "Combustor degradation",
+            "prior": 0.08,
+            "likelihood": 0.1,
+            "posterior": 0.05254952232797249,
+            "recommendation": "Combustion tuning required. Check fuel nozzle wear and flame monitor."
           },
           {
             "fault_id": "F-05",
             "fault_name": "ST blade erosion",
             "prior": 0.05,
             "likelihood": 0.1,
-            "posterior": 0.023000724765029876,
+            "posterior": 0.03284345145498281,
             "recommendation": "ST LP section inspection. Check last-stage blade erosion pattern."
           }
         ],
@@ -3453,7 +3453,7 @@
           "R-11: Combustor combined life fraction 62.50% > 50% WARNING",
           "COMP-001: DataStatus=NONE, model inactive"
         ],
-        "graph_triples": 2774,
+        "graph_triples": 2775,
         "evidence_origin": "current process results and graph-published mechanical outputs"
       },
       "mechanical": [

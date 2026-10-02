@@ -1,54 +1,43 @@
-# GTCC ontology-driven digital twin: supporting computational artifacts
+# EKLM computational supplement — corrected CII evaluation
 
-Standalone computational artifacts associated with **From Conceptual Model to Runtime Governance: An Ontology-Driven Multi-Domain Digital Twin for Combined Cycle Power Plants**. This is a research reproduction subset of EKLM, not the complete application or an operational plant controller.
+Supporting artifacts for **From Conceptual Model to Runtime Governance: An Ontology-Driven Multi-Domain Digital Twin for Combined Cycle Power Plants**. Version 0.2.0, 2 October 2026. This is a simulation research subset, not a live plant controller.
 
-**Coverage limitation:** the original individual records for the manuscript's initial 55-case RDF/non-RDF comparison have not been recovered and are not included. This release does not reproduce that historical experiment. The separate 79-case engineering-contract evaluation is included. See [coverage](docs/COVERAGE.md) before interpreting this package as supporting any particular claim.
+## Reproduce
 
-## Run
-
-Use Python **3.12**. From a fresh checkout:
+Use Python 3.12; install `requirements.txt`. No account, API key, plant data, or full EKLM installation is needed after dependency installation.
 
 ```sh
-python3.12 -m venv .venv
-source .venv/bin/activate
 python -m pip install -r requirements.txt
-python scripts/reproduce_numerical.py --quick
-python scripts/reproduce_runtime.py
-python scripts/reproduce_integrity.py
 python scripts/reproduce_numerical.py
-python scripts/export_tables.py
+python scripts/reproduce_integrity.py
+python scripts/reproduce_runtime.py
+python scripts/evaluate_revision.py
+python scripts/evaluate_audit_fixes.py
 ```
 
-On Windows activate with `.venv\Scripts\activate`. Run from the repository root. No EKLM installation, web server, database, API key or network service is required after dependency installation. This reproduces the archived paper configuration, including its prescribed steam-turbine output and auxiliary-load boundary; it is not a validation of subsequently upgraded EKLM physics.
+The final command depends on the preceding evaluation outputs. Figure regeneration uses `requirements_figures.txt` and `python scripts/plot_revision.py`.
 
-Expected full numerical outcome: 6 efficiency scenarios; 77 fuel blends with **70 successful and 7 failed** calculations; 500 Monte Carlo inputs with **479 successful and 21 failed** calculations. Failures are retained rather than discarded. The Monte Carlo replay uses archived inputs originally associated with seed 42; it does not claim a recovered version of the original random sampler.
+## Results and comparison boundaries
 
-Expected engineering-contract outcome: **54 invalid rejected, 25 valid accepted**, identical RDF and resolved non-RDF decisions. Both use the same contract and validation engine. Timings are machine-dependent; non-RDF timing starts from already-resolved records, whereas RDF includes graph projection. This is not an independent algorithm comparison or evidence of RDF speed/accuracy superiority.
+- 583 archived physical replay records: zero mismatches, including 479 successful/21 failed Monte Carlo attempts and 70 successful/seven failed fuel-grid attempts. The original Monte Carlo sampler version was not recovered; archived inputs are replayed.
+- 72 RDF/JSON routing cases: 48 valid and 24 invalid; separate adapters, shared models and router. Valid mechanical outputs, provenance, scores, and net power agree.
+- 104 engineering-contract cases: 79 invalid rejected, 25 valid accepted. A separately implemented conventional validator reproduces decisions and finding locations. All arms receive the same contract and resolved class membership. Twenty-five audit-driven regression cases extend the original 79 cases.
+- 36 graph-reuse checks: 24 activation/binding checks plus 12 omitted-device/status checks; rejected configurations clear previous evidence.
+- 95 diagnostic threshold checks. Strict exceedance uses an explicit non-match at equality, including absolute 1e-10 and relative 1e-12 roundoff tolerances. These are not measurement uncertainty bounds. Deliberate threshold discontinuities remain outside the tolerance band.
+- Six SPARQL queries and independently coded JSON joins return identical complete bindings: 1, 6, 1, 12, 6, 22 rows. JSON receives the same graph-exported relation snapshot; export effort and human productivity are not measured.
+- One defined stream replacement changes three configuration fields and three contract fields in both representations, with no executable source edits. No editing-time advantage is claimed.
 
-Outputs are written to `outputs/` (ignored by git). `validation/` contains the tested release's summaries. Differences are checked with relative tolerance 1e-6 and absolute tolerance 1e-5; expected missing outputs cause failure.
+The corrected diagnostic reference is one fixed nominal EKLM run, with net power 560604.0803469602 kW. The legacy API field `posterior` is an uncalibrated normalized hypothesis score. Physical kernels remain byte-identical to the source subset. Correcting threshold equality changes 32 historical diagnostic score entries under the legacy reference; these differences are saved separately in `outputs/numerical/results.json`, not hidden as physical replay failures or forced to match old values.
 
-## Contents
+## Evidence
 
-| Path | Contents |
-|---|---|
-| `eklm/vdt/` | Extracted process/mechanical numerical modules |
-| `eklm/kas/legacy_bridge/` | Graph loading, runtime, diagnostic and engineering-contract logic |
-| `eklm/kdl/schema/catalog/` | Five ontology Turtle files used by this package |
-| `data/reference/` | Generic mechanical input assumptions; not measured plant data |
-| `data/archived/` | Original archived numerical results and engineering-contract records |
-| `scripts/` | Portable replay, runtime checks, benchmark and CSV export |
-| `docs/COVERAGE.md` | Relationship to manuscript claims and explicit gaps |
-| `docs/source_provenance.json` | Source hashes and packaging changes |
-| `validation/` | Release validation summaries |
+- `outputs/revision/`: scenario inputs, paired outputs, scores, lifecycle checks, queries and snapshots. **query_graph.nt is the authoritative lossless snapshot**. The Turtle convenience copy uses compact numeric formatting. Query bindings are checked after N-Triples reload.
+- `outputs/integrity/`: all configurations, resolved records, contracts, decisions, findings, and timing repetitions. Timings compare the RDF adapter and shared JSON validator only; the independently implemented validator is compared for correctness.
+- `outputs/audit_fixes/`: threshold and omission regressions, conventional query input/results, and protocol.
+- `outputs/numerical/`: physical replay and separately reported diagnostic changes.
+- `validation/`: summaries of the corrected release.
+- `docs/source_provenance.json` and `docs/revision_provenance.json`: source lineage and changes.
 
-The 79-case script writes each graph, equivalent resolved non-RDF records and authoritative contract under `outputs/integrity/cases/`. CSV exports provide values for figures/tables; the package does not reproduce the paper's exact artwork layout. Thermal solver warnings and failed archived inputs are part of the declared model behavior.
+The downloadable full archive contains recorded outputs; a source checkout regenerates them. All tests are development/regression evaluations, not blinded holdout studies. They do not establish field accuracy, calibrated fault probabilities, or RDF-specific numerical/productivity superiority. Original historical 55-case records remain unavailable and are not used as evidence. Earlier release metadata under `docs/historical_release/` is historical, not the current protocol.
 
-## Provenance and interpretation
-
-Numerical kernels were selected by matching the hashes stored with the archived paper run. The final engineering guard was taken from its dated source snapshot. Minimal package initializers replace application bootstrap. Compatible runtime support modules and packaging adaptations are itemized in the provenance file; this is a reconstructed executable subset, not a byte-identical archived full EKLM installation.
-
-The public benchmark is NETL, *Cost and Performance Baseline for Fossil Energy Plants, Volume 1*, Revision 2a, DOE/NETL-2010/1397 (2013), Case 13. Mechanical coefficients are author-selected generic/reference assumptions, as qualified in the manuscript. No confidential commercial calibration records, credentials, manuscript files or application history are included.
-
-## Citation and reuse
-
-Use `CITATION.cff` and identify release `v0.1.2`. A Zenodo DOI has **not yet been issued**; do not substitute an invented DOI. Until archival publication, cite the versioned GitHub release. Code: [MIT](LICENSE). Author-created data, ontology/configuration descriptions and prose: [CC BY 4.0](LICENSE-DATA.md). Third-party dependencies retain their licenses.
+Code is MIT licensed; author-created data and documentation retain CC BY 4.0 terms. Cite the versioned release using CITATION.cff. No new DOI is asserted without verification.

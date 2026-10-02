@@ -1,0 +1,20 @@
+{
+  "paired_cases": 72,
+  "valid": 48,
+  "invalid": 24,
+  "all_paired_checks_passed": true,
+  "lifecycle_checks": 24,
+  "all_lifecycle_checks_passed": true,
+  "query_rows": {
+    "Q1": 1,
+    "Q2": 6,
+    "Q3": 1,
+    "Q4": 12,
+    "Q5": 6,
+    "Q6": 22
+  },
+  "reference_net_kW": 560604.0803469602,
+  "legacy_nominal_net_deviation_pct": -3.5622728677611626,
+  "revised_nominal_net_deviation_pct": 0.0,
+  "source_sha256": "9c997a8f8144ee0b86dd782e52cea51077b34a1a7eb4568b677d620496744126"
+}

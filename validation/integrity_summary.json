@@ -1,16 +1,16 @@
 {
-  "n": 79,
-  "invalid": 54,
+  "n": 104,
+  "invalid": 79,
   "valid": 25,
-  "rdf_detected": 54,
-  "non_rdf_detected": 54,
+  "rdf_detected": 79,
+  "non_rdf_detected": 79,
   "rdf_false_reject": 0,
   "non_rdf_false_reject": 0,
   "all_expected": true,
   "previously_missed_now_detected": 9,
   "median_case_ms": {
-    "rdf": 0.334312,
-    "non_rdf": 0.008375
+    "rdf": 0.3173435,
+    "non_rdf": 0.01008325
   },
   "extension": {
     "example": "declared_stream_replacement",
@@ -19,5 +19,8 @@
     "rdf_executable_source_edits": 0,
     "non_rdf_executable_source_edits": 0,
     "note": "Both centralized representations use the same contract. No measured human productivity advantage."
-  }
+  },
+  "independent_detected": 79,
+  "independent_false_reject": 0,
+  "independent_findings_agree": true
 }

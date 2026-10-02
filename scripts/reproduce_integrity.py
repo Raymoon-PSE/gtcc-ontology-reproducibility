@@ -9,6 +9,7 @@ from rdflib.namespace import RDF,RDFS
 from eklm.kas.legacy_bridge.graph import PM,load_graph
 from eklm.kas.legacy_bridge import integrity as mod
 from eklm.kas.legacy_bridge.integrity import default_contract,graph_records,validate_graph,validate_records
+from conventional_control import check_records
 ROOT=D
 D=ROOT/'outputs/integrity';D.mkdir(parents=True,exist_ok=True)
 base=load_graph();contract=default_contract();assert not validate_graph(base)
@@ -59,6 +60,15 @@ def rename_stream(g,c):
   for p,vs in ports.items():ports[p]=[str(new) if v==str(old) else v for v in vs]
  c['stream_classes'][str(new)]=c['stream_classes'].pop(str(old))
 add('declared_stream_replacement',False,rename_stream)
+# Audit-discovered omissions and adjacent status cases; explicit regression set.
+for n in ['COMP-001','EXP-001','COMB-001','HPSH-001','RH-001','HPTURB']:
+ add(n+'_missing_status',True,lambda g,c,n=n:g.remove((PM[n],PM.mech_hasDataStatus,None)),'audit_regression')
+ add(n+'_missing_device',True,lambda g,c,n=n:g.remove((PM[n],None,None)),'audit_regression')
+ add(n+'_duplicate_status',True,lambda g,c,n=n:g.add((PM[n],PM.mech_hasDataStatus,PM.mech_DataStatus_NONE)),'audit_regression')
+ add(n+'_unknown_status',True,lambda g,c,n=n:g.set((PM[n],PM.mech_hasDataStatus,PM.mech_DataStatus_UNKNOWN)),'audit_regression')
+add('empty_configuration',True,lambda g,c:g.remove((None,None,None)),'audit_regression')
+protocol['independent_control']='Separately implemented conventional_control.check_records; no production validator or RDF imports; consumes the same resolved records and authoritative contract.'
+protocol['arms'].append('independently implemented conventional validator')
 (D/'case_manifest.json').write_text(json.dumps([{'name':n,'invalid':bad,'split':sp} for n,bad,sp,g,c in cases],indent=2))
 results=[]
 for name,bad,split,g,c in cases:
@@ -68,11 +78,16 @@ for name,bad,split,g,c in cases:
  (case_dir/'records.json').write_text(json.dumps(rows,indent=2))
  (case_dir/'contract.json').write_text(json.dumps(c,indent=2))
  a=validate_graph(g,c);b=validate_records(rows,c);assert a==b,name
+ independent=check_records(rows,c)
+ assert independent==sorted((f.code,f.subject,f.predicate) for f in a),name
  timings={'rdf':[],'non_rdf':[]}
  for repeat in range(30):
   for arm in (['rdf','non_rdf'] if repeat%2 else ['non_rdf','rdf']):
    start=time.perf_counter_ns();out=validate_graph(g,c) if arm=='rdf' else validate_records(rows,c);timings[arm].append((time.perf_counter_ns()-start)/1e6)
- results.append({'name':name,'invalid':bad,'split':split,'rdf_rejected':bool(a),'non_rdf_rejected':bool(b),'expected_agreement':bool(a)==bad,'findings':[mod.asdict(x) for x in a],'median_ms':{k:statistics.median(v) for k,v in timings.items()},'timings_ms':timings})
+ results.append({'name':name,'invalid':bad,'split':split,'rdf_rejected':bool(a),'non_rdf_rejected':bool(b),'independent_rejected':bool(independent),'independent_findings':independent,'expected_agreement':bool(a)==bad,'findings':[mod.asdict(x) for x in a],'median_ms':{k:statistics.median(v) for k,v in timings.items()},'timings_ms':timings})
 summary={'n':len(results),'invalid':sum(x['invalid'] for x in results),'valid':sum(not x['invalid'] for x in results),'rdf_detected':sum(x['invalid'] and x['rdf_rejected'] for x in results),'non_rdf_detected':sum(x['invalid'] and x['non_rdf_rejected'] for x in results),'rdf_false_reject':sum(not x['invalid'] and x['rdf_rejected'] for x in results),'non_rdf_false_reject':sum(not x['invalid'] and x['non_rdf_rejected'] for x in results),'all_expected':all(x['expected_agreement'] for x in results),'previously_missed_now_detected':sum(x['split']=='previously_missed' and x['rdf_rejected'] for x in results),'median_case_ms':{arm:statistics.median(x['median_ms'][arm] for x in results) for arm in ['rdf','non_rdf']},'extension':{'example':'declared_stream_replacement','config_logical_fields_changed':3,'contract_logical_fields_changed':3,'rdf_executable_source_edits':0,'non_rdf_executable_source_edits':0,'note':'Both centralized representations use the same contract. No measured human productivity advantage.'}}
+summary['independent_detected']=sum(x['invalid'] and x['independent_rejected'] for x in results)
+summary['independent_false_reject']=sum(not x['invalid'] and x['independent_rejected'] for x in results)
+summary['independent_findings_agree']=True
 (D/'results.json').write_text(json.dumps({'summary':summary,'records':results,'protocol':protocol},indent=2))
 print(json.dumps(summary,indent=2));assert summary['all_expected']

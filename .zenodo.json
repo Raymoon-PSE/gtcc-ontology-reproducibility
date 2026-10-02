@@ -1,7 +1,7 @@
 {
   "title": "GTCC Ontology-Driven Digital Twin: Supporting Computational Artifacts",
   "upload_type": "software",
-  "description": "Standalone paper artifacts: numerical scenarios, 500 Monte Carlo attempts, 77 fuel blends, ontology runtime, and 79 engineering-contract cases. Original 55-case pre-contract comparison records are not included; see docs/COVERAGE.md. Code MIT; author-created data and prose CC BY 4.0.",
+  "description": "Corrected EKLM simulation artifacts: 72 paired routing cases, 104 engineering-contract cases, 36 evidence-lifecycle checks, 95 diagnostic threshold checks, six matched graph/conventional queries, and 583 physical replay records. Independent conventional validation control; no field-accuracy or representation-specific superiority claim. Historical 55-case records unavailable. Code MIT; author-created data/prose CC BY 4.0.",
   "creators": [
     {
       "name": "Hwang, Raymoon"
@@ -21,7 +21,7 @@
   ],
   "access_right": "open",
   "license": "mit",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "keywords": [
     "ontology",
     "digital twin",
