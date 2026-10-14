@@ -1,0 +1,160 @@
+{
+  "status": "design only; no experiment executed",
+  "source_root": "<ICLOUD>/EKLM_latest",
+  "tasks": [
+    {
+      "id": "S1",
+      "level": "model",
+      "name": "GT expander subtype registration",
+      "scope": [
+        "GT",
+        "mechanical",
+        "validation",
+        "query"
+      ],
+      "change": "Introduce a subtype compatible with GT_Turbine using the existing physics, explicit class ancestry and the existing output contract. Include incompatible and ambiguous bindings.",
+      "oracle": "Compatible case reproduces unchanged physical and mechanical outputs; incompatible/ambiguous binding rejects before result publication. Identity and provenance identify subtype correctly.",
+      "existing": [
+        "eklm/vdt/mechanical/model_router.py",
+        "eklm/kas/legacy_bridge/runtime.py",
+        "eklm/kas/legacy_bridge/integrity.py"
+      ],
+      "gap": "Isolated fixture and subtype adapter registration in both arms. Existing class traversal alone must not be described as automatic model discovery.",
+      "novelty_limit": "Basic subtype tests already existed. New evidence must concern change propagation across consumers and fair change-cost comparison, not another accepted subtype."
+    },
+    {
+      "id": "S2",
+      "level": "model",
+      "name": "HP steam turbine mechanical model replacement",
+      "scope": [
+        "ST",
+        "mechanical",
+        "validation",
+        "query"
+      ],
+      "change": "Replace the HP_ST mechanical implementation with an interface-compatible versioned wrapper around the same numerical kernel. Also test a missing required output.",
+      "oracle": "Same operating point gives equivalent outputs; version identity changes; omitted required output rejects without publishing mixed-version results.",
+      "existing": [
+        "eklm/vdt/mechanical/hp_st_turbine_model.py",
+        "eklm/vdt/mechanical/model_router.py"
+      ],
+      "gap": "Common versioned wrapper, output-contract fixture, per-arm registration; no new life-prediction model.",
+      "novelty_limit": "Only establishes integration costs and contracts, not improved predictive accuracy."
+    },
+    {
+      "id": "S3",
+      "level": "interunit",
+      "name": "GT-to-HRSG stream interface migration",
+      "scope": [
+        "GT",
+        "HRSG",
+        "ST",
+        "condenser"
+      ],
+      "change": "Expose the same GT exhaust state through a versioned boundary with flow in kg/s instead of kg/hr and temperature in K instead of degC. Normalize at a declared common adapter. Negative cases omit/misdeclare units or supply conflicting values.",
+      "oracle": "Converted stream and all downstream process outputs match the original-unit reference within fixed tolerances. Invalid interface rejects at the harness boundary rather than silently producing a plausible value.",
+      "existing": [
+        "eklm/vdt/gui_adapter.py",
+        "eklm/vdt/analysis/gtcc_loop.py",
+        "eklm/vdt/data/streams.py",
+        "eklm/kas/legacy_bridge/populate.py"
+      ],
+      "gap": "NEW shared boundary adapter and intermodule unit contract needed. Current physical solver is not ontology-rewired. RDF and JSON receive identical converter kernels.",
+      "novelty_limit": "Not automatic arbitrary-unit inference or graph-driven flowsheet synthesis."
+    },
+    {
+      "id": "S4",
+      "level": "interunit",
+      "name": "Steam-water circuit interface migration",
+      "scope": [
+        "HRSG-to-ST steam feeds",
+        "ST-to-condenser exhaust",
+        "ST-to-HRSG cold reheat return",
+        "condenser-to-HRSG condensate return"
+      ],
+      "change": "Version the complete steam-water boundary manifest and migrate a named steam output or serialized enthalpy units (kJ/kg versus J/kg), preserving numerical kernels and topology. Include wrong source, swapped hot/cold reheat, omitted field and stale version cases.",
+      "oracle": "Valid migration preserves complete cycle outputs and mass-energy audit within frozen tolerances. Invalid source, field, unit or version is identified before result acceptance. Return-stream identities remain correct.",
+      "existing": [
+        "eklm/vdt/analysis/gtcc_loop.py",
+        "eklm/vdt/mechanical/operating_point.py",
+        "eklm/kas/legacy_bridge/integrity_contract.json",
+        "eklm/kas/legacy_bridge/populate.py"
+      ],
+      "gap": "NEW complete intermodule boundary manifest, common adapters and boundary hooks for BOTH arms. Current engineering contract covers GT ports only. Treat the recycle circuit as one coupled subsystem; rerun the full loop.",
+      "novelty_limit": "Interface and contract evolution on unchanged topology, not arbitrary flowsheet synthesis, selective downstream scheduling or plant validation."
+    },
+    {
+      "id": "S5",
+      "level": "crossdomain",
+      "name": "Operating-scenario revision with whole-process provenance",
+      "scope": [
+        "GT",
+        "HRSG",
+        "ST",
+        "condenser",
+        "six mechanical models",
+        "rule findings",
+        "Bayesian diagnosis",
+        "published result"
+      ],
+      "change": "Change an accepted ambient-temperature or condenser-pressure input from scenario A to B; recompute full process, OperatingPoint, mechanical models, findings and diagnosis. Reuse result containers deliberately; include a delayed A result and failed B run.",
+      "oracle": "Accepted B equals a clean fresh B evaluation using the same kernels. No consumer may report A results as current B. Failure retains prior results only if clearly historical/unavailable for B. No expected direction of physical change is assumed.",
+      "existing": [
+        "eklm/vdt/gui_adapter.py",
+        "eklm/vdt/mechanical/operating_point.py",
+        "eklm/kas/legacy_bridge/runtime.py",
+        "eklm/kas/legacy_bridge/integrity.py",
+        "frontend/src/store/projectStore.ts"
+      ],
+      "gap": "Common scenario/revision envelope and explicit consumer dependency manifest needed. Existing graph clearing and frontend session guards are not a generic selective dependency scheduler.",
+      "novelty_limit": "Use full reruns first. Stale-result correctness already tested in submitted work; new question is lifecycle/change cost across all consumers. No plant accuracy claim."
+    },
+    {
+      "id": "S6",
+      "level": "crossdomain",
+      "name": "HRSG mechanical-output contract migration",
+      "scope": [
+        "HRSG superheater",
+        "mechanical result",
+        "warning conversion",
+        "RDF/JSON publication",
+        "query/report retrieval"
+      ],
+      "change": "Version/rename one HPSH result field while preserving value/unit and existing warning semantics. Update producer, output validation, publication and retrieval; include one deliberately unmigrated consumer.",
+      "oracle": "Migrated consumers agree on value, unit, equipment identity and result version. Old results cannot silently satisfy a new field contract. An unmigrated consumer reports incompatibility rather than plausible stale output.",
+      "existing": [
+        "eklm/vdt/mechanical/hrsg_superheater_model.py",
+        "eklm/kas/legacy_bridge/mech_bridge.py",
+        "eklm/kas/legacy_bridge/diagnostics.py",
+        "eklm/kas/legacy_bridge/query.py"
+      ],
+      "gap": "Versioned common output schema and independent consumer checks; current RDF property map and warning code require explicit edits. Do not invent HPSH Bayesian links; current mechanical Bayesian evidence is compressor-specific.",
+      "novelty_limit": "Schema evolution evidence, not KCER acquisition/missing-input results or improved fault-detection accuracy."
+    }
+  ],
+  "arms": {
+    "A": "Current RDF/RDFS implementation plus explicitly listed shared interface additions",
+    "B": "Centralized typed JSON registry with equivalent hierarchy traversal, validators, conversion kernels, generic relation traversal and lifecycle guarantees",
+    "C": "Optional semantic ablation: same RDF with closure omitted or pre-materialized; diagnostic arm only, not a deliberately weak primary baseline"
+  },
+  "metrics": [
+    "acceptance and output parity",
+    "distinct manually maintained logical facts",
+    "adapter and consumer modification sites (including setup cost separately)",
+    "detected and undetected seeded migration inconsistencies (not human error rates)",
+    "cold parse/init and warm validation/query time",
+    "peak memory"
+  ],
+  "execution_policy": [
+    "Separate behavior-preserving migration from physical-input-change tasks.",
+    "Freeze expected outcomes and tolerances before arm results are examined.",
+    "Derive numerical tolerances from shared-kernel repeatability and published serialization precision, not after seeing which arm wins.",
+    "Measure first-time setup separately from each subsequent migration.",
+    "Use fixed matched task order/seeds and multiple timing repetitions; retain raw paired observations.",
+    "Keep equality/negative results. Do not equate lines of code or injected-fault outcomes with developer productivity.",
+    "Pilot S3 and S5 first; complete six-task suite only if pilot is informative.",
+    "If both arms are equal, report it and reconsider ontology-centered framing.",
+    "No external services, field data, user study, or liveplant claim required or implied.",
+    "Steam-water return loops are cyclic: use complete coupled-loop recomputation, not an assumed acyclic dependency schedule."
+  ]
+}

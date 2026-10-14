@@ -1,0 +1,2741 @@
+{
+  "source_root": "<ICLOUD>/EKLM_latest",
+  "scope": "Python source, text resources and tests; no secrets, databases, raw demonstration arrays, environment or frontend",
+  "files": [
+    {
+      "path": "eklm/__init__.py",
+      "size": 1258,
+      "sha256": "3e6a35322a67cfb58d2ecda7a3e2ea41026de17aee918ced575822c94c60bebe"
+    },
+    {
+      "path": "eklm/adt/__init__.py",
+      "size": 1633,
+      "sha256": "73939849c68edc03969dbf4f666ae096d8a2e4f70a7ade5b131cd084700859e8"
+    },
+    {
+      "path": "eklm/adt/act/__init__.py",
+      "size": 435,
+      "sha256": "9f421a35b732a1da8715e98376ebd071c545602d5415d3a0521465b85cec57c5"
+    },
+    {
+      "path": "eklm/adt/act/mpc/__init__.py",
+      "size": 383,
+      "sha256": "01361f7f4bd6ea39d5b06b2ea60290142ea32985229b27ba2d056997a2f6db2d"
+    },
+    {
+      "path": "eklm/adt/act/mpc/mpc_gt_governor.py",
+      "size": 5881,
+      "sha256": "f7c325df199eaa61a0f182026be951767b8073363fbf1ef8fbc80592edfdc1df"
+    },
+    {
+      "path": "eklm/adt/act/rollback.py",
+      "size": 6425,
+      "sha256": "f1f735d9a7478c16b176c946fc0ad0796f29e26f1f55c3b46d4815e1e6cb8dc6"
+    },
+    {
+      "path": "eklm/adt/actuation/__init__.py",
+      "size": 1211,
+      "sha256": "5f45aeae9515a72500ab2e64237fedbe17ce170ac890ebb0819352cb8d61345c"
+    },
+    {
+      "path": "eklm/adt/actuation/alarms.py",
+      "size": 3763,
+      "sha256": "7e8f5c62a5c884f17e08b26d1969ca2a797525b19c1fc65e3912d70c54dc8b91"
+    },
+    {
+      "path": "eklm/adt/actuation/audit_log.py",
+      "size": 5119,
+      "sha256": "955274fcbc4fe05dee7af2cab26769557d6b559f2c48c56f2603c7136103409f"
+    },
+    {
+      "path": "eklm/adt/actuation/envelope_guard.py",
+      "size": 3621,
+      "sha256": "89e0b285f729377d2162a761c16326b3cb58a1a8cfe7f929def5197b64038589"
+    },
+    {
+      "path": "eklm/adt/actuation/loop_mode.py",
+      "size": 1903,
+      "sha256": "faae6d458597d3ecea1ccbbcfed3d16ee981d9a7ce8fb57b7710a25c5f21b42c"
+    },
+    {
+      "path": "eklm/adt/actuation/modes.py",
+      "size": 714,
+      "sha256": "88c396a051bc19d85a3a1f346cbe222c92825a26ce5313d8c763e65ab892abcc"
+    },
+    {
+      "path": "eklm/adt/actuation/ow_gateway.py",
+      "size": 12226,
+      "sha256": "235b704fe9aadd8c9a09f2a0a18fc004a3b6d378a4f6a79c7235645c93be37c7"
+    },
+    {
+      "path": "eklm/adt/actuation/ow_session.py",
+      "size": 6721,
+      "sha256": "00efb51066bbd3186bafb3fe258ea5653f91046960e9864eb6185f61886444a3"
+    },
+    {
+      "path": "eklm/adt/actuation/tag_registry.py",
+      "size": 3429,
+      "sha256": "49d836417c658c429ceb45d4cffff83ed0c3c01a7a5e26ac1773c3d469560201"
+    },
+    {
+      "path": "eklm/adt/actuation/tags.yaml",
+      "size": 11507,
+      "sha256": "a2bcd8369e68ea0794e0c42d7174034e8e9850bb9781bb6e9d5e9966b961f842"
+    },
+    {
+      "path": "eklm/adt/actuation/user_evidence.py",
+      "size": 5002,
+      "sha256": "7255cdbc132274d9802def7cfdd51d3761589a7b3b1b2ccfc9612784c883cd4b"
+    },
+    {
+      "path": "eklm/adt/cognize/__init__.py",
+      "size": 490,
+      "sha256": "a3845bbe2f2ddefbf832adacfc551599e0124c8ce85e8fbe8f0fcae1bf5a816e"
+    },
+    {
+      "path": "eklm/adt/cognize/explainer.py",
+      "size": 11562,
+      "sha256": "7eb1a6bef600c19f4bc5b7cec8c3372325e4a7a0c6f90408870fcb21416273d6"
+    },
+    {
+      "path": "eklm/adt/cognize/feedback_triage.py",
+      "size": 7297,
+      "sha256": "b7e8a06d1d59ec8460f32b663a29d2e3434ae69f758bc4570609f5e79d64f3d2"
+    },
+    {
+      "path": "eklm/adt/decide/__init__.py",
+      "size": 372,
+      "sha256": "6994f5328aca6455fa3a7808808a5471445922bab8f0773ef452bf51b4749ada"
+    },
+    {
+      "path": "eklm/adt/decide/mpc_controller.py",
+      "size": 8704,
+      "sha256": "5f34ad79133ba815a995b2c5e9c78224487b20173610dea9d05f6bca4a292d96"
+    },
+    {
+      "path": "eklm/adt/decide/mpc_router.py",
+      "size": 10903,
+      "sha256": "dd71d4a48bdd5ec312c265a3c491308e2a3521b5194ca15cb8f4818d48cf1563"
+    },
+    {
+      "path": "eklm/adt/decide/optimizer.py",
+      "size": 1664,
+      "sha256": "ec012a19a7670b5bd508f1a8241c2296df868af88502cc6e1ad6fbe4a7c16e10"
+    },
+    {
+      "path": "eklm/adt/decide/rl_controller.py",
+      "size": 3353,
+      "sha256": "5044c021da629a1e69463d106fa4818d26ac8fc14a9eea3d1aea918dffc45046"
+    },
+    {
+      "path": "eklm/adt/decide/rl_env.py",
+      "size": 7960,
+      "sha256": "2fe321c8d3d5ec1e0ef45098ab7ab4bdeebfcaa9a1c5478c294552cba80c7475"
+    },
+    {
+      "path": "eklm/adt/decide/sequencer.py",
+      "size": 5282,
+      "sha256": "722f3e3600ea4f935deab4c7aa86db0a5dc466e11cb20c46bfa6f84da4e6f6f8"
+    },
+    {
+      "path": "eklm/adt/decide/supervisor.py",
+      "size": 8394,
+      "sha256": "e9444f4a1145e9141da52ac227944d73ab8315ff30876410e48956644cb7095c"
+    },
+    {
+      "path": "eklm/adt/dialogue/__init__.py",
+      "size": 1126,
+      "sha256": "41fb9cc79994c4a8406dafff8ae5b649701027da52db256edb16d3159cf429dc"
+    },
+    {
+      "path": "eklm/adt/dialogue/moderator.py",
+      "size": 5029,
+      "sha256": "1a44c3aae5559e4f3aabf712266977dd082873b57e2e51e9eea2295a7b0053f9"
+    },
+    {
+      "path": "eklm/adt/dialogue/protocol.py",
+      "size": 1934,
+      "sha256": "eaa4b07dd5aec4f67d9529230c50c8a5f695c25decbaf92bc35b7c7fe473beea"
+    },
+    {
+      "path": "eklm/adt/engine.py",
+      "size": 20379,
+      "sha256": "6231df4ced2151aae4c8012a7c8e0ecc6ac3995934d601f4fc066b75057fe514"
+    },
+    {
+      "path": "eklm/adt/governance/__init__.py",
+      "size": 1098,
+      "sha256": "df3830ec710fa18d087e67e1100a8cf2e6456ee7e1ec7bc3a25eff796837d914"
+    },
+    {
+      "path": "eklm/adt/governance/authority_matrix.py",
+      "size": 3796,
+      "sha256": "e53cf088975d5f8f5525ff270d3b33901d6d4126fe5b8077b665c7690504f254"
+    },
+    {
+      "path": "eklm/adt/governance/bounded_autonomy.py",
+      "size": 2571,
+      "sha256": "5d634ebde4a115cb2d312f28e1b209b2a8d847ef926839d4aeddb97f326821ac"
+    },
+    {
+      "path": "eklm/adt/governance/safety_check.py",
+      "size": 2418,
+      "sha256": "e7e5e3bcd1d6cfc88b7f5df2220fa8bd261ead1d0861f02fbd70bd9009a8651e"
+    },
+    {
+      "path": "eklm/adt/hooks.py",
+      "size": 2884,
+      "sha256": "d34a8c53f5e5916b43df0c1d6de2b7507b9275a731e54017e4e669676790248d"
+    },
+    {
+      "path": "eklm/adt/learn/__init__.py",
+      "size": 945,
+      "sha256": "698a300350db12b6df50a2634e12298a30e87ee608b7bf51d714cba1eb67fb58"
+    },
+    {
+      "path": "eklm/adt/learn/askai_history.py",
+      "size": 9832,
+      "sha256": "fa2b934970950f6f1eddb7db6c19519f241cd70187f40b531a025fbe5986c5e1"
+    },
+    {
+      "path": "eklm/adt/learn/bayesian_learner.py",
+      "size": 20168,
+      "sha256": "06d42447f75ba549b27ebb8887073d9604dc8257ff987c8aa98f611e86635662"
+    },
+    {
+      "path": "eklm/adt/learn/bayesopt_tuner.py",
+      "size": 18356,
+      "sha256": "cbf7e0621daf9dd32854695697a0d71c0973fa322837ffec430f8ce3863f870a"
+    },
+    {
+      "path": "eklm/adt/learn/control_overrides.py",
+      "size": 3672,
+      "sha256": "cf82bb370dfdc0f6f0174171820527801052f2f2336dab80198393a9774ddc68"
+    },
+    {
+      "path": "eklm/adt/learn/demo_summary.py",
+      "size": 7723,
+      "sha256": "0492dad28006d6683bd95ea2361dc533dd5e79437938658a0e84c3e88441965c"
+    },
+    {
+      "path": "eklm/adt/learn/feedback_emitter.py",
+      "size": 2583,
+      "sha256": "456712f7d86d26523a44a7ebec2b0b9d5010ae1ff8d199f63d8db637d02f5608"
+    },
+    {
+      "path": "eklm/adt/learn/gp_plant_learner.py",
+      "size": 16727,
+      "sha256": "d9d80ce1291d1a185e955377c85a2ff43fc73d66ad057a0e6290b5a4a14a3964"
+    },
+    {
+      "path": "eklm/adt/learn/knowledge_refiner.py",
+      "size": 7204,
+      "sha256": "fb338bfc8f7f9a8377fb902846fc94a8a2c9729fc323ebc805476e8fea774424"
+    },
+    {
+      "path": "eklm/adt/learn/knowledge_review.py",
+      "size": 5795,
+      "sha256": "0cec4d79fe05a887941fa8cef9449fafe2a45916c2300cdcfd22e78f20b65d9e"
+    },
+    {
+      "path": "eklm/adt/learn/knowledge_store.py",
+      "size": 13684,
+      "sha256": "a7fbc18ebf2871ecbd06f8efc589ab0ddba5803e76869682ee20859d7e3f80b2"
+    },
+    {
+      "path": "eklm/adt/learn/run_history.py",
+      "size": 5509,
+      "sha256": "ce98f6163c501fab4769bc3ea79dcd81cad6e052c7f150a5a97fe9c2b7196a0d"
+    },
+    {
+      "path": "eklm/adt/learn/session_debrief.py",
+      "size": 10202,
+      "sha256": "03c3d42128da606a99d40dc7b380355dd51757c5bc1e2e22c39da72b446aae5a"
+    },
+    {
+      "path": "eklm/adt/memory/__init__.py",
+      "size": 1552,
+      "sha256": "9018d24f599a59c069bde791d1edf1c975296c350a948a97863a28d78660ad0e"
+    },
+    {
+      "path": "eklm/adt/memory/episodic.py",
+      "size": 6921,
+      "sha256": "39a9c6739baf3df9a26d52e97b999c6dc2ead3a16240550ffd85f06c0f01bb21"
+    },
+    {
+      "path": "eklm/adt/memory/procedural.py",
+      "size": 6204,
+      "sha256": "d316740043904d100ae24be4de9dfb79a03fcf115699678b86685db977a4e529"
+    },
+    {
+      "path": "eklm/adt/memory/working.py",
+      "size": 2577,
+      "sha256": "7df73cff389afe04f07fefd57ed664536d2c838f4cf508b9da325fd37224bd9d"
+    },
+    {
+      "path": "eklm/adt/orchestration/__init__.py",
+      "size": 913,
+      "sha256": "4980d76331de7b9567db0f3af5a890375dc8099bbdb58a34521580f1b8124ab3"
+    },
+    {
+      "path": "eklm/adt/orchestration/cognize_subgraph.py",
+      "size": 2254,
+      "sha256": "2e7b62bd2b533190fe41955c36e7b549b1024a816b0520661fea3026e4405571"
+    },
+    {
+      "path": "eklm/adt/orchestration/master_graph.py",
+      "size": 6677,
+      "sha256": "0caf6dfb1ccbb3c88788d22e41769d005137348bf1c0a145190116047b9ac287"
+    },
+    {
+      "path": "eklm/adt/orchestration/state.py",
+      "size": 3597,
+      "sha256": "a9b5a54f1831348bacef11550018b83592b2aeeeb394f640e950eb050ace5339"
+    },
+    {
+      "path": "eklm/adt/orchestration/subgraphs.py",
+      "size": 9936,
+      "sha256": "9d4f4f2ceada24de3defc8ad92408a486050a7c607d77c492bb918aec0180923"
+    },
+    {
+      "path": "eklm/adt/perceive/__init__.py",
+      "size": 535,
+      "sha256": "25716d4bb1fa3bb1d3c2711040f02f7c0e1a1de6b7c5da15e7e22ed724522ce4"
+    },
+    {
+      "path": "eklm/adt/perceive/fault_diagnosis.py",
+      "size": 9250,
+      "sha256": "d2fb7e312004f615ed347e5f4a466efffd4116a6271ba85e7265494b45df04db"
+    },
+    {
+      "path": "eklm/adt/perceive/sensor_health_monitor.py",
+      "size": 5405,
+      "sha256": "0d8ff69d9116dc46f61a96a72a5ffaaeee16b67b26c2079df5c48571458a1228"
+    },
+    {
+      "path": "eklm/adt/perceive/soft_sensor/__init__.py",
+      "size": 904,
+      "sha256": "6aa18c52bd14b52f501de9205e9bebfbd250ca756e02539a25718b7df4d86005"
+    },
+    {
+      "path": "eklm/adt/perceive/soft_sensor/backup.py",
+      "size": 7012,
+      "sha256": "e7bb834335f7af1eabd833dd3592b441eabd33258e199e61f606cffa2e7376c1"
+    },
+    {
+      "path": "eklm/adt/perceive/soft_sensor/redundant.py",
+      "size": 5349,
+      "sha256": "271e363d24eadb1fde9e1b8cb8897102179e103cb8569f954bf763d548a8268d"
+    },
+    {
+      "path": "eklm/adt/perceive/soft_sensor/virtual.py",
+      "size": 1327,
+      "sha256": "a86c1ff974b8111c15f4d65d40f1a198444eabde31317104805c25768aeeb96f"
+    },
+    {
+      "path": "eklm/adt/perceive/state_estimator.py",
+      "size": 9458,
+      "sha256": "0b42da52c5a803053c4c87bd3fbb5179d0601bea7dbb1ce788f67b901d3ed8d6"
+    },
+    {
+      "path": "eklm/adt/procedures/__init__.py",
+      "size": 661,
+      "sha256": "63dad4e38580fff3791b6fea098fa9b94812c4a3ce1b183f25b54074b448723e"
+    },
+    {
+      "path": "eklm/adt/procedures/base.py",
+      "size": 1894,
+      "sha256": "2ff9f269ed305c8039bb2e67f52c65189ea3f78b94e08e069ba8c69d3b97d984"
+    },
+    {
+      "path": "eklm/adt/procedures/load_change.py",
+      "size": 7869,
+      "sha256": "70ce4697b057362b1f37b8c8fb50cae6e373357000be83384c40d32b8b7b435c"
+    },
+    {
+      "path": "eklm/adt/procedures/load_rejection.py",
+      "size": 6244,
+      "sha256": "2306107ff97354f4093008e0c2050fe58156929aa59660e54c20e40d878d6e31"
+    },
+    {
+      "path": "eklm/adt/procedures/shutdown.py",
+      "size": 5814,
+      "sha256": "e1f39be1f5784ae17447e184b41daad061083904a54f804eb70bd26003a03f09"
+    },
+    {
+      "path": "eklm/adt/procedures/startup.py",
+      "size": 6925,
+      "sha256": "57875031c3fc0766ef4219cdc415a7d06dbf6274b99442da6d3ca5da75fed310"
+    },
+    {
+      "path": "eklm/adt/types.py",
+      "size": 6358,
+      "sha256": "18d4b29324705f1d556b570f1e9443adf1de9e49db2755ba5f961b25e6ca747b"
+    },
+    {
+      "path": "eklm/api/__init__.py",
+      "size": 64,
+      "sha256": "1014c4f7b9a0d7a161fbf5a219ed403a04177042eee7329a564888f38698970b"
+    },
+    {
+      "path": "eklm/api/ai.py",
+      "size": 5775,
+      "sha256": "65fd4cfe22e9fdbbc2e2b38ae7f65c65010787f1e481864a6750b0ab66ddd35f"
+    },
+    {
+      "path": "eklm/api/control.py",
+      "size": 2603,
+      "sha256": "1d6a1fa3fdc12eb79071595d6f66fda9dabdf33ab413c0eef40034f8b770e681"
+    },
+    {
+      "path": "eklm/api/credentials.py",
+      "size": 1767,
+      "sha256": "c57e8968b5d629220f076a27dcfc98a811e4651cedad3381e3d993f821e26965"
+    },
+    {
+      "path": "eklm/api/economics.py",
+      "size": 22340,
+      "sha256": "e9c690ce7d66b2f41fb16104185250cd4ad60fac64ec96c997af2e96c44c3989"
+    },
+    {
+      "path": "eklm/api/feedback.py",
+      "size": 7726,
+      "sha256": "a2f8bcc3cd4fc8e99fee2b5881e61acfbc163fdbba7bfcb8c328bdb0254d9ee6"
+    },
+    {
+      "path": "eklm/api/kas.py",
+      "size": 8865,
+      "sha256": "eebb7177bd8fc2044855d4cb75b13537cbdc311edde531d6bf85c21950e1ceb0"
+    },
+    {
+      "path": "eklm/api/kre.py",
+      "size": 12580,
+      "sha256": "4d56bdf78b6a42f2e8428f78288092e067d0006f6595732089f64d0a37359d26"
+    },
+    {
+      "path": "eklm/api/learn.py",
+      "size": 11872,
+      "sha256": "d294ef898b2d5e631b58ee7c0ccf2676c1f4f06473159f2f9b8a996a38077ab7"
+    },
+    {
+      "path": "eklm/api/main.py",
+      "size": 3945,
+      "sha256": "fd8fc08c62d603326e4e374c634d4d92e6ae69198bfa0c3b4932571987802e45"
+    },
+    {
+      "path": "eklm/api/mode2_control.py",
+      "size": 8082,
+      "sha256": "b2bf2d196565c55b57a990bbacf3d1f9a32ddd1142d2e3ef5f9841253411fd72"
+    },
+    {
+      "path": "eklm/api/ow.py",
+      "size": 17276,
+      "sha256": "a4c310468db68ab51b9a022de7c2c4c4d466e61c514b124871b5f2cfc38330fc"
+    },
+    {
+      "path": "eklm/api/physics.py",
+      "size": 8599,
+      "sha256": "b79f403b4a102053f40c9419ea1df815dd6f80d3f18e688a3c6e5ecfec9bd22f"
+    },
+    {
+      "path": "eklm/api/projects.py",
+      "size": 10252,
+      "sha256": "fb2e845584b9b6485b7b90c59dd6357770b089c2520bee75ba8ddc8d201c2d7b"
+    },
+    {
+      "path": "eklm/api/runtime.py",
+      "size": 482,
+      "sha256": "8f8b5d8fd6bf0d601dd17e3807837145d3abfbd508f0435c39eeb755cfd30acc"
+    },
+    {
+      "path": "eklm/api/scenario.py",
+      "size": 41168,
+      "sha256": "b53789f064246a3a25efda1b314c59960f410f26b37fc4fde89fb4740f35803b"
+    },
+    {
+      "path": "eklm/api/sse_emitter.py",
+      "size": 2539,
+      "sha256": "b41e77480f88dae899550e478597a0bddb3df5d3cd3bbadf178e66205db68e41"
+    },
+    {
+      "path": "eklm/app.py",
+      "size": 11122,
+      "sha256": "24ef98929a4032bc2f0d76c00104d4fec5eb5c3ddd7ca2756e29489cf10dd2bb"
+    },
+    {
+      "path": "eklm/bootstrap.py",
+      "size": 7001,
+      "sha256": "57e774ebdc4adb31cfe3b807005f03f3c56a9a03ffa7bb85bc08ec3fbf9966a4"
+    },
+    {
+      "path": "eklm/demo/kepri/__init__.py",
+      "size": 523,
+      "sha256": "58c013d69bf3b201862b951b0b2ebcfc957f15b2e37028523976ac7fe15177c7"
+    },
+    {
+      "path": "eklm/demo/kepri/_explore_stanford.py",
+      "size": 2440,
+      "sha256": "da8398bd1d9bf39b260477c07b0c8c4e3e0441232246083993b55edfbe827e18"
+    },
+    {
+      "path": "eklm/demo/kepri/_ood_retry.py",
+      "size": 8929,
+      "sha256": "0d32edd31734509e476dbc63b807e5c92d635d7eb0042744ee0b86af56769bb6"
+    },
+    {
+      "path": "eklm/demo/kepri/_split_experiment.py",
+      "size": 4063,
+      "sha256": "6f03772bc3d72526ea7bef77ff8a60af4fb801aded971aa3436d96a391ec22f8"
+    },
+    {
+      "path": "eklm/demo/kepri/cmapss_loader.py",
+      "size": 5392,
+      "sha256": "5eb4112dc9f98122d852b3581de5e52e780877d7c20d98b37b57f635f7abc0ca"
+    },
+    {
+      "path": "eklm/demo/kepri/data/case_a_stanford_h2/manifest.json",
+      "size": 182651,
+      "sha256": "7699ff15143adae4ceb3572cc38bf1ea48a91697feb6a767d5620d5dbf70777a"
+    },
+    {
+      "path": "eklm/demo/kepri/demo0_overview_render.py",
+      "size": 5482,
+      "sha256": "e6b0809c1a64af16848292b66846664e146f0dec5ab4bf1c5cd95cfa910e7421"
+    },
+    {
+      "path": "eklm/demo/kepri/demo1_data_archive.py",
+      "size": 25251,
+      "sha256": "7f50fc2d5e363f5a6909857a7baf3528e2b206a3b0607071b11b475fda42b255"
+    },
+    {
+      "path": "eklm/demo/kepri/demo2_render.py",
+      "size": 12372,
+      "sha256": "0c87a4be837754ee5b708248ae7ebaefd52930ed82fd7de2f04a8397693334ff"
+    },
+    {
+      "path": "eklm/demo/kepri/demo2_stress_test.py",
+      "size": 12064,
+      "sha256": "6b761311753544ed90137742f24880630f8056bdb14a9304cafd2bdb8df725d4"
+    },
+    {
+      "path": "eklm/demo/kepri/demo2a_pure_ml.py",
+      "size": 6712,
+      "sha256": "ff7fbacefe5805f854ae4d23a870445c8c3cd9865755345af89ccf031d2ede5d"
+    },
+    {
+      "path": "eklm/demo/kepri/demo2b_ai_reasoning.py",
+      "size": 10841,
+      "sha256": "fbec41171f7392e803366337b6ccd3fd7060476cfa7180cde6c5d8128ed80904"
+    },
+    {
+      "path": "eklm/demo/kepri/demo3_action_loop.py",
+      "size": 15361,
+      "sha256": "dafae4195d9dd402d668dfd399350f95b917a823984e5deccbac2ca1fe9672cb"
+    },
+    {
+      "path": "eklm/demo/kepri/demo3_er_sensor.py",
+      "size": 13511,
+      "sha256": "7333dd908a2712f60c27f06e94bf01387161ff269776df2dc4499b2d92c76933"
+    },
+    {
+      "path": "eklm/demo/kepri/demo3_er_sensor_render.py",
+      "size": 6872,
+      "sha256": "44bb0193fa484eb56761eb3b6a52d3321a2c40d6811568aaaefe29a0c9e90d90"
+    },
+    {
+      "path": "eklm/demo/kepri/demo3_render.py",
+      "size": 15485,
+      "sha256": "282a1cfb7e92e1d96031880a456275bb5203c62f3e55cbdd0562446e61c4018a"
+    },
+    {
+      "path": "eklm/demo/kepri/demo3_soft_sensor.py",
+      "size": 15470,
+      "sha256": "610a152acc4822372bd23808cc9cc5acba4a2dfd6015bf58162fe8e678517a0d"
+    },
+    {
+      "path": "eklm/demo/kepri/demo3_soft_sensor_render.py",
+      "size": 6921,
+      "sha256": "59453a3439245ded4568618bd4d96a08addecd13187c3f9233ab40e02060f635"
+    },
+    {
+      "path": "eklm/demo/kepri/output/demo1/test_campaign.json",
+      "size": 73643,
+      "sha256": "b5d29ba2a6c70acef1feed4fd2ff440210b591661b31eea34535cc6bdf067c61"
+    },
+    {
+      "path": "eklm/demo/kepri/output/demo2/04_stress_test_metrics.json",
+      "size": 530,
+      "sha256": "6e19b9ebfc81ecde0916d3e3002f2a375c2e1a4f77a3e9d540f46aa4460d14db"
+    },
+    {
+      "path": "eklm/demo/kepri/output/demo2/ai_reasoning_metrics.json",
+      "size": 2997,
+      "sha256": "44911af3feead4937c9efb799288403c495b61f10263969eb82f460e3d5154fc"
+    },
+    {
+      "path": "eklm/demo/kepri/output/demo2/pure_ml_metrics.json",
+      "size": 2063,
+      "sha256": "ad03bb60038a418551c4afacaffd94fdefd68b7101adbf693c91decdc2e314ee"
+    },
+    {
+      "path": "eklm/demo/kepri/output/demo3/envelope.json",
+      "size": 6888,
+      "sha256": "ce95bcb22beeddebe121b744afe6bfb818b1e1dd82a6ce4fa7a2a33c34de2a64"
+    },
+    {
+      "path": "eklm/demo/kepri/output/demo3/er_sensor_metrics.json",
+      "size": 102962,
+      "sha256": "5d0379c3afc0087b417a5e17fdec4f151e9decdb8534390f726033ee7e7734a1"
+    },
+    {
+      "path": "eklm/demo/kepri/output/demo3/plans.json",
+      "size": 6837,
+      "sha256": "3d101f31b472559b31f9e9db1d9c9099f0006829374b63067e7c7c550201355c"
+    },
+    {
+      "path": "eklm/demo/kepri/output/demo3/soft_sensor_metrics.json",
+      "size": 121693,
+      "sha256": "9cb94d278aaf09d67fafb422a94a12fa2b6308f4ad5f3cd81b7fac2d2e6dd7c8"
+    },
+    {
+      "path": "eklm/demo/kepri/stanford_loader.py",
+      "size": 11045,
+      "sha256": "36cc0cbd1745e874a9d1efa7e909e19d2fdb8e8df03f77a515ac56ff989e2531"
+    },
+    {
+      "path": "eklm/feedback/__init__.py",
+      "size": 180,
+      "sha256": "812c58015805766ab0b3e18b4cced7af30da00cc9c6e05dcbf8fc14e801290d2"
+    },
+    {
+      "path": "eklm/feedback/pipeline.py",
+      "size": 8606,
+      "sha256": "0b7205a4afc19a17233653404cd5dcf3769d45608eeb1b9f787e93ae3919cd25"
+    },
+    {
+      "path": "eklm/kas/__init__.py",
+      "size": 1445,
+      "sha256": "7b9e21b008b2d90dba97d0dcdc447ba8e5dd0cc17c5ba115e043658cef80cd56"
+    },
+    {
+      "path": "eklm/kas/connectors/__init__.py",
+      "size": 56,
+      "sha256": "dbd0d19aceee4cbebc64a700a187807ad5ae69b9b866b57ae00c1090a3c50281"
+    },
+    {
+      "path": "eklm/kas/connectors/historian.py",
+      "size": 4712,
+      "sha256": "62db93e54fdff216f99030836ac60da04b7866cd08d6f3f9176c5e2150dbfa4a"
+    },
+    {
+      "path": "eklm/kas/engine.py",
+      "size": 14031,
+      "sha256": "bd8c4baa8e77684a7d6f72ab3f5e60d556a43264a0caccc76dadd3a7640bb502"
+    },
+    {
+      "path": "eklm/kas/extractors/__init__.py",
+      "size": 1346,
+      "sha256": "68b4d599888677985376c3c9bdd22f4579f0203adf2baa6af0c3841b90c85545"
+    },
+    {
+      "path": "eklm/kas/extractors/base.py",
+      "size": 1661,
+      "sha256": "e9f796cbbb7120a1a974e5b028ddeaa96beb03c4bf477feb327469f6e37e6f32"
+    },
+    {
+      "path": "eklm/kas/extractors/datasheet.py",
+      "size": 9052,
+      "sha256": "769db68a9de975229ecbc890e8712901c3f45ea4321e11cd027015ff35c24cfb"
+    },
+    {
+      "path": "eklm/kas/extractors/json_ingestion.py",
+      "size": 3237,
+      "sha256": "85864709fe20a615a3d6ef7be633da661b9058a11fcc6b39b7638445e12dc329"
+    },
+    {
+      "path": "eklm/kas/extractors/narrative.py",
+      "size": 9174,
+      "sha256": "126747be5b9f35420b6f77ea0b64984dbd90f819b1d655b862e4c367a5dabd91"
+    },
+    {
+      "path": "eklm/kas/extractors/netl_pdf.py",
+      "size": 9172,
+      "sha256": "d14460d7aec38319f80dd4c2133529cdd4256eb85e8b49b46f3aebca81ab19d5"
+    },
+    {
+      "path": "eklm/kas/extractors/pid_extractor.py",
+      "size": 9152,
+      "sha256": "1e342552679ac274eabad5fd2b517ef38cfc41274001eb17bfdd841bb54a46e0"
+    },
+    {
+      "path": "eklm/kas/extractors/synthetic_loader.py",
+      "size": 1906,
+      "sha256": "7c69e03e4d818e99da66a88352ae8fab88869e3259f27044cef55eb872ea06ec"
+    },
+    {
+      "path": "eklm/kas/feedback/__init__.py",
+      "size": 1228,
+      "sha256": "94805eb84cd567829b5c44e5b960233044838781054c85ccf5903be150368d76"
+    },
+    {
+      "path": "eklm/kas/feedback/llm_mapper.py",
+      "size": 6824,
+      "sha256": "73743402627ffc18d500e228d1f792e94b244b88a85eb4b4e5b99262ed87f2f7"
+    },
+    {
+      "path": "eklm/kas/feedback/ontology_updater.py",
+      "size": 5140,
+      "sha256": "373327d7445cd7ecb6e003dc92d6a8ef9096d400174c54bb1f4c6723fe79509d"
+    },
+    {
+      "path": "eklm/kas/feedback/pm_schema_validator.py",
+      "size": 5222,
+      "sha256": "f54697d386bf91680bdd8a876e478cb6275676470ae07fe0d200520c96b1513c"
+    },
+    {
+      "path": "eklm/kas/feedback/receiver.py",
+      "size": 6329,
+      "sha256": "38379c8a02317a6de673a7cdf4e1c081eeb6f4455586e4b7a6c3e62d29916983"
+    },
+    {
+      "path": "eklm/kas/feedback/refiner_validator.py",
+      "size": 3710,
+      "sha256": "dc552f5b3d4302c6c7819b5bf48b41e30924b1e74b388c9ec01f75c563f12c9f"
+    },
+    {
+      "path": "eklm/kas/history/__init__.py",
+      "size": 381,
+      "sha256": "2d485004b6e9bdfa77b8c0cbe3c0f55bb773276cc81beb091786529509ebff95"
+    },
+    {
+      "path": "eklm/kas/history/tracker.py",
+      "size": 3040,
+      "sha256": "43193e5cc0659f45605fde78591e22461a0bd2987c44c2bed97a2acec2266275"
+    },
+    {
+      "path": "eklm/kas/ingest/__init__.py",
+      "size": 68,
+      "sha256": "44589b9957e75bf4269e256dfc644d83ec06e22dd2f78870198b71249d6330fd"
+    },
+    {
+      "path": "eklm/kas/ingest/netl_case13.py",
+      "size": 60947,
+      "sha256": "1be0fb6b24bf51c39e2e7ce3253c3f59a5fdf367cd5cb6f18aabfb12d99a4269"
+    },
+    {
+      "path": "eklm/kas/legacy_bridge/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "eklm/kas/legacy_bridge/assistant.py",
+      "size": 11555,
+      "sha256": "a9b70ce0fe3dac95006a0f6125a4dfb987b2baa05ceb9e7ae895973371e21dd4"
+    },
+    {
+      "path": "eklm/kas/legacy_bridge/bayesian.py",
+      "size": 10559,
+      "sha256": "29638575a6ec4c5a00b303150079c86665b6e9a338786cfc3838c66c0f078fa1"
+    },
+    {
+      "path": "eklm/kas/legacy_bridge/condition_monitor.py",
+      "size": 2572,
+      "sha256": "33d6ee0cf7133dc8f9a06fbf7a39bdfb45c22d6f95efdc17e083bd4d6fcf12d0"
+    },
+    {
+      "path": "eklm/kas/legacy_bridge/diagnostics.py",
+      "size": 8102,
+      "sha256": "99e27c3a869867961395ddee08c320d9d7470fb543712230844034f28b5b9d6f"
+    },
+    {
+      "path": "eklm/kas/legacy_bridge/graph.py",
+      "size": 2976,
+      "sha256": "a60389bfb50547e0f8f44bf292c98aa5541978b1c3623cebc4075483248b9fc0"
+    },
+    {
+      "path": "eklm/kas/legacy_bridge/integrity.py",
+      "size": 5940,
+      "sha256": "a12237a2d5f65c8af7c297bed695e1a215b38eaf97375b037400c255d7e80aba"
+    },
+    {
+      "path": "eklm/kas/legacy_bridge/integrity_contract.json",
+      "size": 3703,
+      "sha256": "36bbc46e4546d231b73127128da760d24d9ab1e4a7fdb0425cbb609ac0c6c485"
+    },
+    {
+      "path": "eklm/kas/legacy_bridge/mech_bridge.py",
+      "size": 2802,
+      "sha256": "4d613baa2f7307a3d6d798480d8d884e6ecf40d73fff2c137716aad05fa5acd8"
+    },
+    {
+      "path": "eklm/kas/legacy_bridge/populate.py",
+      "size": 5655,
+      "sha256": "b25dea26ef37b51c561449edbfe08050a62943ad72683008a8a5779c98d22625"
+    },
+    {
+      "path": "eklm/kas/legacy_bridge/query.py",
+      "size": 6353,
+      "sha256": "ed265fd4591030947146cf877dcb322d3cb5eeb77b488496c8d34068b094ef1b"
+    },
+    {
+      "path": "eklm/kas/legacy_bridge/residual_monitor.py",
+      "size": 4120,
+      "sha256": "99f763c0136151b8c4e33cf4b694cdbef7d9a18a9ff4ebef1c1b742f8879f863"
+    },
+    {
+      "path": "eklm/kas/legacy_bridge/runtime.py",
+      "size": 15129,
+      "sha256": "ad74c6cd41a190680c1ca2ba4e882fd35e651bc4ae65acab6170252580babf9c"
+    },
+    {
+      "path": "eklm/kas/legacy_bridge/temporal_monitor.py",
+      "size": 5681,
+      "sha256": "f616afd7cc9b540571a2747ea5500341ccb9e7a359d4def3538c7e019f720cb9"
+    },
+    {
+      "path": "eklm/kas/legacy_bridge/uncertainty_monitor.py",
+      "size": 2387,
+      "sha256": "4167b2bace225991a75b83464526a735124193d99412d333ba3f342a3feb4ef5"
+    },
+    {
+      "path": "eklm/kas/legacy_knowledge.py",
+      "size": 5794,
+      "sha256": "7dbf3257808aa6c8b04517ae66b7a17cdda93b183c34594468496c8c6512d246"
+    },
+    {
+      "path": "eklm/kas/mappers/__init__.py",
+      "size": 656,
+      "sha256": "0077f25f1f0692e0427775d6c13c574e7a6aee79a43e280303f96faad3227532"
+    },
+    {
+      "path": "eklm/kas/mappers/entity_resolver.py",
+      "size": 2965,
+      "sha256": "0bd9e23a086c7108a524ed1ec61464394fd3c8062a65d0f83454969a712e1d2f"
+    },
+    {
+      "path": "eklm/kas/mappers/ontology_mapper.py",
+      "size": 4427,
+      "sha256": "fe3f5d4ac35155a22592c3636305586f724f18ae902fec363d1bd013d53dad54"
+    },
+    {
+      "path": "eklm/kas/mappers/unit_normalizer.py",
+      "size": 2526,
+      "sha256": "aa0bda324089a9a5383bb11a63b54b9101fab3541a240f5a3b3ec3fe63ebf597"
+    },
+    {
+      "path": "eklm/kas/provenance/__init__.py",
+      "size": 658,
+      "sha256": "c98de63d9d34651d11b413b2b14551e5c4a83a0cb110fef5a9cc00bb17cdce46"
+    },
+    {
+      "path": "eklm/kas/provenance/tagger.py",
+      "size": 1171,
+      "sha256": "ddeef8540da5083f8822a74a674411407c5da27c2073042b7ebf921c14b5de88"
+    },
+    {
+      "path": "eklm/kas/quarantine.py",
+      "size": 2357,
+      "sha256": "d0d03c7e10bca7749c8b4776ff79279b0fc04682b549c06aa4b68239aaa4da94"
+    },
+    {
+      "path": "eklm/kas/synthetic.py",
+      "size": 17673,
+      "sha256": "9323b674f9323c98ad72d5029f327e48aeeb34b43fd7ecd86ef57cfee4198ea3"
+    },
+    {
+      "path": "eklm/kas/types.py",
+      "size": 8518,
+      "sha256": "f4e95022b9ce73c53f10bac2ce789d661a2e746c319a2d2df179da61cf4d9535"
+    },
+    {
+      "path": "eklm/kas/validation/__init__.py",
+      "size": 1068,
+      "sha256": "1f56075d959d6f63bbdad35940bc6d4c95deb04c5b51bbb7057f74cb22abc2af"
+    },
+    {
+      "path": "eklm/kas/validation/confidence_scorer.py",
+      "size": 2221,
+      "sha256": "79c9459c30adecf3da053f584aad5525c063dcb476e12c28c9edb9f927614a59"
+    },
+    {
+      "path": "eklm/kas/validation/consistency_checker.py",
+      "size": 3209,
+      "sha256": "3a3e4adb9ec7847e3108641e813bb84351510575fe23e501a1beab3dc9429ec6"
+    },
+    {
+      "path": "eklm/kas/validation/schema_validator.py",
+      "size": 2649,
+      "sha256": "23b2472730ce98befbde7d492635e879c2648a6ca8136ee6887a00c1ab879ffd"
+    },
+    {
+      "path": "eklm/kdl/__init__.py",
+      "size": 1442,
+      "sha256": "984fbb9988253b8e794c797e2f43209af3589ee2d07f006717e94e2f7171258e"
+    },
+    {
+      "path": "eklm/kdl/backup.py",
+      "size": 1585,
+      "sha256": "995e5790fb5fa03e18e8a1efc675cd4ecfe9108240e1fe33d4d5bb06b6c994fe"
+    },
+    {
+      "path": "eklm/kdl/catalog.py",
+      "size": 1912,
+      "sha256": "02f86d32f3f37ec57b1694c294897c54e2057059ab0ae30d6e55e8b7df88ea0f"
+    },
+    {
+      "path": "eklm/kdl/facade.py",
+      "size": 3156,
+      "sha256": "89b24163d3261f6f7e52cd7b5ca3f64e02a1a09299c1d7d46830d869f08bafc5"
+    },
+    {
+      "path": "eklm/kdl/hybrid.py",
+      "size": 13880,
+      "sha256": "2efcb5520f3fb1aba008bbd2ed229211dc5d4a226acbe35d33da6ccc7698c270"
+    },
+    {
+      "path": "eklm/kdl/schema/__init__.py",
+      "size": 2359,
+      "sha256": "d9683c828fbdb17c7e4c52508106e745b0effd7c0c21ec0a65ad6b317659bf6f"
+    },
+    {
+      "path": "eklm/kdl/schema/bridge.py",
+      "size": 2462,
+      "sha256": "e4aa4eb5935899f4e9750563b7e268f5471b89f169bf8e9fe8d4f955f09096fa"
+    },
+    {
+      "path": "eklm/kdl/schema/catalog/PlantMind_GTCC_CausalGraph_v1_0.ttl",
+      "size": 23226,
+      "sha256": "82a16ab1f805966bb38ab4a2375f2a1237ced08fac891a9d867f4c927e81d62a"
+    },
+    {
+      "path": "eklm/kdl/schema/catalog/PlantMind_GTCC_Combustor_CRN_v1_0.ttl",
+      "size": 24327,
+      "sha256": "43c60c31a18a26ca7a480f9257f0e5ffb3d518421a7785641f0540ee701d507b"
+    },
+    {
+      "path": "eklm/kdl/schema/catalog/PlantMind_GTCC_Faults_StageResolved_v1_0.ttl",
+      "size": 5845,
+      "sha256": "a7ddc1f7e1607243e18710d33f98d8d456782baf411c427f3a2077c1d3398944"
+    },
+    {
+      "path": "eklm/kdl/schema/catalog/PlantMind_GTCC_Faults_v1_0.ttl",
+      "size": 11595,
+      "sha256": "53ba3cfe3a26942e9fccda0313c1138828783c3666452b1b2174008f4b52a92b"
+    },
+    {
+      "path": "eklm/kdl/schema/catalog/PlantMind_GTCC_GT_Module_v1_2.ttl",
+      "size": 46207,
+      "sha256": "b2b6a4d2f869905020b763c1dd92a2767974c5fea9bf31b7beda826ce15910fb"
+    },
+    {
+      "path": "eklm/kdl/schema/catalog/PlantMind_GTCC_HRSG_Module_v1_1.ttl",
+      "size": 41470,
+      "sha256": "ec24be6fa3feeffa63ff9d157dc8c6d879d02b72845c68d22b63969bb5ad7eb6"
+    },
+    {
+      "path": "eklm/kdl/schema/catalog/PlantMind_GTCC_M4_Condenser_v1_0.ttl",
+      "size": 27494,
+      "sha256": "fa1594469b182b81c8ee1ee87e5ba0f14a4cbff3a2d02bb09d33278cedf81b7d"
+    },
+    {
+      "path": "eklm/kdl/schema/catalog/PlantMind_GTCC_Mechanical_v1_0.ttl",
+      "size": 6330,
+      "sha256": "262065ad691244729556de3846f3e2a9845daa2d562023ab6e6a204489742767"
+    },
+    {
+      "path": "eklm/kdl/schema/catalog/PlantMind_GTCC_ST_Module_v1_0.ttl",
+      "size": 15801,
+      "sha256": "749e669dba3cc32b22fc373c86e7d15215340458848b6431ed5613407b3e51c5"
+    },
+    {
+      "path": "eklm/kdl/schema/catalog/PlantMind_GTCC_Tolerance_v1_0.ttl",
+      "size": 10902,
+      "sha256": "1f72073f47783817352e8d7457021faf10aef1c0da05f72ba10d553e0a87aaf9"
+    },
+    {
+      "path": "eklm/kdl/schema/feed.py",
+      "size": 27948,
+      "sha256": "8ccfcf0d13e6d5536c39164dee5d2a8aa8b0cc4cf2b8c746a2fb45b080fcd426"
+    },
+    {
+      "path": "eklm/kdl/schema/knowledge.py",
+      "size": 5285,
+      "sha256": "578fd2d96b722efa1648b2f32e846b647caddda8dc03e40ab302c6cf8999bf7f"
+    },
+    {
+      "path": "eklm/kdl/schema/ops.py",
+      "size": 4513,
+      "sha256": "097cec88aa79faaa2b9493ff91098dab3b9c2cd8288cdd132c5ca59a8617e521"
+    },
+    {
+      "path": "eklm/kdl/schema_registry.py",
+      "size": 13829,
+      "sha256": "fe231dc87aede07e779667cb1cea7ddb70be0f68dd5e6ed037811ad375274663"
+    },
+    {
+      "path": "eklm/kdl/stores/__init__.py",
+      "size": 1074,
+      "sha256": "83fb5a893d4ef5f75e2e20bddfc3098de6d50e9acc2848e9a4470250bd839333"
+    },
+    {
+      "path": "eklm/kdl/stores/influx_backend.py",
+      "size": 7078,
+      "sha256": "96e5e0c8d7afba542ce12480fe134561f0c45455865d5ae69c25a0d30ea59e8f"
+    },
+    {
+      "path": "eklm/kdl/stores/neo4j_backend.py",
+      "size": 3725,
+      "sha256": "b1f7d8124c05a1f0063d37dd85bced8be0a4283862511f8c5367014200b694da"
+    },
+    {
+      "path": "eklm/kdl/stores/pgvector_backend.py",
+      "size": 10359,
+      "sha256": "e7ed0ac58631b799657a8acbea0329ecb7a1c9db386e63a8505b1bc523b6cf4e"
+    },
+    {
+      "path": "eklm/kdl/stores/postgres_backend.py",
+      "size": 2739,
+      "sha256": "ec3e5bd5d8f52f0e3b2ade0124bfa5fb1f161269496c517d9715d69a746a2b9e"
+    },
+    {
+      "path": "eklm/kdl/stores/sqlite_backend.py",
+      "size": 18987,
+      "sha256": "f07acb922b95272648b499e5a7277d4a2ddec7fa75ccfc29783b16239c3dc3ee"
+    },
+    {
+      "path": "eklm/kdl/types.py",
+      "size": 5645,
+      "sha256": "c80e23ea0aff2fd781b7eefc684ffca5e774b0c265a25cf163fceb8fad8b234a"
+    },
+    {
+      "path": "eklm/kre/__init__.py",
+      "size": 1212,
+      "sha256": "44408b68979e41baf4e5bb71d882fce77eee29b771e089ff8e8466c21d1fd5c3"
+    },
+    {
+      "path": "eklm/kre/bayesian.py",
+      "size": 14207,
+      "sha256": "0739ead0c7ddfd4fd254cd8ea4449e2b70306db19d8f5031b6a9246c601ad14f"
+    },
+    {
+      "path": "eklm/kre/causal.py",
+      "size": 9246,
+      "sha256": "eb85f27ed891fe7654a1f5eef48084cb7177acf60f4f5fbc49b172492eca0b8a"
+    },
+    {
+      "path": "eklm/kre/counterfactual.py",
+      "size": 15284,
+      "sha256": "4de04acb53e02740e8b24a5297b18dd1d531c4c74b9b76ab0562746b6956da0b"
+    },
+    {
+      "path": "eklm/kre/engine.py",
+      "size": 51228,
+      "sha256": "03c4234aef4a67f38280df0cdbc9ee28eceb8b0386a50d7df670c42682d56574"
+    },
+    {
+      "path": "eklm/kre/reasoner.py",
+      "size": 26163,
+      "sha256": "db5abe4d773af317053d88071fc945ade3b7e17d51ad1e1e0a77378e2a341a6a"
+    },
+    {
+      "path": "eklm/kre/stage_hypotheses.py",
+      "size": 4550,
+      "sha256": "7eaaaacc49166ad4655afe51d9fdf8966ed2500e41b3a3ca047fbdbdf0034a65"
+    },
+    {
+      "path": "eklm/kre/types.py",
+      "size": 8296,
+      "sha256": "a64c9ae274c5043b1f8fb15a62ab69af28e9e0be4503da44960a2987b93ab09a"
+    },
+    {
+      "path": "eklm/kre/uncertainty.py",
+      "size": 8406,
+      "sha256": "96a4258565880b8f660b2b3bd8f860cb2a88e2f1cae29d2954a264fa4146d1f3"
+    },
+    {
+      "path": "eklm/lib/__init__.py",
+      "size": 284,
+      "sha256": "7fe4553dc782b2aa4f73ab7064816e33aea045ebadc7132611e9cd21c7bcbe5f"
+    },
+    {
+      "path": "eklm/lib/llm/__init__.py",
+      "size": 1740,
+      "sha256": "df7a0058103188e34f5e34606f1681fe1ab59712f16a9f02f98dfd084128760c"
+    },
+    {
+      "path": "eklm/lib/llm/base.py",
+      "size": 5515,
+      "sha256": "765f4d8ba614c68e5347cdfa4d881a314839bc57b15f852dfb5bbd7d04b137eb"
+    },
+    {
+      "path": "eklm/lib/llm/claude_adapter.py",
+      "size": 4335,
+      "sha256": "74f555f849309c4112a64a2364f6c5fc9361adb4075425aa9101e433a0d6c797"
+    },
+    {
+      "path": "eklm/lib/llm/ollama_adapter.py",
+      "size": 5034,
+      "sha256": "b657cfeb0a73f6d6574859a8fe01f704afc3f150b0387bed323bd5cf27c3c6ff"
+    },
+    {
+      "path": "eklm/lib/llm/ollama_setup.py",
+      "size": 6689,
+      "sha256": "fcddaeb47d51901d03f7e964538bf606d41c1961a4ba5f1568a5f0d30b9a34b5"
+    },
+    {
+      "path": "eklm/lib/llm/operator_intent.py",
+      "size": 6716,
+      "sha256": "66beaf46428e60189ae33f47d2da15e371553ed5b2fa54e659399f59a6891c2d"
+    },
+    {
+      "path": "eklm/lib/llm/prompts.py",
+      "size": 4034,
+      "sha256": "e8dddb551dcf2208e2d2ebd14c22e3c8afbc199b7442f151db9b8814f22afb81"
+    },
+    {
+      "path": "eklm/lib/llm/session_creds.py",
+      "size": 911,
+      "sha256": "3fe89d367cb98d05f437eb7ad6cc28d91490273a74db493436948de6a2652f46"
+    },
+    {
+      "path": "eklm/orchestration/__init__.py",
+      "size": 457,
+      "sha256": "f00ce84dc600a80006cbed6032cebfe4268a79813af8e0a603265a43c2b018bf"
+    },
+    {
+      "path": "eklm/orchestration/dynamic_driver.py",
+      "size": 9638,
+      "sha256": "028e9041bd0e5fde92e6393c605d0c9c8dabeecbaa78403708d07289b05e4e8e"
+    },
+    {
+      "path": "eklm/orchestration/mode2_driver.py",
+      "size": 23691,
+      "sha256": "c80bac4da3f427ef8e9dafe3e08557d10329da0b32d1b63efc453ca7851dc9a2"
+    },
+    {
+      "path": "eklm/orchestration/plant_interface.py",
+      "size": 2414,
+      "sha256": "1f15a60531aed864db9150bbfd86afe339a74e5b45e685c06d8ecf94cca22c1c"
+    },
+    {
+      "path": "eklm/orchestration/vdt_plant_simulator.py",
+      "size": 12843,
+      "sha256": "66171279289563c098e4567be2d8c73b4baa38fa5feb48f35e62be61ad98333a"
+    },
+    {
+      "path": "eklm/pages/01_operate_console.py",
+      "size": 9089,
+      "sha256": "9078e82d056712c924a2e2b83f19f9dfe2e5fe4839674ff468e067fbf614c56f"
+    },
+    {
+      "path": "eklm/ui/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "eklm/ui/components/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "eklm/ui/components/ask_ai_drawer.py",
+      "size": 2402,
+      "sha256": "544ce7cda3f0f154f7e63da2584781ec240d424de3969be73ecb0b5462115ac3"
+    },
+    {
+      "path": "eklm/ui/components/audit_trail.py",
+      "size": 2297,
+      "sha256": "d6c86a5b36299bc7fc22ec0f29274d795b1dfcc390897ac0c7e463deab13983d"
+    },
+    {
+      "path": "eklm/ui/components/export_button.py",
+      "size": 2000,
+      "sha256": "995581b869899644d479b8aac9f7ecae17b9ab9e40724fdaf941f6bdde15177e"
+    },
+    {
+      "path": "eklm/ui/components/llm_summary.py",
+      "size": 3630,
+      "sha256": "d00c45d2ef17450b94b6e20ef93e538b890cfbcf98acb273fa3798833142a634"
+    },
+    {
+      "path": "eklm/ui/components/scenario_store.py",
+      "size": 2651,
+      "sha256": "487e92260fa68423a51697afda29aea1e67eacdb524845ebf9d47fe94a587f86"
+    },
+    {
+      "path": "eklm/ui/labs/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "eklm/ui/labs/adt_lab/__init__.py",
+      "size": 141,
+      "sha256": "1fd5c67106fecf4e2ee731540b4a056e6402242ec30a33fb050c03cb64cd77fa"
+    },
+    {
+      "path": "eklm/ui/labs/adt_lab/adt_dashboard.py",
+      "size": 40055,
+      "sha256": "76132db8d6ebb1ce2f09534f8dcf3436864caf6aed79ce18f8656894cfde4ddf"
+    },
+    {
+      "path": "eklm/ui/labs/adt_lab/adt_runner.py",
+      "size": 9616,
+      "sha256": "cad7100a0522d3cf91988093c6989e97ae608763357b6c92549b5912e3231bbc"
+    },
+    {
+      "path": "eklm/ui/labs/ai_lab/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "eklm/ui/labs/ai_lab/ai_reasoning.py",
+      "size": 2237,
+      "sha256": "56833de9f0380e30c84a0157ae18e7589933adf86a72e7280ad74b9bda4e6d01"
+    },
+    {
+      "path": "eklm/ui/labs/ai_lab/ask_ai.py",
+      "size": 5475,
+      "sha256": "2e07d4a30e3cb1407927c35a0e31fab6cdecb435f5edf3b4114a645b353daa8f"
+    },
+    {
+      "path": "eklm/ui/labs/ai_lab/ask_the_model.py",
+      "size": 542,
+      "sha256": "8e4b2d9489bd7dce68373272c89ccd71f4bdee6d8f9db0f59a64b068ec0a102f"
+    },
+    {
+      "path": "eklm/ui/labs/ai_lab/bayesian_calibration.py",
+      "size": 4533,
+      "sha256": "2b69acd868b32debd39811d73ae116f929e4c0fb06fc0187f4d0ed4275cb929f"
+    },
+    {
+      "path": "eklm/ui/labs/ai_lab/ontology_explorer.py",
+      "size": 17354,
+      "sha256": "d5710189bdf950329ab0043ffa83c8d6e821ecbf14093088c76e016986bde8ae"
+    },
+    {
+      "path": "eklm/ui/labs/ai_lab/sensitivity_sobol.py",
+      "size": 5557,
+      "sha256": "ecebb0c20f164f5a978ecc14fa537122d743bbb4fd613d5aef84715a6f49211c"
+    },
+    {
+      "path": "eklm/ui/labs/ai_lab/uncertainty_lhs.py",
+      "size": 2328,
+      "sha256": "42cc6f10d9c062373c019b4e29580107d2e9fd051031d4fe27e922353f67d67b"
+    },
+    {
+      "path": "eklm/ui/labs/ai_lab/uq_sensitivity.py",
+      "size": 7910,
+      "sha256": "35b2ab84cac4aed57ac2c6ed79e861de23ea3a48ffbfe4220bc21e8993a4fc7a"
+    },
+    {
+      "path": "eklm/ui/labs/emission_lab/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "eklm/ui/labs/emission_lab/co2_tracking.py",
+      "size": 4299,
+      "sha256": "9e48feb7a764a5e0f456a3c4f3c7a253e66b6e851b22d3421acc639a30e179fa"
+    },
+    {
+      "path": "eklm/ui/labs/emission_lab/co_uhc.py",
+      "size": 3187,
+      "sha256": "da6e060fb4c6a798df1544cb119f83456f22cd0a0d1fb582ec354de1e7e82113"
+    },
+    {
+      "path": "eklm/ui/labs/emission_lab/detailed_analysis.py",
+      "size": 7309,
+      "sha256": "bebf99391b42c82d06bf6d1f60b7fa4bffd420195ea0c70022d31caf1cf9f31f"
+    },
+    {
+      "path": "eklm/ui/labs/emission_lab/emission_intensity.py",
+      "size": 2952,
+      "sha256": "92766d623eed3b9cb067a6e92ea132da905de3cb1115c0bb6bdb1a5e9ccad159"
+    },
+    {
+      "path": "eklm/ui/labs/emission_lab/emission_overview.py",
+      "size": 5814,
+      "sha256": "339c50a7f3b3fb349e2577de7452b6712cc3660fc9f81f6fe2a5f4cf521a28bd"
+    },
+    {
+      "path": "eklm/ui/labs/emission_lab/nox_analysis.py",
+      "size": 953,
+      "sha256": "7bc9d5d4713e883fc90d60175e8d2aae970ce9eef7a19165310e78a889c403c8"
+    },
+    {
+      "path": "eklm/ui/labs/emission_lab/nox_reduction_scr.py",
+      "size": 869,
+      "sha256": "ac9d4f971e79889cf1961f82d5bb4ceafe588659940fc30a038bd16026097dec"
+    },
+    {
+      "path": "eklm/ui/labs/emission_lab/smart_summary.py",
+      "size": 6970,
+      "sha256": "00e780d9bb472ca621192a70d47ff1a9fa9e315f58afd6a67aededd9c2208e5e"
+    },
+    {
+      "path": "eklm/ui/labs/emission_lab/stack_dashboard.py",
+      "size": 2535,
+      "sha256": "ad6ff68a11df67a3f23e506812be7f5b66834a17a2315c3919838699c1aef451"
+    },
+    {
+      "path": "eklm/ui/labs/insight_lab/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "eklm/ui/labs/insight_lab/economic_analysis.py",
+      "size": 5742,
+      "sha256": "320b779b4265ecb2e566c6f8e658bc0138dc99571feaeb623b7b8facd1a57421"
+    },
+    {
+      "path": "eklm/ui/labs/insight_lab/executive_summary.py",
+      "size": 5566,
+      "sha256": "4c194a7e97be7f3befc120ca426e2aebf85186bdef3659e4cb8e305824915bde"
+    },
+    {
+      "path": "eklm/ui/labs/insight_lab/kpi_dashboard.py",
+      "size": 869,
+      "sha256": "065bcddc50c595115d1cc6a42eac0ed9fb095dd065ab1196127d40ea04e2f8a6"
+    },
+    {
+      "path": "eklm/ui/labs/insight_lab/report_center.py",
+      "size": 10899,
+      "sha256": "a2dbdbe5402c07b21f25565736eee444226bb3a3dc4ba6df42bd03c24f39ac8f"
+    },
+    {
+      "path": "eklm/ui/labs/insight_lab/report_export.py",
+      "size": 9207,
+      "sha256": "d359ea5ad960b950972804a38f45424e74eb42def0cb43873f9bd21f5f7f4c9e"
+    },
+    {
+      "path": "eklm/ui/labs/insight_lab/scenario_comparison.py",
+      "size": 2749,
+      "sha256": "dbe0c1b05b8444c22992be3a5cd8db823819283149929dbc357a9105eecb5411"
+    },
+    {
+      "path": "eklm/ui/labs/insight_lab/what_if_summary.py",
+      "size": 4843,
+      "sha256": "79474fbcc24f0f1ec8161c49be596876c4a0f7375f2f3389f2d9efd86e56ce9a"
+    },
+    {
+      "path": "eklm/ui/labs/physics_lab/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "eklm/ui/labs/physics_lab/combustion_zones.py",
+      "size": 8894,
+      "sha256": "83d36d1754c9d2ffa708d43a53c2702e9404cf2d3a90b249120b71af4d98071f"
+    },
+    {
+      "path": "eklm/ui/labs/physics_lab/critical_equipment_durability.py",
+      "size": 5293,
+      "sha256": "ac5293db7c887e07b5a6466dae7605d478748605671bfe2454a52f6d3606dc39"
+    },
+    {
+      "path": "eklm/ui/labs/physics_lab/dynamic_trends.py",
+      "size": 4587,
+      "sha256": "64b697d7959c82a0b9c95eeb4ec33f4cdee06a9bbfa32a3a9d9737e8c9681b91"
+    },
+    {
+      "path": "eklm/ui/labs/physics_lab/plant_hm.py",
+      "size": 4374,
+      "sha256": "b2133747de1187514d619a84dd9a6b187f5b218443649eda6e72971f2adceceb"
+    },
+    {
+      "path": "eklm/ui/labs/physics_lab/visualization.py",
+      "size": 17672,
+      "sha256": "397ff3c3367f2b82a20ad432e52933918ab156603bee21406e915952fa7425ff"
+    },
+    {
+      "path": "eklm/ui/labs/scenario_lab/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "eklm/ui/labs/scenario_lab/activity_case_study.py",
+      "size": 13904,
+      "sha256": "22fb29a40ce0e9b8c9643da6147971df1d4ed451cbc2468602b062d22c2ea74e"
+    },
+    {
+      "path": "eklm/ui/labs/scenario_lab/activity_dynamic.py",
+      "size": 12226,
+      "sha256": "07b8f408db1a3c04d8496a2ffef745b8d54090ff222c052bf614333169831b74"
+    },
+    {
+      "path": "eklm/ui/labs/scenario_lab/activity_focused_study.py",
+      "size": 4712,
+      "sha256": "31eccc3cde0ce81928d065ba4d94886d8885b3767cd515db11904a858250bb77"
+    },
+    {
+      "path": "eklm/ui/labs/scenario_lab/activity_mechanical.py",
+      "size": 5551,
+      "sha256": "10ccf554c32313941f6f62c5839d7d9768ffa7bb679b9d22cb89bf92acf9f6c3"
+    },
+    {
+      "path": "eklm/ui/labs/scenario_lab/activity_multifuel.py",
+      "size": 10018,
+      "sha256": "cc0dc86b82050cb08c729a5f01d857e6ab8b174d82ceac117e48b26879868475"
+    },
+    {
+      "path": "eklm/ui/labs/scenario_lab/activity_optimization.py",
+      "size": 9681,
+      "sha256": "cb4d46cd7492f1bb2f6914097a2b68af3558f0e4a66bdbcefdc88e709501db98"
+    },
+    {
+      "path": "eklm/ui/labs/scenario_lab/activity_steady.py",
+      "size": 5565,
+      "sha256": "0b85048cbdaecbf50685683d880fba0b86c9a66bb75a80538926ee2dc8944715"
+    },
+    {
+      "path": "eklm/ui/labs/scenario_lab/activity_stochastic.py",
+      "size": 5737,
+      "sha256": "faf9d678695e9d8c9c1ee455c3cbe6d1a6f0a7509162c363329d2ef050581297"
+    },
+    {
+      "path": "eklm/ui/shell/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "eklm/ui/shell/layout.py",
+      "size": 4837,
+      "sha256": "6f9a2526ab2ce6869c93965d3e226fcd247fa553e8e73bdde6d252e16a599d9e"
+    },
+    {
+      "path": "eklm/ui/shell/navigation.py",
+      "size": 5187,
+      "sha256": "6692985824f2e6d884c40b8bf7df946442c31a55bdf010d91fe0ed786085b89a"
+    },
+    {
+      "path": "eklm/ui/shell/project_panel.py",
+      "size": 3832,
+      "sha256": "694809e591affeef0d4f333c062d1cd11d6b1c1dc2be114fd7c00de3898def78"
+    },
+    {
+      "path": "eklm/vdt/__init__.py",
+      "size": 1611,
+      "sha256": "1fbab8e43dc65a6ec62089c7d3b653e315cf22d3bde58e5e388821350c5f09f3"
+    },
+    {
+      "path": "eklm/vdt/analysis/__init__.py",
+      "size": 405,
+      "sha256": "d3834118071796afda4b563cdcdd81e9c73d4cb6776be4b6a9476e3b724bfa50"
+    },
+    {
+      "path": "eklm/vdt/analysis/calibrate.py",
+      "size": 11705,
+      "sha256": "789542241ccc78d479e750d34ddc64406a35084b1352002078c1728b98562b24"
+    },
+    {
+      "path": "eklm/vdt/analysis/compressor_map_audit.py",
+      "size": 3878,
+      "sha256": "4261b33c427e43333862eebbf722927c95549624ae8cc44c0ffbc3ff912a393b"
+    },
+    {
+      "path": "eklm/vdt/analysis/economic.py",
+      "size": 9332,
+      "sha256": "f713fe10790cfac160070e4dd619823286c2fba53ff6b38b2acbc7d8c9a7ecdb"
+    },
+    {
+      "path": "eklm/vdt/analysis/gtcc_loop.py",
+      "size": 8952,
+      "sha256": "0c013bb95d1f6533a51667b1f81689a508914b62dd84c149dc77d823fefbcaeb"
+    },
+    {
+      "path": "eklm/vdt/analysis/measurement_comparison.py",
+      "size": 7174,
+      "sha256": "3eddff5b2edb41101b2b3ffbf4d44a596f0135da405721129ac512376bc55170"
+    },
+    {
+      "path": "eklm/vdt/analysis/stochastic.py",
+      "size": 5802,
+      "sha256": "a9c0ded759d739bd1cf3e0bd6b7d9504e1b38a971e59f6e3720085950c098da2"
+    },
+    {
+      "path": "eklm/vdt/analysis/water_cycle_audit.py",
+      "size": 1031,
+      "sha256": "d6c6e7f57f28cd0901adaa7d062dbe5fdbfd26eea8190397f7c91d55ce75a539"
+    },
+    {
+      "path": "eklm/vdt/combustion/__init__.py",
+      "size": 79,
+      "sha256": "7f5397799fee1e35d093bdd3969a4971df305c94de462b46fce9866e1e94c518"
+    },
+    {
+      "path": "eklm/vdt/combustion/cantera_wrapper.py",
+      "size": 1354,
+      "sha256": "13182fd2f8442b15e345c9505d719c7397a6bb97be7b2f294a7ce9564db955e0"
+    },
+    {
+      "path": "eklm/vdt/combustion/flame_speed.py",
+      "size": 983,
+      "sha256": "5fa2e06f4203a732766f5f6ce01121b087cbb0f78d4d39af3d27fa38597ee729"
+    },
+    {
+      "path": "eklm/vdt/combustion/flame_temperature.py",
+      "size": 434,
+      "sha256": "6093e216ff6fc7d86c699ce5475ed69a87b4fa610523b9af8f65d7f1a77ccd43"
+    },
+    {
+      "path": "eklm/vdt/combustion/flashback/__init__.py",
+      "size": 53,
+      "sha256": "f17f6d626f2996cd34b9bee62638b94a4f9eea4fd39c5fd464c51aadc13f415e"
+    },
+    {
+      "path": "eklm/vdt/combustion/flashback/margin_calculator.py",
+      "size": 1160,
+      "sha256": "81e8f5b824d92beb11963ecd045def7c86eef4103ae9e60a1aea6981ef355dfb"
+    },
+    {
+      "path": "eklm/vdt/combustion/ignition_delay.py",
+      "size": 1643,
+      "sha256": "c2be96287976d93bc1f7716b22d09f3c75a3024dc99e5f3cca72128e99a6042b"
+    },
+    {
+      "path": "eklm/vdt/combustion/mechanisms/__init__.py",
+      "size": 37,
+      "sha256": "f8b633a0e1f7122a2ee4b4c87beaa3e5f64a14b0ce49ce0371b940f4b36a5e2a"
+    },
+    {
+      "path": "eklm/vdt/combustion/mechanisms/burke_2012/burke_2012.yaml",
+      "size": 15842,
+      "sha256": "c37afc43d88fab58be400d3d8097a174f0cb413a17d8116fd51a285f2d470a77"
+    },
+    {
+      "path": "eklm/vdt/combustion/mechanisms/glarborg_2018/Glarborg.yaml",
+      "size": 306566,
+      "sha256": "bce1ce20e14cf054c71847d5ff58b39c8e3df7cf3e9f930811f4855809d65a77"
+    },
+    {
+      "path": "eklm/vdt/combustion/mechanisms/glarborg_2018/creck_nh3_34_272.yaml",
+      "size": 59023,
+      "sha256": "3c7aafc8aa5b01421573496cec1c63deaa787ae5738f5e777196003fce7bb73c"
+    },
+    {
+      "path": "eklm/vdt/combustion/mechanisms/glarborg_2018/glarborg_2018.yaml",
+      "size": 507219,
+      "sha256": "5610aa7d1d17253b7bf66f026de9573525bcdea7fb4810c7e45b78190833ffd4"
+    },
+    {
+      "path": "eklm/vdt/combustion/mechanisms/glarborg_2018/glarborg_2018_cleaned.yaml",
+      "size": 505867,
+      "sha256": "57168d9118d2b77004463dc42a11acc45d38b19537f3c082989d15cdbf1e4099"
+    },
+    {
+      "path": "eklm/vdt/combustion/mechanisms/glarborg_2018/glarborg_test.yaml",
+      "size": 508218,
+      "sha256": "2b604443bf9165e973ecfa862e0eeab03677030c2e51b67c36d6e90ea259fdc7"
+    },
+    {
+      "path": "eklm/vdt/combustion/mechanisms/keromnes_2013/keromnes_2013.yaml",
+      "size": 20270,
+      "sha256": "0cf045c0452a75615158c46fa43f60868bcdaf8fcdc069827b28016e30b57504"
+    },
+    {
+      "path": "eklm/vdt/combustion/mechanisms/mechanism_loader.py",
+      "size": 2107,
+      "sha256": "496171529a7468acd8e996895244022583bb5a8d21d8318ac546f2c759ea2760"
+    },
+    {
+      "path": "eklm/vdt/combustion/mechanisms/otomo_2018/otomo_2018.yaml",
+      "size": 46655,
+      "sha256": "36971ea442a65e174a7eed8c7e437bb9b95e86471d2b100c4900ee34270c6f69"
+    },
+    {
+      "path": "eklm/vdt/combustion/mechanisms/shrestha_2018/shrestha_2018.yaml",
+      "size": 321349,
+      "sha256": "3b2c3ac7051e38e52198ad7c67dac1263f955071288a546f55c8984f44bdffd9"
+    },
+    {
+      "path": "eklm/vdt/combustion/mechanisms/stagni_2025/stagni_2025.yaml",
+      "size": 59023,
+      "sha256": "3c7aafc8aa5b01421573496cec1c63deaa787ae5738f5e777196003fce7bb73c"
+    },
+    {
+      "path": "eklm/vdt/combustion/nox/__init__.py",
+      "size": 49,
+      "sha256": "1e994f4407f6444b65a5105dd3f8bb417d13c4d089f80996279e2b3769caba3a"
+    },
+    {
+      "path": "eklm/vdt/combustion/nox/reactor_nox.py",
+      "size": 2780,
+      "sha256": "7e1a9079823d6f86efec76b0d9273e56cd77103d651c66e1aa6cecdc2ca2f443"
+    },
+    {
+      "path": "eklm/vdt/combustion/validation/__init__.py",
+      "size": 74,
+      "sha256": "ba67a6fe11ee512ba9192f450b19c9ac68e2f324253efcd00af8a6f3d212ea45"
+    },
+    {
+      "path": "eklm/vdt/combustion/validation/burke_2012_data.py",
+      "size": 1182,
+      "sha256": "b0945715378797854cf9ae96f820c10b33f1de343f7432a8a2fb730cb8bc62fb"
+    },
+    {
+      "path": "eklm/vdt/combustion/validation/kobayashi_2019_data.py",
+      "size": 974,
+      "sha256": "e3ee20bd953d0cab871f0bfc7b5b8a0715e77052d74ea41c859a0bc326aaa76f"
+    },
+    {
+      "path": "eklm/vdt/combustor/__init__.py",
+      "size": 72,
+      "sha256": "8a9095fa0ce783555ad6ac57822a37d97cc1bbab8c69f00adc6142901f19bedc"
+    },
+    {
+      "path": "eklm/vdt/combustor/combustor_can.py",
+      "size": 19009,
+      "sha256": "7016c4eb038e0b956141538113a050312420020498dec4bff5409e322e77291e"
+    },
+    {
+      "path": "eklm/vdt/combustor/combustor_dynamics.py",
+      "size": 11415,
+      "sha256": "01f7899fb3ef96729e036568dd169c683d58adcc77cd43b236236a899db224aa"
+    },
+    {
+      "path": "eklm/vdt/combustor/fuel_transition.py",
+      "size": 10742,
+      "sha256": "15ff4d93ec91d36cdde8de92704aa6246b91b3f44ba3dafb0d69a6bd7b166b72"
+    },
+    {
+      "path": "eklm/vdt/combustor/validate_netl_case13.py",
+      "size": 6117,
+      "sha256": "507184ecda2bd6b89ac894247b65eca1f0e778e1d8f4e63e49b5fb3def1e3aec"
+    },
+    {
+      "path": "eklm/vdt/data/__init__.py",
+      "size": 374,
+      "sha256": "669596f6ff7a50d858478ed208a93a6bc2a80f0a19c401ef519bc965fd1ea06b"
+    },
+    {
+      "path": "eklm/vdt/data/fuels.py",
+      "size": 2817,
+      "sha256": "365eee5d94db3b191b559371b9c3d0662220da48201ada6657e473f0f2c47904"
+    },
+    {
+      "path": "eklm/vdt/data/properties.py",
+      "size": 6758,
+      "sha256": "44fcbda52c9a69db4d05f738efada5d43b354d1d1d8595d1d9d83baa581d71b0"
+    },
+    {
+      "path": "eklm/vdt/data/species.py",
+      "size": 8722,
+      "sha256": "5051b9807b7a93981bcde22ffe08b29595b151edf37b8218c46cd8c5648ba714"
+    },
+    {
+      "path": "eklm/vdt/data/streams.py",
+      "size": 971,
+      "sha256": "323683e97367a0d94f45cc3861bb089b637e51c0fbdeccbd35b4b44b983f4c76"
+    },
+    {
+      "path": "eklm/vdt/dynamic/__init__.py",
+      "size": 454,
+      "sha256": "c0eb22c072c5e54324f3198665f5af9c8e5d089415e7bf88dfdf972ec0ade380"
+    },
+    {
+      "path": "eklm/vdt/dynamic/actuators.py",
+      "size": 890,
+      "sha256": "4a4e10bf7df034aa4c347c15ba1658bee024034180cd51984aaf730b421d4377"
+    },
+    {
+      "path": "eklm/vdt/dynamic/coordinated_cycle.py",
+      "size": 8007,
+      "sha256": "36dc15b451d44519b894d3b8266d9df7de86bb98dccc64ba8c59245bafb3c0d4"
+    },
+    {
+      "path": "eklm/vdt/dynamic/coupled_cycle.py",
+      "size": 21631,
+      "sha256": "02f03c0156a4d21162f02bbb49957b6b649f7339fadfff9539debb9536c3e16f"
+    },
+    {
+      "path": "eklm/vdt/dynamic/drum_energy.py",
+      "size": 2234,
+      "sha256": "389d5cb09dd9c630198cb4caaf1a9420d49c3fc6e7ebf105d5fb808f59598253"
+    },
+    {
+      "path": "eklm/vdt/dynamic/equilibrium.py",
+      "size": 8440,
+      "sha256": "f28b0d44e40060417df50f8e60ed338bcf6a7c4feeee09d491f413736e5d35c7"
+    },
+    {
+      "path": "eklm/vdt/dynamic/governed_cycle.py",
+      "size": 6657,
+      "sha256": "b76a69b3f93905ad47cca817724440c5eab1cff5e7cf60ccbd282dc9d73a1909"
+    },
+    {
+      "path": "eklm/vdt/dynamic/hrsg_snapshot.py",
+      "size": 3667,
+      "sha256": "e05a0d14a854c725065908fd81bb31db9f81fa7e15beb42e3c6eaf0991d660d5"
+    },
+    {
+      "path": "eklm/vdt/dynamic/m1_gt_ctrl.py",
+      "size": 10419,
+      "sha256": "7eb1c21fe89984da09951322ef0e07133d544e99bb447a1d9984bf0f36fd5c6b"
+    },
+    {
+      "path": "eklm/vdt/dynamic/m1_gt_dyn.py",
+      "size": 15135,
+      "sha256": "f3ff5c527eb29990eefdc02f59b8da3a128422402ec38b51aa4ac77f1587455f"
+    },
+    {
+      "path": "eklm/vdt/dynamic/m2_hrsg_ctrl.py",
+      "size": 5198,
+      "sha256": "521abdde51ae086ffe21bd824d97d8cf7344eeebbba3585348b44b9708ea5d43"
+    },
+    {
+      "path": "eklm/vdt/dynamic/m2_hrsg_dyn.py",
+      "size": 17126,
+      "sha256": "8bab447bcf34e04867e588c3d24225698a9922f9534ec7f06734ef22a8c24bd0"
+    },
+    {
+      "path": "eklm/vdt/dynamic/m3_st_ctrl.py",
+      "size": 4149,
+      "sha256": "b39ad570417dd6a378210f6c4fdb45ba6154e9d45cb36c288c8996b4f36d4767"
+    },
+    {
+      "path": "eklm/vdt/dynamic/m3_st_dyn.py",
+      "size": 10196,
+      "sha256": "e48ae81d92d6e6933132c296b37ec3ea5c1055cef0c5cf8a0f2aa0b4ca4bea59"
+    },
+    {
+      "path": "eklm/vdt/dynamic/m4_cond_ctrl.py",
+      "size": 4803,
+      "sha256": "ee47cc8d0e9eecb49c08e0d1fa15d038427b7a5952adb3f02f9e7cc975db2b51"
+    },
+    {
+      "path": "eklm/vdt/dynamic/m4_cond_dyn.py",
+      "size": 9886,
+      "sha256": "8a1af8a6f58f34547c1dce61b5dcaae18773af1fbb89db6075082bc68f7ea3da"
+    },
+    {
+      "path": "eklm/vdt/dynamic/plant_dyn.py",
+      "size": 20507,
+      "sha256": "37c3b95f27e948be3553ca9e70da9b56182edd437e3cf50020649206a94af52a"
+    },
+    {
+      "path": "eklm/vdt/dynamic/states.py",
+      "size": 4713,
+      "sha256": "21181a08a57f40e08ade275e7589b5b370ba5441e8b2da9eea49614f8afaede6"
+    },
+    {
+      "path": "eklm/vdt/dynamic/steam_coupling.py",
+      "size": 4722,
+      "sha256": "74e676642a64a9be4950e24709c951e463dc621eba5193a062d1a98449bac125"
+    },
+    {
+      "path": "eklm/vdt/emissions/__init__.py",
+      "size": 90,
+      "sha256": "2cdf509ba67b8187b142d20970b365181f7a844d6dc68b202c04042dcd81ed38"
+    },
+    {
+      "path": "eklm/vdt/emissions/ghg.py",
+      "size": 3056,
+      "sha256": "ffeca1160b1e3d13da7ddb28b7b95a5c1df1ddbae37449f880400f733c768ba2"
+    },
+    {
+      "path": "eklm/vdt/emissions/scr.py",
+      "size": 3340,
+      "sha256": "12c6805e772797e159326653b8e97844722e8ae1b91370f0ff78c185239d0a76"
+    },
+    {
+      "path": "eklm/vdt/engine.py",
+      "size": 18635,
+      "sha256": "1929e3c489cb9b57689cc2ac29c3d6e6b15cea724bfb4e644a26207693d6e111"
+    },
+    {
+      "path": "eklm/vdt/estimate.py",
+      "size": 7533,
+      "sha256": "190622c1301e6fc24ac76e78321d2a5ff93e6280d3caa2daef4f3fffcee3a0bf"
+    },
+    {
+      "path": "eklm/vdt/gui_adapter.py",
+      "size": 32195,
+      "sha256": "34583133cf40f2be00b97cfc266e6ebc4eafde0aaf27e5371aac780e5095f68c"
+    },
+    {
+      "path": "eklm/vdt/mechanical/__init__.py",
+      "size": 1084,
+      "sha256": "ec5a5623c7674514212fde799c60fe9a0d527310015e73e614fdab6623c69626"
+    },
+    {
+      "path": "eklm/vdt/mechanical/base.py",
+      "size": 2168,
+      "sha256": "bceac07f6d7370339a4bbbfa2fc2a4f56fe76e3a777482346cf77b5fb705b36b"
+    },
+    {
+      "path": "eklm/vdt/mechanical/combustor_model.py",
+      "size": 3508,
+      "sha256": "6cef8520af0614fff681fe28b3d22e0644c52b03ae644cafce9e5be9fa00929d"
+    },
+    {
+      "path": "eklm/vdt/mechanical/compressor_model.py",
+      "size": 3046,
+      "sha256": "37eaa75c5bf387c34b434e85b2669dea3f457530da61a7a8fc13dec9fda4b414"
+    },
+    {
+      "path": "eklm/vdt/mechanical/data_package.py",
+      "size": 1775,
+      "sha256": "6db8ad4489e40e53c527b59c34f4b61cb92cb54d5af7d6740d0be15ba39f8bab"
+    },
+    {
+      "path": "eklm/vdt/mechanical/gt_turbine_model.py",
+      "size": 3356,
+      "sha256": "a305d81d3408a3ab6526dbf81aef10ef2c3961debf86304f959ff183e42440d6"
+    },
+    {
+      "path": "eklm/vdt/mechanical/hp_st_turbine_model.py",
+      "size": 4064,
+      "sha256": "475a5602ad918e4f13041226e0d04efc7939fd6b9aef9d16f9918616ca7aebc0"
+    },
+    {
+      "path": "eklm/vdt/mechanical/hrsg_superheater_model.py",
+      "size": 3495,
+      "sha256": "3762924e68ccbd01f8b4b489e5948db4b26210aa1334a0fb28171557fe113dd0"
+    },
+    {
+      "path": "eklm/vdt/mechanical/model_router.py",
+      "size": 1545,
+      "sha256": "1bae86ef73aa6c20ca3590670787b9ddf904768a727cb11ad269f6d955613958"
+    },
+    {
+      "path": "eklm/vdt/mechanical/operating_point.py",
+      "size": 2998,
+      "sha256": "c35e2ea15c7a7222b7fb89fc68aa26926c9989f5bad4adfde0c037a46f9ec649"
+    },
+    {
+      "path": "eklm/vdt/mechanical/reference_db.py",
+      "size": 2190,
+      "sha256": "ace90b1b813b4fc6c34ccabcb62da3189f27eee3280aacf239fb193a8a1d1047"
+    },
+    {
+      "path": "eklm/vdt/mechanical/reheater_model.py",
+      "size": 3348,
+      "sha256": "fc841e8a8f9c31ccacc394519c727481516e97edda3b0c6e28b18224de74fcc8"
+    },
+    {
+      "path": "eklm/vdt/models/__init__.py",
+      "size": 387,
+      "sha256": "384de1f4ad2cd66a1e5e7f9be5cc4e608e8f39c1bf583135d87e79f8ebd9616d"
+    },
+    {
+      "path": "eklm/vdt/models/m1_gt/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "eklm/vdt/models/m1_gt/air_inlet.py",
+      "size": 698,
+      "sha256": "1197aef6f6c79cdc20d7fd907b4b3f525490bddfb5b5a75d949dec6bd09642db"
+    },
+    {
+      "path": "eklm/vdt/models/m1_gt/combustor.py",
+      "size": 15958,
+      "sha256": "39236079043dbf962af37938aa07c1019a1a86e80a60cdb41ff95dba2c5322bf"
+    },
+    {
+      "path": "eklm/vdt/models/m1_gt/compressor.py",
+      "size": 9927,
+      "sha256": "cf63c98a05b5702ae5a3d3e2d9ecdca6d0d68f3d520f7709c1a6cdf7103d69e7"
+    },
+    {
+      "path": "eklm/vdt/models/m1_gt/fuel_system.py",
+      "size": 5019,
+      "sha256": "d4ea5a4cd5897a5d7b1468b617a681d21914078c0ea6266760eba556e0e3cf3c"
+    },
+    {
+      "path": "eklm/vdt/models/m1_gt/gt_expander.py",
+      "size": 4021,
+      "sha256": "a9b41024badde755b39bf886d7659adf98386828f20c4b59ce8f5c9982171ebe"
+    },
+    {
+      "path": "eklm/vdt/models/m1_gt/gt_generator.py",
+      "size": 967,
+      "sha256": "5aa10132300c6db8a6c1f314c76e855a9b877a8cbf36ec44b7601208da8a2d70"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/bfp.py",
+      "size": 2672,
+      "sha256": "a0e77200749e41b44d7516e24d3d4e243dfeb2e468f197442e5935dfb3d812f4"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/deaerator.py",
+      "size": 2159,
+      "sha256": "87a82538878d0fa7572508e2cf3c8ed9ecbc931fb81bdf497ec6d175bba1754f"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/feedwater_audit.py",
+      "size": 1668,
+      "sha256": "be898cda181a31990b0c40c56f6f84feb2d7784a3a04a33ec47719cf7df2b7ef"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/heat_limits.py",
+      "size": 1194,
+      "sha256": "3a4458eb6c3bdea77ad99c5b1ef1065d4b99828b134555e560890d7423fc8dd1"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/hp_economizer.py",
+      "size": 3224,
+      "sha256": "38a23a78b7ea10369e70f3332e725c08341fedf5e7f257b79336f71fbb5ec2f2"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/hp_evaporator.py",
+      "size": 4690,
+      "sha256": "8ff6daf3adc5e357d70ab22df8e2e6fa994cf762557266c028a0c7de478664d3"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/hp_superheater.py",
+      "size": 3300,
+      "sha256": "7711b05d022397083943ac0036f7711309dc96b07c8f1a56330b6ec7b997dc51"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/hrsg_solver.py",
+      "size": 10466,
+      "sha256": "8e54b455a7bee184517b24de80be664c1dc39855ba14448b3f85bdcd4ec454a5"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/ip_economizer.py",
+      "size": 2805,
+      "sha256": "69e3630620a8fab964530e291c8120bff1a9f6b61a20549653b2407238c1b7bb"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/ip_evaporator.py",
+      "size": 3235,
+      "sha256": "03e09a5ab5ec567128f4bcaafcd8254e66efe69b9d30c37af9a7cbf2d4957456"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/ip_mixing_node.py",
+      "size": 1486,
+      "sha256": "66fdd4e763fabd8494fd9b705ad1a56793b12c39c67ee189accdb419637b513c"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/ip_superheater.py",
+      "size": 3174,
+      "sha256": "c555b7b821f05165d1136c6e42907bbfc4970a9b2badacd2217c9799496d56fb"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/linked_hrsg.py",
+      "size": 7048,
+      "sha256": "cead83f9137c8082e492f9ec0daab2422bb029495787631ffdfa947b9c884ea5"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/lp_economizer.py",
+      "size": 3280,
+      "sha256": "114660fd0523477e548fa83e000cdf92885eb77746a23441002408c629c26920"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/lp_evaporator.py",
+      "size": 3566,
+      "sha256": "552b5ba1045ef722453f3162efe6ae591dbd609c33b5e497b484b0de0afb57b1"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/reheater.py",
+      "size": 2827,
+      "sha256": "9aaabe4fdcb3627b7f44c540421bb1c37ec7baa981025de3ca3578234b9b220e"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/thermal_audit.py",
+      "size": 1838,
+      "sha256": "44c762a0b8069a9335e25be4695e2f80e893936e373828104af53820eb05dd22"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/water_boundary.py",
+      "size": 1117,
+      "sha256": "c44bab136da01e8d36885308da993d13f5bacca94120cb9b57379f6639164826"
+    },
+    {
+      "path": "eklm/vdt/models/m3_st/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "eklm/vdt/models/m3_st/crh_line.py",
+      "size": 1152,
+      "sha256": "594f4680fa4c27b92f10bebd047dbd5db8d1069f02403f19194d7f8f5dd0a6a4"
+    },
+    {
+      "path": "eklm/vdt/models/m3_st/hp_turbine.py",
+      "size": 1949,
+      "sha256": "fcd63e4edbfed08d7b10b63a9782c5c94d1e9a1b2669ce733e5517d930f8b4b0"
+    },
+    {
+      "path": "eklm/vdt/models/m3_st/ip_turbine.py",
+      "size": 1598,
+      "sha256": "09caffe7606546a06b046ca4024a915dbe893b02f720ab3a98542fcc96da16e9"
+    },
+    {
+      "path": "eklm/vdt/models/m3_st/lp_mixing_node.py",
+      "size": 1426,
+      "sha256": "e7d697183f93c5a62b91b1ceaedccca62c571cf7f3b2141b93df6a6f77b19dc2"
+    },
+    {
+      "path": "eklm/vdt/models/m3_st/lp_turbine.py",
+      "size": 1825,
+      "sha256": "ced2420403da0ec2624a2a22060af82e6065eb4c173b69f35342781f256d4779"
+    },
+    {
+      "path": "eklm/vdt/models/m3_st/st_generator.py",
+      "size": 763,
+      "sha256": "10ceddf88e3b5ea5f0d9f6f58e206ef4e7ab292d8f53aaa31a327e6aa95e7ff2"
+    },
+    {
+      "path": "eklm/vdt/models/m3_st/st_solver.py",
+      "size": 6307,
+      "sha256": "e808bcbca026901113426f388a1724c4d08fe42b67a69d760c0a7a2ebf026ad4"
+    },
+    {
+      "path": "eklm/vdt/models/m4_condenser/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "eklm/vdt/models/m4_condenser/condenser_solver.py",
+      "size": 9525,
+      "sha256": "874218fa1b10b12a776dc014554c62c3c35c5f52beaf4a3976c1d560a18d4e05"
+    },
+    {
+      "path": "eklm/vdt/optimization/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "eklm/vdt/optimization/opt1_co2_target.py",
+      "size": 5263,
+      "sha256": "0b77942aac15af17e45fb088fc938573fa8135442282475462a10f77e296c239"
+    },
+    {
+      "path": "eklm/vdt/optimization/opt2_h2_limit.py",
+      "size": 3243,
+      "sha256": "891c6ab93c717a5375a1fe5d3b1f579e45ddb0a17ef866acf25fd126c4ac7f8c"
+    },
+    {
+      "path": "eklm/vdt/optimization/opt3_nox_budget.py",
+      "size": 3382,
+      "sha256": "805b8d8fa5565a1884867a2aad2d5df2e752afb9dc90f64bcd61651b94f6167f"
+    },
+    {
+      "path": "eklm/vdt/optimization/opt4_load_economics.py",
+      "size": 3554,
+      "sha256": "446caacd2d8c09118a38349f24bc6a732b09e53a83d99072b761ede5fa1c2587"
+    },
+    {
+      "path": "eklm/vdt/optimization/opt5_partload.py",
+      "size": 2656,
+      "sha256": "6dacbfce74de6ad5c7b9445e6c9c2fcab6135e74a4e4442344fd334b6c50ebd1"
+    },
+    {
+      "path": "eklm/vdt/project.py",
+      "size": 5440,
+      "sha256": "7ed8d86cc8e3fa906eedb24cdbb07e86a5e5d6d7affc456c3cbf8236ea526910"
+    },
+    {
+      "path": "eklm/vdt/project_storage.py",
+      "size": 1438,
+      "sha256": "73529ab6521bb35319af002b78ed24ae2c11629b6cfc3de6e3294c2dd0edf920"
+    },
+    {
+      "path": "eklm/vdt/types.py",
+      "size": 12302,
+      "sha256": "95ee2f6a8079ffea7a69288698b22bbea4b202a866293bdf757fbe40eeeb2b94"
+    },
+    {
+      "path": "tests/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/acceptance/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/acceptance/test_kepri_demo.py",
+      "size": 6980,
+      "sha256": "37d66400aabe44db7773c3e52384b8bf7c6c09edb4c73a36e7d2be64780344ed"
+    },
+    {
+      "path": "tests/conftest.py",
+      "size": 455,
+      "sha256": "b93977566f3b5aa88a721317f9b281c031b8ab16471be7a1ed475cfd3be80b86"
+    },
+    {
+      "path": "tests/integration/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/integration/adt/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/integration/adt/conftest.py",
+      "size": 278,
+      "sha256": "e85a32f0a2055dda3206d127534337bdb06d6191e80b9af7ee099384c9cb589c"
+    },
+    {
+      "path": "tests/integration/adt/test_bayesopt.py",
+      "size": 5419,
+      "sha256": "c1d6b3421b18065b59db64c922429c3aa54a6f703def0ecffda5fc0a722b15d7"
+    },
+    {
+      "path": "tests/integration/adt/test_gp_plant.py",
+      "size": 4049,
+      "sha256": "d04b987f9df94558b35af357a162619074a706b94260cb8bb33fedfb9be2f631"
+    },
+    {
+      "path": "tests/integration/adt/test_learning.py",
+      "size": 3444,
+      "sha256": "f2d1ac3c463d537f32dfdb08ca53674a14e589864bb99573cce6dd31f770ea62"
+    },
+    {
+      "path": "tests/integration/adt/test_mpc_vs_pi.py",
+      "size": 6391,
+      "sha256": "5994e58e2d31a5899d48f065149cf4442d677ed5d629b6daf2109717a697cdd8"
+    },
+    {
+      "path": "tests/integration/adt/test_tier2.py",
+      "size": 5786,
+      "sha256": "8bae0a5d21c53850a87e72f91ca239106205c63ff403bbfbddf67fc90b0cb91f"
+    },
+    {
+      "path": "tests/integration/adt/test_tier3.py",
+      "size": 6845,
+      "sha256": "2cdfc6ba96ffb1b852ef9c76ecca6749d2aa6382b3013a44ce18248cbdf552c0"
+    },
+    {
+      "path": "tests/integration/closed_loop/__init__.py",
+      "size": 238,
+      "sha256": "f8f185d46eb17b18076fdfdd47ca4b8c11ec17bc429ace181a18180a6fcffb07"
+    },
+    {
+      "path": "tests/integration/closed_loop/test_clean_run.py",
+      "size": 1156,
+      "sha256": "87d252e64eb598dad8cfc28fbdeed33ad0bf0da94bf90827f8435d9e7d7fea93"
+    },
+    {
+      "path": "tests/integration/closed_loop/test_compressor_fouling.py",
+      "size": 2787,
+      "sha256": "07a1c8011d3d12bb826bcf022623ddd97778423be5784edd0a036e9f4bc531cc"
+    },
+    {
+      "path": "tests/integration/closed_loop/test_provenance_chain.py",
+      "size": 2256,
+      "sha256": "71c71049420c9c8eaad3cb3e61d6e642724e2c86a0d4f4545442d42f6d971975"
+    },
+    {
+      "path": "tests/integration/dynamic/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/integration/dynamic/test_m1_closed_loop.py",
+      "size": 5007,
+      "sha256": "2bdbd2e88239b9360c3f52f0a6aedef872d2e7d3a07bdc3ef25d93cfa6f3ce72"
+    },
+    {
+      "path": "tests/integration/dynamic/test_m1_dyn.py",
+      "size": 2911,
+      "sha256": "2100fd32a4eea9eb780462d9e8bae0448ef5e6be73bdc53d243d5509e633a9e5"
+    },
+    {
+      "path": "tests/integration/dynamic/test_m2_hrsg_cl.py",
+      "size": 6692,
+      "sha256": "4b4ba3b4d12181ff66c1b737bcf7135c253dce061a6382078457227aeda43ee5"
+    },
+    {
+      "path": "tests/integration/dynamic/test_m3_st_cl.py",
+      "size": 5571,
+      "sha256": "41e8c7351ff3576ba7bbd3861b06358923110a22514eaac1b9050310c328a19a"
+    },
+    {
+      "path": "tests/integration/dynamic/test_m4_cond_cl.py",
+      "size": 6741,
+      "sha256": "b8eececc920bcbf1bf060eab44430499bfd391838d0fa85e140f089baf663f3c"
+    },
+    {
+      "path": "tests/integration/dynamic/test_plant_cl.py",
+      "size": 4465,
+      "sha256": "231cadfaf352eacbf957f4558b98b2706f93cd163adb9765e243bd0ec1d6ca1c"
+    },
+    {
+      "path": "tests/integration/test_e2e_apis.py",
+      "size": 10045,
+      "sha256": "a0871dae8655aac10b92ebc305ec35d28253b2b35f3cc6664b329ab7d07e03d6"
+    },
+    {
+      "path": "tests/procedures/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/procedures/test_cold_start.py",
+      "size": 2481,
+      "sha256": "8fdbced114ccb3af64f0a68d86aa0843bf7f3489e131a35952ed9f7b4f501d10"
+    },
+    {
+      "path": "tests/procedures/test_load_change.py",
+      "size": 7278,
+      "sha256": "73a4eb7739ced009358f09771f5d66215754dcb4093787e1c22315f8647a463e"
+    },
+    {
+      "path": "tests/procedures/test_load_rejection.py",
+      "size": 3242,
+      "sha256": "444d913bad6035352b60e26d521f4af04d8d82abda074970755effb5575ee0ea"
+    },
+    {
+      "path": "tests/procedures/test_shutdown.py",
+      "size": 2220,
+      "sha256": "90b4111bf3417467f2a7322855446dd40e2e37dcecc5c7746423ce9851d63aba"
+    },
+    {
+      "path": "tests/test_adt_askai_history.py",
+      "size": 2881,
+      "sha256": "5069933097e15b9e64e9125128fd6d9580369f0c0714c21e22352a33cfaed8a3"
+    },
+    {
+      "path": "tests/test_adt_audit_log.py",
+      "size": 2416,
+      "sha256": "aedd02bc0af3ebc0cd9fc420c4a1e8af38b3bd325744f3e282fe911a51012692"
+    },
+    {
+      "path": "tests/test_adt_engine.py",
+      "size": 9373,
+      "sha256": "5d857d11ac674ef9514ca64b2742f0dc882065649a22619bda15e5d41da1dbcc"
+    },
+    {
+      "path": "tests/test_adt_envelope_guard.py",
+      "size": 2369,
+      "sha256": "7c721ae83a1bd8925d789dddf0b63c41c7ba400c019a97b7402bfc50d39a45f3"
+    },
+    {
+      "path": "tests/test_adt_governance_p14.py",
+      "size": 10648,
+      "sha256": "4b1165fd4581b75cc1e7dafae8e212690c07dbfee7b8dd9e92c6beb1a5bc6e75"
+    },
+    {
+      "path": "tests/test_adt_knowledge_store.py",
+      "size": 3539,
+      "sha256": "ef1d1263c91ed1e089b382bd2dd1b1ad8e15c0e5d667d3eb40c0c21e8958d5e7"
+    },
+    {
+      "path": "tests/test_adt_memory_p13.py",
+      "size": 7501,
+      "sha256": "3cabd447478307abc24fd06d508e16c43e9b04285e27085a3cb8dbe1b8aed2c4"
+    },
+    {
+      "path": "tests/test_adt_mpc.py",
+      "size": 5045,
+      "sha256": "4033a0dab6f2ee7c27821074d1d3c669c7ccb48aa3022f689f9d3fc7ec916f1b"
+    },
+    {
+      "path": "tests/test_adt_mpc_router.py",
+      "size": 4796,
+      "sha256": "32bb299603ed85e8a9a124dacd32a7a800e9a63c6736cf2825e0f597eeb2f0c5"
+    },
+    {
+      "path": "tests/test_adt_new_agents.py",
+      "size": 7766,
+      "sha256": "7eb35fea03e6140c7881802fbfbf77804bb16c71c71b30fcc5bfca052d2f14e7"
+    },
+    {
+      "path": "tests/test_adt_orchestration.py",
+      "size": 5733,
+      "sha256": "62f5fa83c340236310a1aaf81d47e1a3b9e7397ec8a50d9b79781a5fc35e43f6"
+    },
+    {
+      "path": "tests/test_adt_ow_gateway.py",
+      "size": 6435,
+      "sha256": "37b538ecb11f12efba8710957fd64245fdffa723d13d583ac48cba8a293a18c5"
+    },
+    {
+      "path": "tests/test_adt_p15.py",
+      "size": 6357,
+      "sha256": "fa0d2d1ef3882b565eafe726cbafe2f2d96d8b8608942e21180c9c84c4d79ae6"
+    },
+    {
+      "path": "tests/test_adt_rl_env.py",
+      "size": 1989,
+      "sha256": "64d26fc5dc0349eb1b7daf6544d7c869b55c6f89c2db72973e109d18180e8c4d"
+    },
+    {
+      "path": "tests/test_adt_rl_router.py",
+      "size": 2105,
+      "sha256": "07a3b38ee5926078c0340db44015948a9050b13ac9d8fde820b0894fe844a2dc"
+    },
+    {
+      "path": "tests/test_adt_run_history.py",
+      "size": 2132,
+      "sha256": "65d42d53f6ba767d0dc54f2e413dd49edff6442fdb789d068087696f03199813"
+    },
+    {
+      "path": "tests/test_adt_session_debrief.py",
+      "size": 5043,
+      "sha256": "20a0a708ec0d66d5fc22721112cbe26d9239ad4e96ce8e305983c5ece3d2ab68"
+    },
+    {
+      "path": "tests/test_adt_soft_sensor.py",
+      "size": 5414,
+      "sha256": "22a91f41a49ddcccc9717f6208756ba189dc4309fbf480bb15358c2f05185d23"
+    },
+    {
+      "path": "tests/test_adt_tier23.py",
+      "size": 1789,
+      "sha256": "c12a94e35cc133dc508a0d1fe832e7e8235d43303374c4659737db99b914fbc7"
+    },
+    {
+      "path": "tests/test_api_ai_history.py",
+      "size": 3581,
+      "sha256": "3105d7f25f961eaf1cc98fb9e3ac7332584dc3c564aed6b451f6d539dec1d5f2"
+    },
+    {
+      "path": "tests/test_api_control.py",
+      "size": 4733,
+      "sha256": "b814eadcba2c0774df72bd3c36b345d5ce10ef23071340f7443f72b821435cc3"
+    },
+    {
+      "path": "tests/test_api_economics.py",
+      "size": 6466,
+      "sha256": "862d40ba69cad5c7374f5b688729d1d775c509f72fabf7decd4dcead5de433d9"
+    },
+    {
+      "path": "tests/test_api_learn.py",
+      "size": 4245,
+      "sha256": "ae9767e6f6f2db5d1b7594eb398eb35fea15cb1a9b939f6ac37b1beaea45fc59"
+    },
+    {
+      "path": "tests/test_api_learn_runs.py",
+      "size": 4210,
+      "sha256": "f590a114910eaa0a19d6112e9501893ca45f1963575e49d5cc0f4ef0e3aa5b51"
+    },
+    {
+      "path": "tests/test_api_ow.py",
+      "size": 10079,
+      "sha256": "bf73557f5d3cb4cd04de047a5588c0e221158ca9dc34873ac889ea3f30ba4779"
+    },
+    {
+      "path": "tests/test_api_projects.py",
+      "size": 3396,
+      "sha256": "58a01c5a7d9c13844289626805f2ad9cb23e4b752e77f47bea6fd13becb663e3"
+    },
+    {
+      "path": "tests/test_automated_validation.py",
+      "size": 5969,
+      "sha256": "853c08cd65e70cdece2830f521735ffad769e9ded44b88138740a43262f1f83a"
+    },
+    {
+      "path": "tests/test_cace_calibration_scope.py",
+      "size": 3492,
+      "sha256": "bbb57ff4035c06e48e4f1bb512c56d6df4f1d43c5d0e842c90396e23c46b11a4"
+    },
+    {
+      "path": "tests/test_cace_completion.py",
+      "size": 2716,
+      "sha256": "6e094e33736e5479e4bfcf5b7968caa622c0ce5cda7c7f45dea33e59c7b3d4bb"
+    },
+    {
+      "path": "tests/test_cace_condition_monitor.py",
+      "size": 2489,
+      "sha256": "f9c4d7b99ee3b419965162e20be7ddb33d93dc9004057e44766a64c3e85144f5"
+    },
+    {
+      "path": "tests/test_cace_governance.py",
+      "size": 1388,
+      "sha256": "4bfb3db3da2f64a039a187e2d898b254e1583eff8e41a82b826001835a4707be"
+    },
+    {
+      "path": "tests/test_cace_integrity.py",
+      "size": 2684,
+      "sha256": "32343060d82478be1d90e5e878dc1340e4eb4afe89dff03a0126068353df4965"
+    },
+    {
+      "path": "tests/test_cace_ontology_runtime.py",
+      "size": 5226,
+      "sha256": "d62a1a50fdde16e326cd10b34e8d69b56da755f3d4d563a8d483412c416316b2"
+    },
+    {
+      "path": "tests/test_cace_residual_monitor.py",
+      "size": 3135,
+      "sha256": "4191f67099f42f1cfe6f4544a934da3eac59d2c7f8e095b4806b4fe6270dd6da"
+    },
+    {
+      "path": "tests/test_cace_runtime_comparison.py",
+      "size": 2704,
+      "sha256": "5d0e87f619aa9e204d6f3d28f93e0a66d7b3a8d4a7cb20338387a106450cb92d"
+    },
+    {
+      "path": "tests/test_cace_stochastic.py",
+      "size": 1853,
+      "sha256": "49d305fcf76b1c07daedeb7d8f5e8486d5cb67960a8ecad73b2ce6aca10fae7e"
+    },
+    {
+      "path": "tests/test_cace_temporal_monitor.py",
+      "size": 3075,
+      "sha256": "56655343fb8ffbb15bd12ad2f72510d2446ab63de782386c0bf5ff57522273c8"
+    },
+    {
+      "path": "tests/test_cace_uncertainty_monitor.py",
+      "size": 2791,
+      "sha256": "d946b1cbbc319f5fb44b895cf9f4c3e76100673817229b795bd5c5de603c1fea"
+    },
+    {
+      "path": "tests/test_combustor_dynamics.py",
+      "size": 7175,
+      "sha256": "295889e05fd5ed9218d86fa8cea4df860941ab99d510704c6b080db0fb916e61"
+    },
+    {
+      "path": "tests/test_combustor_kas_integration.py",
+      "size": 6932,
+      "sha256": "06db4ea22e70315a8e5fe9aa096100cd83f9d53b0d07014118ee6b131e749e32"
+    },
+    {
+      "path": "tests/test_condenser_water_energy.py",
+      "size": 2164,
+      "sha256": "374186ccf674f3f77710c15b991c452ac4cfaa63a1f03a4b9a1f6b84b255895e"
+    },
+    {
+      "path": "tests/test_control_chain.py",
+      "size": 14080,
+      "sha256": "376e7da3bd3ff69b893ba9cabfd9bbf2d94d5d11c9ffe022d38b10a660ecb494"
+    },
+    {
+      "path": "tests/test_coordinated_cycle.py",
+      "size": 6910,
+      "sha256": "29450614cb35c907538e8bad87d747c070a858a5192125d62454fa845df69039"
+    },
+    {
+      "path": "tests/test_coordination_comparison.py",
+      "size": 1201,
+      "sha256": "8f5ffc449c02660449ec94502cdcf048b1c53e9ca7a823eaa9e7fff147d0d619"
+    },
+    {
+      "path": "tests/test_coupled_cycle.py",
+      "size": 7251,
+      "sha256": "834a4555fc9acdd788c68002b93a954a834917fee532b455c58c6942be1e405d"
+    },
+    {
+      "path": "tests/test_coupled_reference.py",
+      "size": 918,
+      "sha256": "f17c3a20b211e59fe19061f6527ddb1831f424f70863024c47ca7f5dc4f0b4b1"
+    },
+    {
+      "path": "tests/test_dynamic_gt_balance.py",
+      "size": 4297,
+      "sha256": "52fc2dccac1b5e0656ac083431c1ccc90e805ebd24b0add075b4de0351ae8147"
+    },
+    {
+      "path": "tests/test_dynamic_steam_boundary.py",
+      "size": 2888,
+      "sha256": "952b6a189d465ae18b046e66025b5810e91a75154cbefc08ff2fb04bacd707ae"
+    },
+    {
+      "path": "tests/test_feedwater_energy.py",
+      "size": 2641,
+      "sha256": "b1e9dc315c84954d115beebfa40d630ad6f099fab6dadc204993481be4d0c9b0"
+    },
+    {
+      "path": "tests/test_fuel_transition.py",
+      "size": 7086,
+      "sha256": "dcc9939b4daa3a37ea8309171a53bf8c46f2d31871e94c86cc3a270b2a141562"
+    },
+    {
+      "path": "tests/test_governed_cycle.py",
+      "size": 5386,
+      "sha256": "2cb5686e4151774b38abc5b5a52a33f1b6e11570c6a5744e0442f8046f848ea6"
+    },
+    {
+      "path": "tests/test_hrsg_thermal.py",
+      "size": 3487,
+      "sha256": "358ab7e69dea5a901247d99a055ae2614173c3a82db985f2ed3c9c1312411b56"
+    },
+    {
+      "path": "tests/test_kas_engine.py",
+      "size": 9118,
+      "sha256": "7202efddfc0155aec056e8df8650fdd507955733769ee9a600cd9395f7718c57"
+    },
+    {
+      "path": "tests/test_kas_p12b.py",
+      "size": 9027,
+      "sha256": "f1ea15f5834689d2192c3ec580a5eeefc202110717370cea02671cc0e310cf0d"
+    },
+    {
+      "path": "tests/test_kas_p6b.py",
+      "size": 7010,
+      "sha256": "6dd68a2135b07463f9d8e41b2442ba7f31394ef2095ebcb0b3ba083e4adb741a"
+    },
+    {
+      "path": "tests/test_kas_p6c.py",
+      "size": 8695,
+      "sha256": "6df4abd6fe4b25e663d19f00e51d19a18025cf34dfe3e2b2d7c1153d0b0e7d33"
+    },
+    {
+      "path": "tests/test_kas_p6d.py",
+      "size": 7722,
+      "sha256": "54b5e5d55122114fb753365c010ce203839500e84343d95ee385d4ea862347e8"
+    },
+    {
+      "path": "tests/test_kas_p9.py",
+      "size": 9426,
+      "sha256": "e6d9b2c0a81abe55782f2b6d1337f00865568cca60d2ba2a3e27426e36eb3d74"
+    },
+    {
+      "path": "tests/test_kas_synthetic.py",
+      "size": 4146,
+      "sha256": "f6cafeb383180e94687af8f824c4dc76d4b2417b095e28176ff86268aac32646"
+    },
+    {
+      "path": "tests/test_kdl_hybrid.py",
+      "size": 11743,
+      "sha256": "3edf00089ffbfbefffebb00bde0877a4ef352d06d90177e00c10da15077e5203"
+    },
+    {
+      "path": "tests/test_kdl_p10a.py",
+      "size": 5976,
+      "sha256": "962b424060cfd0e70cea2daae2b6c454f3bfac88203f4e0163cc9fd9fc60f0d8"
+    },
+    {
+      "path": "tests/test_kdl_p11.py",
+      "size": 4337,
+      "sha256": "d45ce40263fb17c3cf319fdc13e7b2c772442963a89da7654af96f21278a0b86"
+    },
+    {
+      "path": "tests/test_kdl_persistence.py",
+      "size": 18142,
+      "sha256": "be6ce7940d3e59d81691719a4efafab6bcd6a8c3a10e9d6c36d5efd8283f2cf4"
+    },
+    {
+      "path": "tests/test_kdl_schema_p21.py",
+      "size": 30336,
+      "sha256": "34c64bf53b101292006aa2940e6ae593b59337051ed0d7f6dfc63997eadc05f0"
+    },
+    {
+      "path": "tests/test_knowledge_review.py",
+      "size": 8303,
+      "sha256": "606a9d7b5f73218df72093115bb37e15963a097fd8377595cd7081be164cf7c9"
+    },
+    {
+      "path": "tests/test_kre_causal_p12.py",
+      "size": 8584,
+      "sha256": "82a10baaa45f6db95bf2a280ccd1a810c2599825c16991fb3938f31384c05bc0"
+    },
+    {
+      "path": "tests/test_kre_comparison.py",
+      "size": 9496,
+      "sha256": "806968fd42d8e864a2c5ded321baa0118ff14015a0ab43ce69f71fcabd69fae0"
+    },
+    {
+      "path": "tests/test_kre_consistency_p10c.py",
+      "size": 5360,
+      "sha256": "8c4aa34c4f7db0da5996ae601bb1cad6d60c889550a74717f59f5100c8e6f645"
+    },
+    {
+      "path": "tests/test_kre_counterfactual.py",
+      "size": 6189,
+      "sha256": "6048c0a236f9256d74def30819cb9787bbcefba9e227d0a20642ec5c0a3ca247"
+    },
+    {
+      "path": "tests/test_kre_engine.py",
+      "size": 15178,
+      "sha256": "f2b6f8cde122bc9a1cd402414b246eed601314fe8ec93a2f4c3078778278d678"
+    },
+    {
+      "path": "tests/test_kre_skeleton.py",
+      "size": 5891,
+      "sha256": "24068cc0595772c2e396bc42a094d0fd87355e331db59b07b784b4a4c633d892"
+    },
+    {
+      "path": "tests/test_kre_trend_health.py",
+      "size": 7547,
+      "sha256": "089614c1c4cc990b074e0822132b4c3015c50434d10cf3a157d7dbbb82b4f1c6"
+    },
+    {
+      "path": "tests/test_kre_uncertainty.py",
+      "size": 6429,
+      "sha256": "8b9bfa8f256c8612a59d899b3ba227780e7aed1b7a7ece17036cecf30014a253"
+    },
+    {
+      "path": "tests/test_lib_llm.py",
+      "size": 8457,
+      "sha256": "47d639586fe09807bcf48e080a97633ac9add63c6d5da0e428d468086c4c791b"
+    },
+    {
+      "path": "tests/test_linked_cycle.py",
+      "size": 6820,
+      "sha256": "cc6e473878ce1aad2bc3c66bf0539a95c871dcbd6594db0953ad1f81234b70dd"
+    },
+    {
+      "path": "tests/test_low_load_feasibility.py",
+      "size": 1984,
+      "sha256": "374bf7997305861e69851f38bc563cfce95641f7a554cb80a09e63baf88f9b0e"
+    },
+    {
+      "path": "tests/test_low_load_transients.py",
+      "size": 1291,
+      "sha256": "097b7005100cd47cbd930756a590b2fe57f10b02f6d4a766b112aec5cf7f71c6"
+    },
+    {
+      "path": "tests/test_measurement_assessment.py",
+      "size": 1946,
+      "sha256": "dc3358216e8a2fede8e9e859dd909af6ef36eb0182bea79e7da09a88931526b9"
+    },
+    {
+      "path": "tests/test_measurement_comparison.py",
+      "size": 3521,
+      "sha256": "81a49d7dbe1f8ce4935a6f3199d7d757c94143e3f0d1eb0ad9341bcc120f71ae"
+    },
+    {
+      "path": "tests/test_measurement_mapping.py",
+      "size": 4157,
+      "sha256": "045f8d6ed2ad7acbc8a7b47503fd93ca0c3bdfffee6e7d69b7e1c84ef9f0098d"
+    },
+    {
+      "path": "tests/test_mode2_advisory.py",
+      "size": 3481,
+      "sha256": "673027beba0a8a514e4732a87134a5735eff2383305a163a24e954d63f27b479"
+    },
+    {
+      "path": "tests/test_mode2_regression.py",
+      "size": 6215,
+      "sha256": "d5a8b7f7ab8b65b34fb39f6eac9a9735f77bef219f9f6c65e50e0c7bfbfe39a1"
+    },
+    {
+      "path": "tests/test_operating_reference_comparison.py",
+      "size": 6539,
+      "sha256": "7622f1207be0f53cb574e416fcbeaa878cc85ef3387fdb795af9af08e94aea5c"
+    },
+    {
+      "path": "tests/test_ow_integration.py",
+      "size": 4824,
+      "sha256": "0851888e098a8e6a8787e5946ca29097ed1613c6295e80908554016ab92ae356"
+    },
+    {
+      "path": "tests/test_partial_load_data.py",
+      "size": 4487,
+      "sha256": "1fafa11d771a0128030ffcc694213cc3a1ab818d47815273a25bd98c671bb7e9"
+    },
+    {
+      "path": "tests/test_partial_load_sensitivity.py",
+      "size": 2996,
+      "sha256": "8583a4a0b716fee737470ff3a6e64ae80917aec402c1f2f00be8a8b0644c48b5"
+    },
+    {
+      "path": "tests/test_plant_equilibrium.py",
+      "size": 4388,
+      "sha256": "31336147aada3038278d2d107d005de8db0d68cdf41df77993e51ec16ff82f96"
+    },
+    {
+      "path": "tests/test_project_snapshots.py",
+      "size": 3368,
+      "sha256": "71e2fb80716eacb7a3fd573f7d8b7a1023347395787f76014d50b42969dd03ab"
+    },
+    {
+      "path": "tests/test_release_validation.py",
+      "size": 3000,
+      "sha256": "f0e8560e72bf797399e59509b3dc3d78739919d65ce44588df767165e635483a"
+    },
+    {
+      "path": "tests/test_rotor_modes.py",
+      "size": 6157,
+      "sha256": "bf387dc0915b8862be730d455cfc82fecd5ab5598b6109edceb39912385aba53"
+    },
+    {
+      "path": "tests/test_scientific_validation.py",
+      "size": 7614,
+      "sha256": "1d3cafd41b95fc7f048ff624d71ff996334052762cfce59e999095bcf34f19e7"
+    },
+    {
+      "path": "tests/test_settled_validation.py",
+      "size": 4331,
+      "sha256": "0bb6433b92a8a024858017ed8163fea27a03fa65515b5527b35d560db3b0205f"
+    },
+    {
+      "path": "tests/test_smoke.py",
+      "size": 3079,
+      "sha256": "04ea2e3f0b14b32e1b8367394cfb4ba464605c2330cf695f9d25fd5f556f4de7"
+    },
+    {
+      "path": "tests/test_steam_path.py",
+      "size": 2504,
+      "sha256": "4e2a9fe65692c9fa7d4c85979b3649ce0263007b97c7e5df23f4b03008a172cb"
+    },
+    {
+      "path": "tests/test_ui_imports.py",
+      "size": 3408,
+      "sha256": "2c6fa34dac3dded70de0b799ac5793d3f6d1b47c5574ac43c424d2c17821df0c"
+    },
+    {
+      "path": "tests/test_valve_handoff.py",
+      "size": 2379,
+      "sha256": "ca003b2df5e6cb208b38c4772a9eeda83b1753673ada4fd57af9f0317cf5d838"
+    },
+    {
+      "path": "tests/test_vdt_data.py",
+      "size": 3328,
+      "sha256": "c59983c4741ab4408ea5c04a3c8bdc7f6e72c1a2978fde6ee1a7b8ae5f9f4b66"
+    },
+    {
+      "path": "tests/test_vdt_engine.py",
+      "size": 9509,
+      "sha256": "3f574c8371d35a037d15d70c093090e4658ad19b62f0eed19825233cdf99a22d"
+    },
+    {
+      "path": "tests/test_vdt_exergy.py",
+      "size": 2689,
+      "sha256": "72f57ce04c5d74dd5957382f174f39d0a47da6c0811ed94b7d5d6ebaf01feda0"
+    },
+    {
+      "path": "tests/test_vdt_models.py",
+      "size": 2889,
+      "sha256": "c170378e02a93b6a6aebc4e378fbe29d731af955563ed024d6bcdacf2ed5c7bb"
+    },
+    {
+      "path": "tests/test_vdt_phys.py",
+      "size": 1459,
+      "sha256": "6f5a119bba149c1356de37ffc40ae49c9699c51e053cb1a1ea6028ac362a865d"
+    },
+    {
+      "path": "tests/test_vdt_skeleton.py",
+      "size": 4429,
+      "sha256": "ac8adbe94a8a435e82efbe0572030fa539a077017661c913ccc265bdcf009bc4"
+    },
+    {
+      "path": "data/reference/codes_iso_asme.json",
+      "size": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "data/reference/coupled_validation_sources.json",
+      "size": 2374,
+      "sha256": "d5daa78d9e6882bb9d5d65aef584643092638a8e111c60e31cfdb36739dca140"
+    },
+    {
+      "path": "data/reference/netl_case13.json",
+      "size": 2102,
+      "sha256": "ec17f59d4819f56a1a4a09494ac80f69936498c9f66e80c8a061faf76f393f04"
+    },
+    {
+      "path": "data/reference/oem_generic.json",
+      "size": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "data/reference/provenance_cace.json",
+      "size": 502,
+      "sha256": "1232442d1a87a5e6dbb4b53c8c725957d8e8de6176e762c3fb14c27b49165184"
+    },
+    {
+      "path": "pyproject.toml",
+      "size": 5571,
+      "sha256": "bd4ecaf1618f75c4fc3b251fac9b9be64c029d396b550f44027c8e975640dc5e"
+    },
+    {
+      "path": "CLAUDE.md",
+      "size": 16716,
+      "sha256": "e8a135ccf7abfa925afe41b025acf3ca9d25432394d4d53afda7e124cfa2ea87"
+    }
+  ]
+}

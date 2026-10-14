@@ -1,0 +1,308 @@
+@prefix i: <urn:rdf2:> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+i:Mapping i:provider <urn:rdf2:provider/A>,
+        <urn:rdf2:provider/B> ;
+    i:version "1.0" .
+
+<urn:rdf2:boundary/cold_reheat> a i:Boundary ;
+    i:consumer <urn:rdf2:port/A/thermal.hrsg/rh_return> ;
+    i:identifier "cold_reheat" ;
+    i:producer <urn:rdf2:port/B/cycle.expander/crossover_return> .
+
+<urn:rdf2:boundary/condensate> a i:Boundary ;
+    i:consumer <urn:rdf2:port/A/thermal.hrsg/water_return> ;
+    i:identifier "condensate" ;
+    i:producer <urn:rdf2:port/B/cycle.sink/liquid_exit> .
+
+<urn:rdf2:boundary/gt_exhaust> a i:Boundary ;
+    i:consumer <urn:rdf2:port/A/thermal.hrsg/gas_in> ;
+    i:identifier "gt_exhaust" ;
+    i:producer <urn:rdf2:port/A/thermal.gt/exh> .
+
+<urn:rdf2:boundary/hot_reheat> a i:Boundary ;
+    i:consumer <urn:rdf2:port/B/cycle.expander/admission_reheat> ;
+    i:identifier "hot_reheat" ;
+    i:producer <urn:rdf2:port/A/thermal.hrsg/rh_out> .
+
+<urn:rdf2:boundary/hp_steam> a i:Boundary ;
+    i:consumer <urn:rdf2:port/B/cycle.expander/admission_high> ;
+    i:identifier "hp_steam" ;
+    i:producer <urn:rdf2:port/A/thermal.hrsg/hp_out> .
+
+<urn:rdf2:boundary/lp_steam> a i:Boundary ;
+    i:consumer <urn:rdf2:port/B/cycle.expander/admission_low> ;
+    i:identifier "lp_steam" ;
+    i:producer <urn:rdf2:port/A/thermal.hrsg/lp_out> .
+
+<urn:rdf2:boundary/st_exhaust> a i:Boundary ;
+    i:consumer <urn:rdf2:port/B/cycle.sink/vapour_entry> ;
+    i:identifier "st_exhaust" ;
+    i:producer <urn:rdf2:port/B/cycle.expander/tail_flow> .
+
+<urn:rdf2:canonical/GasTurbine> a i:CanonicalClass ;
+    rdfs:subClassOf <urn:rdf2:canonical/EngineeringAsset> ;
+    i:identifier "GasTurbine" .
+
+<urn:rdf2:canonical/HeatRecovery> a i:CanonicalClass ;
+    rdfs:subClassOf <urn:rdf2:canonical/EngineeringAsset> ;
+    i:identifier "HeatRecovery" .
+
+<urn:rdf2:canonical/HeatSink> a i:CanonicalClass ;
+    rdfs:subClassOf <urn:rdf2:canonical/EngineeringAsset> ;
+    i:identifier "HeatSink" .
+
+<urn:rdf2:canonical/SteamExpansion> a i:CanonicalClass ;
+    rdfs:subClassOf <urn:rdf2:canonical/EngineeringAsset> ;
+    i:identifier "SteamExpansion" .
+
+<urn:rdf2:equipment/A/GT01> a i:Equipment ;
+    i:equipmentClass <urn:rdf2:type/A/GasTurbine> ;
+    i:identifier "GT01" .
+
+<urn:rdf2:field/A/state/flow> a i:Field ;
+    i:identifier "flow" ;
+    i:mappedQuantity "mass_flow" ;
+    i:mappedUnit "kg/h" ;
+    i:quantity "mass_flow" ;
+    i:unit "kg/h" .
+
+<urn:rdf2:field/A/state/press> a i:Field ;
+    i:identifier "press" ;
+    i:mappedQuantity "pressure" ;
+    i:mappedUnit "bar" ;
+    i:quantity "pressure" ;
+    i:unit "bar" .
+
+<urn:rdf2:field/A/state/temp> a i:Field ;
+    i:identifier "temp" ;
+    i:mappedQuantity "temperature" ;
+    i:mappedUnit "degC" ;
+    i:quantity "temperature" ;
+    i:unit "degC" .
+
+<urn:rdf2:field/B/state/P> a i:Field ;
+    i:identifier "P" ;
+    i:mappedQuantity "pressure" ;
+    i:mappedUnit "MPa" ;
+    i:quantity "pressure" ;
+    i:unit "MPa" .
+
+<urn:rdf2:field/B/state/T> a i:Field ;
+    i:identifier "T" ;
+    i:mappedQuantity "temperature" ;
+    i:mappedUnit "K" ;
+    i:quantity "temperature" ;
+    i:unit "K" .
+
+<urn:rdf2:field/B/state/W> a i:Field ;
+    i:identifier "W" ;
+    i:mappedQuantity "mass_flow" ;
+    i:mappedUnit "kg/s" ;
+    i:quantity "mass_flow" ;
+    i:unit "kg/s" .
+
+<urn:rdf2:port/A/thermal.gt/exh> a i:Port ;
+    i:direction "out" ;
+    i:equipment <urn:rdf2:equipment/A/GT01> ;
+    i:fieldset <urn:rdf2:fieldset/A/state> ;
+    i:identifier "exh" ;
+    i:namespace "thermal.gt" ;
+    i:provider <urn:rdf2:provider/A> .
+
+<urn:rdf2:port/A/thermal.hrsg/gas_in> a i:Port ;
+    i:direction "in" ;
+    i:equipment <urn:rdf2:equipment/A/H01> ;
+    i:fieldset <urn:rdf2:fieldset/A/state> ;
+    i:identifier "gas_in" ;
+    i:namespace "thermal.hrsg" ;
+    i:provider <urn:rdf2:provider/A> .
+
+<urn:rdf2:port/A/thermal.hrsg/hp_out> a i:Port ;
+    i:direction "out" ;
+    i:equipment <urn:rdf2:equipment/A/H01> ;
+    i:fieldset <urn:rdf2:fieldset/A/state> ;
+    i:identifier "hp_out" ;
+    i:namespace "thermal.hrsg" ;
+    i:provider <urn:rdf2:provider/A> .
+
+<urn:rdf2:port/A/thermal.hrsg/lp_out> a i:Port ;
+    i:direction "out" ;
+    i:equipment <urn:rdf2:equipment/A/H01> ;
+    i:fieldset <urn:rdf2:fieldset/A/state> ;
+    i:identifier "lp_out" ;
+    i:namespace "thermal.hrsg" ;
+    i:provider <urn:rdf2:provider/A> .
+
+<urn:rdf2:port/A/thermal.hrsg/rh_out> a i:Port ;
+    i:direction "out" ;
+    i:equipment <urn:rdf2:equipment/A/H01> ;
+    i:fieldset <urn:rdf2:fieldset/A/state> ;
+    i:identifier "rh_out" ;
+    i:namespace "thermal.hrsg" ;
+    i:provider <urn:rdf2:provider/A> .
+
+<urn:rdf2:port/A/thermal.hrsg/rh_return> a i:Port ;
+    i:direction "in" ;
+    i:equipment <urn:rdf2:equipment/A/H01> ;
+    i:fieldset <urn:rdf2:fieldset/A/state> ;
+    i:identifier "rh_return" ;
+    i:namespace "thermal.hrsg" ;
+    i:provider <urn:rdf2:provider/A> .
+
+<urn:rdf2:port/A/thermal.hrsg/water_return> a i:Port ;
+    i:direction "in" ;
+    i:equipment <urn:rdf2:equipment/A/H01> ;
+    i:fieldset <urn:rdf2:fieldset/A/state> ;
+    i:identifier "water_return" ;
+    i:namespace "thermal.hrsg" ;
+    i:provider <urn:rdf2:provider/A> .
+
+<urn:rdf2:port/B/cycle.expander/admission_high> a i:Port ;
+    i:direction "in" ;
+    i:equipment <urn:rdf2:equipment/B/ST1> ;
+    i:fieldset <urn:rdf2:fieldset/B/state> ;
+    i:identifier "admission_high" ;
+    i:namespace "cycle.expander" ;
+    i:provider <urn:rdf2:provider/B> .
+
+<urn:rdf2:port/B/cycle.expander/admission_low> a i:Port ;
+    i:direction "in" ;
+    i:equipment <urn:rdf2:equipment/B/ST1> ;
+    i:fieldset <urn:rdf2:fieldset/B/state> ;
+    i:identifier "admission_low" ;
+    i:namespace "cycle.expander" ;
+    i:provider <urn:rdf2:provider/B> .
+
+<urn:rdf2:port/B/cycle.expander/admission_reheat> a i:Port ;
+    i:direction "in" ;
+    i:equipment <urn:rdf2:equipment/B/ST1> ;
+    i:fieldset <urn:rdf2:fieldset/B/state> ;
+    i:identifier "admission_reheat" ;
+    i:namespace "cycle.expander" ;
+    i:provider <urn:rdf2:provider/B> .
+
+<urn:rdf2:port/B/cycle.expander/crossover_return> a i:Port ;
+    i:direction "out" ;
+    i:equipment <urn:rdf2:equipment/B/ST1> ;
+    i:fieldset <urn:rdf2:fieldset/B/state> ;
+    i:identifier "crossover_return" ;
+    i:namespace "cycle.expander" ;
+    i:provider <urn:rdf2:provider/B> .
+
+<urn:rdf2:port/B/cycle.expander/tail_flow> a i:Port ;
+    i:direction "out" ;
+    i:equipment <urn:rdf2:equipment/B/ST1> ;
+    i:fieldset <urn:rdf2:fieldset/B/state> ;
+    i:identifier "tail_flow" ;
+    i:namespace "cycle.expander" ;
+    i:provider <urn:rdf2:provider/B> .
+
+<urn:rdf2:port/B/cycle.sink/liquid_exit> a i:Port ;
+    i:direction "out" ;
+    i:equipment <urn:rdf2:equipment/B/CD1> ;
+    i:fieldset <urn:rdf2:fieldset/B/state> ;
+    i:identifier "liquid_exit" ;
+    i:namespace "cycle.sink" ;
+    i:provider <urn:rdf2:provider/B> .
+
+<urn:rdf2:port/B/cycle.sink/vapour_entry> a i:Port ;
+    i:direction "in" ;
+    i:equipment <urn:rdf2:equipment/B/CD1> ;
+    i:fieldset <urn:rdf2:fieldset/B/state> ;
+    i:identifier "vapour_entry" ;
+    i:namespace "cycle.sink" ;
+    i:provider <urn:rdf2:provider/B> .
+
+<urn:rdf2:type/A/GasTurbine> a i:LocalClass ;
+    rdfs:subClassOf <urn:rdf2:type/A/PrimeMover> ;
+    i:canonicalClass <urn:rdf2:canonical/GasTurbine> ;
+    i:identifier "GasTurbine" ;
+    i:provider <urn:rdf2:provider/A> .
+
+<urn:rdf2:type/A/HRSG> a i:LocalClass ;
+    rdfs:subClassOf <urn:rdf2:type/A/HeatRecoveryUnit> ;
+    i:identifier "HRSG" ;
+    i:provider <urn:rdf2:provider/A> .
+
+<urn:rdf2:type/A/HeatRecoveryUnit> a i:LocalClass ;
+    rdfs:subClassOf <urn:rdf2:type/A/ThermalAsset> ;
+    i:canonicalClass <urn:rdf2:canonical/HeatRecovery> ;
+    i:identifier "HeatRecoveryUnit" ;
+    i:provider <urn:rdf2:provider/A> .
+
+<urn:rdf2:type/A/PrimeMover> a i:LocalClass ;
+    rdfs:subClassOf <urn:rdf2:type/A/ThermalAsset> ;
+    i:identifier "PrimeMover" ;
+    i:provider <urn:rdf2:provider/A> .
+
+<urn:rdf2:type/B/ExpansionMachine> a i:LocalClass ;
+    rdfs:subClassOf <urn:rdf2:type/B/CycleComponent> ;
+    i:canonicalClass <urn:rdf2:canonical/SteamExpansion> ;
+    i:identifier "ExpansionMachine" ;
+    i:provider <urn:rdf2:provider/B> .
+
+<urn:rdf2:type/B/HeatSink> a i:LocalClass ;
+    rdfs:subClassOf <urn:rdf2:type/B/CycleComponent> ;
+    i:canonicalClass <urn:rdf2:canonical/HeatSink> ;
+    i:identifier "HeatSink" ;
+    i:provider <urn:rdf2:provider/B> .
+
+<urn:rdf2:type/B/SteamTurbine> a i:LocalClass ;
+    rdfs:subClassOf <urn:rdf2:type/B/ExpansionMachine> ;
+    i:identifier "SteamTurbine" ;
+    i:provider <urn:rdf2:provider/B> .
+
+<urn:rdf2:type/B/SurfaceCondenser> a i:LocalClass ;
+    rdfs:subClassOf <urn:rdf2:type/B/HeatSink> ;
+    i:identifier "SurfaceCondenser" ;
+    i:provider <urn:rdf2:provider/B> .
+
+<urn:rdf2:equipment/B/CD1> a i:Equipment ;
+    i:equipmentClass <urn:rdf2:type/B/SurfaceCondenser> ;
+    i:identifier "CD1" .
+
+<urn:rdf2:type/A/ThermalAsset> a i:LocalClass ;
+    rdfs:subClassOf i:Root ;
+    i:canonicalClass <urn:rdf2:canonical/EngineeringAsset> ;
+    i:identifier "ThermalAsset" ;
+    i:provider <urn:rdf2:provider/A> .
+
+<urn:rdf2:type/B/CycleComponent> a i:LocalClass ;
+    rdfs:subClassOf i:Root ;
+    i:canonicalClass <urn:rdf2:canonical/EngineeringAsset> ;
+    i:identifier "CycleComponent" ;
+    i:provider <urn:rdf2:provider/B> .
+
+<urn:rdf2:equipment/B/ST1> a i:Equipment ;
+    i:equipmentClass <urn:rdf2:type/B/SteamTurbine> ;
+    i:identifier "ST1" .
+
+<urn:rdf2:canonical/EngineeringAsset> a i:CanonicalClass ;
+    rdfs:subClassOf i:Root ;
+    i:identifier "EngineeringAsset" .
+
+<urn:rdf2:equipment/A/H01> a i:Equipment ;
+    i:equipmentClass <urn:rdf2:type/A/HRSG> ;
+    i:identifier "H01" .
+
+<urn:rdf2:fieldset/A/state> a i:FieldSet ;
+    i:field <urn:rdf2:field/A/state/flow>,
+        <urn:rdf2:field/A/state/press>,
+        <urn:rdf2:field/A/state/temp> .
+
+<urn:rdf2:fieldset/B/state> a i:FieldSet ;
+    i:field <urn:rdf2:field/B/state/P>,
+        <urn:rdf2:field/B/state/T>,
+        <urn:rdf2:field/B/state/W> .
+
+<urn:rdf2:provider/A> a i:Provider ;
+    i:identifier "A" ;
+    i:requiredVersion "1.0" ;
+    i:version "1.0" .
+
+<urn:rdf2:provider/B> a i:Provider ;
+    i:identifier "B" ;
+    i:requiredVersion "1.0" ;
+    i:version "1.0" .
+

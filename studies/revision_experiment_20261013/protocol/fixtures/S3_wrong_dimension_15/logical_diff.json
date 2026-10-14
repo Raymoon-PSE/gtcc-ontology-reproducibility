@@ -1,0 +1,60 @@
+{
+  "added": [
+    [
+      "gt_exhaust",
+      "field_m_dot",
+      "mass_flow"
+    ],
+    [
+      "gt_exhaust",
+      "unit_P",
+      "Pa"
+    ],
+    [
+      "gt_exhaust",
+      "unit_T",
+      "K"
+    ],
+    [
+      "gt_exhaust",
+      "unit_m_dot",
+      "kg/s"
+    ],
+    [
+      "gt_exhaust",
+      "version",
+      "2"
+    ]
+  ],
+  "affected_subjects": 1,
+  "changed_slots": 5,
+  "interpretation": "representation-independent authored configuration changes; not measured developer effort",
+  "logical_fact_operations": 10,
+  "removed": [
+    [
+      "gt_exhaust",
+      "field_m_dot",
+      "m_dot"
+    ],
+    [
+      "gt_exhaust",
+      "unit_P",
+      "MPa"
+    ],
+    [
+      "gt_exhaust",
+      "unit_T",
+      "degC"
+    ],
+    [
+      "gt_exhaust",
+      "unit_m_dot",
+      "kg/hr"
+    ],
+    [
+      "gt_exhaust",
+      "version",
+      "1"
+    ]
+  ]
+}

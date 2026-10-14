@@ -1,0 +1,13 @@
+arm,stage,attempt,passed,total,compared_to,changed_implementation_files,added_lines,removed_lines,changed_function_definitions,changed_query_definitions
+rdf1,0,1,40,40,empty baseline,1,302,0,19,3
+rdf1,1,1,48,48,rdf1_stage0_attempt1,1,3,1,1,0
+rdf1,2,1,56,56,rdf1_stage1_attempt1,1,1,1,1,0
+json1,0,1,40,40,empty baseline,1,257,0,18,3
+json1,1,1,48,48,json1_stage0_attempt1,0,0,0,0,0
+json1,2,1,56,56,json1_stage1_attempt1,0,0,0,0,0
+rdf2,0,1,40,40,empty baseline,1,361,0,23,3
+rdf2,1,1,48,48,rdf2_stage0_attempt1,0,0,0,0,0
+rdf2,2,1,56,56,rdf2_stage1_attempt1,0,0,0,0,0
+json2,0,1,40,40,empty baseline,1,236,0,16,3
+json2,1,1,48,48,json2_stage0_attempt1,0,0,0,0,0
+json2,2,1,56,56,json2_stage1_attempt1,0,0,0,0,0

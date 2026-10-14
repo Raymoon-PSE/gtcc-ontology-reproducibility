@@ -1,3 +1,36 @@
+# GTCC engineering-contract research artifacts
+
+Supporting artifacts for **From Conceptual Model to Runtime Governance: An Ontology-Driven Multi-Domain Digital Twin for Combined Cycle Power Plants**. Version 0.4.0, 14 October 2026.
+
+## New comparative evidence
+
+The `studies/` directory adds three completed simulation studies. Neither the comparison nor the maintenance studies establish ontology-specific superiority. Both representations retain shared engineering semantics. JSON has lower metadata overhead in the measured workload.
+
+```sh
+python -m pip install -r requirements_revision.txt
+python scripts/verify_revision_evidence.py
+```
+
+Python 3.12 is the recorded environment. This command verifies derived-file hashes, checks the 28 paired whole-process records and timing medians, reruns every original provider-integration checkpoint, and reproduces the adapter pilot including its post hoc failure and repair. It uses stored solved fixtures. This acceptance command does not rerun physics or timing. Separate commands below support fresh physical fixtures and metadata timings. The complete application is deliberately excluded.
+
+See [release scope](docs/RELEASE_0.4.0.txt) for reproduction limits and [derivation manifest](studies/PUBLIC_DERIVATION.json) for original/public hashes and path sanitization. The three new studies use a later linked-cycle configuration with nominal net power 550668.890330 kW. The archived v0.3.0 baseline below is a different configuration, 560604.080347 kW. The earlier release and its source files remain preserved.
+
+Versioned artifact: https://github.com/Raymoon-PSE/gtcc-ontology-reproducibility/releases/tag/v0.4.0. No DOI is claimed.
+
+### Optional fresh numerical and timing runs
+
+```sh
+python -m pip install -r studies/revision_experiment_20261013/requirements_physics.txt
+python -B studies/revision_experiment_20261013/reproduce_physics.py
+python -B studies/revision_experiment_20261013/run_performance.py --results /tmp/gtcc-new-metadata-results
+```
+
+Choose a new timing output directory for each run. Fresh timings depend on the machine and do not replace the paper’s archived samples. The numerical subset regenerates the 5/15/25°C physical baselines, with source hashes and two explicitly disclosed package-initializer stubs. It does not run the full mechanical/ontology environment or all 28 paired integration cases. Those paired outcomes remain auditable archived records. See [physical reproduction scope](studies/revision_experiment_20261013/PHYSICS_REPRODUCTION.txt).
+
+---
+
+## Archived v0.3.0 instructions
+
 # EKLM computational supplement — corrected CII evaluation
 
 Supporting artifacts for **From Conceptual Model to Runtime Governance: An Ontology-Driven Multi-Domain Digital Twin for Combined Cycle Power Plants**. Version 0.3.0, 2 October 2026. This is a simulation research subset, not a live plant controller.

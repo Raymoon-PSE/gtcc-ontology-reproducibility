@@ -1,0 +1,18 @@
+{
+  "scope": "Reuse of previously generated simulation output; not new physical experiments or plant measurements",
+  "origin": "maintenance_experiment_20261014/fixtures/whole_cycle.json",
+  "sha256": "12cdd9f044728257241725c48642edc54d4e9b7094a37cdeffd2be05323e84a8",
+  "archive_sha256": "a8a522111e9130977f0238114e2b40be8c6e33a8556f04ad9a56265645839022",
+  "reproduction": "Extract source_evidence/maintenance_experiment_20261014.zip and follow its README.txt; generate_fixture.py --check regenerates both scenarios. No original runtime is modified.",
+  "ambient_C": [
+    5,
+    25
+  ],
+  "canonical_fields": {
+    "T": "degC",
+    "P": "MPa",
+    "m_dot": "kg/h",
+    "w": "mass fraction"
+  },
+  "scope_limits": "Provider ingress/egress and query integration over all seven solved process streams. No new solver-input injection, numerical scheduling or diagnostic-application migration."
+}

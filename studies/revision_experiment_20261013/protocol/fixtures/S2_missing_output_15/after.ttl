@@ -1,0 +1,104 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rev: <urn:eklm:revision:> .
+
+rev:EXP-001 a rev:GT_Turbine ;
+    rev:binding rev:GT_Turbine .
+
+rev:HPSH-output rev:field "mech_hpsh_hoop_stress_MPa" ;
+    rev:unit "MPa" ;
+    rev:version "1" .
+
+rev:HPSH-query rev:version "1" .
+
+rev:HPTURB a rev:HP_ST ;
+    rev:binding rev:HP_ST ;
+    rev:version "2" .
+
+rev:cold_reheat rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source rev:ST ;
+    rev:target rev:HRSG ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+rev:condensate rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source rev:Condenser ;
+    rev:target rev:HRSG ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+rev:gt_exhaust rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source rev:GT ;
+    rev:target rev:HRSG ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+rev:hot_reheat rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source rev:HRSG ;
+    rev:target rev:ST ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+rev:hp_steam rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source rev:HRSG ;
+    rev:target rev:ST ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+rev:lp_steam rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source rev:HRSG ;
+    rev:target rev:ST ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+rev:st_exhaust rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source rev:ST ;
+    rev:target rev:Condenser ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+rev:GT_Turbine rdfs:subClassOf rev:MechanicalModel .
+
+rev:HP_ST rdfs:subClassOf rev:MechanicalModel .
+

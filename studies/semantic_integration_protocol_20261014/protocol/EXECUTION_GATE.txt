@@ -1,0 +1,20 @@
+IMPLEMENTATION MAY START ONLY AFTER THE SECOND FREEZE
+
+This delivered package freezes the research question, provider snapshots, canonical physical fixtures, output contract, requirement-level case plan and stopping rules. It does not contain either comparison arm or executable acceptance tests. Preflight verifies package consistency, not ontology effectiveness.
+
+Next execution phase, in order:
+1. Independent evaluator writes executable tests from CASE_PLAN.json and API_AND_ORACLE.txt without inspecting any arm. The test generator, payloads and expected outputs are versioned. Verify oracle fixtures, wrong-output sentinel detection, unit examples and each negative mutation. A test count means individual assertions only after that suite exists; 26 requirement families are not 26 independent observations.
+2. Freeze executable suite and exact dependency/environment records in a new EVALUATOR_FREEZE.json. Do not rewrite PROTOCOL_FREEZE.json. Any pre-run clarification is a numbered amendment with reasons, date and hashes. Deliver the amendment equally to all implementers. No arm result may precede this gate.
+3. Start four fresh contexts (RDF1, JSON1, RDF2, JSON2), without inherited provider-author/evaluator history. Use two sequential balanced batches if tool concurrency is limited. Do not show peer outputs or acceptance cases to implementers. All get the same Stage 0 engineering inputs; representation is the assigned difference. Record context/model availability and procedural isolation limits. Each implementer may write its own tests.
+4. Capture first-attempt source, configuration, dependency list and immutable hashes before scoring. Confirm actual RDF graph use versus actual JSON registry use and equivalent native facts. Baseline failure/repair is reported, not suppressed. Do not rank change effort from an incomplete baseline.
+5. Release provider-v2 inputs only after baseline checkpoints, then provider-v3 only after v2 checkpoints. Give the same requirements to all arms. Each stage allows two repairs beyond the first attempt, reporting failing case IDs/observed errors only. Original evaluator source is not released until all first attempts finish. A host knows the cases, so it must not implement either arm.
+6. Run all prior cases as regressions with original schema versions. Record code/config/consumer diffs from each preceding checkpoint. Distinguish first attempt, repair edits, provider-supplied updates and generated serialization. Export raw results before deriving summaries.
+7. Independent reviewer inspects all source, cases, native artifacts, errors and diffs. Freeze final report including parity, adverse results and caveats. No extensions to seek a favorable representation result. New discoveries are separately labelled post hoc tests.
+8. Only then update manuscript results or decide journal fit. No automatic GitHub publication or submission.
+
+Release content:
+All stages: STUDY_PROTOCOL.txt, API_AND_ORACLE.txt, canonical_classes.json, fixtures/whole_cycle.json and provenance.json. The future capability classes are public from baseline; only exact later provider snapshots/requests are withheld. This permits anticipating general change types and must be acknowledged when interpreting zero-code changes.
+Stage 0: providers A/B v1 and boundary_mapping_v1 only; fixtures/payloads_v1_5C.json and payloads_v1_25C.json.
+Stage 1: same materials plus A/B v2, mapping_v2 and v2 payloads; release evolution_requests.sequential_changes request v2.
+Stage 2: add A/B v3, mapping_v3 and v3 payloads; release request v3. Invalid variant files remain evaluator fixtures, not original implementer packets; rejection requirements are already public in the API.
+Do not give implementers the whole package: it includes future snapshots and acceptance plan. Their filesystem access is not technically restricted by this document. No claim of secure blindness is allowed.

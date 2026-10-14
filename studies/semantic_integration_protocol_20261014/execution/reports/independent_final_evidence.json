@@ -1,0 +1,818 @@
+{
+  "scope": "Frozen first-attempt scores; separate file categories; independently recomputed source line and AST changes; primitive fact equality by pair and stage. Not effort measurements.",
+  "checkpoints": [
+    {
+      "arm": "rdf1",
+      "stage": 0,
+      "checkpoint_utc": "2026-10-14T04:48:46.346488+00:00",
+      "score": [
+        40,
+        40
+      ],
+      "adapter_sha256": "2d09a6c83c92e94090a1a14d43fad90cc8152c85fbeab3c20778bbe93ab229b2",
+      "added_lines": 302,
+      "removed_lines": 0,
+      "changed_functions": [
+        "Model.__init__",
+        "Model.ancestry",
+        "Model.closure",
+        "Model.descriptor",
+        "Model.one",
+        "Model.validate",
+        "Rejection.__init__",
+        "composition",
+        "endpoint_node",
+        "export_native",
+        "fail",
+        "identifier",
+        "integrate",
+        "node",
+        "normalize_quantity",
+        "query_all",
+        "query_by_ancestor",
+        "query_returns",
+        "rejected"
+      ],
+      "changed_files_all_categories": [
+        {
+          "path": "adapter.py",
+          "category": "implementation",
+          "before_sha256": null,
+          "after_sha256": "2d09a6c83c92e94090a1a14d43fad90cc8152c85fbeab3c20778bbe93ab229b2"
+        },
+        {
+          "path": "native_v1.ttl",
+          "category": "generated_native",
+          "before_sha256": null,
+          "after_sha256": "204122a6aaf55b73f50352db834a80c98b277344d7abf6cc3708a7745c9caff1"
+        },
+        {
+          "path": "selftest.py",
+          "category": "verification",
+          "before_sha256": null,
+          "after_sha256": "78233448dd9bb46b579f95192a04512c5c24ea2cd7e64fbb1753afda7dce20c0"
+        },
+        {
+          "path": "work_log.txt",
+          "category": "documentation",
+          "before_sha256": null,
+          "after_sha256": "5ff66660e4813a75b189d4d11b398fe1012b71f7c8beb4ac0869c7496f0c9cc0"
+        }
+      ]
+    },
+    {
+      "arm": "rdf1",
+      "stage": 1,
+      "checkpoint_utc": "2026-10-14T04:49:52.676377+00:00",
+      "score": [
+        48,
+        48
+      ],
+      "adapter_sha256": "700f368f585b3a7af04a76888ac6a7e29e7a2a169de144820e844fdb5b0d4b87",
+      "added_lines": 3,
+      "removed_lines": 1,
+      "changed_functions": [
+        "Model.validate"
+      ],
+      "changed_files_all_categories": [
+        {
+          "path": "adapter.py",
+          "category": "implementation",
+          "before_sha256": "2d09a6c83c92e94090a1a14d43fad90cc8152c85fbeab3c20778bbe93ab229b2",
+          "after_sha256": "700f368f585b3a7af04a76888ac6a7e29e7a2a169de144820e844fdb5b0d4b87"
+        },
+        {
+          "path": "native_v2.ttl",
+          "category": "generated_native",
+          "before_sha256": null,
+          "after_sha256": "457a269efe314d84ae200113010ccac06c19d5212a3a2a8bc789dee98f3dce3f"
+        },
+        {
+          "path": "selftest.py",
+          "category": "verification",
+          "before_sha256": "78233448dd9bb46b579f95192a04512c5c24ea2cd7e64fbb1753afda7dce20c0",
+          "after_sha256": "d46d7d9bde235c398d50823b751e6ebc2b5ddab42de1565cc0a7aaf058d22e87"
+        },
+        {
+          "path": "selftest_v2.py",
+          "category": "verification",
+          "before_sha256": null,
+          "after_sha256": "c66905177ec37b1ad55829fc5d9e36a6a4611106399c6c8f1d5ebe447205582b"
+        },
+        {
+          "path": "work_log.txt",
+          "category": "documentation",
+          "before_sha256": "5ff66660e4813a75b189d4d11b398fe1012b71f7c8beb4ac0869c7496f0c9cc0",
+          "after_sha256": "674530a9316d354ddf7214695b8dbc360f62dbd546686c5c88810c82ea46b6df"
+        }
+      ]
+    },
+    {
+      "arm": "rdf1",
+      "stage": 2,
+      "checkpoint_utc": "2026-10-14T04:51:00.400788+00:00",
+      "score": [
+        56,
+        56
+      ],
+      "adapter_sha256": "441da9df38c4288f9dc5d6745e41bff98845253afd11012649f690a7013876cf",
+      "added_lines": 1,
+      "removed_lines": 1,
+      "changed_functions": [
+        "Model.validate"
+      ],
+      "changed_files_all_categories": [
+        {
+          "path": "adapter.py",
+          "category": "implementation",
+          "before_sha256": "700f368f585b3a7af04a76888ac6a7e29e7a2a169de144820e844fdb5b0d4b87",
+          "after_sha256": "441da9df38c4288f9dc5d6745e41bff98845253afd11012649f690a7013876cf"
+        },
+        {
+          "path": "native_v3.ttl",
+          "category": "generated_native",
+          "before_sha256": null,
+          "after_sha256": "ddf0f79404835e09482a2cadbdca8681cd100b53b4a06e806961f57a98548776"
+        },
+        {
+          "path": "selftest.py",
+          "category": "verification",
+          "before_sha256": "d46d7d9bde235c398d50823b751e6ebc2b5ddab42de1565cc0a7aaf058d22e87",
+          "after_sha256": "e7fe86c813f0794c2604d72dbabc58817ac7bdbe6123017b0692181f0218d23b"
+        },
+        {
+          "path": "selftest_v2.py",
+          "category": "verification",
+          "before_sha256": "c66905177ec37b1ad55829fc5d9e36a6a4611106399c6c8f1d5ebe447205582b",
+          "after_sha256": "9c58a991fde63488b92a9304cb69cc71a4e817849eaeba7cd7130fb1358f0335"
+        },
+        {
+          "path": "selftest_v3.py",
+          "category": "verification",
+          "before_sha256": null,
+          "after_sha256": "38a0e710690961f1820b821f6f7ff6121ca9759486ee0a76428266a966725517"
+        },
+        {
+          "path": "work_log.txt",
+          "category": "documentation",
+          "before_sha256": "674530a9316d354ddf7214695b8dbc360f62dbd546686c5c88810c82ea46b6df",
+          "after_sha256": "076396c60b55174d62421c4ea28616b8386a76d9ec4a8a7176e24cd13135fe39"
+        }
+      ]
+    },
+    {
+      "arm": "json1",
+      "stage": 0,
+      "checkpoint_utc": "2026-10-14T04:48:40.635965+00:00",
+      "score": [
+        40,
+        40
+      ],
+      "adapter_sha256": "55fc7309322a8f1f6bf17cbb8abbba0f935e4077202dfddde66eb42b749811aa",
+      "added_lines": 257,
+      "removed_lines": 0,
+      "changed_functions": [
+        "ContractError.__init__",
+        "Registry.__init__",
+        "Registry.descriptor",
+        "Registry.observe",
+        "closure",
+        "export_native",
+        "fail",
+        "identity",
+        "insert",
+        "integrate",
+        "name",
+        "normalize_quantity",
+        "numeric",
+        "query_all",
+        "query_by_ancestor",
+        "query_returns",
+        "rejection",
+        "unit_check"
+      ],
+      "changed_files_all_categories": [
+        {
+          "path": "adapter.py",
+          "category": "implementation",
+          "before_sha256": null,
+          "after_sha256": "55fc7309322a8f1f6bf17cbb8abbba0f935e4077202dfddde66eb42b749811aa"
+        },
+        {
+          "path": "native_v1.json",
+          "category": "generated_native",
+          "before_sha256": null,
+          "after_sha256": "e7064b6530e8b3bd920246363ffe87e35f33707158b4fa1f6aee255795c4065a"
+        },
+        {
+          "path": "selftest.py",
+          "category": "verification",
+          "before_sha256": null,
+          "after_sha256": "52deeb34b13efb86f1793cc2e8139066a28dbbc5484e1a059cfaefee30b91aa8"
+        },
+        {
+          "path": "work_log.txt",
+          "category": "documentation",
+          "before_sha256": null,
+          "after_sha256": "7fd471ce371c2d1adc86f03db5deab4fde1f9e48c5f1268f4e3939f8ad91a13b"
+        }
+      ]
+    },
+    {
+      "arm": "json1",
+      "stage": 1,
+      "checkpoint_utc": "2026-10-14T04:49:48.240205+00:00",
+      "score": [
+        48,
+        48
+      ],
+      "adapter_sha256": "55fc7309322a8f1f6bf17cbb8abbba0f935e4077202dfddde66eb42b749811aa",
+      "added_lines": 0,
+      "removed_lines": 0,
+      "changed_functions": [],
+      "changed_files_all_categories": [
+        {
+          "path": "native_v2.json",
+          "category": "generated_native",
+          "before_sha256": null,
+          "after_sha256": "7808387324691ad7cb5fb44a38b5608f01df54ba753b16eb549417622e813e40"
+        },
+        {
+          "path": "selftest_stage1.py",
+          "category": "verification",
+          "before_sha256": null,
+          "after_sha256": "9c289d4e476db839083ab2fe8fa8a9144596567b00b24e3faa2564b4a16e31e5"
+        },
+        {
+          "path": "work_log.txt",
+          "category": "documentation",
+          "before_sha256": "7fd471ce371c2d1adc86f03db5deab4fde1f9e48c5f1268f4e3939f8ad91a13b",
+          "after_sha256": "8fbc890df5397662e985864bcca515ce0b3dde7cd63c60b93c513a76ad58cef8"
+        }
+      ]
+    },
+    {
+      "arm": "json1",
+      "stage": 2,
+      "checkpoint_utc": "2026-10-14T04:50:56.732674+00:00",
+      "score": [
+        56,
+        56
+      ],
+      "adapter_sha256": "55fc7309322a8f1f6bf17cbb8abbba0f935e4077202dfddde66eb42b749811aa",
+      "added_lines": 0,
+      "removed_lines": 0,
+      "changed_functions": [],
+      "changed_files_all_categories": [
+        {
+          "path": "native_v3.json",
+          "category": "generated_native",
+          "before_sha256": null,
+          "after_sha256": "523e31588da69357d3a5d278f76c287782414433b6d26b0c89372977250ffa42"
+        },
+        {
+          "path": "selftest_stage2.py",
+          "category": "verification",
+          "before_sha256": null,
+          "after_sha256": "b38f2f2a9ca6b3338bd0d0752a459854370c2519999e9a2bdee7dea2dc599fd6"
+        },
+        {
+          "path": "work_log.txt",
+          "category": "documentation",
+          "before_sha256": "8fbc890df5397662e985864bcca515ce0b3dde7cd63c60b93c513a76ad58cef8",
+          "after_sha256": "465e792287a59f100d9c7790520f780f042650f155b968d04d8a93a42a5713b3"
+        }
+      ]
+    },
+    {
+      "arm": "rdf2",
+      "stage": 0,
+      "checkpoint_utc": "2026-10-14T04:55:06.118752+00:00",
+      "score": [
+        40,
+        40
+      ],
+      "adapter_sha256": "ab2f9ec1d55f9614f1df55b3a6bae490b683c977a9f38bf9013d6e4df6aa7529",
+      "added_lines": 361,
+      "removed_lines": 0,
+      "changed_functions": [
+        "Rejection.__init__",
+        "classes",
+        "closure",
+        "endpoint_node",
+        "exists",
+        "export_native",
+        "fail",
+        "import_graph",
+        "integrate",
+        "node",
+        "normalize_quantity",
+        "number",
+        "obj",
+        "one",
+        "query_all",
+        "query_by_ancestor",
+        "query_returns",
+        "read_endpoint",
+        "reject",
+        "seq",
+        "string",
+        "text",
+        "validate_metadata"
+      ],
+      "changed_files_all_categories": [
+        {
+          "path": "adapter.py",
+          "category": "implementation",
+          "before_sha256": null,
+          "after_sha256": "ab2f9ec1d55f9614f1df55b3a6bae490b683c977a9f38bf9013d6e4df6aa7529"
+        },
+        {
+          "path": "export_native/native_v1.ttl",
+          "category": "generated_native",
+          "before_sha256": null,
+          "after_sha256": "9879577971f42bc8c1ef0d45d9f82c152d0a1e52fc4395bb64ac1306fc74aece"
+        },
+        {
+          "path": "selftest.py",
+          "category": "verification",
+          "before_sha256": null,
+          "after_sha256": "3b5367e8ec1c79f18cf878788565c229460864996555df558ea4292f0f3d0dcb"
+        },
+        {
+          "path": "selftest_results.json",
+          "category": "verification",
+          "before_sha256": null,
+          "after_sha256": "c7056f87a627df75dacdd72f68ceafe5f05b9cf45ce44ae840000d64fa426cfb"
+        },
+        {
+          "path": "work_log.txt",
+          "category": "documentation",
+          "before_sha256": null,
+          "after_sha256": "a36ed1f4dfce92d0c1ebf32f1b862dadb01e24ead054d09a48fe1f44ce3afe56"
+        }
+      ]
+    },
+    {
+      "arm": "rdf2",
+      "stage": 1,
+      "checkpoint_utc": "2026-10-14T04:56:30.246933+00:00",
+      "score": [
+        48,
+        48
+      ],
+      "adapter_sha256": "ab2f9ec1d55f9614f1df55b3a6bae490b683c977a9f38bf9013d6e4df6aa7529",
+      "added_lines": 0,
+      "removed_lines": 0,
+      "changed_functions": [],
+      "changed_files_all_categories": [
+        {
+          "path": "export_native/native_v2.ttl",
+          "category": "generated_native",
+          "before_sha256": null,
+          "after_sha256": "58d2f2f343d475d3dd192969db737b8b20c88fcd5a64871be790778694537289"
+        },
+        {
+          "path": "selftest_stage1.py",
+          "category": "verification",
+          "before_sha256": null,
+          "after_sha256": "b37f3b198d565a2e821bb88b21475662d0941e563a41b7c02897e8fd775f7516"
+        },
+        {
+          "path": "selftest_stage1_results.json",
+          "category": "verification",
+          "before_sha256": null,
+          "after_sha256": "351383386e785fe2269c1276faa1f05c13b313f551289303d61a7f6352e01bb5"
+        },
+        {
+          "path": "work_log.txt",
+          "category": "documentation",
+          "before_sha256": "a36ed1f4dfce92d0c1ebf32f1b862dadb01e24ead054d09a48fe1f44ce3afe56",
+          "after_sha256": "df2dab27fc9b4c40b2fc1a8f504d75bf7219574e7e768b1badf5bae5231ebaca"
+        }
+      ]
+    },
+    {
+      "arm": "rdf2",
+      "stage": 2,
+      "checkpoint_utc": "2026-10-14T04:57:45.931217+00:00",
+      "score": [
+        56,
+        56
+      ],
+      "adapter_sha256": "ab2f9ec1d55f9614f1df55b3a6bae490b683c977a9f38bf9013d6e4df6aa7529",
+      "added_lines": 0,
+      "removed_lines": 0,
+      "changed_functions": [],
+      "changed_files_all_categories": [
+        {
+          "path": "export_native/native_v3.ttl",
+          "category": "generated_native",
+          "before_sha256": null,
+          "after_sha256": "7bd0e6398201febcdc5a15bcba921f79e529386c04c463577283663624e1458c"
+        },
+        {
+          "path": "selftest_stage2.py",
+          "category": "verification",
+          "before_sha256": null,
+          "after_sha256": "8bae16364a69729411c7a594351b1e4db7d37f2ca198697d58d8572086e5b77b"
+        },
+        {
+          "path": "selftest_stage2_results.json",
+          "category": "verification",
+          "before_sha256": null,
+          "after_sha256": "fd808a9db6e27b1a7111214607c394a0e12f8b999d6a2f38e458c394b4e669ff"
+        },
+        {
+          "path": "work_log.txt",
+          "category": "documentation",
+          "before_sha256": "df2dab27fc9b4c40b2fc1a8f504d75bf7219574e7e768b1badf5bae5231ebaca",
+          "after_sha256": "e4d159b0f033aa42fd9e838e1197c2fb9b716a753e2e943d06253ed9b278de77"
+        }
+      ]
+    },
+    {
+      "arm": "json2",
+      "stage": 0,
+      "checkpoint_utc": "2026-10-14T04:53:27.739973+00:00",
+      "score": [
+        40,
+        40
+      ],
+      "adapter_sha256": "a25364571669ef2c3a74070015bb2c5b9f4a5f362df2531c87e54ba79118e081",
+      "added_lines": 236,
+      "removed_lines": 0,
+      "changed_functions": [
+        "ContractError.__init__",
+        "Registry.__init__",
+        "Registry.describe",
+        "closure",
+        "endpoint_key",
+        "export_native",
+        "insert",
+        "integrate",
+        "name",
+        "normalize_quantity",
+        "number",
+        "query_all",
+        "query_by_ancestor",
+        "query_returns",
+        "rejection",
+        "require"
+      ],
+      "changed_files_all_categories": [
+        {
+          "path": "adapter.py",
+          "category": "implementation",
+          "before_sha256": null,
+          "after_sha256": "a25364571669ef2c3a74070015bb2c5b9f4a5f362df2531c87e54ba79118e081"
+        },
+        {
+          "path": "export_native/native_v1.json",
+          "category": "generated_native",
+          "before_sha256": null,
+          "after_sha256": "71920980460fb941c629ad8e1de16185bf1143190af2054c3dbd13d3809c0fad"
+        },
+        {
+          "path": "selftest.py",
+          "category": "verification",
+          "before_sha256": null,
+          "after_sha256": "967711e604b44373a1a321fe6dd0ed018b0240419e5f08dd03b7e4024ab3cbd7"
+        },
+        {
+          "path": "work_log.txt",
+          "category": "documentation",
+          "before_sha256": null,
+          "after_sha256": "422e440708dc2d3f8906872d126fd169d59e543424a6512f294121489cb3bf11"
+        }
+      ]
+    },
+    {
+      "arm": "json2",
+      "stage": 1,
+      "checkpoint_utc": "2026-10-14T04:56:05.984802+00:00",
+      "score": [
+        48,
+        48
+      ],
+      "adapter_sha256": "a25364571669ef2c3a74070015bb2c5b9f4a5f362df2531c87e54ba79118e081",
+      "added_lines": 0,
+      "removed_lines": 0,
+      "changed_functions": [],
+      "changed_files_all_categories": [
+        {
+          "path": "export_native/native_v2.json",
+          "category": "generated_native",
+          "before_sha256": null,
+          "after_sha256": "a5cd40c5be4344a37d120dc35661be4119a60f5ef82f2588bfa576b753e47cb6"
+        },
+        {
+          "path": "selftest_stage1.py",
+          "category": "verification",
+          "before_sha256": null,
+          "after_sha256": "21bebcb4aa24ff32616c0f16de4bb62bd1e4d8fca5427f55ee20c8081498c6ae"
+        },
+        {
+          "path": "work_log.txt",
+          "category": "documentation",
+          "before_sha256": "422e440708dc2d3f8906872d126fd169d59e543424a6512f294121489cb3bf11",
+          "after_sha256": "89f1ff28a31ed5b697d70800f30897f627dd55e618f27f81b1520c42e89a27c8"
+        }
+      ]
+    },
+    {
+      "arm": "json2",
+      "stage": 2,
+      "checkpoint_utc": "2026-10-14T04:57:46.370951+00:00",
+      "score": [
+        56,
+        56
+      ],
+      "adapter_sha256": "a25364571669ef2c3a74070015bb2c5b9f4a5f362df2531c87e54ba79118e081",
+      "added_lines": 0,
+      "removed_lines": 0,
+      "changed_functions": [],
+      "changed_files_all_categories": [
+        {
+          "path": "export_native/native_v3.json",
+          "category": "generated_native",
+          "before_sha256": null,
+          "after_sha256": "21d58ca098a589692d180661b7dcdf9d38b208383f8322a6d41d59a8168e8a3d"
+        },
+        {
+          "path": "selftest_stage2.py",
+          "category": "verification",
+          "before_sha256": null,
+          "after_sha256": "2aff787c2e8a9295571980276fbbb5fa76917b3a07cd0dd56bcd20d3902d5d67"
+        },
+        {
+          "path": "work_log.txt",
+          "category": "documentation",
+          "before_sha256": "89f1ff28a31ed5b697d70800f30897f627dd55e618f27f81b1520c42e89a27c8",
+          "after_sha256": "38318dbda17e7689839f6f562958813f2024798f409fb4c42c22043c6216fa05"
+        }
+      ]
+    }
+  ],
+  "native": {
+    "pair1": [
+      {
+        "stage": 0,
+        "rdf_triples": 254,
+        "categories": {
+          "versions": {
+            "entries": 2,
+            "equal": true
+          },
+          "types": {
+            "entries": 10,
+            "equal": true
+          },
+          "equipment": {
+            "entries": 4,
+            "equal": true
+          },
+          "ports": {
+            "entries": 14,
+            "equal": true
+          },
+          "fields": {
+            "entries": 6,
+            "equal": true
+          },
+          "boundaries": {
+            "entries": 7,
+            "equal": true
+          },
+          "type_maps": {
+            "entries": 6,
+            "equal": true
+          },
+          "canonical_parents": {
+            "entries": 5,
+            "equal": true
+          },
+          "mapping_version": {
+            "value": "1.0",
+            "equal": true
+          }
+        }
+      },
+      {
+        "stage": 1,
+        "rdf_triples": 262,
+        "categories": {
+          "versions": {
+            "entries": 2,
+            "equal": true
+          },
+          "types": {
+            "entries": 12,
+            "equal": true
+          },
+          "equipment": {
+            "entries": 4,
+            "equal": true
+          },
+          "ports": {
+            "entries": 14,
+            "equal": true
+          },
+          "fields": {
+            "entries": 6,
+            "equal": true
+          },
+          "boundaries": {
+            "entries": 7,
+            "equal": true
+          },
+          "type_maps": {
+            "entries": 6,
+            "equal": true
+          },
+          "canonical_parents": {
+            "entries": 5,
+            "equal": true
+          },
+          "mapping_version": {
+            "value": "2.0",
+            "equal": true
+          }
+        }
+      },
+      {
+        "stage": 2,
+        "rdf_triples": 262,
+        "categories": {
+          "versions": {
+            "entries": 2,
+            "equal": true
+          },
+          "types": {
+            "entries": 12,
+            "equal": true
+          },
+          "equipment": {
+            "entries": 4,
+            "equal": true
+          },
+          "ports": {
+            "entries": 14,
+            "equal": true
+          },
+          "fields": {
+            "entries": 6,
+            "equal": true
+          },
+          "boundaries": {
+            "entries": 7,
+            "equal": true
+          },
+          "type_maps": {
+            "entries": 6,
+            "equal": true
+          },
+          "canonical_parents": {
+            "entries": 5,
+            "equal": true
+          },
+          "mapping_version": {
+            "value": "3.0",
+            "equal": true
+          }
+        }
+      }
+    ],
+    "pair2": [
+      {
+        "stage": 0,
+        "rdf_triples": 254,
+        "hashes_verified": true,
+        "categories": {
+          "versions": {
+            "entries": 2,
+            "equal": true
+          },
+          "types": {
+            "entries": 10,
+            "equal": true
+          },
+          "equipment": {
+            "entries": 4,
+            "equal": true
+          },
+          "ports": {
+            "entries": 14,
+            "equal": true
+          },
+          "fields": {
+            "entries": 6,
+            "equal": true
+          },
+          "boundaries": {
+            "entries": 7,
+            "equal": true
+          },
+          "type_maps": {
+            "entries": 6,
+            "equal": true
+          },
+          "canonical_parents": {
+            "entries": 5,
+            "equal": true
+          },
+          "mapping_version": {
+            "value": "1.0",
+            "equal": true
+          }
+        }
+      },
+      {
+        "stage": 1,
+        "rdf_triples": 262,
+        "hashes_verified": true,
+        "categories": {
+          "versions": {
+            "entries": 2,
+            "equal": true
+          },
+          "types": {
+            "entries": 12,
+            "equal": true
+          },
+          "equipment": {
+            "entries": 4,
+            "equal": true
+          },
+          "ports": {
+            "entries": 14,
+            "equal": true
+          },
+          "fields": {
+            "entries": 6,
+            "equal": true
+          },
+          "boundaries": {
+            "entries": 7,
+            "equal": true
+          },
+          "type_maps": {
+            "entries": 6,
+            "equal": true
+          },
+          "canonical_parents": {
+            "entries": 5,
+            "equal": true
+          },
+          "mapping_version": {
+            "value": "2.0",
+            "equal": true
+          }
+        }
+      },
+      {
+        "stage": 2,
+        "rdf_triples": 262,
+        "hashes_verified": true,
+        "categories": {
+          "versions": {
+            "entries": 2,
+            "equal": true
+          },
+          "types": {
+            "entries": 12,
+            "equal": true
+          },
+          "equipment": {
+            "entries": 4,
+            "equal": true
+          },
+          "ports": {
+            "entries": 14,
+            "equal": true
+          },
+          "fields": {
+            "entries": 6,
+            "equal": true
+          },
+          "boundaries": {
+            "entries": 7,
+            "equal": true
+          },
+          "type_maps": {
+            "entries": 6,
+            "equal": true
+          },
+          "canonical_parents": {
+            "entries": 5,
+            "equal": true
+          },
+          "mapping_version": {
+            "value": "3.0",
+            "equal": true
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,1490 @@
+{
+  "backend": "rdf",
+  "case": {
+    "ambient": 15,
+    "error_contains": null,
+    "expected": "accept",
+    "id": "S6_compatible_15",
+    "task": "S6",
+    "variant": "compatible"
+  },
+  "observed": {
+    "boundary_calls": {
+      "cold_reheat": 2,
+      "condensate": 2,
+      "gt_exhaust": 2,
+      "hot_reheat": 2,
+      "hp_steam": 2,
+      "lp_steam": 2,
+      "st_exhaust": 2
+    },
+    "current_result_published": true,
+    "evidence": {
+      "export": {
+        "consumers": [
+          "output_contract",
+          "publisher",
+          "query",
+          "warning_export"
+        ],
+        "record": {
+          "device": "HPSH-001",
+          "field": "hpsh_hoop_stress_MPa_v2",
+          "unit": "MPa",
+          "value": 66.6,
+          "version": "2",
+          "warnings": []
+        },
+        "retrieved": {
+          "device": "HPSH-001",
+          "field": "hpsh_hoop_stress_MPa_v2",
+          "unit": "MPa",
+          "value": "66.6",
+          "version": "2"
+        }
+      },
+      "mechanical": {
+        "diagnoses": [
+          {
+            "fault_id": "F-04",
+            "fault_name": "HRSG tube fouling",
+            "likelihood": 0.37059051346450445,
+            "posterior": 0.23597167024957882,
+            "prior": 0.2,
+            "recommendation": "HRSG gas-side cleaning (soot blowing). Check economizer fin condition."
+          },
+          {
+            "fault_id": "F-01",
+            "fault_name": "Compressor fouling",
+            "likelihood": 0.2781755259357852,
+            "posterior": 0.22140860698229087,
+            "prior": 0.25,
+            "recommendation": "Compressor borescope inspection recommended. Check intake filter dP."
+          },
+          {
+            "fault_id": "F-03",
+            "fault_name": "Combustor degradation",
+            "likelihood": 0.7713624310270756,
+            "posterior": 0.19646447990867807,
+            "prior": 0.08,
+            "recommendation": "Combustion tuning required. Check fuel nozzle wear and flame monitor."
+          },
+          {
+            "fault_id": "F-06",
+            "fault_name": "Condenser fouling",
+            "likelihood": 0.2449489742783178,
+            "posterior": 0.11697753278817812,
+            "prior": 0.15,
+            "recommendation": "Condenser tube cleaning. Check CW chemistry and biofouling."
+          },
+          {
+            "fault_id": "F-08",
+            "fault_name": "Sensor drift",
+            "likelihood": 0.3,
+            "posterior": 0.06685822889683588,
+            "prior": 0.07,
+            "recommendation": "Sensor calibration check. Compare redundant instruments."
+          },
+          {
+            "fault_id": "F-07",
+            "fault_name": "CW system degradation",
+            "likelihood": 0.2,
+            "posterior": 0.06367450371127227,
+            "prior": 0.1,
+            "recommendation": "CT fill inspection. Check CWP vibration and performance curve."
+          },
+          {
+            "fault_id": "F-02",
+            "fault_name": "GT blade erosion",
+            "likelihood": 0.181712059283214,
+            "posterior": 0.057852125966059674,
+            "prior": 0.1,
+            "recommendation": "GT hot gas path inspection. Check TBC condition and blade profile."
+          },
+          {
+            "fault_id": "F-05",
+            "fault_name": "ST blade erosion",
+            "likelihood": 0.2562586223338541,
+            "posterior": 0.04079285149710628,
+            "prior": 0.05,
+            "recommendation": "ST LP section inspection. Check last-stage blade erosion pattern."
+          }
+        ],
+        "mechanics": [
+          {
+            "device_id": "COMB-001",
+            "device_type": "Combustor",
+            "outputs": {
+              "mech_comb_combined_life_fraction": 0.0,
+              "mech_comb_fatigue_life_fraction": 0.0,
+              "mech_comb_hour_life_fraction": 0.0,
+              "mech_comb_liner_temp_C": 1173.5,
+              "mech_comb_remaining_life_hr": 16000.0,
+              "mech_comb_remaining_starts": 3852
+            },
+            "status": "ACTIVE_UNCERTAIN",
+            "uncertain_params": [
+              "N_f_design_starts",
+              "coffin_manson_exponent",
+              "delta_T_start_C",
+              "inspection_interval_hr",
+              "liner_material",
+              "liner_temp_ratio"
+            ],
+            "warnings": []
+          },
+          {
+            "device_id": "COMP-001",
+            "device_type": "Compressor",
+            "outputs": {
+              "mech_comp_degradation_rate_pct_khr": 0.2,
+              "mech_comp_efficiency_current": 0.87,
+              "mech_comp_remaining_life_hr": 35000.0,
+              "mech_comp_surge_margin_pct": 15.0
+            },
+            "status": "ACTIVE_UNCERTAIN",
+            "uncertain_params": [
+              "bearing_span_mm",
+              "blade_material",
+              "design_rpm",
+              "first_critical_rpm",
+              "k_degradation_per_khr",
+              "polytropic_efficiency_design",
+              "pressure_ratio_design",
+              "rotor_mass_kg",
+              "stage_count",
+              "surge_margin_design_pct"
+            ],
+            "warnings": []
+          },
+          {
+            "device_id": "EXP-001",
+            "device_type": "GT_Turbine",
+            "outputs": {
+              "mech_gt_blade_temp_C": 785.8,
+              "mech_gt_creep_life_fraction": 0.0,
+              "mech_gt_creep_rupture_hr": 8204701.0,
+              "mech_gt_eoh_consumed": 0.0,
+              "mech_gt_eoh_remaining": 24000.0
+            },
+            "status": "ACTIVE_UNCERTAIN",
+            "uncertain_params": [
+              "TIT_design_C",
+              "blade_material",
+              "cooling_air_fraction",
+              "cooling_effectiveness",
+              "design_stress_MPa",
+              "eoh_per_start",
+              "hot_gas_path_eoh",
+              "larson_miller_C",
+              "larson_miller_LMP_rupture",
+              "major_inspection_eoh",
+              "stage_count"
+            ],
+            "warnings": []
+          },
+          {
+            "device_id": "HPSH-001",
+            "device_type": "HRSG_Superheater",
+            "outputs": {
+              "hpsh_hoop_stress_MPa_v2": 66.6,
+              "mech_hpsh_creep_life_fraction": 0.0,
+              "mech_hpsh_creep_rupture_hr": 3513225.0,
+              "mech_hpsh_fouling_factor": 0.0002,
+              "mech_hpsh_metal_temp_C": 585.6
+            },
+            "status": "ACTIVE_UNCERTAIN",
+            "uncertain_params": [
+              "design_pressure_MPa",
+              "design_temp_C",
+              "fouling_factor_design",
+              "k_fouling_per_khr",
+              "larson_miller_C",
+              "larson_miller_LMP_rupture",
+              "tube_OD_mm",
+              "tube_material",
+              "tube_wall_mm"
+            ],
+            "warnings": []
+          },
+          {
+            "device_id": "HPTURB",
+            "device_type": "HP_ST",
+            "outputs": {
+              "mech_hpst_erosion_depth_mm": 0.0,
+              "mech_hpst_erosion_rate_mm_khr": 0.00319,
+              "mech_hpst_moisture_loss_pct": 0.0,
+              "mech_hpst_remaining_life_hr": 626708.0,
+              "mech_hpst_steam_velocity_m_s": 250.7
+            },
+            "status": "ACTIVE_UNCERTAIN",
+            "uncertain_params": [
+              "blade_chord_mm",
+              "blade_material",
+              "erosion_rate_coeff",
+              "erosion_velocity_exponent",
+              "inlet_pressure_MPa",
+              "inlet_temp_C",
+              "max_erosion_depth_mm",
+              "reference_velocity_m_s",
+              "reheat_temp_C"
+            ],
+            "warnings": []
+          },
+          {
+            "device_id": "RH-001",
+            "device_type": "Reheater",
+            "outputs": {
+              "mech_rh_creep_life_fraction": 0.0,
+              "mech_rh_creep_rupture_hr": -1,
+              "mech_rh_fouling_factor": 0.0002,
+              "mech_rh_hoop_stress_MPa": 13.42,
+              "mech_rh_metal_temp_C": 536.3
+            },
+            "status": "ACTIVE_UNCERTAIN",
+            "uncertain_params": [
+              "design_pressure_MPa",
+              "design_temp_C",
+              "fouling_factor_design",
+              "k_fouling_per_khr",
+              "larson_miller_C",
+              "larson_miller_LMP_rupture",
+              "tube_OD_mm",
+              "tube_material",
+              "tube_wall_mm"
+            ],
+            "warnings": []
+          }
+        ],
+        "model_versions": {},
+        "observations": {
+          "PTD_HP": 38.513991423703715,
+          "P_cond": 0.00677,
+          "T_stack": 146.24762070628424,
+          "W_GT": 367724.0803469602,
+          "W_GT_pct": 1.5251464237880263,
+          "W_ST": 192564.80998329158,
+          "W_ST_pct": -4.906266674917736,
+          "W_net": 550668.8903302518,
+          "W_net_pct": -5.271370566881162,
+          "eta_comp": 0.845,
+          "eta_turb": 0.876,
+          "mech_comp_surge_margin_pct": 15.0,
+          "x_28": 0.9083373407494784
+        },
+        "process_only_diagnoses": [
+          {
+            "fault_id": "F-01",
+            "fault_name": "Compressor fouling",
+            "likelihood": 0.39122376095232714,
+            "posterior": 0.28568196399708173,
+            "prior": 0.25,
+            "recommendation": "Compressor borescope inspection recommended. Check intake filter dP."
+          },
+          {
+            "fault_id": "F-04",
+            "fault_name": "HRSG tube fouling",
+            "likelihood": 0.37059051346450445,
+            "posterior": 0.21649201565367618,
+            "prior": 0.2,
+            "recommendation": "HRSG gas-side cleaning (soot blowing). Check economizer fin condition."
+          },
+          {
+            "fault_id": "F-03",
+            "fault_name": "Combustor degradation",
+            "likelihood": 0.7713624310270756,
+            "posterior": 0.18024617622443936,
+            "prior": 0.08,
+            "recommendation": "Combustion tuning required. Check fuel nozzle wear and flame monitor."
+          },
+          {
+            "fault_id": "F-06",
+            "fault_name": "Condenser fouling",
+            "likelihood": 0.2449489742783178,
+            "posterior": 0.10732094167372566,
+            "prior": 0.15,
+            "recommendation": "Condenser tube cleaning. Check CW chemistry and biofouling."
+          },
+          {
+            "fault_id": "F-08",
+            "fault_name": "Sensor drift",
+            "likelihood": 0.3,
+            "posterior": 0.06133902735697864,
+            "prior": 0.07,
+            "recommendation": "Sensor calibration check. Compare redundant instruments."
+          },
+          {
+            "fault_id": "F-07",
+            "fault_name": "CW system degradation",
+            "likelihood": 0.2,
+            "posterior": 0.05841812129236062,
+            "prior": 0.1,
+            "recommendation": "CT fill inspection. Check CWP vibration and performance curve."
+          },
+          {
+            "fault_id": "F-02",
+            "fault_name": "GT blade erosion",
+            "likelihood": 0.181712059283214,
+            "posterior": 0.053076385597457074,
+            "prior": 0.1,
+            "recommendation": "GT hot gas path inspection. Check TBC condition and blade profile."
+          },
+          {
+            "fault_id": "F-05",
+            "fault_name": "ST blade erosion",
+            "likelihood": 0.2562586223338541,
+            "posterior": 0.037425368204280794,
+            "prior": 0.05,
+            "recommendation": "ST LP section inspection. Check last-stage blade erosion pattern."
+          }
+        ],
+        "provenance": {
+          "PTD_HP": "process_result",
+          "P_cond": "process_result",
+          "T_stack": "process_result",
+          "W_GT": "process_result",
+          "W_GT_pct": "derived_from_process_result",
+          "W_ST": "process_result",
+          "W_ST_pct": "derived_from_process_result",
+          "W_net": "process_result",
+          "W_net_pct": "derived_from_process_result",
+          "eta_comp": "model_parameter_not_sensor",
+          "eta_turb": "model_parameter_not_sensor",
+          "mech_comp_surge_margin_pct": "computed_mechanical_result",
+          "x_28": "process_result"
+        },
+        "relation_traces": {
+          "COMB-001": [
+            [
+              "http://plantmind.io/ontology/gtcc#COMB-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#Stream-6"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#COMB-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#GT-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#COMB-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#EXP-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#EXP-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#Stream-6"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#EXP-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#Stream-7"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#EXP-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#GT-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#EXP-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#GEN-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#GEN-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#GT-001"
+            ]
+          ],
+          "COMP-001": [
+            [
+              "http://plantmind.io/ontology/gtcc#COMB-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#Stream-3"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#COMB-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#Stream-6"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#COMB-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#GT-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#COMB-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#EXP-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#COMP-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#Stream-3"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#COMP-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#Stream-bleed"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#COMP-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#GT-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#COMP-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#COMB-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#EXP-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#Stream-6"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#EXP-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#Stream-bleed"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#EXP-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#Stream-7"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#EXP-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#GT-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#EXP-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#GEN-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#GEN-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#GT-001"
+            ]
+          ],
+          "EXP-001": [
+            [
+              "http://plantmind.io/ontology/gtcc#EXP-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#Stream-7"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#EXP-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#GT-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#EXP-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#GEN-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#GEN-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#GT-001"
+            ]
+          ],
+          "HPSH-001": [
+            [
+              "http://plantmind.io/ontology/gtcc#HPEC-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S11"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEC-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S12"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEC-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S18"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEC-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEC-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#IPEV-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S18"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S9"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S10"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S19"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEV-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEV-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#IPSH-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPSH-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S19"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPSH-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#IS-01"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPSH-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S8"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPSH-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPSH-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#RH-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#IS-01"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#IS-03"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#IS-05"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S16"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEC-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S13"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEC-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S14"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEC-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S21"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEC-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEC-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#LPEV-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S12"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S21"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S13"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S22"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEV-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEV-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#IPEC-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPMX-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#IS-04"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPMX-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S24"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPMX-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#IS-03"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPMX-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPSH-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S10"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPSH-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S22"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPSH-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#IS-04"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPSH-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S11"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPSH-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPSH-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#HPEC-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#LPEC-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S15"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#LPEC-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S16"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#LPEC-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S23"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#LPEC-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#LPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S14"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#LPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#IS-05"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#LPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S15"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#LPEV-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#LPEV-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#LPEC-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#RH-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S8"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#RH-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S24"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#RH-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S9"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#RH-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#RH-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#HPEV-001"
+            ]
+          ],
+          "HPTURB": [
+            [
+              "http://plantmind.io/ontology/gtcc#CRH",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#ST-M3"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPTURB",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#ST-M3"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPTURB",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#CRH"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPTURB",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#STGEN"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#STGEN",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#ST-M3"
+            ]
+          ],
+          "RH-001": [
+            [
+              "http://plantmind.io/ontology/gtcc#HPEC-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S11"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEC-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S12"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEC-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S18"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEC-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEC-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#IPEV-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S18"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S9"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S10"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S19"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEV-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPEV-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#IPSH-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPSH-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S19"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPSH-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#IS-01"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPSH-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S8"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPSH-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HPSH-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#RH-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#IS-01"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#IS-03"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#IS-05"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S16"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEC-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S13"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEC-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S14"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEC-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S21"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEC-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEC-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#LPEV-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S12"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S21"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S13"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S22"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEV-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPEV-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#IPEC-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPMX-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#IS-04"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPMX-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S24"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPMX-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#IS-03"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPMX-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPSH-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S10"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPSH-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S22"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPSH-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#IS-04"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPSH-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S11"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPSH-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#IPSH-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#HPEC-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#LPEC-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S15"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#LPEC-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S16"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#LPEC-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S23"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#LPEC-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#LPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S14"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#LPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#IS-05"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#LPEV-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S15"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#LPEV-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#LPEV-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#LPEC-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#RH-001",
+              "http://plantmind.io/ontology/gtcc#has_inlet_stream",
+              "http://plantmind.io/ontology/gtcc#S8"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#RH-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S24"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#RH-001",
+              "http://plantmind.io/ontology/gtcc#has_outlet_stream",
+              "http://plantmind.io/ontology/gtcc#S9"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#RH-001",
+              "http://plantmind.io/ontology/gtcc#part_of",
+              "http://plantmind.io/ontology/gtcc#HRSG-M2-001"
+            ],
+            [
+              "http://plantmind.io/ontology/gtcc#RH-001",
+              "http://plantmind.io/ontology/gtcc#upstream_of",
+              "http://plantmind.io/ontology/gtcc#HPEV-001"
+            ]
+          ]
+        },
+        "routing": [
+          {
+            "declared_status": "PARTIAL",
+            "device_id": "COMB-001",
+            "explicit_parameters": [],
+            "model": "CombustorHybridModel",
+            "reference_parameters": [
+              "N_f_design_starts",
+              "coffin_manson_exponent",
+              "delta_T_start_C",
+              "inspection_interval_hr",
+              "liner_material",
+              "liner_temp_ratio"
+            ],
+            "result_status": "ACTIVE_UNCERTAIN"
+          },
+          {
+            "declared_status": "PARTIAL",
+            "device_id": "COMP-001",
+            "explicit_parameters": [],
+            "model": "CompressorHybridModel",
+            "reference_parameters": [
+              "bearing_span_mm",
+              "blade_material",
+              "design_rpm",
+              "first_critical_rpm",
+              "k_degradation_per_khr",
+              "polytropic_efficiency_design",
+              "pressure_ratio_design",
+              "rotor_mass_kg",
+              "stage_count",
+              "surge_margin_design_pct"
+            ],
+            "result_status": "ACTIVE_UNCERTAIN"
+          },
+          {
+            "declared_status": "PARTIAL",
+            "device_id": "EXP-001",
+            "explicit_parameters": [],
+            "model": "GTTurbineHybridModel",
+            "reference_parameters": [
+              "TIT_design_C",
+              "blade_material",
+              "cooling_air_fraction",
+              "cooling_effectiveness",
+              "design_stress_MPa",
+              "eoh_per_start",
+              "hot_gas_path_eoh",
+              "larson_miller_C",
+              "larson_miller_LMP_rupture",
+              "major_inspection_eoh",
+              "stage_count"
+            ],
+            "result_status": "ACTIVE_UNCERTAIN"
+          },
+          {
+            "declared_status": "PARTIAL",
+            "device_id": "HPSH-001",
+            "explicit_parameters": [],
+            "model": "HRSGSuperheaterHybridModel",
+            "reference_parameters": [
+              "design_pressure_MPa",
+              "design_temp_C",
+              "fouling_factor_design",
+              "k_fouling_per_khr",
+              "larson_miller_C",
+              "larson_miller_LMP_rupture",
+              "tube_OD_mm",
+              "tube_material",
+              "tube_wall_mm"
+            ],
+            "result_status": "ACTIVE_UNCERTAIN"
+          },
+          {
+            "declared_status": "PARTIAL",
+            "device_id": "HPTURB",
+            "explicit_parameters": [],
+            "model": "HPSTurbineHybridModel",
+            "reference_parameters": [
+              "blade_chord_mm",
+              "blade_material",
+              "erosion_rate_coeff",
+              "erosion_velocity_exponent",
+              "inlet_pressure_MPa",
+              "inlet_temp_C",
+              "max_erosion_depth_mm",
+              "reference_velocity_m_s",
+              "reheat_temp_C"
+            ],
+            "result_status": "ACTIVE_UNCERTAIN"
+          },
+          {
+            "declared_status": "PARTIAL",
+            "device_id": "RH-001",
+            "explicit_parameters": [],
+            "model": "ReheaterHybridModel",
+            "reference_parameters": [
+              "design_pressure_MPa",
+              "design_temp_C",
+              "fouling_factor_design",
+              "k_fouling_per_khr",
+              "larson_miller_C",
+              "larson_miller_LMP_rupture",
+              "tube_OD_mm",
+              "tube_material",
+              "tube_wall_mm"
+            ],
+            "result_status": "ACTIVE_UNCERTAIN"
+          }
+        ],
+        "rule_findings": [
+          {
+            "message": "HP Turbine eta = 0.818 < 0.82: possible degradation",
+            "rule_id": "R-02",
+            "severity": "WARNING",
+            "threshold": 0.82,
+            "unit": "HP Turbine",
+            "value": 0.8177671638648989
+          }
+        ],
+        "warnings": []
+      },
+      "physical": {
+        "Q_condenser_kW": 301684.0179195704,
+        "Q_fuel_kW": 994889.0546658194,
+        "T_stack_C": 146.24762070628424,
+        "W_GT_kW": 367724.0803469602,
+        "W_ST_kW": 192564.80998329158,
+        "W_net_kW": 550668.8903302518,
+        "boundary_calls": {
+          "cold_reheat": 2,
+          "condensate": 2,
+          "gt_exhaust": 2,
+          "hot_reheat": 2,
+          "hp_steam": 2,
+          "lp_steam": 2,
+          "st_exhaust": 2
+        },
+        "converged": true,
+        "cycle_water_audit": {
+          "assumptions": [
+            "All non-gland HP bleed heats ideal adiabatic DA; no vent",
+            "Drum blowdown purged; no heat recovery; makeup replaces purge",
+            "Gland steam condensed externally and returned; heat reported separately",
+            "No vendor UA or full internal-pinch validation"
+          ],
+          "blowdown_enthalpy_rate_kW": 4320.537260287507,
+          "blowdown_kg_hr": 10470.42857142855,
+          "deaerator_energy_residual_kW": 0.0,
+          "deaerator_mass_residual_kg_hr": 5.820766091346741e-11,
+          "deaerator_outlet_h_J_kg": 685407.6402086455,
+          "external_energy_residual_kW": 4.679508492699824e-06,
+          "external_mass_residual_kg_hr": 2.1827872842550278e-11,
+          "extraction_to_da_kg_hr": 15794.0,
+          "feedwater_kg_hr": 523521.4285714285,
+          "gland_heat_rejection_kW": 506.3370148726113,
+          "gland_supply_kg_hr": 635.0,
+          "imposed_returns_and_makeup_kg_hr": 11105.428571428572,
+          "makeup_enthalpy_rate_kW": 183.4559587347062,
+          "makeup_required_kg_hr": 10470.42857142855,
+          "net_boundary_inflow_kg_hr": 5.820766091346741e-11,
+          "scope": "linked_steady_water_circuit",
+          "whole_cycle_closed": true
+        },
+        "eta_net": 0.5534977872635457,
+        "hrsg_endpoint_screen_passed": true,
+        "hrsg_local_balances_passed": true,
+        "iterations": 2,
+        "operating_point": {
+          "GT_efficiency": 0.3696131529665665,
+          "GT_exhaust_T_C": 636.4229129248063,
+          "GT_power_kW": 367724.0803469602,
+          "HP_steam_P_MPa": 16.65,
+          "HP_steam_T_C": 565.5999999997904,
+          "ST_power_kW": 192564.80998329158,
+          "TIT_C": 1303.8784510013352,
+          "compressor_inlet_P_MPa": 0.1013,
+          "compressor_inlet_T_C": 15,
+          "compressor_outlet_P_MPa": 1.83353,
+          "compressor_outlet_T_C": 440.37431532970265,
+          "condenser_pressure_kPa": 6.77,
+          "cumulative_hours": 0.0,
+          "load_factor": 1.0,
+          "mass_flow_kg_s": 876.3152777777777,
+          "reheat_steam_P_MPa": 2.415,
+          "reheat_steam_T_C": 506.2885036634988,
+          "start_stop_count": 0
+        },
+        "residual": 0.0,
+        "streams": {
+          "cold_reheat": {
+            "P": 2.482,
+            "T": 308.79999999982965,
+            "h": 3031272.0528211035,
+            "m_dot": 376455.0,
+            "s": 6686.582817945399,
+            "w": {
+              "H2O": 1.0
+            }
+          },
+          "condensate": {
+            "P": 0.896,
+            "T": 38.45744572041133,
+            "h": 161876.51703344073,
+            "m_dot": 507727.4285714286,
+            "s": 551.4281169555879,
+            "w": {
+              "H2O": 1.0
+            }
+          },
+          "gt_exhaust": {
+            "P": 0.1048,
+            "T": 636.4229129248063,
+            "h": 685727.7850730864,
+            "m_dot": 3230636.0,
+            "s": 8076.86573469198,
+            "w": {
+              "Ar": 0.008983866122952485,
+              "CO2": 0.062475833571997624,
+              "H2O": 0.05866994232352177,
+              "N2": 0.7556412717787669,
+              "O2": 0.11422908620276115
+            }
+          },
+          "hot_reheat": {
+            "P": 2.415,
+            "T": 506.2885036634988,
+            "h": 3477667.0219122753,
+            "m_dot": 454350.0,
+            "s": 7360.283888275888,
+            "w": {
+              "H2O": 1.0
+            }
+          },
+          "hp_steam": {
+            "P": 16.65,
+            "T": 565.5999999997904,
+            "h": 3475882.6816898827,
+            "m_dot": 392884.0,
+            "s": 6510.114034270433,
+            "w": {
+              "H2O": 1.0
+            }
+          },
+          "lp_steam": {
+            "P": 0.655,
+            "T": 162.2846835656659,
+            "h": 2759927.503193181,
+            "m_dot": 42272.0,
+            "s": 6729.591728787005,
+            "w": {
+              "H2O": 1.0
+            }
+          },
+          "st_exhaust": {
+            "P": 0.00677,
+            "T": 38.37888457506426,
+            "h": 2349716.014907535,
+            "m_dot": 496622.0,
+            "s": 7577.213409514435,
+            "w": {
+              "H2O": 1.0
+            }
+          }
+        },
+        "validation_scope": {
+          "calibration_targets": [
+            "ST design gross power 202500 kW",
+            "cold reheat temperature 308.8 C"
+          ],
+          "energy_balance_note": "Unaccounted energy is a signed residual, not independently calculated radiation loss.",
+          "feedwater_whole_cycle_closed": true,
+          "field_validated": false,
+          "hrsg_endpoint_screen_passed": true,
+          "hrsg_local_balances_passed": true,
+          "independent_validation": false,
+          "part_load_thermodynamics_supported": false,
+          "st_efficiency_basis": "NETL_design_point_calibration_fixed_across_cases_not_refitted_for_bounded_hrsg",
+          "status": "water_cycle_balanced_prototype"
+        }
+      }
+    },
+    "first_payloads": {
+      "cold_reheat": {
+        "boundary": "cold_reheat",
+        "source": "ST",
+        "target": "HRSG",
+        "units": {
+          "P": "MPa",
+          "T": "degC",
+          "h": "J/kg",
+          "m_dot": "kg/hr"
+        },
+        "values": {
+          "P": 2.689,
+          "T": 308.8,
+          "h": 3025437.1985999118,
+          "m_dot": 376455.0
+        },
+        "version": "1"
+      },
+      "condensate": {
+        "boundary": "condensate",
+        "source": "Condenser",
+        "target": "HRSG",
+        "units": {
+          "P": "MPa",
+          "T": "degC",
+          "h": "J/kg",
+          "m_dot": "kg/hr"
+        },
+        "values": {
+          "P": 0.896,
+          "T": 38.4,
+          "h": 161636.54791855262,
+          "m_dot": 507727.4285714286
+        },
+        "version": "1"
+      },
+      "gt_exhaust": {
+        "boundary": "gt_exhaust",
+        "source": "GT",
+        "target": "HRSG",
+        "units": {
+          "P": "MPa",
+          "T": "degC",
+          "h": "J/kg",
+          "m_dot": "kg/hr"
+        },
+        "values": {
+          "P": 0.1048,
+          "T": 636.4229129248063,
+          "h": 685727.7850730864,
+          "m_dot": 3230636.0
+        },
+        "version": "1"
+      },
+      "hot_reheat": {
+        "boundary": "hot_reheat",
+        "source": "HRSG",
+        "target": "ST",
+        "units": {
+          "P": "MPa",
+          "T": "degC",
+          "h": "J/kg",
+          "m_dot": "kg/hr"
+        },
+        "values": {
+          "P": 2.482,
+          "T": 505.7877813596225,
+          "h": 3475830.6812876114,
+          "m_dot": 454350.0
+        },
+        "version": "1"
+      },
+      "hp_steam": {
+        "boundary": "hp_steam",
+        "source": "HRSG",
+        "target": "ST",
+        "units": {
+          "P": "MPa",
+          "T": "degC",
+          "h": "J/kg",
+          "m_dot": "kg/hr"
+        },
+        "values": {
+          "P": 16.65,
+          "T": 565.5999999997904,
+          "h": 3475882.6816898827,
+          "m_dot": 392884.0
+        },
+        "version": "1"
+      },
+      "lp_steam": {
+        "boundary": "lp_steam",
+        "source": "HRSG",
+        "target": "ST",
+        "units": {
+          "P": "MPa",
+          "T": "degC",
+          "h": "J/kg",
+          "m_dot": "kg/hr"
+        },
+        "values": {
+          "P": 0.655,
+          "T": 162.2846835656659,
+          "h": 2759927.503193181,
+          "m_dot": 42272.0
+        },
+        "version": "1"
+      },
+      "st_exhaust": {
+        "boundary": "st_exhaust",
+        "source": "ST",
+        "target": "Condenser",
+        "units": {
+          "P": "MPa",
+          "T": "degC",
+          "h": "J/kg",
+          "m_dot": "kg/hr"
+        },
+        "values": {
+          "P": 0.00677,
+          "T": 38.37888457506426,
+          "h": 2345577.750528914,
+          "m_dot": 496622.0
+        },
+        "version": "1"
+      }
+    },
+    "matches_frozen_oracle": true,
+    "outcome": "accept",
+    "stage": "published"
+  },
+  "wall_seconds_context_only": 0.09617145801894367
+}

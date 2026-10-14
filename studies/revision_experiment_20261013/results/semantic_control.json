@@ -1,0 +1,41 @@
+{
+  "rows": [
+    {
+      "backend": "rdf",
+      "mode": "transitive",
+      "expected": true,
+      "observed": true
+    },
+    {
+      "backend": "rdf",
+      "mode": "asserted_only",
+      "expected": false,
+      "observed": false
+    },
+    {
+      "backend": "rdf",
+      "mode": "prematerialized_assertions",
+      "expected": true,
+      "observed": true
+    },
+    {
+      "backend": "json",
+      "mode": "transitive",
+      "expected": true,
+      "observed": true
+    },
+    {
+      "backend": "json",
+      "mode": "asserted_only",
+      "expected": false,
+      "observed": false
+    },
+    {
+      "backend": "json",
+      "mode": "prematerialized_assertions",
+      "expected": true,
+      "observed": true
+    }
+  ],
+  "interpretation": "Both representations require ancestry traversal or explicitly materialized type information. This isolates hierarchy capability, not RDF superiority."
+}

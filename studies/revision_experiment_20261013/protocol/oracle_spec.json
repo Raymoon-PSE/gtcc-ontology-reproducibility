@@ -1,0 +1,14 @@
+{
+  "ambient_C": [
+    5,
+    15,
+    25
+  ],
+  "atol": 1e-06,
+  "expected_case_count": 28,
+  "external_energy_atol_kW": 0.01,
+  "external_mass_atol_kg_hr": 1e-06,
+  "failures_are_not_validation_rejections": true,
+  "physics": "linked",
+  "rtol": 1e-10
+}

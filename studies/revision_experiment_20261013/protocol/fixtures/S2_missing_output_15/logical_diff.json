@@ -1,0 +1,20 @@
+{
+  "added": [
+    [
+      "HPTURB",
+      "version",
+      "2"
+    ]
+  ],
+  "affected_subjects": 1,
+  "changed_slots": 1,
+  "interpretation": "representation-independent authored configuration changes; not measured developer effort",
+  "logical_fact_operations": 2,
+  "removed": [
+    [
+      "HPTURB",
+      "version",
+      "1"
+    ]
+  ]
+}

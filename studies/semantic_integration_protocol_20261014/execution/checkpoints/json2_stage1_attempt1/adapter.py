@@ -1,0 +1,236 @@
+"""Independent indexed-JSON provider registry and contract consumers."""
+import copy
+import json
+import math
+from pathlib import Path
+
+REQUIRED = {'gt_exhaust', 'hp_steam', 'hot_reheat', 'lp_steam', 'st_exhaust', 'cold_reheat', 'condensate'}
+QUANTITIES = {'temperature': 'T', 'pressure': 'P', 'mass_flow': 'm_dot'}
+UNITS = {'temperature': {'degC', 'K'}, 'pressure': {'Pa', 'bar', 'MPa'}, 'mass_flow': {'kg/s', 'kg/h'}}
+
+class ContractError(ValueError):
+    def __init__(self, code, detail):
+        super().__init__(detail)
+        self.code = code
+
+def require(condition, code, detail):
+    if not condition:
+        raise ContractError(code, detail)
+
+def rejection(exc):
+    return {'status': 'rejected', 'error': {'code': exc.code, 'detail': str(exc)}}
+
+def name(value):
+    require(isinstance(value, str) and bool(value), 'INVALID_SCHEMA', 'Expected nonempty identifier')
+    return value
+
+def number(value):
+    require(type(value) in (int, float), 'INVALID_VALUE', 'Expected numeric value, excluding booleans')
+    try:
+        require(math.isfinite(value), 'INVALID_VALUE', 'Nonfinite numeric value')
+    except OverflowError:
+        raise ContractError('INVALID_VALUE', 'Numeric value exceeds finite range')
+    return value
+
+def normalize_quantity(quantity, value, unit):
+    require(isinstance(quantity, str) and quantity in UNITS and isinstance(unit, str) and unit in UNITS[quantity], 'INCOMPATIBLE_UNIT', 'Unsupported quantity/unit combination')
+    number(value)
+    if quantity == 'temperature':
+        result = value - 273.15 if unit == 'K' else value
+        require(result > -273.15, 'INVALID_VALUE', 'Temperature must exceed absolute zero')
+    elif quantity == 'pressure':
+        result = value * {'Pa': 1e-6, 'bar': .1, 'MPa': 1}[unit]
+        require(result > 0, 'INVALID_VALUE', 'Pressure must be positive')
+    else:
+        result = value * (3600 if unit == 'kg/s' else 1)
+        require(result >= 0, 'INVALID_VALUE', 'Mass flow must be nonnegative')
+    number(result)
+    return result
+
+def insert(index, key, value, code='AMBIGUOUS_MAPPING'):
+    require(key not in index or index[key] == value, code, 'Contradictory assertions for ' + repr(key))
+    index[key] = value
+
+def endpoint_key(record):
+    require(isinstance(record, dict), 'INVALID_SCHEMA', 'Endpoint must be an object')
+    require('namespace' in record, 'AMBIGUOUS_MAPPING', 'Endpoint namespace omitted')
+    return tuple(name(record[k]) for k in ('provider_id', 'namespace', 'local_port_id'))
+
+def closure(parents, node):
+    visited = set()
+    while node is not None:
+        require(node in parents, 'UNRESOLVED_CLASS', 'Unknown class ' + str(node))
+        require(node not in visited, 'UNRESOLVED_CLASS', 'Cyclic ancestry')
+        visited.add(node)
+        node = parents[node]
+    return visited
+
+class Registry:
+    """Qualified tuple indexes, parent graph traversal, and explicit semantic joins."""
+    def __init__(self, providers, mapping, canonical, versions):
+        require(isinstance(providers, list) and isinstance(versions, dict), 'INVALID_SCHEMA', 'Invalid providers/versions')
+        self.providers = {}
+        self.types = {}
+        self.equipment = {}
+        self.ports = {}
+        self.fields = {}
+        self.boundaries = {}
+        for provider in providers:
+            pid = name(provider['provider_id'])
+            insert(self.providers, pid, provider, 'INVALID_SCHEMA')
+        actual = {pid: p['version'] for pid, p in self.providers.items()}
+        require(actual == versions == mapping['provider_versions'] and all(isinstance(v, str) for v in actual.values()), 'VERSION_MISMATCH', 'Requested, provider and mapping versions differ')
+        require(mapping['mapping_version'] in {'1.0', '2.0', '3.0'} and all(v == mapping['mapping_version'] for v in actual.values()), 'VERSION_MISMATCH', 'Mapping snapshot differs from provider revision')
+        self.versions = dict(actual)
+        # Mapping identity checks precede association with observations.
+        for boundary in mapping['boundaries']:
+            bid = name(boundary['canonical_boundary_id'])
+            pair = (endpoint_key(boundary['producer']), endpoint_key(boundary['consumer']))
+            insert(self.boundaries, bid, pair)
+        require(REQUIRED <= self.boundaries.keys(), 'MISSING_BOUNDARY', 'Required boundary mapping absent')
+        require(self.boundaries.keys() == REQUIRED, 'INVALID_SCHEMA', 'Unknown boundary')
+        used = set()
+        for pair in self.boundaries.values():
+            for key in pair:
+                require(key not in used, 'DUPLICATE_BOUNDARY', 'Endpoint reused: ' + repr(key))
+                used.add(key)
+        for pid, provider in self.providers.items():
+            for entry in provider['types']:
+                tid = name(entry['local_type_id'])
+                parent = entry['parent_type_id']
+                if parent is not None:
+                    parent = (pid, name(parent))
+                insert(self.types, (pid, tid), parent)
+            for entry in provider['equipment']:
+                insert(self.equipment, (pid, name(entry['local_equipment_id'])), (pid, name(entry['local_type_id'])))
+            for fsid, fields in provider['field_sets'].items():
+                name(fsid)
+                quantities = {}
+                for entry in fields:
+                    key = (pid, fsid, name(entry['local_key']))
+                    q, unit = entry['quantity'], entry['unit']
+                    require(isinstance(q, str) and q in UNITS and isinstance(unit, str) and unit in UNITS[q], 'INCOMPATIBLE_UNIT', 'Invalid field dimension or unit')
+                    insert(self.fields, key, (q, unit))
+                    insert(quantities, q, key)
+                require(set(quantities) == set(QUANTITIES), 'INVALID_SCHEMA', 'Field set lacks required quantities')
+            for entry in provider['ports']:
+                require('namespace' in entry, 'AMBIGUOUS_MAPPING', 'Port namespace omitted')
+                key = (pid, name(entry['namespace']), name(entry['local_port_id']))
+                eq = (pid, name(entry['local_equipment_id']))
+                fsid = name(entry['field_set_id'])
+                require(eq in self.equipment and fsid in provider['field_sets'] and entry['direction'] in ('in', 'out'), 'INVALID_SCHEMA', 'Invalid port equipment, field set or direction')
+                insert(self.ports, key, (eq, fsid, entry['direction']))
+        self.local_closures = {key: closure(self.types, key) for key in self.types}
+        for tid in self.equipment.values():
+            require(tid in self.types, 'UNRESOLVED_CLASS', 'Equipment type absent')
+        parents = canonical['canonical_parent']
+        require(isinstance(parents, dict), 'INVALID_SCHEMA', 'Invalid canonical graph')
+        for key, parent in parents.items():
+            name(key)
+            if parent is not None:
+                name(parent)
+        canonical_closures = {key: closure(parents, key) for key in parents}
+        type_targets = {}
+        for entry in canonical['provider_type_mappings']:
+            key = (name(entry['provider']), name(entry['local_type']))
+            target = name(entry['canonical_type'])
+            require(key in self.types and target in parents, 'UNRESOLVED_CLASS', 'Mapping references missing class')
+            insert(type_targets, key, target)
+        self.canonical_closures = {}
+        for key, local in self.local_closures.items():
+            resolved = set()
+            for ancestor in local:
+                if ancestor in type_targets:
+                    resolved.update(canonical_closures[type_targets[ancestor]])
+            self.canonical_closures[key] = resolved
+        field_targets = {}
+        for entry in mapping['field_mappings']:
+            key = (name(entry['provider_id']), name(entry['field_set_id']), name(entry['local_key']))
+            insert(field_targets, key, (entry['canonical_quantity'], entry['declared_unit']))
+        require(field_targets.keys() == self.fields.keys(), 'INVALID_SCHEMA', 'Missing or unknown field mapping')
+        for key, (quantity, unit) in field_targets.items():
+            require(self.fields[key] == (quantity, unit), 'INCOMPATIBLE_UNIT', 'Native declaration disagrees with mapping')
+        for producer, consumer in self.boundaries.values():
+            for key, direction in ((producer, 'out'), (consumer, 'in')):
+                require(key in self.ports, 'INVALID_SCHEMA', 'Mapped port absent')
+                eq, fsid, native_direction = self.ports[key]
+                require(native_direction == direction, 'INVALID_SCHEMA', 'Port direction mismatch')
+                tid = self.equipment[eq]
+                require('EngineeringAsset' in self.canonical_closures[tid], 'UNRESOLVED_CLASS', 'Equipment lacks required canonical ancestry')
+
+    def describe(self, key, payload):
+        eq, fsid, direction = self.ports[key]
+        tid = self.equipment[eq]
+        fields = {alias: spec for (pid, fieldset, alias), spec in self.fields.items() if pid == key[0] and fieldset == fsid}
+        values = payload['fields']
+        require(isinstance(values, dict) and values.keys() == fields.keys(), 'INVALID_SCHEMA', 'Payload aliases differ from declared fields')
+        provenance, normalized = {}, {}
+        for alias, (quantity, unit) in fields.items():
+            role = QUANTITIES[quantity]
+            normalized[role] = normalize_quantity(quantity, values[alias], unit)
+            provenance[role] = {'field': alias, 'unit': unit}
+        composition = payload['composition']
+        require(isinstance(composition, dict) and bool(composition), 'INVALID_VALUE', 'Composition must be nonempty')
+        for species, fraction in composition.items():
+            name(species)
+            number(fraction)
+            require(fraction >= 0, 'INVALID_VALUE', 'Negative composition')
+        require(abs(sum(composition.values()) - 1) <= 1e-8, 'INVALID_VALUE', 'Composition does not sum to unity')
+        normalized['w'] = dict(composition)
+        provenance['w'] = {'field': 'composition', 'unit': 'mass_fraction'}
+        descriptor = dict(zip(('provider_id', 'namespace', 'local_port_id'), key))
+        descriptor.update(schema_version=self.versions[key[0]], local_equipment_id=eq[1], local_type_id=tid[1], local_ancestors=sorted(t[1] for t in self.local_closures[tid]), canonical_ancestors=sorted(self.canonical_closures[tid]), provenance=provenance)
+        return normalized, descriptor
+
+def integrate(providers, boundary_mapping, canonical_classes, payloads, requested_versions):
+    try:
+        registry = Registry(providers, boundary_mapping, canonical_classes, requested_versions)
+        require(isinstance(payloads, list), 'INVALID_SCHEMA', 'Payloads must be a list')
+        observations = {}
+        for payload in payloads:
+            key = endpoint_key(payload['endpoint'])
+            require(key not in observations, 'INVALID_SCHEMA', 'Repeated endpoint observation')
+            require(key[0] in registry.versions and payload['schema_version'] == registry.versions[key[0]], 'VERSION_MISMATCH', 'Observation revision mismatch')
+            observations[key] = payload
+        expected = {key for pair in registry.boundaries.values() for key in pair}
+        require(observations.keys() == expected, 'INVALID_SCHEMA', 'Missing or extra endpoint observations')
+        output = []
+        for bid, (pk, ck) in sorted(registry.boundaries.items()):
+            pv, pd = registry.describe(pk, observations[pk])
+            cv, cd = registry.describe(ck, observations[ck])
+            for quantity in ('T', 'P', 'm_dot'):
+                require(math.isclose(pv[quantity], cv[quantity], rel_tol=1e-10, abs_tol=1e-6), 'INVALID_VALUE', 'Endpoint scalar disagreement')
+            require(pv['w'].keys() == cv['w'].keys() and all(abs(pv['w'][s] - cv['w'][s]) <= 1e-8 for s in pv['w']), 'INVALID_VALUE', 'Endpoint composition disagreement')
+            output.append(dict(boundary_id=bid, **pv, producer=pd, consumer=cd, canonical_ancestors=pd['canonical_ancestors'][:]))
+        return {'status': 'accepted', 'boundaries': output}
+    except ContractError as exc:
+        return rejection(exc)
+    except (KeyError, TypeError, AttributeError, ValueError, OverflowError) as exc:
+        return rejection(ContractError('INVALID_SCHEMA', 'Malformed schema: ' + str(exc)))
+
+def query_all(result):
+    if result.get('status') != 'accepted':
+        return copy.deepcopy(result)
+    return copy.deepcopy(sorted(result['boundaries'], key=lambda b: b['boundary_id']))
+
+def query_by_ancestor(result, canonical_class):
+    if result.get('status') != 'accepted':
+        return copy.deepcopy(result)
+    return [b for b in query_all(result) if canonical_class in b['producer']['canonical_ancestors']]
+
+def query_returns(result, requested_versions):
+    if result.get('status') != 'accepted':
+        return copy.deepcopy(result)
+    actual = {b[role]['provider_id']: b[role]['schema_version'] for b in result['boundaries'] for role in ('producer', 'consumer')}
+    if actual != requested_versions or any(requested_versions.get(b[r]['provider_id']) != b[r]['schema_version'] for b in result['boundaries'] for r in ('producer', 'consumer')):
+        return rejection(ContractError('VERSION_MISMATCH', 'Query versions differ from integrated snapshot'))
+    return [b for b in query_all(result) if b['boundary_id'] in {'cold_reheat', 'condensate'}]
+
+def export_native(providers, mapping, canonical, versions, destination):
+    registry = Registry(providers, mapping, canonical, versions)
+    def entries(index):
+        return [{'key': list(k) if isinstance(k, tuple) else k, 'value': sorted(v) if isinstance(v, set) else v} for k, v in sorted(index.items())]
+    artifact = {key: entries(getattr(registry, key)) for key in ('types', 'equipment', 'ports', 'fields', 'boundaries', 'local_closures', 'canonical_closures')}
+    artifact['versions'] = registry.versions
+    artifact['source_metadata'] = {'providers': providers, 'mapping': mapping, 'canonical': canonical}
+    Path(destination).write_text(json.dumps(artifact, indent=2, sort_keys=True) + '\n')

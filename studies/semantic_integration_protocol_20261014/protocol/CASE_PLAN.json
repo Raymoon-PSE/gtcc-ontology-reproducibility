@@ -1,0 +1,293 @@
+{
+  "status": "Requirement-level frozen plan; executable acceptance tests not yet implemented",
+  "execution_rule": "At each stage, run baseline and all earlier introduced cases against their original stage snapshots, plus newly introduced cases. Do not count regressions as new tasks. No aggregation into statistical sample sizes.",
+  "case_families": [
+    {
+      "id": "BASE",
+      "introduced_stage": 0,
+      "mutation_or_requirement": "Unmodified matching-version snapshots; validate all seven normalized streams, 14 endpoint descriptors, provenance and Q1/Q2/Q3 results",
+      "expected": "accepted",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "ORDER",
+      "introduced_stage": 0,
+      "mutation_or_requirement": "Reverse provider, port, type, equipment and mapping declaration lists; output unchanged",
+      "expected": "accepted",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "IDEMPOTENT",
+      "introduced_stage": 0,
+      "mutation_or_requirement": "Append identical boundary and field-mapping assertions; output unchanged",
+      "expected": "accepted",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "IMMUTABLE",
+      "introduced_stage": 0,
+      "mutation_or_requirement": "Compare recursive input snapshots before and after integrate and all queries; no mutations",
+      "expected": "accepted",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "MISSING_BOUNDARY",
+      "introduced_stage": 0,
+      "mutation_or_requirement": "Remove the condensate boundary mapping",
+      "expected": "MISSING_BOUNDARY",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "DUPLICATE_ENDPOINT",
+      "introduced_stage": 0,
+      "mutation_or_requirement": "Assign hot_reheat the producer endpoint of hp_steam",
+      "expected": "DUPLICATE_BOUNDARY",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "BAD_UNIT",
+      "introduced_stage": 0,
+      "mutation_or_requirement": "Change provider A temperature native unit and corresponding field mapping unit to kg/s",
+      "expected": "INCOMPATIBLE_UNIT",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "FIELD_CONFLICT",
+      "introduced_stage": 0,
+      "mutation_or_requirement": "On v1 only, change provider A pressure field-mapping declared_unit from bar to MPa, leaving native unit bar unchanged",
+      "expected": "INCOMPATIBLE_UNIT",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "NO_PAYLOAD",
+      "introduced_stage": 0,
+      "mutation_or_requirement": "Remove the gt_exhaust producer payload",
+      "expected": "INVALID_SCHEMA",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "EXTRA_ALIAS",
+      "introduced_stage": 0,
+      "mutation_or_requirement": "Add a payload field not in its native field_set",
+      "expected": "INVALID_SCHEMA",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "BOOL",
+      "introduced_stage": 0,
+      "mutation_or_requirement": "Set gt_exhaust producer temperature to true",
+      "expected": "INVALID_VALUE",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "NONFINITE",
+      "introduced_stage": 0,
+      "mutation_or_requirement": "Set gt_exhaust producer pressure to NaN as in-memory float",
+      "expected": "INVALID_VALUE",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "NEG_PRESSURE",
+      "introduced_stage": 0,
+      "mutation_or_requirement": "Set gt_exhaust producer pressure to negative one in declared native units",
+      "expected": "INVALID_VALUE",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "BAD_COMPOSITION",
+      "introduced_stage": 0,
+      "mutation_or_requirement": "Replace gt_exhaust producer composition with {N2:0.5}",
+      "expected": "INVALID_VALUE",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "ENDPOINT_MISMATCH",
+      "introduced_stage": 0,
+      "mutation_or_requirement": "Add 10 to hp_steam consumer temperature without changing producer",
+      "expected": "INVALID_VALUE",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "WRONG_VERSION",
+      "introduced_stage": 0,
+      "mutation_or_requirement": "Change requested_versions.A to 99.0",
+      "expected": "VERSION_MISMATCH",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "CLASS_CYCLE",
+      "introduced_stage": 0,
+      "mutation_or_requirement": "Set provider A root ThermalAsset parent_type_id to HRSG",
+      "expected": "UNRESOLVED_CLASS",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "NO_ROOT_MAPPING",
+      "introduced_stage": 0,
+      "mutation_or_requirement": "Remove every provider_type_mappings entry whose provider is A",
+      "expected": "UNRESOLVED_CLASS",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "V2_UPGRADE",
+      "introduced_stage": 1,
+      "mutation_or_requirement": "Use valid v2 native schemas, mappings, fields and payload versions; same canonical physical results and all query sets",
+      "expected": "accepted",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "TRANSITIVE",
+      "introduced_stage": 1,
+      "mutation_or_requirement": "Verify ControlledHRSG and ReheatSteamTurbine leaf ancestry includes mapped ancestors and correct Q2 sets; no manual leaf list supplied",
+      "expected": "accepted",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "OLD_ALIAS",
+      "introduced_stage": 1,
+      "mutation_or_requirement": "Rename one v2 producer payload scalar field to its v1 alias without changing v2 declarations",
+      "expected": "INVALID_SCHEMA",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "MIXED_VERSION",
+      "introduced_stage": 1,
+      "mutation_or_requirement": "Use v2 metadata/requested versions with one payload schema_version 1.0",
+      "expected": "VERSION_MISMATCH",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "V3_QUALIFIED",
+      "introduced_stage": 2,
+      "mutation_or_requirement": "Use v3 schemas with identical inlet local labels in different namespaces; expose all 14 correct endpoints and both return identities",
+      "expected": "accepted",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "V3_CONFLICT",
+      "introduced_stage": 2,
+      "mutation_or_requirement": "Replace mapping with providers/variant_v3_conflicting_boundary_mapping.json",
+      "expected": "AMBIGUOUS_MAPPING",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "V3_PARENT",
+      "introduced_stage": 2,
+      "mutation_or_requirement": "Replace provider A with providers/variant_v3_missing_parent_provider_a.json",
+      "expected": "UNRESOLVED_CLASS",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    },
+    {
+      "id": "V3_NAMESPACE",
+      "introduced_stage": 2,
+      "mutation_or_requirement": "Replace mapping with providers/variant_v3_unqualified_boundary_mapping.json",
+      "expected": "AMBIGUOUS_MAPPING",
+      "ambient_keys": [
+        "5",
+        "25"
+      ]
+    }
+  ],
+  "conversion_oracles": [
+    {
+      "input": 310.15,
+      "unit": "K",
+      "output": 37.0,
+      "canonical_unit": "degC"
+    },
+    {
+      "input": 2.5,
+      "unit": "bar",
+      "output": 0.25,
+      "canonical_unit": "MPa"
+    },
+    {
+      "input": 750000,
+      "unit": "Pa",
+      "output": 0.75,
+      "canonical_unit": "MPa"
+    },
+    {
+      "input": 1.25,
+      "unit": "kg/s",
+      "output": 4500,
+      "canonical_unit": "kg/h"
+    }
+  ],
+  "conversion_rule": "Independent single-quantity unit tests outside plant payload comparisons; executable adapter must expose its quantity normalization operation for these checks. Same function signature normalize_quantity(quantity,value,unit) for both arms. Correct value and rejection rules identical to API. No test count claimed until executable suite frozen."
+}

@@ -1,0 +1,13 @@
+PRODUCER VALIDATION — 14 October 2026
+
+Environment: existing study Python 3.12 environment, rdflib 7.6.0.
+Command: python -B scripts/verify_revision_evidence.py
+Outcome: exit 0.
+
+Public derived-file hashes verified: 412.
+Whole-process archived records: 28 pairs, ten accepted and eighteen rejected per arm. All 208 raw timing samples reconstruct reported medians across four sizes and two representations.
+Provider integration: all twelve original checkpoint acceptance arrays reproduced exactly (40, 48, 56 checks per replicate).
+Maintenance: original 29/46-check arrays and corrected 46-check arrays reproduced exactly. Original RDF empty-alias post hoc failure and corrected success reproduced.
+All included JSON files parse. Text scan found no absolute user/workspace/temp paths or private-key/API-token patterns in the studies tree. Only README, CHANGELOG and CITATION metadata are modified among existing tracked files. Existing runtime subset remains unchanged.
+
+This is producer verification, not independent host signoff. Scientific scope and disclosure remain as specified in RELEASE_0.4.0.txt. No fresh physical solver or timing run was performed for this reduced package. This local branch has not been pushed or released.

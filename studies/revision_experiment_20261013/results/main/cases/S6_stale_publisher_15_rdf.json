@@ -1,0 +1,19 @@
+{
+  "backend": "rdf",
+  "case": {
+    "ambient": 15,
+    "error_contains": "publisher version mismatch",
+    "expected": "reject",
+    "id": "S6_stale_publisher_15",
+    "task": "S6",
+    "variant": "stale_publisher"
+  },
+  "observed": {
+    "current_result_published": false,
+    "matches_frozen_oracle": true,
+    "outcome": "reject",
+    "reason": "publisher version mismatch",
+    "stage": "output_contract"
+  },
+  "wall_seconds_context_only": 0.09552683308720589
+}

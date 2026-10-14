@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "checks": [
+    "v1 5C baseline, fixture, queries, provenance, ancestry, order, immutability",
+    "v1 25C baseline, fixture, queries, provenance, ancestry, order, immutability",
+    "v2 5C baseline, fixture, queries, provenance, ancestry, order, immutability",
+    "v2 25C baseline, fixture, queries, provenance, ancestry, order, immutability",
+    "v2 rejects v1 aliases",
+    "v2 rejects v1 requested revision",
+    "v2 missing intermediate ancestry rejects"
+  ],
+  "native_triples": 262,
+  "implementation_edits": 0,
+  "query_edits": 0,
+  "adapter_sha256": "ab2f9ec1d55f9614f1df55b3a6bae490b683c977a9f38bf9013d6e4df6aa7529"
+}

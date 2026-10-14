@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "independent_checks": [
+    "released baseline 5",
+    "order independence 5",
+    "released baseline 25",
+    "order independence 25",
+    "missing boundary",
+    "endpoint reuse",
+    "mapping conflict",
+    "idempotent mapping assertions",
+    "idempotent native assertions",
+    "cycle",
+    "missing parent",
+    "unit metadata conflict",
+    "quantity mapping conflict",
+    "missing namespace",
+    "endpoint scalar disagreement",
+    "boolean value",
+    "undeclared payload alias",
+    "duplicate observation",
+    "payload revision",
+    "requested revision",
+    "new transitive leaf"
+  ],
+  "check_count": 21,
+  "additional_checks": "physical fixture quantities, all query sets, numeric domains, graph causality",
+  "native_triples": 254
+}

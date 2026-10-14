@@ -1,0 +1,377 @@
+{
+  "scope": "Linked-cycle numerical reproduction only, ontology_runtime=False. No UI, bootstrap, ontology runtime or diagnostic execution packaged.",
+  "files": [
+    {
+      "path": "eklm/vdt/analysis/__init__.py",
+      "original_sha256": "d3834118071796afda4b563cdcdd81e9c73d4cb6776be4b6a9476e3b724bfa50",
+      "public_sha256": "d3834118071796afda4b563cdcdd81e9c73d4cb6776be4b6a9476e3b724bfa50",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/analysis/calibrate.py",
+      "original_sha256": "789542241ccc78d479e750d34ddc64406a35084b1352002078c1728b98562b24",
+      "public_sha256": "789542241ccc78d479e750d34ddc64406a35084b1352002078c1728b98562b24",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/analysis/economic.py",
+      "original_sha256": "f713fe10790cfac160070e4dd619823286c2fba53ff6b38b2acbc7d8c9a7ecdb",
+      "public_sha256": "f713fe10790cfac160070e4dd619823286c2fba53ff6b38b2acbc7d8c9a7ecdb",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/analysis/gtcc_loop.py",
+      "original_sha256": "0c013bb95d1f6533a51667b1f81689a508914b62dd84c149dc77d823fefbcaeb",
+      "public_sha256": "0c013bb95d1f6533a51667b1f81689a508914b62dd84c149dc77d823fefbcaeb",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/analysis/water_cycle_audit.py",
+      "original_sha256": "d6c6e7f57f28cd0901adaa7d062dbe5fdbfd26eea8190397f7c91d55ce75a539",
+      "public_sha256": "d6c6e7f57f28cd0901adaa7d062dbe5fdbfd26eea8190397f7c91d55ce75a539",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/data/__init__.py",
+      "original_sha256": "669596f6ff7a50d858478ed208a93a6bc2a80f0a19c401ef519bc965fd1ea06b",
+      "public_sha256": "669596f6ff7a50d858478ed208a93a6bc2a80f0a19c401ef519bc965fd1ea06b",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/data/fuels.py",
+      "original_sha256": "365eee5d94db3b191b559371b9c3d0662220da48201ada6657e473f0f2c47904",
+      "public_sha256": "365eee5d94db3b191b559371b9c3d0662220da48201ada6657e473f0f2c47904",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/data/properties.py",
+      "original_sha256": "44fcbda52c9a69db4d05f738efada5d43b354d1d1d8595d1d9d83baa581d71b0",
+      "public_sha256": "44fcbda52c9a69db4d05f738efada5d43b354d1d1d8595d1d9d83baa581d71b0",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/data/species.py",
+      "original_sha256": "5051b9807b7a93981bcde22ffe08b29595b151edf37b8218c46cd8c5648ba714",
+      "public_sha256": "5051b9807b7a93981bcde22ffe08b29595b151edf37b8218c46cd8c5648ba714",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/data/streams.py",
+      "original_sha256": "323683e97367a0d94f45cc3861bb089b637e51c0fbdeccbd35b4b44b983f4c76",
+      "public_sha256": "323683e97367a0d94f45cc3861bb089b637e51c0fbdeccbd35b4b44b983f4c76",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/gui_adapter.py",
+      "original_sha256": "34583133cf40f2be00b97cfc266e6ebc4eafde0aaf27e5371aac780e5095f68c",
+      "public_sha256": "34583133cf40f2be00b97cfc266e6ebc4eafde0aaf27e5371aac780e5095f68c",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/mechanical/__init__.py",
+      "original_sha256": "ec5a5623c7674514212fde799c60fe9a0d527310015e73e614fdab6623c69626",
+      "public_sha256": "ec5a5623c7674514212fde799c60fe9a0d527310015e73e614fdab6623c69626",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/mechanical/base.py",
+      "original_sha256": "bceac07f6d7370339a4bbbfa2fc2a4f56fe76e3a777482346cf77b5fb705b36b",
+      "public_sha256": "bceac07f6d7370339a4bbbfa2fc2a4f56fe76e3a777482346cf77b5fb705b36b",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/mechanical/combustor_model.py",
+      "original_sha256": "6cef8520af0614fff681fe28b3d22e0644c52b03ae644cafce9e5be9fa00929d",
+      "public_sha256": "6cef8520af0614fff681fe28b3d22e0644c52b03ae644cafce9e5be9fa00929d",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/mechanical/compressor_model.py",
+      "original_sha256": "37eaa75c5bf387c34b434e85b2669dea3f457530da61a7a8fc13dec9fda4b414",
+      "public_sha256": "37eaa75c5bf387c34b434e85b2669dea3f457530da61a7a8fc13dec9fda4b414",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/mechanical/data_package.py",
+      "original_sha256": "6db8ad4489e40e53c527b59c34f4b61cb92cb54d5af7d6740d0be15ba39f8bab",
+      "public_sha256": "6db8ad4489e40e53c527b59c34f4b61cb92cb54d5af7d6740d0be15ba39f8bab",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/mechanical/gt_turbine_model.py",
+      "original_sha256": "a305d81d3408a3ab6526dbf81aef10ef2c3961debf86304f959ff183e42440d6",
+      "public_sha256": "a305d81d3408a3ab6526dbf81aef10ef2c3961debf86304f959ff183e42440d6",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/mechanical/hp_st_turbine_model.py",
+      "original_sha256": "475a5602ad918e4f13041226e0d04efc7939fd6b9aef9d16f9918616ca7aebc0",
+      "public_sha256": "475a5602ad918e4f13041226e0d04efc7939fd6b9aef9d16f9918616ca7aebc0",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/mechanical/hrsg_superheater_model.py",
+      "original_sha256": "3762924e68ccbd01f8b4b489e5948db4b26210aa1334a0fb28171557fe113dd0",
+      "public_sha256": "3762924e68ccbd01f8b4b489e5948db4b26210aa1334a0fb28171557fe113dd0",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/mechanical/model_router.py",
+      "original_sha256": "1bae86ef73aa6c20ca3590670787b9ddf904768a727cb11ad269f6d955613958",
+      "public_sha256": "1bae86ef73aa6c20ca3590670787b9ddf904768a727cb11ad269f6d955613958",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/mechanical/operating_point.py",
+      "original_sha256": "c35e2ea15c7a7222b7fb89fc68aa26926c9989f5bad4adfde0c037a46f9ec649",
+      "public_sha256": "c35e2ea15c7a7222b7fb89fc68aa26926c9989f5bad4adfde0c037a46f9ec649",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/mechanical/reference_db.py",
+      "original_sha256": "ace90b1b813b4fc6c34ccabcb62da3189f27eee3280aacf239fb193a8a1d1047",
+      "public_sha256": "ace90b1b813b4fc6c34ccabcb62da3189f27eee3280aacf239fb193a8a1d1047",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/mechanical/reheater_model.py",
+      "original_sha256": "fc841e8a8f9c31ccacc394519c727481516e97edda3b0c6e28b18224de74fcc8",
+      "public_sha256": "fc841e8a8f9c31ccacc394519c727481516e97edda3b0c6e28b18224de74fcc8",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/__init__.py",
+      "original_sha256": "384de1f4ad2cd66a1e5e7f9be5cc4e608e8f39c1bf583135d87e79f8ebd9616d",
+      "public_sha256": "384de1f4ad2cd66a1e5e7f9be5cc4e608e8f39c1bf583135d87e79f8ebd9616d",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m1_gt/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m1_gt/air_inlet.py",
+      "original_sha256": "1197aef6f6c79cdc20d7fd907b4b3f525490bddfb5b5a75d949dec6bd09642db",
+      "public_sha256": "1197aef6f6c79cdc20d7fd907b4b3f525490bddfb5b5a75d949dec6bd09642db",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m1_gt/combustor.py",
+      "original_sha256": "39236079043dbf962af37938aa07c1019a1a86e80a60cdb41ff95dba2c5322bf",
+      "public_sha256": "39236079043dbf962af37938aa07c1019a1a86e80a60cdb41ff95dba2c5322bf",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m1_gt/compressor.py",
+      "original_sha256": "cf63c98a05b5702ae5a3d3e2d9ecdca6d0d68f3d520f7709c1a6cdf7103d69e7",
+      "public_sha256": "cf63c98a05b5702ae5a3d3e2d9ecdca6d0d68f3d520f7709c1a6cdf7103d69e7",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m1_gt/fuel_system.py",
+      "original_sha256": "d4ea5a4cd5897a5d7b1468b617a681d21914078c0ea6266760eba556e0e3cf3c",
+      "public_sha256": "d4ea5a4cd5897a5d7b1468b617a681d21914078c0ea6266760eba556e0e3cf3c",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m1_gt/gt_expander.py",
+      "original_sha256": "a9b41024badde755b39bf886d7659adf98386828f20c4b59ce8f5c9982171ebe",
+      "public_sha256": "a9b41024badde755b39bf886d7659adf98386828f20c4b59ce8f5c9982171ebe",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m1_gt/gt_generator.py",
+      "original_sha256": "5aa10132300c6db8a6c1f314c76e855a9b877a8cbf36ec44b7601208da8a2d70",
+      "public_sha256": "5aa10132300c6db8a6c1f314c76e855a9b877a8cbf36ec44b7601208da8a2d70",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/bfp.py",
+      "original_sha256": "a0e77200749e41b44d7516e24d3d4e243dfeb2e468f197442e5935dfb3d812f4",
+      "public_sha256": "a0e77200749e41b44d7516e24d3d4e243dfeb2e468f197442e5935dfb3d812f4",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/deaerator.py",
+      "original_sha256": "87a82538878d0fa7572508e2cf3c8ed9ecbc931fb81bdf497ec6d175bba1754f",
+      "public_sha256": "87a82538878d0fa7572508e2cf3c8ed9ecbc931fb81bdf497ec6d175bba1754f",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/feedwater_audit.py",
+      "original_sha256": "be898cda181a31990b0c40c56f6f84feb2d7784a3a04a33ec47719cf7df2b7ef",
+      "public_sha256": "be898cda181a31990b0c40c56f6f84feb2d7784a3a04a33ec47719cf7df2b7ef",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/heat_limits.py",
+      "original_sha256": "3a4458eb6c3bdea77ad99c5b1ef1065d4b99828b134555e560890d7423fc8dd1",
+      "public_sha256": "3a4458eb6c3bdea77ad99c5b1ef1065d4b99828b134555e560890d7423fc8dd1",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/hp_economizer.py",
+      "original_sha256": "38a23a78b7ea10369e70f3332e725c08341fedf5e7f257b79336f71fbb5ec2f2",
+      "public_sha256": "38a23a78b7ea10369e70f3332e725c08341fedf5e7f257b79336f71fbb5ec2f2",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/hp_evaporator.py",
+      "original_sha256": "8ff6daf3adc5e357d70ab22df8e2e6fa994cf762557266c028a0c7de478664d3",
+      "public_sha256": "8ff6daf3adc5e357d70ab22df8e2e6fa994cf762557266c028a0c7de478664d3",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/hp_superheater.py",
+      "original_sha256": "7711b05d022397083943ac0036f7711309dc96b07c8f1a56330b6ec7b997dc51",
+      "public_sha256": "7711b05d022397083943ac0036f7711309dc96b07c8f1a56330b6ec7b997dc51",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/hrsg_solver.py",
+      "original_sha256": "8e54b455a7bee184517b24de80be664c1dc39855ba14448b3f85bdcd4ec454a5",
+      "public_sha256": "8e54b455a7bee184517b24de80be664c1dc39855ba14448b3f85bdcd4ec454a5",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/ip_economizer.py",
+      "original_sha256": "69e3630620a8fab964530e291c8120bff1a9f6b61a20549653b2407238c1b7bb",
+      "public_sha256": "69e3630620a8fab964530e291c8120bff1a9f6b61a20549653b2407238c1b7bb",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/ip_evaporator.py",
+      "original_sha256": "03e09a5ab5ec567128f4bcaafcd8254e66efe69b9d30c37af9a7cbf2d4957456",
+      "public_sha256": "03e09a5ab5ec567128f4bcaafcd8254e66efe69b9d30c37af9a7cbf2d4957456",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/ip_mixing_node.py",
+      "original_sha256": "66fdd4e763fabd8494fd9b705ad1a56793b12c39c67ee189accdb419637b513c",
+      "public_sha256": "66fdd4e763fabd8494fd9b705ad1a56793b12c39c67ee189accdb419637b513c",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/ip_superheater.py",
+      "original_sha256": "c555b7b821f05165d1136c6e42907bbfc4970a9b2badacd2217c9799496d56fb",
+      "public_sha256": "c555b7b821f05165d1136c6e42907bbfc4970a9b2badacd2217c9799496d56fb",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/linked_hrsg.py",
+      "original_sha256": "cead83f9137c8082e492f9ec0daab2422bb029495787631ffdfa947b9c884ea5",
+      "public_sha256": "cead83f9137c8082e492f9ec0daab2422bb029495787631ffdfa947b9c884ea5",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/lp_economizer.py",
+      "original_sha256": "114660fd0523477e548fa83e000cdf92885eb77746a23441002408c629c26920",
+      "public_sha256": "114660fd0523477e548fa83e000cdf92885eb77746a23441002408c629c26920",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/lp_evaporator.py",
+      "original_sha256": "552b5ba1045ef722453f3162efe6ae591dbd609c33b5e497b484b0de0afb57b1",
+      "public_sha256": "552b5ba1045ef722453f3162efe6ae591dbd609c33b5e497b484b0de0afb57b1",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/reheater.py",
+      "original_sha256": "9aaabe4fdcb3627b7f44c540421bb1c37ec7baa981025de3ca3578234b9b220e",
+      "public_sha256": "9aaabe4fdcb3627b7f44c540421bb1c37ec7baa981025de3ca3578234b9b220e",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/thermal_audit.py",
+      "original_sha256": "44c762a0b8069a9335e25be4695e2f80e893936e373828104af53820eb05dd22",
+      "public_sha256": "44c762a0b8069a9335e25be4695e2f80e893936e373828104af53820eb05dd22",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m2_hrsg/water_boundary.py",
+      "original_sha256": "c44bab136da01e8d36885308da993d13f5bacca94120cb9b57379f6639164826",
+      "public_sha256": "c44bab136da01e8d36885308da993d13f5bacca94120cb9b57379f6639164826",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m3_st/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m3_st/crh_line.py",
+      "original_sha256": "594f4680fa4c27b92f10bebd047dbd5db8d1069f02403f19194d7f8f5dd0a6a4",
+      "public_sha256": "594f4680fa4c27b92f10bebd047dbd5db8d1069f02403f19194d7f8f5dd0a6a4",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m3_st/hp_turbine.py",
+      "original_sha256": "fcd63e4edbfed08d7b10b63a9782c5c94d1e9a1b2669ce733e5517d930f8b4b0",
+      "public_sha256": "fcd63e4edbfed08d7b10b63a9782c5c94d1e9a1b2669ce733e5517d930f8b4b0",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m3_st/ip_turbine.py",
+      "original_sha256": "09caffe7606546a06b046ca4024a915dbe893b02f720ab3a98542fcc96da16e9",
+      "public_sha256": "09caffe7606546a06b046ca4024a915dbe893b02f720ab3a98542fcc96da16e9",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m3_st/lp_mixing_node.py",
+      "original_sha256": "e7d697183f93c5a62b91b1ceaedccca62c571cf7f3b2141b93df6a6f77b19dc2",
+      "public_sha256": "e7d697183f93c5a62b91b1ceaedccca62c571cf7f3b2141b93df6a6f77b19dc2",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m3_st/lp_turbine.py",
+      "original_sha256": "ced2420403da0ec2624a2a22060af82e6065eb4c173b69f35342781f256d4779",
+      "public_sha256": "ced2420403da0ec2624a2a22060af82e6065eb4c173b69f35342781f256d4779",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m3_st/st_generator.py",
+      "original_sha256": "10ceddf88e3b5ea5f0d9f6f58e206ef4e7ab292d8f53aaa31a327e6aa95e7ff2",
+      "public_sha256": "10ceddf88e3b5ea5f0d9f6f58e206ef4e7ab292d8f53aaa31a327e6aa95e7ff2",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m3_st/st_solver.py",
+      "original_sha256": "e808bcbca026901113426f388a1724c4d08fe42b67a69d760c0a7a2ebf026ad4",
+      "public_sha256": "e808bcbca026901113426f388a1724c4d08fe42b67a69d760c0a7a2ebf026ad4",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m4_condenser/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/vdt/models/m4_condenser/condenser_solver.py",
+      "original_sha256": "874218fa1b10b12a776dc014554c62c3c35c5f52beaf4a3976c1d560a18d4e05",
+      "public_sha256": "874218fa1b10b12a776dc014554c62c3c35c5f52beaf4a3976c1d560a18d4e05",
+      "derivation": "unchanged"
+    },
+    {
+      "path": "eklm/__init__.py",
+      "original_sha256": "3e6a35322a67cfb58d2ecda7a3e2ea41026de17aee918ced575822c94c60bebe",
+      "public_sha256": "b035e873cb3bc93809269b484dc8c8b978677c4342d493888da66b44ca860cbe",
+      "derivation": "Packaging-only initializer stub; excludes environment loading and application bootstrap."
+    },
+    {
+      "path": "eklm/vdt/__init__.py",
+      "original_sha256": "1fbab8e43dc65a6ec62089c7d3b653e315cf22d3bde58e5e388821350c5f09f3",
+      "public_sha256": "b035e873cb3bc93809269b484dc8c8b978677c4342d493888da66b44ca860cbe",
+      "derivation": "Packaging-only initializer stub; excludes environment loading and application bootstrap."
+    }
+  ]
+}

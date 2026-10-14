@@ -1,0 +1,19 @@
+{
+  "backend": "rdf",
+  "case": {
+    "ambient": 15,
+    "error_contains": "missing required output",
+    "expected": "reject",
+    "id": "S2_missing_output_15",
+    "task": "S2",
+    "variant": "missing_output"
+  },
+  "observed": {
+    "current_result_published": false,
+    "matches_frozen_oracle": true,
+    "outcome": "reject",
+    "reason": "HPTURB: missing required output mech_hpst_remaining_life_hr",
+    "stage": "output_contract"
+  },
+  "wall_seconds_context_only": 0.09412533300928771
+}

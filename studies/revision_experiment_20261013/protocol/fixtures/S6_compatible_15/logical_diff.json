@@ -1,0 +1,55 @@
+{
+  "added": [
+    [
+      "HPSH-output",
+      "field",
+      "hpsh_hoop_stress_MPa_v2"
+    ],
+    [
+      "HPSH-output",
+      "version",
+      "2"
+    ],
+    [
+      "HPSH-output_contract",
+      "version",
+      "2"
+    ],
+    [
+      "HPSH-publisher",
+      "version",
+      "2"
+    ],
+    [
+      "HPSH-query",
+      "version",
+      "2"
+    ],
+    [
+      "HPSH-warning_export",
+      "version",
+      "2"
+    ]
+  ],
+  "affected_subjects": 5,
+  "changed_slots": 6,
+  "interpretation": "representation-independent authored configuration changes; not measured developer effort",
+  "logical_fact_operations": 9,
+  "removed": [
+    [
+      "HPSH-output",
+      "field",
+      "mech_hpsh_hoop_stress_MPa"
+    ],
+    [
+      "HPSH-output",
+      "version",
+      "1"
+    ],
+    [
+      "HPSH-query",
+      "version",
+      "1"
+    ]
+  ]
+}

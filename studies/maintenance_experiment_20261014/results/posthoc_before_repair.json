@@ -1,0 +1,18 @@
+[
+  {
+    "passed": false,
+    "error": "ValueError: invalid wire name or unsupported unit",
+    "id": "PH01_empty_unique_wire_name",
+    "arm": "rdf",
+    "checkpoint": "change2_attempt1",
+    "classification": "post_hoc_code_review_requirement_check"
+  },
+  {
+    "passed": true,
+    "error": null,
+    "id": "PH01_empty_unique_wire_name",
+    "arm": "json",
+    "checkpoint": "change2_attempt1",
+    "classification": "post_hoc_code_review_requirement_check"
+  }
+]

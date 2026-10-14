@@ -1,0 +1,234 @@
+[
+  {
+    "endpoint": {
+      "provider_id": "A",
+      "namespace": "thermal.gt",
+      "local_port_id": "exh"
+    },
+    "schema_version": "2.0",
+    "fields": {
+      "temperature_abs": 921.2871419430455,
+      "pressure_si": 104800.0,
+      "mass_rate": 897.3988888888889
+    },
+    "composition": {
+      "N2": 0.7556412717787669,
+      "O2": 0.11422908620276115,
+      "CO2": 0.062475833571997624,
+      "H2O": 0.05866994232352177,
+      "Ar": 0.008983866122952485
+    }
+  },
+  {
+    "endpoint": {
+      "provider_id": "A",
+      "namespace": "thermal.hrsg",
+      "local_port_id": "gas_in"
+    },
+    "schema_version": "2.0",
+    "fields": {
+      "temperature_abs": 921.2871419430455,
+      "pressure_si": 104800.0,
+      "mass_rate": 897.3988888888889
+    },
+    "composition": {
+      "N2": 0.7556412717787669,
+      "O2": 0.11422908620276115,
+      "CO2": 0.062475833571997624,
+      "H2O": 0.05866994232352177,
+      "Ar": 0.008983866122952485
+    }
+  },
+  {
+    "endpoint": {
+      "provider_id": "A",
+      "namespace": "thermal.hrsg",
+      "local_port_id": "hp_out"
+    },
+    "schema_version": "2.0",
+    "fields": {
+      "temperature_abs": 838.7499999997904,
+      "pressure_si": 16649999.999999998,
+      "mass_rate": 109.13444444444444
+    },
+    "composition": {
+      "H2O": 1.0
+    }
+  },
+  {
+    "endpoint": {
+      "provider_id": "B",
+      "namespace": "cycle.expander",
+      "local_port_id": "admission_high"
+    },
+    "schema_version": "2.0",
+    "fields": {
+      "steam_temperature": 565.5999999997904,
+      "steam_pressure": 166.5,
+      "throughput_hourly": 392884.0
+    },
+    "composition": {
+      "H2O": 1.0
+    }
+  },
+  {
+    "endpoint": {
+      "provider_id": "A",
+      "namespace": "thermal.hrsg",
+      "local_port_id": "rh_out"
+    },
+    "schema_version": "2.0",
+    "fields": {
+      "temperature_abs": 791.0768167196659,
+      "pressure_si": 2415000.0,
+      "mass_rate": 126.20833333333333
+    },
+    "composition": {
+      "H2O": 1.0
+    }
+  },
+  {
+    "endpoint": {
+      "provider_id": "B",
+      "namespace": "cycle.expander",
+      "local_port_id": "admission_reheat"
+    },
+    "schema_version": "2.0",
+    "fields": {
+      "steam_temperature": 517.9268167196659,
+      "steam_pressure": 24.15,
+      "throughput_hourly": 454350.0
+    },
+    "composition": {
+      "H2O": 1.0
+    }
+  },
+  {
+    "endpoint": {
+      "provider_id": "A",
+      "namespace": "thermal.hrsg",
+      "local_port_id": "lp_out"
+    },
+    "schema_version": "2.0",
+    "fields": {
+      "temperature_abs": 435.43468356566586,
+      "pressure_si": 655000.0,
+      "mass_rate": 11.742222222222223
+    },
+    "composition": {
+      "H2O": 1.0
+    }
+  },
+  {
+    "endpoint": {
+      "provider_id": "B",
+      "namespace": "cycle.expander",
+      "local_port_id": "admission_low"
+    },
+    "schema_version": "2.0",
+    "fields": {
+      "steam_temperature": 162.2846835656659,
+      "steam_pressure": 6.550000000000001,
+      "throughput_hourly": 42272.0
+    },
+    "composition": {
+      "H2O": 1.0
+    }
+  },
+  {
+    "endpoint": {
+      "provider_id": "B",
+      "namespace": "cycle.expander",
+      "local_port_id": "tail_flow"
+    },
+    "schema_version": "2.0",
+    "fields": {
+      "steam_temperature": 38.37888457506426,
+      "steam_pressure": 0.0677,
+      "throughput_hourly": 496622.0
+    },
+    "composition": {
+      "H2O": 1.0
+    }
+  },
+  {
+    "endpoint": {
+      "provider_id": "B",
+      "namespace": "cycle.sink",
+      "local_port_id": "vapour_entry"
+    },
+    "schema_version": "2.0",
+    "fields": {
+      "steam_temperature": 38.37888457506426,
+      "steam_pressure": 0.0677,
+      "throughput_hourly": 496622.0
+    },
+    "composition": {
+      "H2O": 1.0
+    }
+  },
+  {
+    "endpoint": {
+      "provider_id": "B",
+      "namespace": "cycle.expander",
+      "local_port_id": "crossover_return"
+    },
+    "schema_version": "2.0",
+    "fields": {
+      "steam_temperature": 308.79999999982965,
+      "steam_pressure": 24.82,
+      "throughput_hourly": 376455.0
+    },
+    "composition": {
+      "H2O": 1.0
+    }
+  },
+  {
+    "endpoint": {
+      "provider_id": "A",
+      "namespace": "thermal.hrsg",
+      "local_port_id": "rh_return"
+    },
+    "schema_version": "2.0",
+    "fields": {
+      "temperature_abs": 581.9499999998296,
+      "pressure_si": 2482000.0,
+      "mass_rate": 104.57083333333334
+    },
+    "composition": {
+      "H2O": 1.0
+    }
+  },
+  {
+    "endpoint": {
+      "provider_id": "B",
+      "namespace": "cycle.sink",
+      "local_port_id": "liquid_exit"
+    },
+    "schema_version": "2.0",
+    "fields": {
+      "steam_temperature": 38.45744572041133,
+      "steam_pressure": 8.96,
+      "throughput_hourly": 507727.4285714286
+    },
+    "composition": {
+      "H2O": 1.0
+    }
+  },
+  {
+    "endpoint": {
+      "provider_id": "A",
+      "namespace": "thermal.hrsg",
+      "local_port_id": "water_return"
+    },
+    "schema_version": "2.0",
+    "fields": {
+      "temperature_abs": 311.6074457204113,
+      "pressure_si": 896000.0,
+      "mass_rate": 141.03539682539682
+    },
+    "composition": {
+      "H2O": 1.0
+    }
+  }
+]

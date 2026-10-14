@@ -1,0 +1,24 @@
+{
+  "backend": "json",
+  "case": {
+    "ambient": 15,
+    "error_contains": "mixed consumer revisions",
+    "expected": "reject",
+    "id": "S5_mixed_consumer_15",
+    "task": "S5",
+    "variant": "mixed_consumer"
+  },
+  "observed": {
+    "current_result_published": false,
+    "current_revision": "B",
+    "history_revisions": [
+      "A"
+    ],
+    "matches_frozen_oracle": true,
+    "outcome": "reject",
+    "preserved_B_after_delayed_A": false,
+    "reason": "mixed consumer revisions",
+    "stage": "B_consumer_contract"
+  },
+  "wall_seconds_context_only": 0.1727104999590665
+}

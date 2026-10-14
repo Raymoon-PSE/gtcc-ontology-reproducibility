@@ -1,0 +1,466 @@
+{
+  "rdf": [
+    {
+      "id": "A01_known_conversion",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A02_arbitrary_aliases",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A03_canonical_zero_flow_negative_h",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A04_wrong_version",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A05_numeric_version",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A06_extra_top_key",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A07_missing_value",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A08_extra_value",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A09_missing_unit",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A10_wrong_dimension",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A11_boolean_numeric",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A12_nan",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A13_inf",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A14_conversion_overflow",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A15_zero_pressure",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A16_negative_flow",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A17_absolute_zero",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A18_empty_composition",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A19_bad_composition_sum",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A20_negative_fraction",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A21_nan_fraction",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A22_extra_unit",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A23_ambiguous_version",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A24_ambiguous_unit",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A25_wrong_schema_dimension",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A26_missing_schema_field",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A27_colliding_aliases",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A28_broken_native_serialization",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A29_no_stale_configuration",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "C2_01_three_consumers_seven_boundaries",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_02_pending_and_history",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_03_delayed_old_completion",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_04_late_record_atomic",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_05_late_consumer_atomic",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_06_input_copy_isolation",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_07_snapshot_history_copy_isolation",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_08_revision_reuse",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_09_retry_failed_revision",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_10_missing_boundary",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_11_configuration_not_cached",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_12_completed_revision_rejected",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_13_extra_boundary",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_14_nonfinite_consumer_atomic",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "F01_real_5C",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "F02_real_25C",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "F03_real_A_to_B",
+      "passed": true,
+      "error": null
+    }
+  ],
+  "json": [
+    {
+      "id": "A01_known_conversion",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A02_arbitrary_aliases",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A03_canonical_zero_flow_negative_h",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A04_wrong_version",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A05_numeric_version",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A06_extra_top_key",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A07_missing_value",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A08_extra_value",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A09_missing_unit",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A10_wrong_dimension",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A11_boolean_numeric",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A12_nan",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A13_inf",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A14_conversion_overflow",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A15_zero_pressure",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A16_negative_flow",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A17_absolute_zero",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A18_empty_composition",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A19_bad_composition_sum",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A20_negative_fraction",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A21_nan_fraction",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A22_extra_unit",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A23_ambiguous_version",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A24_ambiguous_unit",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A25_wrong_schema_dimension",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A26_missing_schema_field",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A27_colliding_aliases",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A28_broken_native_serialization",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "A29_no_stale_configuration",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "C2_01_three_consumers_seven_boundaries",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_02_pending_and_history",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_03_delayed_old_completion",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_04_late_record_atomic",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_05_late_consumer_atomic",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_06_input_copy_isolation",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_07_snapshot_history_copy_isolation",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_08_revision_reuse",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_09_retry_failed_revision",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_10_missing_boundary",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_11_configuration_not_cached",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_12_completed_revision_rejected",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_13_extra_boundary",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "C2_14_nonfinite_consumer_atomic",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "id": "F01_real_5C",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "F02_real_25C",
+      "passed": true,
+      "error": null
+    },
+    {
+      "id": "F03_real_A_to_B",
+      "passed": true,
+      "error": null
+    }
+  ]
+}

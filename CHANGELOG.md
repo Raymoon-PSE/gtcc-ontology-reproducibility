@@ -1,3 +1,12 @@
+# 0.4.0 — 2026-10-14
+
+- Add selected evidence from three later comparison studies without changing the archived physical source subset.
+- Add runnable stored-fixture acceptance for all provider checkpoints and adapter-pilot stages.
+- Preserve original adverse findings and post hoc repair history.
+- Record original and public file hashes for sanitized derived evidence.
+- Add minimal fresh linked-cycle physical reproduction and preserve the metadata benchmark runner.
+- Exclude the complete later application and distinguish archived paired outcomes from fresh physical-only regeneration.
+
 # Changelog
 
 ## v0.3.0

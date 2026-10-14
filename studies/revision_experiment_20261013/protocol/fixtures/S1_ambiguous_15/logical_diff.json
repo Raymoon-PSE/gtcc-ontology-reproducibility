@@ -1,0 +1,35 @@
+{
+  "added": [
+    [
+      "AdvancedExpander",
+      "subclass",
+      "IntermediateExpander"
+    ],
+    [
+      "EXP-001",
+      "binding",
+      "HP_ST"
+    ],
+    [
+      "EXP-001",
+      "type",
+      "AdvancedExpander"
+    ],
+    [
+      "IntermediateExpander",
+      "subclass",
+      "GT_Turbine"
+    ]
+  ],
+  "affected_subjects": 3,
+  "changed_slots": 4,
+  "interpretation": "representation-independent authored configuration changes; not measured developer effort",
+  "logical_fact_operations": 5,
+  "removed": [
+    [
+      "EXP-001",
+      "type",
+      "GT_Turbine"
+    ]
+  ]
+}

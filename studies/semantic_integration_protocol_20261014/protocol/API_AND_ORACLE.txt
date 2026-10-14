@@ -1,0 +1,40 @@
+RELEASED INTERFACE CONTRACT — supplement to STUDY_PROTOCOL
+
+All semantics here are available to every implementer from Stage 0. Future provider snapshots and exact acceptance mutations are released only at their assigned stage. This tests evolution within declared capabilities, not surprise requirements absent from the contract. Hand-computed conversion examples below are also released.
+
+API for each independently implemented arm:
+  integrate(providers, boundary_mapping, canonical_classes, payloads, requested_versions) -> result
+Providers: list of the two native provider schema dictionaries. Native external ingress JSON is neutral transport, not a prohibition on internal RDF. Each arm imports the same primitive descriptions into its assigned internal representation and reports native artifacts. Import/index code and modifications count. Canonical class mapping is protocol/canonical_classes.json. No supplied application validator or shared converter may be called from the arm.
+Payloads: list of exactly 14 endpoint records, one producer and one consumer for each of seven mapped boundaries. Each record has endpoint {provider_id, namespace, local_port_id}, schema_version, fields {native_alias: numeric_value}, composition {species: mass_fraction}. Endpoint aliases/units come from that provider's declared field_set. Composition is a common envelope field whose provenance is the source endpoint plus schema version and literal field 'composition'. No provider-specific composition inference or invented species mapping is required.
+Both endpoint payloads are generated from the SAME previously solved stream for the boundary, encoded independently in their declared units. They are synthetic exports, not two measured instruments. Stage data generation is evaluator work and excluded from maintenance metrics. Exact transform specification: native degC = T, K = T+273.15, MPa = P, bar = 10*P, Pa = 1000000*P, kg/h = m_dot, kg/s = m_dot/3600, composition = w. Source physical fixture is fixtures/whole_cycle.json; quantity units in fixtures/provenance.json.
+Requested_versions: exact dictionary of provider IDs to version strings; must equal native versions, mapping.provider_versions and every payload schema_version. No implicit latest version, backward alias fallback or version mixing. mapping_version must correspond to the snapshot stage (1.0, 2.0, 3.0). Prior-stage regression cases still carry their original requested versions.
+
+Accepted result:
+  {status: 'accepted', boundaries: [seven records]}
+Each boundary record has boundary_id; T, P, m_dot, w in canonical units; producer and consumer descriptors; canonical_ancestors.
+Each endpoint descriptor contains provider_id, namespace, local_port_id, schema_version, local_equipment_id, local_type_id, local_ancestors (including assigned type), canonical_ancestors, and provenance {T: {field,unit}, P: {field,unit}, m_dot: {field,unit}, w: {field:'composition',unit:'mass_fraction'}}.
+Top-level physical values are the normalized producer values. Normalize consumer values too and reject disagreement against the producer under the fixed tolerances, including the same composition species set. This checks both endpoints even though original source values are shared. Boundary canonical_ancestors are those of the producer equipment. Endpoint descriptors expose BOTH source identities so v3 consumer namespace changes are observable.
+Canonical class resolution: traverse each endpoint's equipment local class to its provider-local ancestors; apply explicit provider_type_mappings to all reached classes; include all their canonical ancestors using canonical_parent. Return sorted unique sets. Every equipment class and parent must exist, with no cycles, before applying mappings. Every endpoint equipment must resolve to at least EngineeringAsset; no unmapped-root fallback. Do not map names by string resemblance.
+Required mapping consistency: exactly one producer and consumer per canonical boundary, matching port out/in directions, every referenced port exists and each of the 14 endpoint identities appears in one boundary only. Duplicate identical mapping assertions are logically idempotent. Conflicting alternatives for the same boundary are AMBIGUOUS_MAPPING. Reusing an endpoint for two distinct boundaries is DUPLICATE_BOUNDARY. Missing required boundary is MISSING_BOUNDARY. Omitted namespace or multiple contradictory target quantities for one field is AMBIGUOUS_MAPPING; a unit disagreement between native metadata and its single field mapping is INCOMPATIBLE_UNIT; unresolved referenced port/equipment or illegal structural type is INVALID_SCHEMA; missing/cyclic class ancestry is UNRESOLVED_CLASS. Unknown quantities, dimensional mismatches or unsupported units are INCOMPATIBLE_UNIT. Invalid physical values or normalized endpoint disagreement are INVALID_VALUE. Missing endpoint payload, aliases, composition or extra undeclared payload aliases are INVALID_SCHEMA. Repeated endpoint payloads are INVALID_SCHEMA; idempotent assertion policy applies to metadata facts, not observation records.
+Field mapping must agree with native field_set declarations for quantity and unit; there is exactly one native field per required scalar quantity. Native declarations and supplied mappings cannot silently override each other.
+
+Rejected result:
+  {status: 'rejected', error: {code: documented_error, detail: string}}
+No boundaries key or accepted partial graph/data may be returned. Each call is stateless at this interface; caching cannot retain rejected or mixed-version results. No new temporal transaction protocol is being tested. Never mutate caller-owned inputs.
+
+Three query functions run over accepted canonical records only:
+  query_all(result): sorted boundary records by boundary_id.
+  query_by_ancestor(result, canonical_class): boundary records whose PRODUCER equipment canonical closure includes the specified canonical class.
+  query_returns(result, requested_versions): cold_reheat and condensate with both endpoint descriptors; reject inconsistent requested versions.
+Query sources are independently written by each arm implementer from the same contract at Stage 0, frozen, and included in change accounting. Do not count them as independent applications.
+
+Fixed query oracles for valid snapshots:
+EngineeringAsset -> all seven boundaries.
+GasTurbine -> gt_exhaust.
+HeatRecovery -> hp_steam, hot_reheat, lp_steam.
+SteamExpansion -> cold_reheat, st_exhaust.
+HeatSink -> condensate.
+Both return records expose full producer and consumer identities from the requested mapping snapshot. Ordering of documents or metadata lists must not alter these sets or physical results.
+
+Hand-computed released conversion examples:
+273.15 K -> 0 degC; 300 K -> 26.85 degC; 1 bar -> 0.1 MPa; 200000 Pa -> 0.2 MPa; 2 kg/s -> 7200 kg/h. These examples are not plant observations. Executable acceptance must also use independently specified non-example numeric inputs and the frozen physical fixtures.

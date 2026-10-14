@@ -1,0 +1,15 @@
+{
+  "scales": [
+    1,
+    10,
+    100,
+    1000
+  ],
+  "cold_reps": 6,
+  "warm_reps": 20,
+  "cold": "parse native in-memory serialized artifact and construct queryable representation; no disk I/O or physics",
+  "warm": "transitive expander subtype lookup plus binding and seven boundary endpoint/version/unit checks per replicated configuration",
+  "memory": "tracemalloc peak Python allocations during cold parse; excludes preexisting payload, interpreter, native allocations and physics",
+  "order": "balanced RDF/JSON alternation; GC enabled; serial process; two untimed warmups",
+  "scope": "synthetically replicated metadata only; repetitions are timing samples, not independent engineering tasks"
+}

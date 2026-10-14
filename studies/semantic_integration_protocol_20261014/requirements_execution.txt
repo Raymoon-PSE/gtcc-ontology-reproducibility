@@ -1,0 +1,2 @@
+# Python 3.12; JSON arms and evaluator use the standard library.
+rdflib==7.6.0

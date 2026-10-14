@@ -1,0 +1,142 @@
+[
+  {
+    "id": "S1_compatible_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S1_incompatible_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S1_ambiguous_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S1_missing_ancestry_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S2_compatible_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S2_missing_output_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S3_compatible_5",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S4_compatible_5",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S3_compatible_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S4_compatible_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S3_compatible_25",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S4_compatible_25",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S3_missing_unit_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S3_wrong_dimension_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S3_conflicting_fields_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S4_wrong_source_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S4_swapped_reheat_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S4_missing_field_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S4_stale_version_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S5_transition_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S5_delayed_old_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S5_mixed_consumer_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S5_failed_new_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S6_compatible_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S6_stale_output_contract_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S6_stale_publisher_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S6_stale_query_15",
+    "parity": true,
+    "reason": null
+  },
+  {
+    "id": "S6_stale_warning_export_15",
+    "parity": true,
+    "reason": null
+  }
+]

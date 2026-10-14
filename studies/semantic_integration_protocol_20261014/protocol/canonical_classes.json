@@ -1,0 +1,42 @@
+{
+  "authorship": "Host-authored common canonical contract, separate from independently authored provider documents",
+  "canonical_parent": {
+    "EngineeringAsset": null,
+    "GasTurbine": "EngineeringAsset",
+    "HeatRecovery": "EngineeringAsset",
+    "SteamExpansion": "EngineeringAsset",
+    "HeatSink": "EngineeringAsset"
+  },
+  "provider_type_mappings": [
+    {
+      "provider": "A",
+      "local_type": "ThermalAsset",
+      "canonical_type": "EngineeringAsset"
+    },
+    {
+      "provider": "A",
+      "local_type": "GasTurbine",
+      "canonical_type": "GasTurbine"
+    },
+    {
+      "provider": "A",
+      "local_type": "HeatRecoveryUnit",
+      "canonical_type": "HeatRecovery"
+    },
+    {
+      "provider": "B",
+      "local_type": "CycleComponent",
+      "canonical_type": "EngineeringAsset"
+    },
+    {
+      "provider": "B",
+      "local_type": "ExpansionMachine",
+      "canonical_type": "SteamExpansion"
+    },
+    {
+      "provider": "B",
+      "local_type": "HeatSink",
+      "canonical_type": "HeatSink"
+    }
+  ]
+}

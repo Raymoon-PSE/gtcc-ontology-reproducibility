@@ -1,0 +1,19 @@
+{
+  "backend": "json",
+  "case": {
+    "ambient": 15,
+    "error_contains": "warning_export version mismatch",
+    "expected": "reject",
+    "id": "S6_stale_warning_export_15",
+    "task": "S6",
+    "variant": "stale_warning_export"
+  },
+  "observed": {
+    "current_result_published": false,
+    "matches_frozen_oracle": true,
+    "outcome": "reject",
+    "reason": "warning_export version mismatch",
+    "stage": "output_contract"
+  },
+  "wall_seconds_context_only": 0.1131502918433398
+}

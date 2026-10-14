@@ -1,0 +1,226 @@
+[
+  {
+    "ambient": 15,
+    "error_contains": null,
+    "expected": "accept",
+    "id": "S1_compatible_15",
+    "task": "S1",
+    "variant": "compatible"
+  },
+  {
+    "ambient": 15,
+    "error_contains": "incompatible type",
+    "expected": "reject",
+    "id": "S1_incompatible_15",
+    "task": "S1",
+    "variant": "incompatible"
+  },
+  {
+    "ambient": 15,
+    "error_contains": "expected one value",
+    "expected": "reject",
+    "id": "S1_ambiguous_15",
+    "task": "S1",
+    "variant": "ambiguous"
+  },
+  {
+    "ambient": 15,
+    "error_contains": "incompatible type",
+    "expected": "reject",
+    "id": "S1_missing_ancestry_15",
+    "task": "S1",
+    "variant": "missing_ancestry"
+  },
+  {
+    "ambient": 15,
+    "error_contains": null,
+    "expected": "accept",
+    "id": "S2_compatible_15",
+    "task": "S2",
+    "variant": "compatible"
+  },
+  {
+    "ambient": 15,
+    "error_contains": "missing required output",
+    "expected": "reject",
+    "id": "S2_missing_output_15",
+    "task": "S2",
+    "variant": "missing_output"
+  },
+  {
+    "ambient": 5,
+    "error_contains": null,
+    "expected": "accept",
+    "id": "S3_compatible_5",
+    "task": "S3",
+    "variant": "compatible"
+  },
+  {
+    "ambient": 5,
+    "error_contains": null,
+    "expected": "accept",
+    "id": "S4_compatible_5",
+    "task": "S4",
+    "variant": "compatible"
+  },
+  {
+    "ambient": 15,
+    "error_contains": null,
+    "expected": "accept",
+    "id": "S3_compatible_15",
+    "task": "S3",
+    "variant": "compatible"
+  },
+  {
+    "ambient": 15,
+    "error_contains": null,
+    "expected": "accept",
+    "id": "S4_compatible_15",
+    "task": "S4",
+    "variant": "compatible"
+  },
+  {
+    "ambient": 25,
+    "error_contains": null,
+    "expected": "accept",
+    "id": "S3_compatible_25",
+    "task": "S3",
+    "variant": "compatible"
+  },
+  {
+    "ambient": 25,
+    "error_contains": null,
+    "expected": "accept",
+    "id": "S4_compatible_25",
+    "task": "S4",
+    "variant": "compatible"
+  },
+  {
+    "ambient": 15,
+    "error_contains": "missing or conflicting fields",
+    "expected": "reject",
+    "id": "S3_missing_unit_15",
+    "task": "S3",
+    "variant": "missing_unit"
+  },
+  {
+    "ambient": 15,
+    "error_contains": "inconsistent unit",
+    "expected": "reject",
+    "id": "S3_wrong_dimension_15",
+    "task": "S3",
+    "variant": "wrong_dimension"
+  },
+  {
+    "ambient": 15,
+    "error_contains": "missing or conflicting fields",
+    "expected": "reject",
+    "id": "S3_conflicting_fields_15",
+    "task": "S3",
+    "variant": "conflicting_fields"
+  },
+  {
+    "ambient": 15,
+    "error_contains": "source mismatch",
+    "expected": "reject",
+    "id": "S4_wrong_source_15",
+    "task": "S4",
+    "variant": "wrong_source"
+  },
+  {
+    "ambient": 15,
+    "error_contains": "boundary mismatch",
+    "expected": "reject",
+    "id": "S4_swapped_reheat_15",
+    "task": "S4",
+    "variant": "swapped_reheat"
+  },
+  {
+    "ambient": 15,
+    "error_contains": "missing or conflicting fields",
+    "expected": "reject",
+    "id": "S4_missing_field_15",
+    "task": "S4",
+    "variant": "missing_field"
+  },
+  {
+    "ambient": 15,
+    "error_contains": "version mismatch",
+    "expected": "reject",
+    "id": "S4_stale_version_15",
+    "task": "S4",
+    "variant": "stale_version"
+  },
+  {
+    "ambient": 15,
+    "error_contains": null,
+    "expected": "accept",
+    "id": "S5_transition_15",
+    "task": "S5",
+    "variant": "transition"
+  },
+  {
+    "ambient": 15,
+    "error_contains": "previous revision",
+    "expected": "reject",
+    "id": "S5_delayed_old_15",
+    "task": "S5",
+    "variant": "delayed_old"
+  },
+  {
+    "ambient": 15,
+    "error_contains": "mixed consumer revisions",
+    "expected": "reject",
+    "id": "S5_mixed_consumer_15",
+    "task": "S5",
+    "variant": "mixed_consumer"
+  },
+  {
+    "ambient": 15,
+    "error_contains": "missing required output",
+    "expected": "reject",
+    "id": "S5_failed_new_15",
+    "task": "S5",
+    "variant": "failed_new"
+  },
+  {
+    "ambient": 15,
+    "error_contains": null,
+    "expected": "accept",
+    "id": "S6_compatible_15",
+    "task": "S6",
+    "variant": "compatible"
+  },
+  {
+    "ambient": 15,
+    "error_contains": "output_contract version mismatch",
+    "expected": "reject",
+    "id": "S6_stale_output_contract_15",
+    "task": "S6",
+    "variant": "stale_output_contract"
+  },
+  {
+    "ambient": 15,
+    "error_contains": "publisher version mismatch",
+    "expected": "reject",
+    "id": "S6_stale_publisher_15",
+    "task": "S6",
+    "variant": "stale_publisher"
+  },
+  {
+    "ambient": 15,
+    "error_contains": "query version mismatch",
+    "expected": "reject",
+    "id": "S6_stale_query_15",
+    "task": "S6",
+    "variant": "stale_query"
+  },
+  {
+    "ambient": 15,
+    "error_contains": "warning_export version mismatch",
+    "expected": "reject",
+    "id": "S6_stale_warning_export_15",
+    "task": "S6",
+    "variant": "stale_warning_export"
+  }
+]

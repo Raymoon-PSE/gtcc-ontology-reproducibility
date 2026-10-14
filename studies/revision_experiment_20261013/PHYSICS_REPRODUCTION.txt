@@ -1,0 +1,17 @@
+MINIMAL FRESH LINKED-CYCLE PHYSICS REPRODUCTION
+
+Run from the repository root in a separate Python environment:
+python -m pip install -r studies/revision_experiment_20261013/requirements_physics.txt
+python -B studies/revision_experiment_20261013/reproduce_physics.py
+
+Optional --output /path/to/results.json writes a fresh result separately. No archived records are overwritten by default. The environment used for the archived values was Python 3.12.13 with the versions pinned in requirements_physics.txt. Other platforms may have numerical library differences; the script reports actual package versions and compares within declared tolerances.
+
+Scope
+The runner executes fresh numerical GT/HRSG/steam-turbine/condenser calculations at 5, 15 and 25 degrees Celsius with both solved return streams. It compares every physical summary leaf with the frozen results/main/oracles.json physical record. Numerical comparisons use relative tolerance 1e-10 and absolute tolerance 1e-6; strings, booleans and nulls are exact. It also requires convergence, seven boundary streams with observed solver-input callbacks, HRSG audit passes and external mass/energy residuals below 1e-6 kg/hr and 0.01 kW respectively.
+
+This reproduces physical numerical baselines and conservation checks. It does not execute mechanical diagnosis, the ontology runtime, all 28 paired integration cases, or prove plant predictive accuracy. The numerical models remain the later linked-cycle snapshot, not the original v0.3.0 prescribed-steam configuration. Stored mechanical fields in oracles.json are not evaluated by this runner.
+
+Derivation
+source_snapshot/ contains the minimal statically resolved import closure for eklm.vdt.gui_adapter with ontology_runtime=False. Sixty imported Python source files are copied byte-for-byte from the frozen later source snapshot. Two package initializer files are replaced by disclosed packaging-only stubs: eklm/__init__.py and eklm/vdt/__init__.py. This prevents application bootstrap, environment-file loading and application-engine imports. PHYSICS_SOURCE_MANIFEST.json records original and public SHA-256 values for every file, including both initializer changes. The runner checks all public source hashes before calculation. Numerical kernels, gui_adapter.py and benchmark/physics.py are unchanged. The package includes imported mechanical class definitions because the unchanged adapter/package initializers require them, but no mechanical simulation is invoked.
+
+The opt-in ontology branches import components deliberately absent from this subset. Do not treat this directory as the complete application or enable ontology_runtime=True. No API credentials, user environment files, application UI or production bootstrap are included.

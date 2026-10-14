@@ -1,0 +1,80 @@
+{
+  "provenance": {
+    "kind": "fabricated_agent_authored_fixture",
+    "authorship": "Engineering-provider fixture author agent, independently assigned before representation implementation",
+    "industrial_data": false,
+    "physical_measurements_included": false,
+    "authoring_date": "2026-10-14"
+  },
+  "sequential_changes": [
+    {
+      "request_id": "v2",
+      "from": "1.0",
+      "to": "2.0",
+      "requirements": [
+        "Replace field keys and units with the v2 native declarations and supplied field mappings; old keys are not aliases accepted by default.",
+        "Retain every stream connection and direction.",
+        "Assign H01 to ControlledHRSG and ST1 to ReheatSteamTurbine. Resolve transitive ancestors using the complete provided local hierarchy, not subtype spelling.",
+        "Normalize quantities using declared units only. This fixture supplies metadata, no operating-point values."
+      ],
+      "ancestor_requirements": [
+        {
+          "provider_id": "A",
+          "equipment_id": "H01",
+          "required_ancestors": [
+            "HRSG",
+            "HeatRecoveryUnit",
+            "ThermalAsset"
+          ]
+        },
+        {
+          "provider_id": "B",
+          "equipment_id": "ST1",
+          "required_ancestors": [
+            "SteamTurbine",
+            "ExpansionMachine",
+            "CycleComponent"
+          ]
+        }
+      ]
+    },
+    {
+      "request_id": "v3",
+      "from": "2.0",
+      "to": "3.0",
+      "requirements": [
+        "Use provider ID plus namespace plus local port ID as endpoint identity. Multiple inlet labels are distinct ports.",
+        "Preserve v2 types, quantities and units. Apply the complete v3 mapping.",
+        "Handle each invalid variant separately against otherwise valid v3 documents; do not combine invalid variants.",
+        "Reject ambiguous or inconsistent inputs with an explicit diagnostic; never infer an omitted namespace from order or silently repair a missing parent."
+      ]
+    }
+  ],
+  "invalid_variants": [
+    {
+      "variant_id": "conflicting_boundary",
+      "replace": "boundary_mapping_v3.json",
+      "with": "variant_v3_conflicting_boundary_mapping.json",
+      "expected": "Reject: hp_steam has two incompatible consumer declarations; no first-wins or last-wins behavior."
+    },
+    {
+      "variant_id": "missing_parent",
+      "replace": "provider_a_v3.json",
+      "with": "variant_v3_missing_parent_provider_a.json",
+      "expected": "Reject: ControlledHRSG names absent parent UnregisteredRecoveryUnit; no assumed ancestor closure."
+    },
+    {
+      "variant_id": "unqualified_context",
+      "replace": "boundary_mapping_v3.json",
+      "with": "variant_v3_unqualified_boundary_mapping.json",
+      "expected": "Reject: the hp_steam consumer lacks namespace and inlet is ambiguous in provider B."
+    }
+  ],
+  "fairness_contract": [
+    "Both representations receive every native document, mapping, conversion and requirement in identical content.",
+    "No requirement mandates RDF, SPARQL, OWL, JSON-LD or any other representation-specific syntax.",
+    "Equivalent explicit traversal, lookup and validation strategies are admissible.",
+    "Valid native field quantity names describe engineering dimensions, not cross-provider stream identities.",
+    "Implementations and executable evaluation remain outside these documents."
+  ]
+}

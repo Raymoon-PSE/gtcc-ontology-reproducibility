@@ -1,0 +1,320 @@
+{
+  "5": {
+    "converged": true,
+    "iterations": 2,
+    "residual": 0.0,
+    "W_GT_kW": 371352.1553537732,
+    "W_ST_kW": 190750.62764474866,
+    "W_net_kW": 552482.7829985218,
+    "Q_fuel_kW": 994889.0546658194,
+    "eta_net": 0.5553209982635695,
+    "T_stack_C": 136.53600524064524,
+    "Q_condenser_kW": 300251.40514468134,
+    "streams": {
+      "gt_exhaust": {
+        "T": 624.6731634195278,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276115,
+          "CO2": 0.062475833571997624,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        },
+        "h": 671622.8858520184,
+        "s": 8061.257582176298
+      },
+      "hp_steam": {
+        "T": 565.5999999997904,
+        "P": 16.65,
+        "m_dot": 392884.0,
+        "w": {
+          "H2O": 1.0
+        },
+        "h": 3475882.6816898827,
+        "s": 6510.114034270433
+      },
+      "hot_reheat": {
+        "T": 494.60952814527616,
+        "P": 2.415,
+        "m_dot": 454350.0,
+        "w": {
+          "H2O": 1.0
+        },
+        "h": 3451707.610780583,
+        "s": 7326.726618959783
+      },
+      "lp_steam": {
+        "T": 162.2846835656659,
+        "P": 0.655,
+        "m_dot": 42272.0,
+        "w": {
+          "H2O": 1.0
+        },
+        "h": 2759927.503193181,
+        "s": 6729.591728787005
+      },
+      "st_exhaust": {
+        "T": 38.37888457506426,
+        "P": 0.00677,
+        "m_dot": 496622.0,
+        "w": {
+          "H2O": 1.0
+        },
+        "h": 2339331.0420517204,
+        "s": 7543.877903980234
+      },
+      "cold_reheat": {
+        "T": 308.79999999982965,
+        "P": 2.482,
+        "m_dot": 376455.0,
+        "w": {
+          "H2O": 1.0
+        },
+        "h": 3031272.0528211035,
+        "s": 6686.582817945399
+      },
+      "condensate": {
+        "T": 38.45744572041133,
+        "P": 0.896,
+        "m_dot": 507727.4285714286,
+        "w": {
+          "H2O": 1.0
+        },
+        "h": 161876.51703344073,
+        "s": 551.4281169555879
+      }
+    },
+    "operating_point": {
+      "compressor_inlet_T_C": 5,
+      "compressor_outlet_T_C": 417.1754845287936,
+      "compressor_outlet_P_MPa": 1.83353,
+      "compressor_inlet_P_MPa": 0.1013,
+      "mass_flow_kg_s": 876.3152777777777,
+      "TIT_C": 1285.2077149995098,
+      "GT_power_kW": 371352.1553537732,
+      "GT_efficiency": 0.3732598661249816,
+      "GT_exhaust_T_C": 624.6731634195278,
+      "HP_steam_T_C": 565.5999999997904,
+      "HP_steam_P_MPa": 16.65,
+      "reheat_steam_T_C": 494.60952814527616,
+      "reheat_steam_P_MPa": 2.415,
+      "ST_power_kW": 190750.62764474866,
+      "condenser_pressure_kPa": 6.77,
+      "load_factor": 1.0,
+      "cumulative_hours": 0.0,
+      "start_stop_count": 0
+    },
+    "cycle_water_audit": {
+      "scope": "linked_steady_water_circuit",
+      "feedwater_kg_hr": 523521.4285714285,
+      "extraction_to_da_kg_hr": 15794.0,
+      "gland_supply_kg_hr": 635.0,
+      "blowdown_kg_hr": 10470.42857142855,
+      "blowdown_enthalpy_rate_kW": 4320.537260287507,
+      "makeup_required_kg_hr": 10470.42857142855,
+      "deaerator_mass_residual_kg_hr": 5.820766091346741e-11,
+      "deaerator_energy_residual_kW": 0.0,
+      "deaerator_outlet_h_J_kg": 685407.6402086461,
+      "whole_cycle_closed": true,
+      "assumptions": [
+        "All non-gland HP bleed heats ideal adiabatic DA; no vent",
+        "Drum blowdown purged; no heat recovery; makeup replaces purge",
+        "Gland steam condensed externally and returned; heat reported separately",
+        "No vendor UA or full internal-pinch validation"
+      ],
+      "gland_heat_rejection_kW": 506.3370148726113,
+      "makeup_enthalpy_rate_kW": 183.4559587347062,
+      "external_energy_residual_kW": 4.679566700360738e-06,
+      "external_mass_residual_kg_hr": 2.1827872842550278e-11,
+      "net_boundary_inflow_kg_hr": 5.820766091346741e-11,
+      "imposed_returns_and_makeup_kg_hr": 11105.428571428572
+    },
+    "validation_scope": {
+      "status": "water_cycle_balanced_prototype",
+      "hrsg_local_balances_passed": true,
+      "hrsg_endpoint_screen_passed": true,
+      "field_validated": false,
+      "feedwater_whole_cycle_closed": true,
+      "st_efficiency_basis": "NETL_design_point_calibration_fixed_across_cases_not_refitted_for_bounded_hrsg",
+      "calibration_targets": [
+        "ST design gross power 202500 kW",
+        "cold reheat temperature 308.8 C"
+      ],
+      "independent_validation": false,
+      "part_load_thermodynamics_supported": false,
+      "energy_balance_note": "Unaccounted energy is a signed residual, not independently calculated radiation loss."
+    },
+    "hrsg_local_balances_passed": true,
+    "hrsg_endpoint_screen_passed": true,
+    "boundary_calls": {
+      "gt_exhaust": 2,
+      "hp_steam": 2,
+      "hot_reheat": 2,
+      "lp_steam": 2,
+      "st_exhaust": 2,
+      "cold_reheat": 2,
+      "condensate": 2
+    }
+  },
+  "25": {
+    "converged": true,
+    "iterations": 2,
+    "residual": 0.0,
+    "W_GT_kW": 364110.25013167976,
+    "W_ST_kW": 194391.53094909308,
+    "W_net_kW": 548881.7810807729,
+    "Q_fuel_kW": 994889.0546658194,
+    "eta_net": 0.5517014972741265,
+    "T_stack_C": 155.9459383121977,
+    "Q_condenser_kW": 303096.22840426624,
+    "streams": {
+      "gt_exhaust": {
+        "T": 648.1371419430455,
+        "P": 0.1048,
+        "m_dot": 3230636.0,
+        "w": {
+          "N2": 0.7556412717787669,
+          "O2": 0.11422908620276115,
+          "CO2": 0.062475833571997624,
+          "H2O": 0.05866994232352177,
+          "Ar": 0.008983866122952485
+        },
+        "h": 699827.5175430916,
+        "s": 8092.268206630991
+      },
+      "hp_steam": {
+        "T": 565.5999999997904,
+        "P": 16.65,
+        "m_dot": 392884.0,
+        "w": {
+          "H2O": 1.0
+        },
+        "h": 3475882.6816898827,
+        "s": 6510.114034270433
+      },
+      "hot_reheat": {
+        "T": 517.9268167196659,
+        "P": 2.415,
+        "m_dot": 454350.0,
+        "w": {
+          "H2O": 1.0
+        },
+        "h": 3503565.741466683,
+        "s": 7393.265614781644
+      },
+      "lp_steam": {
+        "T": 162.2846835656659,
+        "P": 0.655,
+        "m_dot": 42272.0,
+        "w": {
+          "H2O": 1.0
+        },
+        "h": 2759927.503193181,
+        "s": 6729.591728787005
+      },
+      "st_exhaust": {
+        "T": 38.37888457506426,
+        "P": 0.00677,
+        "m_dot": 496622.0,
+        "w": {
+          "H2O": 1.0
+        },
+        "h": 2359953.0920907957,
+        "s": 7610.074173604493
+      },
+      "cold_reheat": {
+        "T": 308.79999999982965,
+        "P": 2.482,
+        "m_dot": 376455.0,
+        "w": {
+          "H2O": 1.0
+        },
+        "h": 3031272.0528211035,
+        "s": 6686.582817945399
+      },
+      "condensate": {
+        "T": 38.45744572041133,
+        "P": 0.896,
+        "m_dot": 507727.4285714286,
+        "w": {
+          "H2O": 1.0
+        },
+        "h": 161876.51703344073,
+        "s": 551.4281169555879
+      }
+    },
+    "operating_point": {
+      "compressor_inlet_T_C": 25,
+      "compressor_outlet_T_C": 463.41685508236856,
+      "compressor_outlet_P_MPa": 1.83353,
+      "compressor_inlet_P_MPa": 0.1013,
+      "mass_flow_kg_s": 876.3152777777777,
+      "TIT_C": 1322.488091757145,
+      "GT_power_kW": 364110.25013167976,
+      "GT_efficiency": 0.36598075777804534,
+      "GT_exhaust_T_C": 648.1371419430455,
+      "HP_steam_T_C": 565.5999999997904,
+      "HP_steam_P_MPa": 16.65,
+      "reheat_steam_T_C": 517.9268167196659,
+      "reheat_steam_P_MPa": 2.415,
+      "ST_power_kW": 194391.53094909308,
+      "condenser_pressure_kPa": 6.77,
+      "load_factor": 1.0,
+      "cumulative_hours": 0.0,
+      "start_stop_count": 0
+    },
+    "cycle_water_audit": {
+      "scope": "linked_steady_water_circuit",
+      "feedwater_kg_hr": 523521.4285714285,
+      "extraction_to_da_kg_hr": 15794.0,
+      "gland_supply_kg_hr": 635.0,
+      "blowdown_kg_hr": 10470.42857142855,
+      "blowdown_enthalpy_rate_kW": 4320.537260287507,
+      "makeup_required_kg_hr": 10470.42857142855,
+      "deaerator_mass_residual_kg_hr": 5.820766091346741e-11,
+      "deaerator_energy_residual_kW": 0.0,
+      "deaerator_outlet_h_J_kg": 685407.6402086453,
+      "whole_cycle_closed": true,
+      "assumptions": [
+        "All non-gland HP bleed heats ideal adiabatic DA; no vent",
+        "Drum blowdown purged; no heat recovery; makeup replaces purge",
+        "Gland steam condensed externally and returned; heat reported separately",
+        "No vendor UA or full internal-pinch validation"
+      ],
+      "gland_heat_rejection_kW": 506.3370148726113,
+      "makeup_enthalpy_rate_kW": 183.4559587347062,
+      "external_energy_residual_kW": 4.679624908021651e-06,
+      "external_mass_residual_kg_hr": 2.1827872842550278e-11,
+      "net_boundary_inflow_kg_hr": 5.820766091346741e-11,
+      "imposed_returns_and_makeup_kg_hr": 11105.428571428572
+    },
+    "validation_scope": {
+      "status": "water_cycle_balanced_prototype",
+      "hrsg_local_balances_passed": true,
+      "hrsg_endpoint_screen_passed": true,
+      "field_validated": false,
+      "feedwater_whole_cycle_closed": true,
+      "st_efficiency_basis": "NETL_design_point_calibration_fixed_across_cases_not_refitted_for_bounded_hrsg",
+      "calibration_targets": [
+        "ST design gross power 202500 kW",
+        "cold reheat temperature 308.8 C"
+      ],
+      "independent_validation": false,
+      "part_load_thermodynamics_supported": false,
+      "energy_balance_note": "Unaccounted energy is a signed residual, not independently calculated radiation loss."
+    },
+    "hrsg_local_balances_passed": true,
+    "hrsg_endpoint_screen_passed": true,
+    "boundary_calls": {
+      "gt_exhaust": 2,
+      "hp_steam": 2,
+      "hot_reheat": 2,
+      "lp_steam": 2,
+      "st_exhaust": 2,
+      "cold_reheat": 2,
+      "condensate": 2
+    }
+  }
+}

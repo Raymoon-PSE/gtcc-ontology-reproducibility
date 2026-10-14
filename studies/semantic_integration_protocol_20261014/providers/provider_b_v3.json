@@ -1,0 +1,123 @@
+{
+  "provider_id": "B",
+  "version": "3.0",
+  "native_vocabulary": "steam-cycle machinery and sink interfaces",
+  "provenance": {
+    "kind": "fabricated_agent_authored_fixture",
+    "authorship": "Engineering-provider fixture author agent, independently assigned before representation implementation",
+    "industrial_data": false,
+    "physical_measurements_included": false,
+    "authoring_date": "2026-10-14"
+  },
+  "identity_rule": [
+    "namespace",
+    "local_port_id"
+  ],
+  "type_identity_rule": "local_type_id within provider",
+  "types": [
+    {
+      "local_type_id": "CycleComponent",
+      "parent_type_id": null
+    },
+    {
+      "local_type_id": "ExpansionMachine",
+      "parent_type_id": "CycleComponent"
+    },
+    {
+      "local_type_id": "SteamTurbine",
+      "parent_type_id": "ExpansionMachine"
+    },
+    {
+      "local_type_id": "HeatSink",
+      "parent_type_id": "CycleComponent"
+    },
+    {
+      "local_type_id": "SurfaceCondenser",
+      "parent_type_id": "HeatSink"
+    },
+    {
+      "local_type_id": "ReheatSteamTurbine",
+      "parent_type_id": "SteamTurbine"
+    }
+  ],
+  "equipment": [
+    {
+      "local_equipment_id": "ST1",
+      "local_type_id": "ReheatSteamTurbine"
+    },
+    {
+      "local_equipment_id": "CD1",
+      "local_type_id": "SurfaceCondenser"
+    }
+  ],
+  "field_sets": {
+    "state": [
+      {
+        "local_key": "steam_temperature",
+        "quantity": "temperature",
+        "unit": "degC"
+      },
+      {
+        "local_key": "steam_pressure",
+        "quantity": "pressure",
+        "unit": "bar"
+      },
+      {
+        "local_key": "throughput_hourly",
+        "quantity": "mass_flow",
+        "unit": "kg/h"
+      }
+    ]
+  },
+  "ports": [
+    {
+      "local_port_id": "inlet",
+      "namespace": "cycle.expander.hp",
+      "local_equipment_id": "ST1",
+      "direction": "in",
+      "field_set_id": "state"
+    },
+    {
+      "local_port_id": "inlet",
+      "namespace": "cycle.expander.ip",
+      "local_equipment_id": "ST1",
+      "direction": "in",
+      "field_set_id": "state"
+    },
+    {
+      "local_port_id": "inlet",
+      "namespace": "cycle.expander.lp",
+      "local_equipment_id": "ST1",
+      "direction": "in",
+      "field_set_id": "state"
+    },
+    {
+      "local_port_id": "crossover_return",
+      "namespace": "cycle.expander",
+      "local_equipment_id": "ST1",
+      "direction": "out",
+      "field_set_id": "state"
+    },
+    {
+      "local_port_id": "tail_flow",
+      "namespace": "cycle.expander",
+      "local_equipment_id": "ST1",
+      "direction": "out",
+      "field_set_id": "state"
+    },
+    {
+      "local_port_id": "inlet",
+      "namespace": "cycle.sink.vapour",
+      "local_equipment_id": "CD1",
+      "direction": "in",
+      "field_set_id": "state"
+    },
+    {
+      "local_port_id": "liquid_exit",
+      "namespace": "cycle.sink",
+      "local_equipment_id": "CD1",
+      "direction": "out",
+      "field_set_id": "state"
+    }
+  ]
+}

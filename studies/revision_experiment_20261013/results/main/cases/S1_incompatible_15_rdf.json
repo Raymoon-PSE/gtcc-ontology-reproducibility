@@ -1,0 +1,19 @@
+{
+  "backend": "rdf",
+  "case": {
+    "ambient": 15,
+    "error_contains": "incompatible type",
+    "expected": "reject",
+    "id": "S1_incompatible_15",
+    "task": "S1",
+    "variant": "incompatible"
+  },
+  "observed": {
+    "current_result_published": false,
+    "matches_frozen_oracle": true,
+    "outcome": "reject",
+    "reason": "EXP-001: incompatible type, requires GT_Turbine",
+    "stage": "configuration"
+  },
+  "wall_seconds_context_only": 0.0012570000253617764
+}

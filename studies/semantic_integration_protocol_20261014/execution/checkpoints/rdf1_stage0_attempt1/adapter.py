@@ -1,0 +1,302 @@
+"""Independent RDF integration adapter; neutral JSON ingress, RDF semantic facts."""
+import copy
+import json
+import math
+from urllib.parse import quote
+from rdflib import Graph, Namespace, URIRef, Literal
+from rdflib.namespace import RDF, RDFS
+
+N = Namespace('urn:rdf1:')
+REQUIRED = frozenset(('gt_exhaust', 'hp_steam', 'hot_reheat', 'lp_steam',
+                      'st_exhaust', 'cold_reheat', 'condensate'))
+QUANTITIES = {'temperature': 'T', 'pressure': 'P', 'mass_flow': 'm_dot'}
+UNITS = {'temperature': {'degC', 'K'}, 'pressure': {'MPa', 'bar', 'Pa'},
+         'mass_flow': {'kg/h', 'kg/s'}}
+
+class Rejection(ValueError):
+    def __init__(self, code, detail):
+        self.code, self.detail = code, detail
+        super().__init__(detail)
+
+def fail(code, detail):
+    raise Rejection(code, detail)
+
+def rejected(code, detail):
+    return {'status': 'rejected', 'error': {'code': code, 'detail': str(detail)}}
+
+def identifier(value):
+    if not isinstance(value, str) or not value:
+        fail('INVALID_SCHEMA', 'Identifiers must be nonempty strings')
+    return value
+
+def node(kind, *parts):
+    return URIRef(str(N) + kind + ':' + quote(json.dumps([identifier(p) for p in parts], separators=(',', ':')), safe=''))
+
+def endpoint_node(item):
+    if 'namespace' not in item or not item['namespace']:
+        fail('AMBIGUOUS_MAPPING', 'Endpoint namespace is required')
+    return node('port', item['provider_id'], item['namespace'], item['local_port_id'])
+
+def normalize_quantity(quantity, value, unit):
+    if quantity not in UNITS or unit not in UNITS[quantity]:
+        raise ValueError('Unsupported quantity/unit combination')
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise ValueError('Physical values must be numeric, excluding booleans')
+    try:
+        value = float(value)
+        if not math.isfinite(value):
+            raise ValueError('Nonfinite physical value')
+        if unit == 'K': value -= 273.15
+        elif unit == 'bar': value *= .1
+        elif unit == 'Pa': value /= 1000000
+        elif unit == 'kg/s': value *= 3600
+        if not math.isfinite(value): raise ValueError('Conversion overflow')
+        if quantity == 'temperature' and value <= -273.15: raise ValueError('Absolute zero or below')
+        if quantity == 'pressure' and value <= 0: raise ValueError('Nonpositive pressure')
+        if quantity == 'mass_flow' and value < 0: raise ValueError('Negative mass flow')
+        return value
+    except OverflowError as exc:
+        raise ValueError('Numeric overflow') from exc
+
+class Model:
+    def __init__(self, providers, mapping, classes):
+        self.g = Graph()
+        self.g.bind('s', N)
+        self.g.bind('rdfs', RDFS)
+        g = self.g
+        def lit(s, p, v): g.add((s, p, Literal(identifier(v))))
+        for doc in providers:
+            pid = doc['provider_id']
+            provider = node('provider', pid)
+            g.add((provider, RDF.type, N.Provider))
+            lit(provider, N.provider_id, pid)
+            lit(provider, N.version, doc['version'])
+            for item in doc['types']:
+                typ = node('type', pid, item['local_type_id'])
+                g.add((typ, RDF.type, N.LocalClass))
+                lit(typ, N.local_id, item['local_type_id'])
+                g.add((typ, N.provider, provider))
+                parent = item['parent_type_id']
+                g.add((typ, RDFS.subClassOf, N.Root if parent is None else node('type', pid, parent)))
+            for item in doc['equipment']:
+                eq = node('equipment', pid, item['local_equipment_id'])
+                g.add((eq, RDF.type, N.Equipment))
+                lit(eq, N.local_id, item['local_equipment_id'])
+                g.add((eq, N.assignedClass, node('type', pid, item['local_type_id'])))
+            for fsid, fields in doc['field_sets'].items():
+                fs = node('fieldset', pid, fsid)
+                g.add((fs, RDF.type, N.FieldSet))
+                for item in fields:
+                    f = node('field', pid, fsid, item['local_key'])
+                    g.add((fs, N.field, f))
+                    lit(f, N.local_id, item['local_key'])
+                    lit(f, N.quantity, item['quantity'])
+                    lit(f, N.unit, item['unit'])
+            for item in doc['ports']:
+                port = endpoint_node(dict(item, provider_id=pid))
+                g.add((port, RDF.type, N.Port))
+                g.add((port, N.provider, provider))
+                lit(port, N.namespace, item['namespace'])
+                lit(port, N.local_id, item['local_port_id'])
+                lit(port, N.direction, item['direction'])
+                g.add((port, N.equipment, node('equipment', pid, item['local_equipment_id'])))
+                g.add((port, N.fieldset, node('fieldset', pid, item['field_set_id'])))
+        for name, parent in classes['canonical_parent'].items():
+            typ = node('canonical', name)
+            g.add((typ, RDF.type, N.CanonicalClass))
+            lit(typ, N.local_id, name)
+            g.add((typ, RDFS.subClassOf, N.Root if parent is None else node('canonical', parent)))
+        for item in classes['provider_type_mappings']:
+            g.add((node('type', item['provider'], item['local_type']), N.mapsClass, node('canonical', item['canonical_type'])))
+        for item in mapping['field_mappings']:
+            f = node('field', item['provider_id'], item['field_set_id'], item['local_key'])
+            g.add((f, RDF.type, N.MappedField))
+            lit(f, N.mappedQuantity, item['canonical_quantity'])
+            lit(f, N.mappedUnit, item['declared_unit'])
+        for item in mapping['boundaries']:
+            b = node('boundary', item['canonical_boundary_id'])
+            g.add((b, RDF.type, N.Boundary))
+            lit(b, N.local_id, item['canonical_boundary_id'])
+            for role in ('producer', 'consumer'):
+                g.add((b, N[role], endpoint_node(item[role])))
+        lit(N.Mapping, N.version, mapping['mapping_version'])
+        for pid, version in mapping['provider_versions'].items():
+            g.add((N.Mapping, N.provider, node('provider', pid)))
+            lit(node('provider', pid), N.mappingVersion, version)
+
+    def one(self, subject, predicate, code='INVALID_SCHEMA'):
+        values = set(self.g.objects(subject, predicate))
+        if len(values) != 1: fail(code, f'Expected one {predicate} on {subject}; got {len(values)}')
+        return next(iter(values))
+
+    def closure(self, typ, category):
+        result, visiting = set(), set()
+        def walk(t):
+            if (t, RDF.type, category) not in self.g:
+                fail('UNRESOLVED_CLASS', f'Undeclared class: {t}')
+            if t in visiting: fail('UNRESOLVED_CLASS', 'Cyclic class ancestry')
+            if t in result: return
+            visiting.add(t)
+            parent = self.one(t, RDFS.subClassOf, 'UNRESOLVED_CLASS')
+            if parent != N.Root: walk(parent)
+            visiting.remove(t)
+            result.add(t)
+        walk(typ)
+        return result
+
+    def ancestry(self, typ):
+        local = self.closure(typ, N.LocalClass)
+        canonical = set()
+        for t in local:
+            for target in self.g.objects(t, N.mapsClass):
+                canonical.update(self.closure(target, N.CanonicalClass))
+        if node('canonical', 'EngineeringAsset') not in canonical:
+            fail('UNRESOLVED_CLASS', 'Equipment has no mapped EngineeringAsset ancestor')
+        names = lambda nodes: sorted(str(self.one(n, N.local_id)) for n in nodes)
+        return names(local), names(canonical)
+
+    def validate(self, requested):
+        g = self.g
+        boundaries = set(g.subjects(RDF.type, N.Boundary))
+        names = {str(self.one(b, N.local_id)) for b in boundaries}
+        if REQUIRED - names: fail('MISSING_BOUNDARY', 'Required boundary omitted')
+        if names - REQUIRED: fail('INVALID_SCHEMA', 'Unknown boundary')
+        # Diagnose contradictory targets before endpoint reuse consequences.
+        for b in boundaries:
+            for role in ('producer', 'consumer'):
+                self.one(b, N[role], 'AMBIGUOUS_MAPPING')
+        used = set()
+        for b in boundaries:
+            for role, direction in (('producer', 'out'), ('consumer', 'in')):
+                port = self.one(b, N[role], 'AMBIGUOUS_MAPPING')
+                if port in used: fail('DUPLICATE_BOUNDARY', 'Endpoint reused in mappings')
+                used.add(port)
+                if (port, RDF.type, N.Port) not in g: fail('INVALID_SCHEMA', 'Mapped port does not exist')
+                if str(self.one(port, N.direction)) != direction: fail('INVALID_SCHEMA', 'Port direction mismatch')
+        providers = set(g.subjects(RDF.type, N.Provider))
+        versions = {str(self.one(p, N.provider_id)): str(self.one(p, N.version, 'VERSION_MISMATCH')) for p in providers}
+        if not isinstance(requested, dict) or requested != versions: fail('VERSION_MISMATCH', 'Requested provider versions differ')
+        if set(g.objects(N.Mapping, N.provider)) != providers: fail('VERSION_MISMATCH', 'Mapping provider set differs')
+        if str(self.one(N.Mapping, N.version)) != '1.0': fail('VERSION_MISMATCH', 'Unsupported mapping snapshot')
+        for p in providers:
+            if self.one(p, N.version) != self.one(p, N.mappingVersion, 'VERSION_MISMATCH'): fail('VERSION_MISMATCH', 'Mapping/native versions differ')
+        for category in (N.LocalClass, N.CanonicalClass):
+            for t in g.subjects(RDF.type, category): self.closure(t, category)
+        for t in set(g.subjects(N.mapsClass, None)):
+            self.closure(t, N.LocalClass)
+            target = self.one(t, N.mapsClass, 'AMBIGUOUS_MAPPING')
+            self.closure(target, N.CanonicalClass)
+        for eq in g.subjects(RDF.type, N.Equipment):
+            self.ancestry(self.one(eq, N.assignedClass, 'UNRESOLVED_CLASS'))
+        all_fields = set(g.objects(None, N.field))
+        mapped_fields = set(g.subjects(RDF.type, N.MappedField))
+        if all_fields != mapped_fields: fail('INCOMPATIBLE_UNIT', 'Native and mapped fields do not match')
+        for fs in g.subjects(RDF.type, N.FieldSet):
+            qs = []
+            for f in g.objects(fs, N.field):
+                q = str(self.one(f, N.quantity, 'INCOMPATIBLE_UNIT'))
+                unit = str(self.one(f, N.unit, 'INCOMPATIBLE_UNIT'))
+                mq = str(self.one(f, N.mappedQuantity, 'AMBIGUOUS_MAPPING'))
+                mu = str(self.one(f, N.mappedUnit, 'INCOMPATIBLE_UNIT'))
+                if q not in UNITS or unit not in UNITS[q] or q != mq or unit != mu:
+                    fail('INCOMPATIBLE_UNIT', 'Quantity/unit metadata disagreement')
+                qs.append(q)
+            if len(qs) != 3 or set(qs) != set(QUANTITIES): fail('INCOMPATIBLE_UNIT', 'Required scalar quantities must appear once')
+        for port in g.subjects(RDF.type, N.Port):
+            eq, fs = self.one(port, N.equipment), self.one(port, N.fieldset)
+            if (eq, RDF.type, N.Equipment) not in g or (fs, RDF.type, N.FieldSet) not in g:
+                fail('INVALID_SCHEMA', 'Unresolved equipment or field set')
+        return used, versions
+
+    def descriptor(self, port):
+        provider = self.one(port, N.provider)
+        eq = self.one(port, N.equipment)
+        typ = self.one(eq, N.assignedClass)
+        local, canonical = self.ancestry(typ)
+        provenance = {'w': {'field': 'composition', 'unit': 'mass_fraction'}}
+        for f in self.g.objects(self.one(port, N.fieldset), N.field):
+            q = str(self.one(f, N.mappedQuantity))
+            provenance[QUANTITIES[q]] = {'field': str(self.one(f, N.local_id)), 'unit': str(self.one(f, N.mappedUnit))}
+        return {'provider_id': str(self.one(provider, N.provider_id)), 'namespace': str(self.one(port, N.namespace)),
+                'local_port_id': str(self.one(port, N.local_id)), 'schema_version': str(self.one(provider, N.version)),
+                'local_equipment_id': str(self.one(eq, N.local_id)), 'local_type_id': str(self.one(typ, N.local_id)),
+                'local_ancestors': local, 'canonical_ancestors': canonical, 'provenance': provenance}
+
+def composition(value):
+    if not isinstance(value, dict) or not value: fail('INVALID_VALUE', 'Composition must be a nonempty mapping')
+    for species, fraction in value.items():
+        if not isinstance(species, str) or not species: fail('INVALID_VALUE', 'Invalid species identifier')
+        if isinstance(fraction, bool) or not isinstance(fraction, (float, int)):
+            fail('INVALID_VALUE', 'Invalid composition value type')
+        try:
+            if not math.isfinite(fraction) or fraction < 0: fail('INVALID_VALUE', 'Invalid mass fraction')
+        except OverflowError: fail('INVALID_VALUE', 'Composition overflow')
+    if abs(sum(value.values()) - 1) > 1e-8: fail('INVALID_VALUE', 'Composition does not sum to one')
+    return copy.deepcopy(value)
+
+def integrate(providers, boundary_mapping, canonical_classes, payloads, requested_versions):
+    try:
+        model = Model(providers, boundary_mapping, canonical_classes)
+        used, versions = model.validate(requested_versions)
+        observations = {}
+        for obs in payloads:
+            port = endpoint_node(obs['endpoint'])
+            if port in observations: fail('INVALID_SCHEMA', 'Repeated endpoint observation')
+            if port not in used: fail('INVALID_SCHEMA', 'Unmapped payload endpoint')
+            provider = model.one(port, N.provider)
+            if obs['schema_version'] != str(model.one(provider, N.version)): fail('VERSION_MISMATCH', 'Payload version mismatch')
+            observations[port] = obs
+        if set(observations) != used: fail('INVALID_SCHEMA', 'Missing endpoint observation')
+        def read(port):
+            descriptor = model.descriptor(port)
+            obs = observations[port]
+            fields = obs['fields']
+            required = {p['field'] for q, p in descriptor['provenance'].items() if q != 'w'}
+            if not isinstance(fields, dict) or set(fields) != required: fail('INVALID_SCHEMA', 'Missing or undeclared payload field')
+            values = {}
+            for q, output in QUANTITIES.items():
+                p = descriptor['provenance'][output]
+                try: values[output] = normalize_quantity(q, fields[p['field']], p['unit'])
+                except ValueError as exc: fail('INVALID_VALUE', str(exc))
+            values['w'] = composition(obs['composition'])
+            return descriptor, values
+        output = []
+        for b in model.g.subjects(RDF.type, N.Boundary):
+            producer, pv = read(model.one(b, N.producer))
+            consumer, cv = read(model.one(b, N.consumer))
+            for q in QUANTITIES.values():
+                if abs(pv[q] - cv[q]) > 1e-6 + 1e-10 * abs(pv[q]): fail('INVALID_VALUE', 'Endpoint scalar disagreement')
+            if set(pv['w']) != set(cv['w']) or any(abs(pv['w'][k] - cv['w'][k]) > 1e-8 for k in pv['w']):
+                fail('INVALID_VALUE', 'Endpoint composition disagreement')
+            output.append(dict(pv, boundary_id=str(model.one(b, N.local_id)), producer=producer, consumer=consumer,
+                               canonical_ancestors=list(producer['canonical_ancestors'])))
+        return {'status': 'accepted', 'boundaries': sorted(output, key=lambda b: b['boundary_id'])}
+    except Rejection as exc:
+        return rejected(exc.code, exc.detail)
+    except (KeyError, TypeError, AttributeError, ValueError, OverflowError) as exc:
+        return rejected('INVALID_SCHEMA', f'Malformed native input: {exc}')
+
+def query_all(result):
+    if result.get('status') != 'accepted': return []
+    return copy.deepcopy(sorted(result['boundaries'], key=lambda b: b['boundary_id']))
+
+def query_by_ancestor(result, canonical_class):
+    return [b for b in query_all(result) if canonical_class in b['producer']['canonical_ancestors']]
+
+def query_returns(result, requested_versions):
+    rows = query_all(result)
+    versions = {}
+    for row in rows:
+        for role in ('producer', 'consumer'):
+            desc = row[role]
+            pid, version = desc['provider_id'], desc['schema_version']
+            if pid in versions and versions[pid] != version: return rejected('VERSION_MISMATCH', 'Mixed result versions')
+            versions[pid] = version
+    if not rows or versions != requested_versions:
+        return rejected('VERSION_MISMATCH', 'Requested versions differ from accepted result')
+    return [b for b in rows if b['boundary_id'] in {'cold_reheat', 'condensate'}]
+
+def export_native(providers, boundary_mapping, canonical_classes, destination=None):
+    """Serialize the same graph consumed by integration; no parallel registry."""
+    graph = Model(providers, boundary_mapping, canonical_classes).g
+    return graph.serialize(destination=destination, format='turtle')

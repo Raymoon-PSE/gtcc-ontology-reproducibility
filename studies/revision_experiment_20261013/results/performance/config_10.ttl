@@ -1,0 +1,1053 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rev: <urn:eklm:revision:> .
+
+<urn:eklm:revision:0/EXP-001> a <urn:eklm:revision:0/AdvancedExpander> ;
+    rev:binding <urn:eklm:revision:0/GT_Turbine> .
+
+<urn:eklm:revision:0/HPSH-output> rev:field "mech_hpsh_hoop_stress_MPa" ;
+    rev:unit "MPa" ;
+    rev:version "1" .
+
+<urn:eklm:revision:0/HPSH-query> rev:version "1" .
+
+<urn:eklm:revision:0/HPTURB> a <urn:eklm:revision:0/HP_ST> ;
+    rev:binding <urn:eklm:revision:0/HP_ST> ;
+    rev:version "1" .
+
+<urn:eklm:revision:0/cold_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:0/ST> ;
+    rev:target <urn:eklm:revision:0/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:0/condensate> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:0/Condenser> ;
+    rev:target <urn:eklm:revision:0/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:0/gt_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:0/GT> ;
+    rev:target <urn:eklm:revision:0/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:0/hot_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:0/HRSG> ;
+    rev:target <urn:eklm:revision:0/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:0/hp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:0/HRSG> ;
+    rev:target <urn:eklm:revision:0/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:0/lp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:0/HRSG> ;
+    rev:target <urn:eklm:revision:0/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:0/st_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:0/ST> ;
+    rev:target <urn:eklm:revision:0/Condenser> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:1/EXP-001> a <urn:eklm:revision:1/AdvancedExpander> ;
+    rev:binding <urn:eklm:revision:1/GT_Turbine> .
+
+<urn:eklm:revision:1/HPSH-output> rev:field "mech_hpsh_hoop_stress_MPa" ;
+    rev:unit "MPa" ;
+    rev:version "1" .
+
+<urn:eklm:revision:1/HPSH-query> rev:version "1" .
+
+<urn:eklm:revision:1/HPTURB> a <urn:eklm:revision:1/HP_ST> ;
+    rev:binding <urn:eklm:revision:1/HP_ST> ;
+    rev:version "1" .
+
+<urn:eklm:revision:1/cold_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:1/ST> ;
+    rev:target <urn:eklm:revision:1/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:1/condensate> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:1/Condenser> ;
+    rev:target <urn:eklm:revision:1/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:1/gt_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:1/GT> ;
+    rev:target <urn:eklm:revision:1/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:1/hot_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:1/HRSG> ;
+    rev:target <urn:eklm:revision:1/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:1/hp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:1/HRSG> ;
+    rev:target <urn:eklm:revision:1/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:1/lp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:1/HRSG> ;
+    rev:target <urn:eklm:revision:1/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:1/st_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:1/ST> ;
+    rev:target <urn:eklm:revision:1/Condenser> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:2/EXP-001> a <urn:eklm:revision:2/AdvancedExpander> ;
+    rev:binding <urn:eklm:revision:2/GT_Turbine> .
+
+<urn:eklm:revision:2/HPSH-output> rev:field "mech_hpsh_hoop_stress_MPa" ;
+    rev:unit "MPa" ;
+    rev:version "1" .
+
+<urn:eklm:revision:2/HPSH-query> rev:version "1" .
+
+<urn:eklm:revision:2/HPTURB> a <urn:eklm:revision:2/HP_ST> ;
+    rev:binding <urn:eklm:revision:2/HP_ST> ;
+    rev:version "1" .
+
+<urn:eklm:revision:2/cold_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:2/ST> ;
+    rev:target <urn:eklm:revision:2/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:2/condensate> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:2/Condenser> ;
+    rev:target <urn:eklm:revision:2/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:2/gt_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:2/GT> ;
+    rev:target <urn:eklm:revision:2/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:2/hot_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:2/HRSG> ;
+    rev:target <urn:eklm:revision:2/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:2/hp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:2/HRSG> ;
+    rev:target <urn:eklm:revision:2/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:2/lp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:2/HRSG> ;
+    rev:target <urn:eklm:revision:2/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:2/st_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:2/ST> ;
+    rev:target <urn:eklm:revision:2/Condenser> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:3/EXP-001> a <urn:eklm:revision:3/AdvancedExpander> ;
+    rev:binding <urn:eklm:revision:3/GT_Turbine> .
+
+<urn:eklm:revision:3/HPSH-output> rev:field "mech_hpsh_hoop_stress_MPa" ;
+    rev:unit "MPa" ;
+    rev:version "1" .
+
+<urn:eklm:revision:3/HPSH-query> rev:version "1" .
+
+<urn:eklm:revision:3/HPTURB> a <urn:eklm:revision:3/HP_ST> ;
+    rev:binding <urn:eklm:revision:3/HP_ST> ;
+    rev:version "1" .
+
+<urn:eklm:revision:3/cold_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:3/ST> ;
+    rev:target <urn:eklm:revision:3/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:3/condensate> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:3/Condenser> ;
+    rev:target <urn:eklm:revision:3/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:3/gt_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:3/GT> ;
+    rev:target <urn:eklm:revision:3/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:3/hot_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:3/HRSG> ;
+    rev:target <urn:eklm:revision:3/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:3/hp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:3/HRSG> ;
+    rev:target <urn:eklm:revision:3/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:3/lp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:3/HRSG> ;
+    rev:target <urn:eklm:revision:3/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:3/st_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:3/ST> ;
+    rev:target <urn:eklm:revision:3/Condenser> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:4/EXP-001> a <urn:eklm:revision:4/AdvancedExpander> ;
+    rev:binding <urn:eklm:revision:4/GT_Turbine> .
+
+<urn:eklm:revision:4/HPSH-output> rev:field "mech_hpsh_hoop_stress_MPa" ;
+    rev:unit "MPa" ;
+    rev:version "1" .
+
+<urn:eklm:revision:4/HPSH-query> rev:version "1" .
+
+<urn:eklm:revision:4/HPTURB> a <urn:eklm:revision:4/HP_ST> ;
+    rev:binding <urn:eklm:revision:4/HP_ST> ;
+    rev:version "1" .
+
+<urn:eklm:revision:4/cold_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:4/ST> ;
+    rev:target <urn:eklm:revision:4/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:4/condensate> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:4/Condenser> ;
+    rev:target <urn:eklm:revision:4/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:4/gt_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:4/GT> ;
+    rev:target <urn:eklm:revision:4/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:4/hot_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:4/HRSG> ;
+    rev:target <urn:eklm:revision:4/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:4/hp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:4/HRSG> ;
+    rev:target <urn:eklm:revision:4/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:4/lp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:4/HRSG> ;
+    rev:target <urn:eklm:revision:4/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:4/st_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:4/ST> ;
+    rev:target <urn:eklm:revision:4/Condenser> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:5/EXP-001> a <urn:eklm:revision:5/AdvancedExpander> ;
+    rev:binding <urn:eklm:revision:5/GT_Turbine> .
+
+<urn:eklm:revision:5/HPSH-output> rev:field "mech_hpsh_hoop_stress_MPa" ;
+    rev:unit "MPa" ;
+    rev:version "1" .
+
+<urn:eklm:revision:5/HPSH-query> rev:version "1" .
+
+<urn:eklm:revision:5/HPTURB> a <urn:eklm:revision:5/HP_ST> ;
+    rev:binding <urn:eklm:revision:5/HP_ST> ;
+    rev:version "1" .
+
+<urn:eklm:revision:5/cold_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:5/ST> ;
+    rev:target <urn:eklm:revision:5/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:5/condensate> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:5/Condenser> ;
+    rev:target <urn:eklm:revision:5/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:5/gt_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:5/GT> ;
+    rev:target <urn:eklm:revision:5/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:5/hot_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:5/HRSG> ;
+    rev:target <urn:eklm:revision:5/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:5/hp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:5/HRSG> ;
+    rev:target <urn:eklm:revision:5/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:5/lp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:5/HRSG> ;
+    rev:target <urn:eklm:revision:5/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:5/st_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:5/ST> ;
+    rev:target <urn:eklm:revision:5/Condenser> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:6/EXP-001> a <urn:eklm:revision:6/AdvancedExpander> ;
+    rev:binding <urn:eklm:revision:6/GT_Turbine> .
+
+<urn:eklm:revision:6/HPSH-output> rev:field "mech_hpsh_hoop_stress_MPa" ;
+    rev:unit "MPa" ;
+    rev:version "1" .
+
+<urn:eklm:revision:6/HPSH-query> rev:version "1" .
+
+<urn:eklm:revision:6/HPTURB> a <urn:eklm:revision:6/HP_ST> ;
+    rev:binding <urn:eklm:revision:6/HP_ST> ;
+    rev:version "1" .
+
+<urn:eklm:revision:6/cold_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:6/ST> ;
+    rev:target <urn:eklm:revision:6/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:6/condensate> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:6/Condenser> ;
+    rev:target <urn:eklm:revision:6/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:6/gt_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:6/GT> ;
+    rev:target <urn:eklm:revision:6/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:6/hot_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:6/HRSG> ;
+    rev:target <urn:eklm:revision:6/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:6/hp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:6/HRSG> ;
+    rev:target <urn:eklm:revision:6/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:6/lp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:6/HRSG> ;
+    rev:target <urn:eklm:revision:6/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:6/st_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:6/ST> ;
+    rev:target <urn:eklm:revision:6/Condenser> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:7/EXP-001> a <urn:eklm:revision:7/AdvancedExpander> ;
+    rev:binding <urn:eklm:revision:7/GT_Turbine> .
+
+<urn:eklm:revision:7/HPSH-output> rev:field "mech_hpsh_hoop_stress_MPa" ;
+    rev:unit "MPa" ;
+    rev:version "1" .
+
+<urn:eklm:revision:7/HPSH-query> rev:version "1" .
+
+<urn:eklm:revision:7/HPTURB> a <urn:eklm:revision:7/HP_ST> ;
+    rev:binding <urn:eklm:revision:7/HP_ST> ;
+    rev:version "1" .
+
+<urn:eklm:revision:7/cold_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:7/ST> ;
+    rev:target <urn:eklm:revision:7/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:7/condensate> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:7/Condenser> ;
+    rev:target <urn:eklm:revision:7/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:7/gt_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:7/GT> ;
+    rev:target <urn:eklm:revision:7/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:7/hot_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:7/HRSG> ;
+    rev:target <urn:eklm:revision:7/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:7/hp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:7/HRSG> ;
+    rev:target <urn:eklm:revision:7/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:7/lp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:7/HRSG> ;
+    rev:target <urn:eklm:revision:7/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:7/st_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:7/ST> ;
+    rev:target <urn:eklm:revision:7/Condenser> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:8/EXP-001> a <urn:eklm:revision:8/AdvancedExpander> ;
+    rev:binding <urn:eklm:revision:8/GT_Turbine> .
+
+<urn:eklm:revision:8/HPSH-output> rev:field "mech_hpsh_hoop_stress_MPa" ;
+    rev:unit "MPa" ;
+    rev:version "1" .
+
+<urn:eklm:revision:8/HPSH-query> rev:version "1" .
+
+<urn:eklm:revision:8/HPTURB> a <urn:eklm:revision:8/HP_ST> ;
+    rev:binding <urn:eklm:revision:8/HP_ST> ;
+    rev:version "1" .
+
+<urn:eklm:revision:8/cold_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:8/ST> ;
+    rev:target <urn:eklm:revision:8/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:8/condensate> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:8/Condenser> ;
+    rev:target <urn:eklm:revision:8/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:8/gt_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:8/GT> ;
+    rev:target <urn:eklm:revision:8/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:8/hot_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:8/HRSG> ;
+    rev:target <urn:eklm:revision:8/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:8/hp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:8/HRSG> ;
+    rev:target <urn:eklm:revision:8/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:8/lp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:8/HRSG> ;
+    rev:target <urn:eklm:revision:8/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:8/st_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:8/ST> ;
+    rev:target <urn:eklm:revision:8/Condenser> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:9/EXP-001> a <urn:eklm:revision:9/AdvancedExpander> ;
+    rev:binding <urn:eklm:revision:9/GT_Turbine> .
+
+<urn:eklm:revision:9/HPSH-output> rev:field "mech_hpsh_hoop_stress_MPa" ;
+    rev:unit "MPa" ;
+    rev:version "1" .
+
+<urn:eklm:revision:9/HPSH-query> rev:version "1" .
+
+<urn:eklm:revision:9/HPTURB> a <urn:eklm:revision:9/HP_ST> ;
+    rev:binding <urn:eklm:revision:9/HP_ST> ;
+    rev:version "1" .
+
+<urn:eklm:revision:9/cold_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:9/ST> ;
+    rev:target <urn:eklm:revision:9/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:9/condensate> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:9/Condenser> ;
+    rev:target <urn:eklm:revision:9/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:9/gt_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:9/GT> ;
+    rev:target <urn:eklm:revision:9/HRSG> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:9/hot_reheat> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:9/HRSG> ;
+    rev:target <urn:eklm:revision:9/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:9/hp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:9/HRSG> ;
+    rev:target <urn:eklm:revision:9/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:9/lp_steam> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:9/HRSG> ;
+    rev:target <urn:eklm:revision:9/ST> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:9/st_exhaust> rev:field_P "P" ;
+    rev:field_T "T" ;
+    rev:field_h "h" ;
+    rev:field_m_dot "m_dot" ;
+    rev:source <urn:eklm:revision:9/ST> ;
+    rev:target <urn:eklm:revision:9/Condenser> ;
+    rev:unit_P "MPa" ;
+    rev:unit_T "degC" ;
+    rev:unit_h "J/kg" ;
+    rev:unit_m_dot "kg/hr" ;
+    rev:version "1" .
+
+<urn:eklm:revision:0/AdvancedExpander> rdfs:subClassOf <urn:eklm:revision:0/IntermediateExpander> .
+
+<urn:eklm:revision:0/IntermediateExpander> rdfs:subClassOf <urn:eklm:revision:0/GT_Turbine> .
+
+<urn:eklm:revision:1/AdvancedExpander> rdfs:subClassOf <urn:eklm:revision:1/IntermediateExpander> .
+
+<urn:eklm:revision:1/IntermediateExpander> rdfs:subClassOf <urn:eklm:revision:1/GT_Turbine> .
+
+<urn:eklm:revision:2/AdvancedExpander> rdfs:subClassOf <urn:eklm:revision:2/IntermediateExpander> .
+
+<urn:eklm:revision:2/IntermediateExpander> rdfs:subClassOf <urn:eklm:revision:2/GT_Turbine> .
+
+<urn:eklm:revision:3/AdvancedExpander> rdfs:subClassOf <urn:eklm:revision:3/IntermediateExpander> .
+
+<urn:eklm:revision:3/IntermediateExpander> rdfs:subClassOf <urn:eklm:revision:3/GT_Turbine> .
+
+<urn:eklm:revision:4/AdvancedExpander> rdfs:subClassOf <urn:eklm:revision:4/IntermediateExpander> .
+
+<urn:eklm:revision:4/IntermediateExpander> rdfs:subClassOf <urn:eklm:revision:4/GT_Turbine> .
+
+<urn:eklm:revision:5/AdvancedExpander> rdfs:subClassOf <urn:eklm:revision:5/IntermediateExpander> .
+
+<urn:eklm:revision:5/IntermediateExpander> rdfs:subClassOf <urn:eklm:revision:5/GT_Turbine> .
+
+<urn:eklm:revision:6/AdvancedExpander> rdfs:subClassOf <urn:eklm:revision:6/IntermediateExpander> .
+
+<urn:eklm:revision:6/IntermediateExpander> rdfs:subClassOf <urn:eklm:revision:6/GT_Turbine> .
+
+<urn:eklm:revision:7/AdvancedExpander> rdfs:subClassOf <urn:eklm:revision:7/IntermediateExpander> .
+
+<urn:eklm:revision:7/IntermediateExpander> rdfs:subClassOf <urn:eklm:revision:7/GT_Turbine> .
+
+<urn:eklm:revision:8/AdvancedExpander> rdfs:subClassOf <urn:eklm:revision:8/IntermediateExpander> .
+
+<urn:eklm:revision:8/IntermediateExpander> rdfs:subClassOf <urn:eklm:revision:8/GT_Turbine> .
+
+<urn:eklm:revision:9/AdvancedExpander> rdfs:subClassOf <urn:eklm:revision:9/IntermediateExpander> .
+
+<urn:eklm:revision:9/IntermediateExpander> rdfs:subClassOf <urn:eklm:revision:9/GT_Turbine> .
+
+<urn:eklm:revision:0/GT_Turbine> rdfs:subClassOf <urn:eklm:revision:0/MechanicalModel> .
+
+<urn:eklm:revision:0/HP_ST> rdfs:subClassOf <urn:eklm:revision:0/MechanicalModel> .
+
+<urn:eklm:revision:1/GT_Turbine> rdfs:subClassOf <urn:eklm:revision:1/MechanicalModel> .
+
+<urn:eklm:revision:1/HP_ST> rdfs:subClassOf <urn:eklm:revision:1/MechanicalModel> .
+
+<urn:eklm:revision:2/GT_Turbine> rdfs:subClassOf <urn:eklm:revision:2/MechanicalModel> .
+
+<urn:eklm:revision:2/HP_ST> rdfs:subClassOf <urn:eklm:revision:2/MechanicalModel> .
+
+<urn:eklm:revision:3/GT_Turbine> rdfs:subClassOf <urn:eklm:revision:3/MechanicalModel> .
+
+<urn:eklm:revision:3/HP_ST> rdfs:subClassOf <urn:eklm:revision:3/MechanicalModel> .
+
+<urn:eklm:revision:4/GT_Turbine> rdfs:subClassOf <urn:eklm:revision:4/MechanicalModel> .
+
+<urn:eklm:revision:4/HP_ST> rdfs:subClassOf <urn:eklm:revision:4/MechanicalModel> .
+
+<urn:eklm:revision:5/GT_Turbine> rdfs:subClassOf <urn:eklm:revision:5/MechanicalModel> .
+
+<urn:eklm:revision:5/HP_ST> rdfs:subClassOf <urn:eklm:revision:5/MechanicalModel> .
+
+<urn:eklm:revision:6/GT_Turbine> rdfs:subClassOf <urn:eklm:revision:6/MechanicalModel> .
+
+<urn:eklm:revision:6/HP_ST> rdfs:subClassOf <urn:eklm:revision:6/MechanicalModel> .
+
+<urn:eklm:revision:7/GT_Turbine> rdfs:subClassOf <urn:eklm:revision:7/MechanicalModel> .
+
+<urn:eklm:revision:7/HP_ST> rdfs:subClassOf <urn:eklm:revision:7/MechanicalModel> .
+
+<urn:eklm:revision:8/GT_Turbine> rdfs:subClassOf <urn:eklm:revision:8/MechanicalModel> .
+
+<urn:eklm:revision:8/HP_ST> rdfs:subClassOf <urn:eklm:revision:8/MechanicalModel> .
+
+<urn:eklm:revision:9/GT_Turbine> rdfs:subClassOf <urn:eklm:revision:9/MechanicalModel> .
+
+<urn:eklm:revision:9/HP_ST> rdfs:subClassOf <urn:eklm:revision:9/MechanicalModel> .
+

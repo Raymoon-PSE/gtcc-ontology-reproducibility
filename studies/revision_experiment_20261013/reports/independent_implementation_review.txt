@@ -1,0 +1,57 @@
+INDEPENDENT IMPLEMENTATION REVIEW — 13 October 2026
+
+Reviewed benchmark/{stores,contracts,scenarios,physics,mechanics}.py, run_experiment.py and pre-run implementation-scope amendment. Only tests/test_independent_controls.py and this report were authored by reviewer; root implemented fixes.
+
+VERDICT: No remaining critical implementation defect found within narrowed representation/adapter scope. Development run 01 records 28 cases, 56 arm runs, 56 frozen-oracle passes and 28 parity passes. Each arm: 10 accepted cases, 18 seeded rejection cases. These results establish bounded functional parity, not ontology superiority. Microbenchmark not yet reviewed.
+
+FOUND AND FIXED
+1. RevisionStore accepted incomplete consumer maps. Root now requires exact declared consumer set. Independent controls omit each consumer and require rejection.
+2. Finite external numbers could overflow during unit conversion. Root checks canonical finiteness; independent flow/enthalpy overflow controls pass.
+3. S5 ignored native scenario revision facts. Root now reads revision and ambient B from native store and checks frozen input contract.
+
+INDEPENDENT CONTROLS
+17 pytest cases pass (1.18 seconds). Native serialized hierarchy mutation changes acceptance; fixed conversion examples test shared converters independently of round trips; wrong source/version/boundary/dimension reject; overflow rejects; every omitted consumer rejects; delayed A preserves B; frozen required-output check rejects even if both arms agree on an incomplete result; deliberately corrupted expected numerical value/version fails comparison.
+GT callback mutation is observed by actual HRSG solver and changes downstream ST power. Cold-reheat mutation reaches actual HRSG input every iteration. Condensate mutation reaches HRSG then triggers independent existing whole-cycle conservation rejection. That last control initially expected a completed perturbed cycle; the physical balance failure required changing test expectation to that specific conservation rejection, not changing implementation or loosening parity tolerances.
+
+FAIRNESS AND ORACLES
+Native fixtures are serialized, saved, hashed and reloaded before execution. RDF and indexed JSON receive identical primitive hierarchy and use transitive traversal. Validators, conversions and revision rules are shared and disclosed. JSON mechanics receives resolved closure at setup, so full mechanical timing is excluded from representation-performance claims. Common authored facts imply equal configuration operation counts by construction, not measured labor advantage.
+Physical callbacks intercept actual GT/HRSG/ST/condenser solver inputs including returns; Python still orchestrates coupled iteration. Behavior-preserving cases compare against clean linked-cycle baselines plus conservation constraints. Mechanical oracle is competent JSON adapter with shared kernels, not independent physics validation.
+Runner requires expected accept/reject labels and specific error categories beyond pair agreement; unexpected exceptions become HARNESS_FAILURE. Matched arm order alternates. Source hashes checked before/after (547 files).
+
+CLAIM LIMITS
+S1: external metadata/subtype gate, not pre-existing automatic model discovery.
+S2: actual versioned wrapper around same kernel, no prediction improvement.
+S3/S4: actual interface migration on unchanged topology, not graph-driven flowsheet synthesis or arbitrary-unit inference.
+S5: centrally stamped revision assertions after full reruns, not authenticated arbitrary data lineage or selective scheduler. Case ambient15 labels starting A; persisted ambient25 is B. Show both inputs clearly. Delayed-A rejection preserves valid B, so do not say every rejected task clears all current results.
+S6: exported schema after internal diagnostics. Four version labels are shared adapter compatibility gates, not four independent applications. Warning content preserved; internal producer/diagnostic schemas unchanged.
+All cases are author-designed development scenarios. Variants and timing repetitions are not independent industrial tasks. Equality cannot support lower human maintenance effort, real-world error reduction or general RDF superiority.
+
+HARDENING REQUESTS TO ROOT
+Hash new harness/runner/tests into results as well as frozen source/protocol. Check existing oracle_spec tolerances equal current constants before execution. Current constants match frozen spec; these prevent future silent changes, not observed numeric defects.
+
+PENDING
+Microbenchmark, final archive/environment lock and final report interpretation. No original EKLM or remote repository modifications.
+
+PERFORMANCE CODE REVIEW (before final results)
+The metadata-only benchmark supplies identical primitive facts and ancestry to both arms, checks complete returned lookup decisions rather than just timing arbitrary operations, excludes shared physics, and separately measures cold in-memory parse and warm lookup. tracemalloc is correctly described as Python allocation peak, excluding native allocations/payload/interpreter; it is not whole-process RSS.
+Found a timing contamination bug: assigning each new parsed store to the same variable inside the timer can charge destruction of the previous arm's object to the current arm. Requested clearing the old value before garbage collection and timing. Preserve any already-started output as development results and rerun corrected benchmark before inference. Warm workload checks endpoints, version and units, but not field alias completeness/uniqueness; its description must reflect that bounded workload. Five cold repetitions alternate starting arm 3/2 rather than exactly balanced; an even repetition count would be cleaner if fixed before final run.
+
+FOLLOW-UP VERIFIED
+Performance code now clears the prior sample before timing and uses six cold repetitions for exact balanced arm order. Warm description now accurately names endpoint/version/unit checks. New runner records implementation hashes and checks frozen oracle tolerances. The invalid early timing run is retained separately as performance_development_invalid_timing. Passing XML reports: 32 harness tests, 17 existing linked-physics regressions, zero failures/errors/skips. No further fairness blocker identified in corrected microbenchmark code. Early corrected scales favor JSON parse/lookup/Python-memory usage; retain that outcome as workload-specific overhead evidence, not an RDF advantage. Final scale and final main rerun were still pending at this checkpoint.
+
+FINAL DISPOSITION — 13 October 2026 (supersedes pending checkpoints above)
+PASS for the explicitly narrowed controlled representation/adapter study. No outstanding critical implementation or fairness defect found in the audited scope. This is NOT a full maintenance-benefit study and does NOT demonstrate ontology superiority, reduced developer effort, reduced real-world error rates or operating-plant predictive accuracy.
+
+Confirmed final artifacts directly:
+- results/main/summary.json: 28 case definitions, 56/56 expected-outcome passes, 28/28 paired parity; 10 accepted and 18 seeded-rejection variants per arm; all_passed=true.
+- All 14 recorded implementation-file hashes and all 317 recorded protocol-file hashes match current files. The run also verifies all 547 frozen source files after execution.
+- XML results: 32 harness tests, 17 existing physics regressions, 19 existing runtime regressions; zero failures, errors or skips. The 17 independent controls are included within the 32 harness tests, not additional to them.
+- Semantic control: 6/6 expected results across both arms. Traversal succeeds, asserted-only mode fails the multi-hop case, and prematerialized assertions restore success. This attributes the capability to hierarchy information/traversal, not RDF exclusivity.
+- Corrected performance summaries recompute exactly from all 208 raw timing samples: four scales, two arms, six cold and twenty warm samples per arm/scale. Earlier invalid-deallocation and concurrent-test timing runs each contain explicit DO_NOT_USE notices and are excluded.
+
+Final workload-specific performance findings:
+At 90 facts, median cold parse / warm lookup: RDF 1.09346 / 0.153771 ms; JSON 0.0409375 / 0.0124585 ms.
+At 90,000 facts: RDF 1281.879 / 158.682 ms; JSON 207.582 / 10.7686 ms. Peak Python allocations at that scale: RDF 112,103,523 bytes (112.1 decimal MB); JSON 53,022,389 bytes (53.0 decimal MB).
+JSON has lower observed latency and Python allocation peak in this implementation and workload. These are metadata microbenchmark outcomes on one machine, not whole-plant runtime scalability or an intrinsic universal ranking of representations. Preserve the negative/equal results in the final report.
+
+Scientific interpretation: the implemented RDF and competent JSON approaches provide matching behavior under shared engineering contracts and kernels. Ontology-centered architecture can be described as a supported design choice, but a comparative maintenance advantage remains unmeasured. The original broad six-task plan was narrowed openly before paired execution; do not present these results as completing the broader human-maintenance hypothesis.

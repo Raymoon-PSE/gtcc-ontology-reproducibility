@@ -1,0 +1,12 @@
+{
+  "accepted_cases_per_arm": 10,
+  "all_passed": true,
+  "arm_runs": 56,
+  "case_definitions": 28,
+  "ontology_superiority_established": false,
+  "oracle_passes": 56,
+  "paired_parity_passes": 28,
+  "scope": "Controlled representation/adapter parity, no measured human maintenance effort or plant accuracy",
+  "seeded_rejections_per_arm": 18,
+  "source_files_verified_after_run": 547
+}

@@ -1,0 +1,19 @@
+{
+  "backend": "json",
+  "case": {
+    "ambient": 15,
+    "error_contains": "query version mismatch",
+    "expected": "reject",
+    "id": "S6_stale_query_15",
+    "task": "S6",
+    "variant": "stale_query"
+  },
+  "observed": {
+    "current_result_published": false,
+    "matches_frozen_oracle": true,
+    "outcome": "reject",
+    "reason": "query version mismatch",
+    "stage": "output_contract"
+  },
+  "wall_seconds_context_only": 0.08621841692365706
+}

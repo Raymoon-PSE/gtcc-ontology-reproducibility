@@ -1,0 +1,19 @@
+{
+  "added": [
+    [
+      "scenario",
+      "ambient",
+      "25"
+    ],
+    [
+      "scenario",
+      "revision",
+      "B"
+    ]
+  ],
+  "affected_subjects": 1,
+  "changed_slots": 2,
+  "interpretation": "representation-independent authored configuration changes; not measured developer effort",
+  "logical_fact_operations": 2,
+  "removed": []
+}

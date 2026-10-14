@@ -1,0 +1,19 @@
+{
+  "backend": "rdf",
+  "case": {
+    "ambient": 15,
+    "error_contains": "source mismatch",
+    "expected": "reject",
+    "id": "S4_wrong_source_15",
+    "task": "S4",
+    "variant": "wrong_source"
+  },
+  "observed": {
+    "current_result_published": false,
+    "matches_frozen_oracle": true,
+    "outcome": "reject",
+    "reason": "hot_reheat: source mismatch",
+    "stage": "physical_boundary"
+  },
+  "wall_seconds_context_only": 0.006671000039204955
+}

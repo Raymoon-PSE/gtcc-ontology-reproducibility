@@ -1,0 +1,53 @@
+{
+  "rows": [
+    {
+      "arm": "rdf",
+      "change": "change1",
+      "production_files_changed": 1,
+      "added_lines": 89,
+      "removed_lines": 2,
+      "resulting_source_lines": 91,
+      "resulting_ast_functions": 3,
+      "first_attempt_acceptance_passes": 29,
+      "first_attempt_acceptance_total": 29,
+      "evaluator_repair_rounds_original_suite": 0
+    },
+    {
+      "arm": "rdf",
+      "change": "change2",
+      "production_files_changed": 1,
+      "added_lines": 79,
+      "removed_lines": 1,
+      "resulting_source_lines": 169,
+      "resulting_ast_functions": 9,
+      "first_attempt_acceptance_passes": 46,
+      "first_attempt_acceptance_total": 46,
+      "evaluator_repair_rounds_original_suite": 0
+    },
+    {
+      "arm": "json",
+      "change": "change1",
+      "production_files_changed": 1,
+      "added_lines": 102,
+      "removed_lines": 2,
+      "resulting_source_lines": 104,
+      "resulting_ast_functions": 4,
+      "first_attempt_acceptance_passes": 29,
+      "first_attempt_acceptance_total": 29,
+      "evaluator_repair_rounds_original_suite": 0
+    },
+    {
+      "arm": "json",
+      "change": "change2",
+      "production_files_changed": 1,
+      "added_lines": 90,
+      "removed_lines": 8,
+      "resulting_source_lines": 186,
+      "resulting_ast_functions": 11,
+      "first_attempt_acceptance_passes": 46,
+      "first_attempt_acceptance_total": 46,
+      "evaluator_repair_rounds_original_suite": 0
+    }
+  ],
+  "limitation": "Descriptive implementation artifacts. Different code style and defensive checks confound source size. These are not developer hours, independent participant samples, or proof of ontology benefit."
+}

@@ -1,0 +1,182 @@
+{
+  "mapping_version": "1.0",
+  "provider_versions": {
+    "A": "1.0",
+    "B": "1.0"
+  },
+  "provenance": {
+    "kind": "fabricated_agent_authored_fixture",
+    "authorship": "Engineering-provider fixture author agent, independently assigned before representation implementation",
+    "industrial_data": false,
+    "physical_measurements_included": false,
+    "authoring_date": "2026-10-14"
+  },
+  "canonical_units": {
+    "temperature": "degC",
+    "pressure": "MPa",
+    "mass_flow": "kg/h"
+  },
+  "conversion_definitions": [
+    {
+      "from": "K",
+      "to": "degC",
+      "operation": "subtract",
+      "constant": "273.15"
+    },
+    {
+      "from": "bar",
+      "to": "MPa",
+      "operation": "multiply",
+      "constant": "0.1"
+    },
+    {
+      "from": "Pa",
+      "to": "MPa",
+      "operation": "divide",
+      "constant": "1000000"
+    },
+    {
+      "from": "kg/s",
+      "to": "kg/h",
+      "operation": "multiply",
+      "constant": "3600"
+    }
+  ],
+  "boundaries": [
+    {
+      "canonical_boundary_id": "gt_exhaust",
+      "producer": {
+        "provider_id": "A",
+        "namespace": "thermal.gt",
+        "local_port_id": "exh"
+      },
+      "consumer": {
+        "provider_id": "A",
+        "namespace": "thermal.hrsg",
+        "local_port_id": "gas_in"
+      }
+    },
+    {
+      "canonical_boundary_id": "hp_steam",
+      "producer": {
+        "provider_id": "A",
+        "namespace": "thermal.hrsg",
+        "local_port_id": "hp_out"
+      },
+      "consumer": {
+        "provider_id": "B",
+        "namespace": "cycle.expander",
+        "local_port_id": "admission_high"
+      }
+    },
+    {
+      "canonical_boundary_id": "hot_reheat",
+      "producer": {
+        "provider_id": "A",
+        "namespace": "thermal.hrsg",
+        "local_port_id": "rh_out"
+      },
+      "consumer": {
+        "provider_id": "B",
+        "namespace": "cycle.expander",
+        "local_port_id": "admission_reheat"
+      }
+    },
+    {
+      "canonical_boundary_id": "lp_steam",
+      "producer": {
+        "provider_id": "A",
+        "namespace": "thermal.hrsg",
+        "local_port_id": "lp_out"
+      },
+      "consumer": {
+        "provider_id": "B",
+        "namespace": "cycle.expander",
+        "local_port_id": "admission_low"
+      }
+    },
+    {
+      "canonical_boundary_id": "st_exhaust",
+      "producer": {
+        "provider_id": "B",
+        "namespace": "cycle.expander",
+        "local_port_id": "tail_flow"
+      },
+      "consumer": {
+        "provider_id": "B",
+        "namespace": "cycle.sink",
+        "local_port_id": "vapour_entry"
+      }
+    },
+    {
+      "canonical_boundary_id": "cold_reheat",
+      "producer": {
+        "provider_id": "B",
+        "namespace": "cycle.expander",
+        "local_port_id": "crossover_return"
+      },
+      "consumer": {
+        "provider_id": "A",
+        "namespace": "thermal.hrsg",
+        "local_port_id": "rh_return"
+      }
+    },
+    {
+      "canonical_boundary_id": "condensate",
+      "producer": {
+        "provider_id": "B",
+        "namespace": "cycle.sink",
+        "local_port_id": "liquid_exit"
+      },
+      "consumer": {
+        "provider_id": "A",
+        "namespace": "thermal.hrsg",
+        "local_port_id": "water_return"
+      }
+    }
+  ],
+  "field_mappings": [
+    {
+      "provider_id": "A",
+      "field_set_id": "state",
+      "local_key": "temp",
+      "canonical_quantity": "temperature",
+      "declared_unit": "degC"
+    },
+    {
+      "provider_id": "A",
+      "field_set_id": "state",
+      "local_key": "press",
+      "canonical_quantity": "pressure",
+      "declared_unit": "bar"
+    },
+    {
+      "provider_id": "A",
+      "field_set_id": "state",
+      "local_key": "flow",
+      "canonical_quantity": "mass_flow",
+      "declared_unit": "kg/h"
+    },
+    {
+      "provider_id": "B",
+      "field_set_id": "state",
+      "local_key": "T",
+      "canonical_quantity": "temperature",
+      "declared_unit": "K"
+    },
+    {
+      "provider_id": "B",
+      "field_set_id": "state",
+      "local_key": "P",
+      "canonical_quantity": "pressure",
+      "declared_unit": "MPa"
+    },
+    {
+      "provider_id": "B",
+      "field_set_id": "state",
+      "local_key": "W",
+      "canonical_quantity": "mass_flow",
+      "declared_unit": "kg/s"
+    }
+  ]
+}

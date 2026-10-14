@@ -1,0 +1,8 @@
+{
+  "protocol/BASELINE.txt": "41b9394e756ccc23571e1972f7b398132615e8c9533f70575bdd57d098f72a11",
+  "protocol/CHANGE_1.txt": "6c469b4fe75777f632e2a1d7e9c3a38f18d08cdec1606b08ed08a8879c86492c",
+  "arms/rdf/stores.py": "825ba922df92f5dc3c6c736a25edc0733b2e03339d677d6961493164eda90647",
+  "arms/rdf/adapter.py": "e77a84558c01c73f2711ab765c7d3d3ff5dd70b442aff22a3cdf72e62ac61ee2",
+  "arms/json/stores.py": "825ba922df92f5dc3c6c736a25edc0733b2e03339d677d6961493164eda90647",
+  "arms/json/adapter.py": "e77a84558c01c73f2711ab765c7d3d3ff5dd70b442aff22a3cdf72e62ac61ee2"
+}

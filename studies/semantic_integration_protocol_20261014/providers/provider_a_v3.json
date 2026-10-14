@@ -1,0 +1,123 @@
+{
+  "provider_id": "A",
+  "version": "3.0",
+  "native_vocabulary": "thermal equipment and control interfaces",
+  "provenance": {
+    "kind": "fabricated_agent_authored_fixture",
+    "authorship": "Engineering-provider fixture author agent, independently assigned before representation implementation",
+    "industrial_data": false,
+    "physical_measurements_included": false,
+    "authoring_date": "2026-10-14"
+  },
+  "identity_rule": [
+    "namespace",
+    "local_port_id"
+  ],
+  "type_identity_rule": "local_type_id within provider",
+  "types": [
+    {
+      "local_type_id": "ThermalAsset",
+      "parent_type_id": null
+    },
+    {
+      "local_type_id": "PrimeMover",
+      "parent_type_id": "ThermalAsset"
+    },
+    {
+      "local_type_id": "GasTurbine",
+      "parent_type_id": "PrimeMover"
+    },
+    {
+      "local_type_id": "HeatRecoveryUnit",
+      "parent_type_id": "ThermalAsset"
+    },
+    {
+      "local_type_id": "HRSG",
+      "parent_type_id": "HeatRecoveryUnit"
+    },
+    {
+      "local_type_id": "ControlledHRSG",
+      "parent_type_id": "HRSG"
+    }
+  ],
+  "equipment": [
+    {
+      "local_equipment_id": "GT01",
+      "local_type_id": "GasTurbine"
+    },
+    {
+      "local_equipment_id": "H01",
+      "local_type_id": "ControlledHRSG"
+    }
+  ],
+  "field_sets": {
+    "state": [
+      {
+        "local_key": "temperature_abs",
+        "quantity": "temperature",
+        "unit": "K"
+      },
+      {
+        "local_key": "pressure_si",
+        "quantity": "pressure",
+        "unit": "Pa"
+      },
+      {
+        "local_key": "mass_rate",
+        "quantity": "mass_flow",
+        "unit": "kg/s"
+      }
+    ]
+  },
+  "ports": [
+    {
+      "local_port_id": "exh",
+      "namespace": "thermal.gt",
+      "local_equipment_id": "GT01",
+      "direction": "out",
+      "field_set_id": "state"
+    },
+    {
+      "local_port_id": "inlet",
+      "namespace": "thermal.hrsg.gas",
+      "local_equipment_id": "H01",
+      "direction": "in",
+      "field_set_id": "state"
+    },
+    {
+      "local_port_id": "hp_out",
+      "namespace": "thermal.hrsg",
+      "local_equipment_id": "H01",
+      "direction": "out",
+      "field_set_id": "state"
+    },
+    {
+      "local_port_id": "rh_out",
+      "namespace": "thermal.hrsg",
+      "local_equipment_id": "H01",
+      "direction": "out",
+      "field_set_id": "state"
+    },
+    {
+      "local_port_id": "lp_out",
+      "namespace": "thermal.hrsg",
+      "local_equipment_id": "H01",
+      "direction": "out",
+      "field_set_id": "state"
+    },
+    {
+      "local_port_id": "inlet",
+      "namespace": "thermal.hrsg.reheat",
+      "local_equipment_id": "H01",
+      "direction": "in",
+      "field_set_id": "state"
+    },
+    {
+      "local_port_id": "inlet",
+      "namespace": "thermal.hrsg.water",
+      "local_equipment_id": "H01",
+      "direction": "in",
+      "field_set_id": "state"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "backend": "rdf",
+  "case": {
+    "ambient": 15,
+    "error_contains": "inconsistent unit",
+    "expected": "reject",
+    "id": "S3_wrong_dimension_15",
+    "task": "S3",
+    "variant": "wrong_dimension"
+  },
+  "observed": {
+    "current_result_published": false,
+    "matches_frozen_oracle": true,
+    "outcome": "reject",
+    "reason": "gt_exhaust.T: missing field or inconsistent unit",
+    "stage": "physical_boundary"
+  },
+  "wall_seconds_context_only": 0.002143208170309663
+}

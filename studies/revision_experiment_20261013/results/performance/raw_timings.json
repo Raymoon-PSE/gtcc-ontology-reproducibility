@@ -1,0 +1,1666 @@
+[
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 0,
+    "ns": 1144750
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 0,
+    "ns": 44208
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 1,
+    "ns": 45750
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 1,
+    "ns": 1106541
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 2,
+    "ns": 1082583
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 2,
+    "ns": 44083
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 3,
+    "ns": 37458
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 3,
+    "ns": 1087792
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 4,
+    "ns": 1061417
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 4,
+    "ns": 37792
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 5,
+    "ns": 36334
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 5,
+    "ns": 1099125
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 0,
+    "ns": 153750
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 0,
+    "ns": 13834
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 1,
+    "ns": 12417
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 1,
+    "ns": 157834
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 2,
+    "ns": 150708
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 2,
+    "ns": 17209
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 3,
+    "ns": 11959
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 3,
+    "ns": 155708
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 4,
+    "ns": 170375
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 4,
+    "ns": 12084
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 5,
+    "ns": 12333
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 5,
+    "ns": 153792
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 6,
+    "ns": 159834
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 6,
+    "ns": 12125
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 7,
+    "ns": 12166
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 7,
+    "ns": 149042
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 8,
+    "ns": 171917
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 8,
+    "ns": 12584
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 9,
+    "ns": 11583
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 9,
+    "ns": 152250
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 10,
+    "ns": 146125
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 10,
+    "ns": 14417
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 11,
+    "ns": 11542
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 11,
+    "ns": 171625
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 12,
+    "ns": 151292
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 12,
+    "ns": 13750
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 13,
+    "ns": 14834
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 13,
+    "ns": 153458
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 14,
+    "ns": 176125
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 14,
+    "ns": 12500
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 15,
+    "ns": 12333
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 15,
+    "ns": 152666
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 16,
+    "ns": 162083
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 16,
+    "ns": 15417
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 17,
+    "ns": 13000
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 17,
+    "ns": 154041
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 18,
+    "ns": 150125
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 18,
+    "ns": 13291
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 19,
+    "ns": 11750
+  },
+  {
+    "scale": 1,
+    "facts": 90,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 19,
+    "ns": 148250
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 0,
+    "ns": 10138333
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 0,
+    "ns": 403541
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 1,
+    "ns": 379583
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 1,
+    "ns": 9777875
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 2,
+    "ns": 9932000
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 2,
+    "ns": 414167
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 3,
+    "ns": 407334
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 3,
+    "ns": 9930167
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 4,
+    "ns": 9915625
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 4,
+    "ns": 400792
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 5,
+    "ns": 383125
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 5,
+    "ns": 9877209
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 0,
+    "ns": 1565916
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 0,
+    "ns": 97250
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 1,
+    "ns": 91959
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 1,
+    "ns": 1562917
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 2,
+    "ns": 1611458
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 2,
+    "ns": 99250
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 3,
+    "ns": 92625
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 3,
+    "ns": 1417291
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 4,
+    "ns": 1477042
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 4,
+    "ns": 97000
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 5,
+    "ns": 104708
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 5,
+    "ns": 1465333
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 6,
+    "ns": 1449500
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 6,
+    "ns": 96417
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 7,
+    "ns": 96333
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 7,
+    "ns": 1480000
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 8,
+    "ns": 1490125
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 8,
+    "ns": 117292
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 9,
+    "ns": 92875
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 9,
+    "ns": 1490750
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 10,
+    "ns": 1485125
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 10,
+    "ns": 96500
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 11,
+    "ns": 91209
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 11,
+    "ns": 1472875
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 12,
+    "ns": 1452167
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 12,
+    "ns": 95833
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 13,
+    "ns": 92000
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 13,
+    "ns": 1483167
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 14,
+    "ns": 1479750
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 14,
+    "ns": 97583
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 15,
+    "ns": 92625
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 15,
+    "ns": 1429875
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 16,
+    "ns": 1406542
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 16,
+    "ns": 99417
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 17,
+    "ns": 96250
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 17,
+    "ns": 1448125
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 18,
+    "ns": 1454166
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 18,
+    "ns": 97584
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 19,
+    "ns": 92417
+  },
+  {
+    "scale": 10,
+    "facts": 900,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 19,
+    "ns": 1480625
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 0,
+    "ns": 99490584
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 0,
+    "ns": 4511833
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 1,
+    "ns": 4943792
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 1,
+    "ns": 97725166
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 2,
+    "ns": 97452875
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 2,
+    "ns": 5230375
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 3,
+    "ns": 4611125
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 3,
+    "ns": 97250792
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 4,
+    "ns": 96870416
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 4,
+    "ns": 4712500
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 5,
+    "ns": 4773958
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 5,
+    "ns": 97295750
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 0,
+    "ns": 16127250
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 0,
+    "ns": 1045500
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 1,
+    "ns": 1007625
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 1,
+    "ns": 15761833
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 2,
+    "ns": 15746125
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 2,
+    "ns": 1001959
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 3,
+    "ns": 957000
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 3,
+    "ns": 15537125
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 4,
+    "ns": 15377666
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 4,
+    "ns": 1019000
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 5,
+    "ns": 957667
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 5,
+    "ns": 15709333
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 6,
+    "ns": 15438167
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 6,
+    "ns": 1019458
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 7,
+    "ns": 958708
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 7,
+    "ns": 15608917
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 8,
+    "ns": 15491917
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 8,
+    "ns": 1039708
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 9,
+    "ns": 937375
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 9,
+    "ns": 15390250
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 10,
+    "ns": 15212583
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 10,
+    "ns": 1040833
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 11,
+    "ns": 948334
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 11,
+    "ns": 15484917
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 12,
+    "ns": 15126500
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 12,
+    "ns": 1096042
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 13,
+    "ns": 937875
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 13,
+    "ns": 15995667
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 14,
+    "ns": 15953250
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 14,
+    "ns": 1027458
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 15,
+    "ns": 959500
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 15,
+    "ns": 17048625
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 16,
+    "ns": 18837292
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 16,
+    "ns": 1049250
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 17,
+    "ns": 963334
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 17,
+    "ns": 15504416
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 18,
+    "ns": 15402542
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 18,
+    "ns": 1047208
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 19,
+    "ns": 941208
+  },
+  {
+    "scale": 100,
+    "facts": 9000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 19,
+    "ns": 15527000
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 0,
+    "ns": 1306497500
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 0,
+    "ns": 197466875
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 1,
+    "ns": 206255583
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 1,
+    "ns": 1284385916
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 2,
+    "ns": 1272151500
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 2,
+    "ns": 209729042
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 3,
+    "ns": 214813333
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 3,
+    "ns": 1279372208
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 4,
+    "ns": 1270865500
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 4,
+    "ns": 207919042
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "cold",
+    "repeat": 5,
+    "ns": 207244459
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "cold",
+    "repeat": 5,
+    "ns": 1293169792
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 0,
+    "ns": 160179541
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 0,
+    "ns": 10817458
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 1,
+    "ns": 10858083
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 1,
+    "ns": 157325875
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 2,
+    "ns": 158721959
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 2,
+    "ns": 10654167
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 3,
+    "ns": 10814166
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 3,
+    "ns": 159260125
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 4,
+    "ns": 157815125
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 4,
+    "ns": 10821166
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 5,
+    "ns": 10835583
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 5,
+    "ns": 158372792
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 6,
+    "ns": 157545041
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 6,
+    "ns": 10805041
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 7,
+    "ns": 10562250
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 7,
+    "ns": 159363083
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 8,
+    "ns": 159680458
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 8,
+    "ns": 10846167
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 9,
+    "ns": 10703083
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 9,
+    "ns": 158671833
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 10,
+    "ns": 158048416
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 10,
+    "ns": 10690333
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 11,
+    "ns": 10841583
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 11,
+    "ns": 160207583
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 12,
+    "ns": 159483166
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 12,
+    "ns": 10709166
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 13,
+    "ns": 10791417
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 13,
+    "ns": 157757375
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 14,
+    "ns": 158524084
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 14,
+    "ns": 10745792
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 15,
+    "ns": 10638167
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 15,
+    "ns": 158692875
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 16,
+    "ns": 158553791
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 16,
+    "ns": 10792792
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 17,
+    "ns": 10733583
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 17,
+    "ns": 159550291
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 18,
+    "ns": 157409917
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 18,
+    "ns": 10594000
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "json",
+    "phase": "warm",
+    "repeat": 19,
+    "ns": 10663917
+  },
+  {
+    "scale": 1000,
+    "facts": 90000,
+    "backend": "rdf",
+    "phase": "warm",
+    "repeat": 19,
+    "ns": 159025875
+  }
+]

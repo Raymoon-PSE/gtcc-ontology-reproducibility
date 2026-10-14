@@ -1,0 +1,13 @@
+--- before/adapter.py
++++ after/adapter.py
+@@ -177,7 +177,9 @@
+         versions = {str(self.one(p, N.provider_id)): str(self.one(p, N.version, 'VERSION_MISMATCH')) for p in providers}
+         if not isinstance(requested, dict) or requested != versions: fail('VERSION_MISMATCH', 'Requested provider versions differ')
+         if set(g.objects(N.Mapping, N.provider)) != providers: fail('VERSION_MISMATCH', 'Mapping provider set differs')
+-        if str(self.one(N.Mapping, N.version)) != '1.0': fail('VERSION_MISMATCH', 'Unsupported mapping snapshot')
++        mapping_version = str(self.one(N.Mapping, N.version))
++        if mapping_version not in {'1.0', '2.0'} or set(versions.values()) != {mapping_version}:
++            fail('VERSION_MISMATCH', 'Unsupported or inconsistent mapping snapshot')
+         for p in providers:
+             if self.one(p, N.version) != self.one(p, N.mappingVersion, 'VERSION_MISMATCH'): fail('VERSION_MISMATCH', 'Mapping/native versions differ')
+         for category in (N.LocalClass, N.CanonicalClass):

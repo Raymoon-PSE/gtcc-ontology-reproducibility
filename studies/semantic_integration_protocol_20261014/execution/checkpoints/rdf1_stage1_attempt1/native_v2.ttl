@@ -1,0 +1,318 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s: <urn:rdf1:> .
+
+s:Mapping s:provider <urn:rdf1:provider:%5B%22A%22%5D>,
+        <urn:rdf1:provider:%5B%22B%22%5D> ;
+    s:version "2.0" .
+
+<urn:rdf1:boundary:%5B%22cold_reheat%22%5D> a s:Boundary ;
+    s:consumer <urn:rdf1:port:%5B%22A%22%2C%22thermal.hrsg%22%2C%22rh_return%22%5D> ;
+    s:local_id "cold_reheat" ;
+    s:producer <urn:rdf1:port:%5B%22B%22%2C%22cycle.expander%22%2C%22crossover_return%22%5D> .
+
+<urn:rdf1:boundary:%5B%22condensate%22%5D> a s:Boundary ;
+    s:consumer <urn:rdf1:port:%5B%22A%22%2C%22thermal.hrsg%22%2C%22water_return%22%5D> ;
+    s:local_id "condensate" ;
+    s:producer <urn:rdf1:port:%5B%22B%22%2C%22cycle.sink%22%2C%22liquid_exit%22%5D> .
+
+<urn:rdf1:boundary:%5B%22gt_exhaust%22%5D> a s:Boundary ;
+    s:consumer <urn:rdf1:port:%5B%22A%22%2C%22thermal.hrsg%22%2C%22gas_in%22%5D> ;
+    s:local_id "gt_exhaust" ;
+    s:producer <urn:rdf1:port:%5B%22A%22%2C%22thermal.gt%22%2C%22exh%22%5D> .
+
+<urn:rdf1:boundary:%5B%22hot_reheat%22%5D> a s:Boundary ;
+    s:consumer <urn:rdf1:port:%5B%22B%22%2C%22cycle.expander%22%2C%22admission_reheat%22%5D> ;
+    s:local_id "hot_reheat" ;
+    s:producer <urn:rdf1:port:%5B%22A%22%2C%22thermal.hrsg%22%2C%22rh_out%22%5D> .
+
+<urn:rdf1:boundary:%5B%22hp_steam%22%5D> a s:Boundary ;
+    s:consumer <urn:rdf1:port:%5B%22B%22%2C%22cycle.expander%22%2C%22admission_high%22%5D> ;
+    s:local_id "hp_steam" ;
+    s:producer <urn:rdf1:port:%5B%22A%22%2C%22thermal.hrsg%22%2C%22hp_out%22%5D> .
+
+<urn:rdf1:boundary:%5B%22lp_steam%22%5D> a s:Boundary ;
+    s:consumer <urn:rdf1:port:%5B%22B%22%2C%22cycle.expander%22%2C%22admission_low%22%5D> ;
+    s:local_id "lp_steam" ;
+    s:producer <urn:rdf1:port:%5B%22A%22%2C%22thermal.hrsg%22%2C%22lp_out%22%5D> .
+
+<urn:rdf1:boundary:%5B%22st_exhaust%22%5D> a s:Boundary ;
+    s:consumer <urn:rdf1:port:%5B%22B%22%2C%22cycle.sink%22%2C%22vapour_entry%22%5D> ;
+    s:local_id "st_exhaust" ;
+    s:producer <urn:rdf1:port:%5B%22B%22%2C%22cycle.expander%22%2C%22tail_flow%22%5D> .
+
+<urn:rdf1:canonical:%5B%22GasTurbine%22%5D> a s:CanonicalClass ;
+    rdfs:subClassOf <urn:rdf1:canonical:%5B%22EngineeringAsset%22%5D> ;
+    s:local_id "GasTurbine" .
+
+<urn:rdf1:canonical:%5B%22HeatRecovery%22%5D> a s:CanonicalClass ;
+    rdfs:subClassOf <urn:rdf1:canonical:%5B%22EngineeringAsset%22%5D> ;
+    s:local_id "HeatRecovery" .
+
+<urn:rdf1:canonical:%5B%22HeatSink%22%5D> a s:CanonicalClass ;
+    rdfs:subClassOf <urn:rdf1:canonical:%5B%22EngineeringAsset%22%5D> ;
+    s:local_id "HeatSink" .
+
+<urn:rdf1:canonical:%5B%22SteamExpansion%22%5D> a s:CanonicalClass ;
+    rdfs:subClassOf <urn:rdf1:canonical:%5B%22EngineeringAsset%22%5D> ;
+    s:local_id "SteamExpansion" .
+
+<urn:rdf1:equipment:%5B%22A%22%2C%22GT01%22%5D> a s:Equipment ;
+    s:assignedClass <urn:rdf1:type:%5B%22A%22%2C%22GasTurbine%22%5D> ;
+    s:local_id "GT01" .
+
+<urn:rdf1:field:%5B%22A%22%2C%22state%22%2C%22mass_rate%22%5D> a s:MappedField ;
+    s:local_id "mass_rate" ;
+    s:mappedQuantity "mass_flow" ;
+    s:mappedUnit "kg/s" ;
+    s:quantity "mass_flow" ;
+    s:unit "kg/s" .
+
+<urn:rdf1:field:%5B%22A%22%2C%22state%22%2C%22pressure_si%22%5D> a s:MappedField ;
+    s:local_id "pressure_si" ;
+    s:mappedQuantity "pressure" ;
+    s:mappedUnit "Pa" ;
+    s:quantity "pressure" ;
+    s:unit "Pa" .
+
+<urn:rdf1:field:%5B%22A%22%2C%22state%22%2C%22temperature_abs%22%5D> a s:MappedField ;
+    s:local_id "temperature_abs" ;
+    s:mappedQuantity "temperature" ;
+    s:mappedUnit "K" ;
+    s:quantity "temperature" ;
+    s:unit "K" .
+
+<urn:rdf1:field:%5B%22B%22%2C%22state%22%2C%22steam_pressure%22%5D> a s:MappedField ;
+    s:local_id "steam_pressure" ;
+    s:mappedQuantity "pressure" ;
+    s:mappedUnit "bar" ;
+    s:quantity "pressure" ;
+    s:unit "bar" .
+
+<urn:rdf1:field:%5B%22B%22%2C%22state%22%2C%22steam_temperature%22%5D> a s:MappedField ;
+    s:local_id "steam_temperature" ;
+    s:mappedQuantity "temperature" ;
+    s:mappedUnit "degC" ;
+    s:quantity "temperature" ;
+    s:unit "degC" .
+
+<urn:rdf1:field:%5B%22B%22%2C%22state%22%2C%22throughput_hourly%22%5D> a s:MappedField ;
+    s:local_id "throughput_hourly" ;
+    s:mappedQuantity "mass_flow" ;
+    s:mappedUnit "kg/h" ;
+    s:quantity "mass_flow" ;
+    s:unit "kg/h" .
+
+<urn:rdf1:port:%5B%22A%22%2C%22thermal.gt%22%2C%22exh%22%5D> a s:Port ;
+    s:direction "out" ;
+    s:equipment <urn:rdf1:equipment:%5B%22A%22%2C%22GT01%22%5D> ;
+    s:fieldset <urn:rdf1:fieldset:%5B%22A%22%2C%22state%22%5D> ;
+    s:local_id "exh" ;
+    s:namespace "thermal.gt" ;
+    s:provider <urn:rdf1:provider:%5B%22A%22%5D> .
+
+<urn:rdf1:port:%5B%22A%22%2C%22thermal.hrsg%22%2C%22gas_in%22%5D> a s:Port ;
+    s:direction "in" ;
+    s:equipment <urn:rdf1:equipment:%5B%22A%22%2C%22H01%22%5D> ;
+    s:fieldset <urn:rdf1:fieldset:%5B%22A%22%2C%22state%22%5D> ;
+    s:local_id "gas_in" ;
+    s:namespace "thermal.hrsg" ;
+    s:provider <urn:rdf1:provider:%5B%22A%22%5D> .
+
+<urn:rdf1:port:%5B%22A%22%2C%22thermal.hrsg%22%2C%22hp_out%22%5D> a s:Port ;
+    s:direction "out" ;
+    s:equipment <urn:rdf1:equipment:%5B%22A%22%2C%22H01%22%5D> ;
+    s:fieldset <urn:rdf1:fieldset:%5B%22A%22%2C%22state%22%5D> ;
+    s:local_id "hp_out" ;
+    s:namespace "thermal.hrsg" ;
+    s:provider <urn:rdf1:provider:%5B%22A%22%5D> .
+
+<urn:rdf1:port:%5B%22A%22%2C%22thermal.hrsg%22%2C%22lp_out%22%5D> a s:Port ;
+    s:direction "out" ;
+    s:equipment <urn:rdf1:equipment:%5B%22A%22%2C%22H01%22%5D> ;
+    s:fieldset <urn:rdf1:fieldset:%5B%22A%22%2C%22state%22%5D> ;
+    s:local_id "lp_out" ;
+    s:namespace "thermal.hrsg" ;
+    s:provider <urn:rdf1:provider:%5B%22A%22%5D> .
+
+<urn:rdf1:port:%5B%22A%22%2C%22thermal.hrsg%22%2C%22rh_out%22%5D> a s:Port ;
+    s:direction "out" ;
+    s:equipment <urn:rdf1:equipment:%5B%22A%22%2C%22H01%22%5D> ;
+    s:fieldset <urn:rdf1:fieldset:%5B%22A%22%2C%22state%22%5D> ;
+    s:local_id "rh_out" ;
+    s:namespace "thermal.hrsg" ;
+    s:provider <urn:rdf1:provider:%5B%22A%22%5D> .
+
+<urn:rdf1:port:%5B%22A%22%2C%22thermal.hrsg%22%2C%22rh_return%22%5D> a s:Port ;
+    s:direction "in" ;
+    s:equipment <urn:rdf1:equipment:%5B%22A%22%2C%22H01%22%5D> ;
+    s:fieldset <urn:rdf1:fieldset:%5B%22A%22%2C%22state%22%5D> ;
+    s:local_id "rh_return" ;
+    s:namespace "thermal.hrsg" ;
+    s:provider <urn:rdf1:provider:%5B%22A%22%5D> .
+
+<urn:rdf1:port:%5B%22A%22%2C%22thermal.hrsg%22%2C%22water_return%22%5D> a s:Port ;
+    s:direction "in" ;
+    s:equipment <urn:rdf1:equipment:%5B%22A%22%2C%22H01%22%5D> ;
+    s:fieldset <urn:rdf1:fieldset:%5B%22A%22%2C%22state%22%5D> ;
+    s:local_id "water_return" ;
+    s:namespace "thermal.hrsg" ;
+    s:provider <urn:rdf1:provider:%5B%22A%22%5D> .
+
+<urn:rdf1:port:%5B%22B%22%2C%22cycle.expander%22%2C%22admission_high%22%5D> a s:Port ;
+    s:direction "in" ;
+    s:equipment <urn:rdf1:equipment:%5B%22B%22%2C%22ST1%22%5D> ;
+    s:fieldset <urn:rdf1:fieldset:%5B%22B%22%2C%22state%22%5D> ;
+    s:local_id "admission_high" ;
+    s:namespace "cycle.expander" ;
+    s:provider <urn:rdf1:provider:%5B%22B%22%5D> .
+
+<urn:rdf1:port:%5B%22B%22%2C%22cycle.expander%22%2C%22admission_low%22%5D> a s:Port ;
+    s:direction "in" ;
+    s:equipment <urn:rdf1:equipment:%5B%22B%22%2C%22ST1%22%5D> ;
+    s:fieldset <urn:rdf1:fieldset:%5B%22B%22%2C%22state%22%5D> ;
+    s:local_id "admission_low" ;
+    s:namespace "cycle.expander" ;
+    s:provider <urn:rdf1:provider:%5B%22B%22%5D> .
+
+<urn:rdf1:port:%5B%22B%22%2C%22cycle.expander%22%2C%22admission_reheat%22%5D> a s:Port ;
+    s:direction "in" ;
+    s:equipment <urn:rdf1:equipment:%5B%22B%22%2C%22ST1%22%5D> ;
+    s:fieldset <urn:rdf1:fieldset:%5B%22B%22%2C%22state%22%5D> ;
+    s:local_id "admission_reheat" ;
+    s:namespace "cycle.expander" ;
+    s:provider <urn:rdf1:provider:%5B%22B%22%5D> .
+
+<urn:rdf1:port:%5B%22B%22%2C%22cycle.expander%22%2C%22crossover_return%22%5D> a s:Port ;
+    s:direction "out" ;
+    s:equipment <urn:rdf1:equipment:%5B%22B%22%2C%22ST1%22%5D> ;
+    s:fieldset <urn:rdf1:fieldset:%5B%22B%22%2C%22state%22%5D> ;
+    s:local_id "crossover_return" ;
+    s:namespace "cycle.expander" ;
+    s:provider <urn:rdf1:provider:%5B%22B%22%5D> .
+
+<urn:rdf1:port:%5B%22B%22%2C%22cycle.expander%22%2C%22tail_flow%22%5D> a s:Port ;
+    s:direction "out" ;
+    s:equipment <urn:rdf1:equipment:%5B%22B%22%2C%22ST1%22%5D> ;
+    s:fieldset <urn:rdf1:fieldset:%5B%22B%22%2C%22state%22%5D> ;
+    s:local_id "tail_flow" ;
+    s:namespace "cycle.expander" ;
+    s:provider <urn:rdf1:provider:%5B%22B%22%5D> .
+
+<urn:rdf1:port:%5B%22B%22%2C%22cycle.sink%22%2C%22liquid_exit%22%5D> a s:Port ;
+    s:direction "out" ;
+    s:equipment <urn:rdf1:equipment:%5B%22B%22%2C%22CD1%22%5D> ;
+    s:fieldset <urn:rdf1:fieldset:%5B%22B%22%2C%22state%22%5D> ;
+    s:local_id "liquid_exit" ;
+    s:namespace "cycle.sink" ;
+    s:provider <urn:rdf1:provider:%5B%22B%22%5D> .
+
+<urn:rdf1:port:%5B%22B%22%2C%22cycle.sink%22%2C%22vapour_entry%22%5D> a s:Port ;
+    s:direction "in" ;
+    s:equipment <urn:rdf1:equipment:%5B%22B%22%2C%22CD1%22%5D> ;
+    s:fieldset <urn:rdf1:fieldset:%5B%22B%22%2C%22state%22%5D> ;
+    s:local_id "vapour_entry" ;
+    s:namespace "cycle.sink" ;
+    s:provider <urn:rdf1:provider:%5B%22B%22%5D> .
+
+<urn:rdf1:type:%5B%22A%22%2C%22ControlledHRSG%22%5D> a s:LocalClass ;
+    rdfs:subClassOf <urn:rdf1:type:%5B%22A%22%2C%22HRSG%22%5D> ;
+    s:local_id "ControlledHRSG" ;
+    s:provider <urn:rdf1:provider:%5B%22A%22%5D> .
+
+<urn:rdf1:type:%5B%22A%22%2C%22GasTurbine%22%5D> a s:LocalClass ;
+    rdfs:subClassOf <urn:rdf1:type:%5B%22A%22%2C%22PrimeMover%22%5D> ;
+    s:local_id "GasTurbine" ;
+    s:mapsClass <urn:rdf1:canonical:%5B%22GasTurbine%22%5D> ;
+    s:provider <urn:rdf1:provider:%5B%22A%22%5D> .
+
+<urn:rdf1:type:%5B%22A%22%2C%22HRSG%22%5D> a s:LocalClass ;
+    rdfs:subClassOf <urn:rdf1:type:%5B%22A%22%2C%22HeatRecoveryUnit%22%5D> ;
+    s:local_id "HRSG" ;
+    s:provider <urn:rdf1:provider:%5B%22A%22%5D> .
+
+<urn:rdf1:type:%5B%22A%22%2C%22HeatRecoveryUnit%22%5D> a s:LocalClass ;
+    rdfs:subClassOf <urn:rdf1:type:%5B%22A%22%2C%22ThermalAsset%22%5D> ;
+    s:local_id "HeatRecoveryUnit" ;
+    s:mapsClass <urn:rdf1:canonical:%5B%22HeatRecovery%22%5D> ;
+    s:provider <urn:rdf1:provider:%5B%22A%22%5D> .
+
+<urn:rdf1:type:%5B%22A%22%2C%22PrimeMover%22%5D> a s:LocalClass ;
+    rdfs:subClassOf <urn:rdf1:type:%5B%22A%22%2C%22ThermalAsset%22%5D> ;
+    s:local_id "PrimeMover" ;
+    s:provider <urn:rdf1:provider:%5B%22A%22%5D> .
+
+<urn:rdf1:type:%5B%22B%22%2C%22ExpansionMachine%22%5D> a s:LocalClass ;
+    rdfs:subClassOf <urn:rdf1:type:%5B%22B%22%2C%22CycleComponent%22%5D> ;
+    s:local_id "ExpansionMachine" ;
+    s:mapsClass <urn:rdf1:canonical:%5B%22SteamExpansion%22%5D> ;
+    s:provider <urn:rdf1:provider:%5B%22B%22%5D> .
+
+<urn:rdf1:type:%5B%22B%22%2C%22HeatSink%22%5D> a s:LocalClass ;
+    rdfs:subClassOf <urn:rdf1:type:%5B%22B%22%2C%22CycleComponent%22%5D> ;
+    s:local_id "HeatSink" ;
+    s:mapsClass <urn:rdf1:canonical:%5B%22HeatSink%22%5D> ;
+    s:provider <urn:rdf1:provider:%5B%22B%22%5D> .
+
+<urn:rdf1:type:%5B%22B%22%2C%22ReheatSteamTurbine%22%5D> a s:LocalClass ;
+    rdfs:subClassOf <urn:rdf1:type:%5B%22B%22%2C%22SteamTurbine%22%5D> ;
+    s:local_id "ReheatSteamTurbine" ;
+    s:provider <urn:rdf1:provider:%5B%22B%22%5D> .
+
+<urn:rdf1:type:%5B%22B%22%2C%22SteamTurbine%22%5D> a s:LocalClass ;
+    rdfs:subClassOf <urn:rdf1:type:%5B%22B%22%2C%22ExpansionMachine%22%5D> ;
+    s:local_id "SteamTurbine" ;
+    s:provider <urn:rdf1:provider:%5B%22B%22%5D> .
+
+<urn:rdf1:type:%5B%22B%22%2C%22SurfaceCondenser%22%5D> a s:LocalClass ;
+    rdfs:subClassOf <urn:rdf1:type:%5B%22B%22%2C%22HeatSink%22%5D> ;
+    s:local_id "SurfaceCondenser" ;
+    s:provider <urn:rdf1:provider:%5B%22B%22%5D> .
+
+<urn:rdf1:equipment:%5B%22B%22%2C%22CD1%22%5D> a s:Equipment ;
+    s:assignedClass <urn:rdf1:type:%5B%22B%22%2C%22SurfaceCondenser%22%5D> ;
+    s:local_id "CD1" .
+
+<urn:rdf1:type:%5B%22A%22%2C%22ThermalAsset%22%5D> a s:LocalClass ;
+    rdfs:subClassOf s:Root ;
+    s:local_id "ThermalAsset" ;
+    s:mapsClass <urn:rdf1:canonical:%5B%22EngineeringAsset%22%5D> ;
+    s:provider <urn:rdf1:provider:%5B%22A%22%5D> .
+
+<urn:rdf1:type:%5B%22B%22%2C%22CycleComponent%22%5D> a s:LocalClass ;
+    rdfs:subClassOf s:Root ;
+    s:local_id "CycleComponent" ;
+    s:mapsClass <urn:rdf1:canonical:%5B%22EngineeringAsset%22%5D> ;
+    s:provider <urn:rdf1:provider:%5B%22B%22%5D> .
+
+<urn:rdf1:equipment:%5B%22B%22%2C%22ST1%22%5D> a s:Equipment ;
+    s:assignedClass <urn:rdf1:type:%5B%22B%22%2C%22ReheatSteamTurbine%22%5D> ;
+    s:local_id "ST1" .
+
+<urn:rdf1:canonical:%5B%22EngineeringAsset%22%5D> a s:CanonicalClass ;
+    rdfs:subClassOf s:Root ;
+    s:local_id "EngineeringAsset" .
+
+<urn:rdf1:equipment:%5B%22A%22%2C%22H01%22%5D> a s:Equipment ;
+    s:assignedClass <urn:rdf1:type:%5B%22A%22%2C%22ControlledHRSG%22%5D> ;
+    s:local_id "H01" .
+
+<urn:rdf1:fieldset:%5B%22A%22%2C%22state%22%5D> a s:FieldSet ;
+    s:field <urn:rdf1:field:%5B%22A%22%2C%22state%22%2C%22mass_rate%22%5D>,
+        <urn:rdf1:field:%5B%22A%22%2C%22state%22%2C%22pressure_si%22%5D>,
+        <urn:rdf1:field:%5B%22A%22%2C%22state%22%2C%22temperature_abs%22%5D> .
+
+<urn:rdf1:fieldset:%5B%22B%22%2C%22state%22%5D> a s:FieldSet ;
+    s:field <urn:rdf1:field:%5B%22B%22%2C%22state%22%2C%22steam_pressure%22%5D>,
+        <urn:rdf1:field:%5B%22B%22%2C%22state%22%2C%22steam_temperature%22%5D>,
+        <urn:rdf1:field:%5B%22B%22%2C%22state%22%2C%22throughput_hourly%22%5D> .
+
+<urn:rdf1:provider:%5B%22A%22%5D> a s:Provider ;
+    s:mappingVersion "2.0" ;
+    s:provider_id "A" ;
+    s:version "2.0" .
+
+<urn:rdf1:provider:%5B%22B%22%5D> a s:Provider ;
+    s:mappingVersion "2.0" ;
+    s:provider_id "B" ;
+    s:version "2.0" .
+

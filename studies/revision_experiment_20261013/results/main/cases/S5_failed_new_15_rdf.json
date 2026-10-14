@@ -1,0 +1,24 @@
+{
+  "backend": "rdf",
+  "case": {
+    "ambient": 15,
+    "error_contains": "missing required output",
+    "expected": "reject",
+    "id": "S5_failed_new_15",
+    "task": "S5",
+    "variant": "failed_new"
+  },
+  "observed": {
+    "current_result_published": false,
+    "current_revision": "B",
+    "history_revisions": [
+      "A"
+    ],
+    "matches_frozen_oracle": true,
+    "outcome": "reject",
+    "preserved_B_after_delayed_A": false,
+    "reason": "HPTURB: missing required output mech_hpst_remaining_life_hr",
+    "stage": "B_consumer_contract"
+  },
+  "wall_seconds_context_only": 0.19190116599202156
+}

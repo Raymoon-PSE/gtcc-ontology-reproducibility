@@ -1,0 +1,19 @@
+{
+  "backend": "json",
+  "case": {
+    "ambient": 15,
+    "error_contains": "expected one value",
+    "expected": "reject",
+    "id": "S1_ambiguous_15",
+    "task": "S1",
+    "variant": "ambiguous"
+  },
+  "observed": {
+    "current_result_published": false,
+    "matches_frozen_oracle": true,
+    "outcome": "reject",
+    "reason": "EXP-001.binding: expected one value, got 2",
+    "stage": "configuration"
+  },
+  "wall_seconds_context_only": 9.579211473464966e-05
+}

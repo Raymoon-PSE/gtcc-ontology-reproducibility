@@ -1,0 +1,19 @@
+{
+  "backend": "rdf",
+  "case": {
+    "ambient": 15,
+    "error_contains": "output_contract version mismatch",
+    "expected": "reject",
+    "id": "S6_stale_output_contract_15",
+    "task": "S6",
+    "variant": "stale_output_contract"
+  },
+  "observed": {
+    "current_result_published": false,
+    "matches_frozen_oracle": true,
+    "outcome": "reject",
+    "reason": "output_contract version mismatch",
+    "stage": "output_contract"
+  },
+  "wall_seconds_context_only": 0.09473108313977718
+}

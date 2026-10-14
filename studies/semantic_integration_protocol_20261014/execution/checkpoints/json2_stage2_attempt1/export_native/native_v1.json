@@ -1,0 +1,1266 @@
+{
+  "boundaries": [
+    {
+      "key": "cold_reheat",
+      "value": [
+        [
+          "B",
+          "cycle.expander",
+          "crossover_return"
+        ],
+        [
+          "A",
+          "thermal.hrsg",
+          "rh_return"
+        ]
+      ]
+    },
+    {
+      "key": "condensate",
+      "value": [
+        [
+          "B",
+          "cycle.sink",
+          "liquid_exit"
+        ],
+        [
+          "A",
+          "thermal.hrsg",
+          "water_return"
+        ]
+      ]
+    },
+    {
+      "key": "gt_exhaust",
+      "value": [
+        [
+          "A",
+          "thermal.gt",
+          "exh"
+        ],
+        [
+          "A",
+          "thermal.hrsg",
+          "gas_in"
+        ]
+      ]
+    },
+    {
+      "key": "hot_reheat",
+      "value": [
+        [
+          "A",
+          "thermal.hrsg",
+          "rh_out"
+        ],
+        [
+          "B",
+          "cycle.expander",
+          "admission_reheat"
+        ]
+      ]
+    },
+    {
+      "key": "hp_steam",
+      "value": [
+        [
+          "A",
+          "thermal.hrsg",
+          "hp_out"
+        ],
+        [
+          "B",
+          "cycle.expander",
+          "admission_high"
+        ]
+      ]
+    },
+    {
+      "key": "lp_steam",
+      "value": [
+        [
+          "A",
+          "thermal.hrsg",
+          "lp_out"
+        ],
+        [
+          "B",
+          "cycle.expander",
+          "admission_low"
+        ]
+      ]
+    },
+    {
+      "key": "st_exhaust",
+      "value": [
+        [
+          "B",
+          "cycle.expander",
+          "tail_flow"
+        ],
+        [
+          "B",
+          "cycle.sink",
+          "vapour_entry"
+        ]
+      ]
+    }
+  ],
+  "canonical_closures": [
+    {
+      "key": [
+        "A",
+        "GasTurbine"
+      ],
+      "value": [
+        "EngineeringAsset",
+        "GasTurbine"
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "HRSG"
+      ],
+      "value": [
+        "EngineeringAsset",
+        "HeatRecovery"
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "HeatRecoveryUnit"
+      ],
+      "value": [
+        "EngineeringAsset",
+        "HeatRecovery"
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "PrimeMover"
+      ],
+      "value": [
+        "EngineeringAsset"
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "ThermalAsset"
+      ],
+      "value": [
+        "EngineeringAsset"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "CycleComponent"
+      ],
+      "value": [
+        "EngineeringAsset"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "ExpansionMachine"
+      ],
+      "value": [
+        "EngineeringAsset",
+        "SteamExpansion"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "HeatSink"
+      ],
+      "value": [
+        "EngineeringAsset",
+        "HeatSink"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "SteamTurbine"
+      ],
+      "value": [
+        "EngineeringAsset",
+        "SteamExpansion"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "SurfaceCondenser"
+      ],
+      "value": [
+        "EngineeringAsset",
+        "HeatSink"
+      ]
+    }
+  ],
+  "equipment": [
+    {
+      "key": [
+        "A",
+        "GT01"
+      ],
+      "value": [
+        "A",
+        "GasTurbine"
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "H01"
+      ],
+      "value": [
+        "A",
+        "HRSG"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "CD1"
+      ],
+      "value": [
+        "B",
+        "SurfaceCondenser"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "ST1"
+      ],
+      "value": [
+        "B",
+        "SteamTurbine"
+      ]
+    }
+  ],
+  "fields": [
+    {
+      "key": [
+        "A",
+        "state",
+        "flow"
+      ],
+      "value": [
+        "mass_flow",
+        "kg/h"
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "state",
+        "press"
+      ],
+      "value": [
+        "pressure",
+        "bar"
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "state",
+        "temp"
+      ],
+      "value": [
+        "temperature",
+        "degC"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "state",
+        "P"
+      ],
+      "value": [
+        "pressure",
+        "MPa"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "state",
+        "T"
+      ],
+      "value": [
+        "temperature",
+        "K"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "state",
+        "W"
+      ],
+      "value": [
+        "mass_flow",
+        "kg/s"
+      ]
+    }
+  ],
+  "local_closures": [
+    {
+      "key": [
+        "A",
+        "GasTurbine"
+      ],
+      "value": [
+        [
+          "A",
+          "GasTurbine"
+        ],
+        [
+          "A",
+          "PrimeMover"
+        ],
+        [
+          "A",
+          "ThermalAsset"
+        ]
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "HRSG"
+      ],
+      "value": [
+        [
+          "A",
+          "HRSG"
+        ],
+        [
+          "A",
+          "HeatRecoveryUnit"
+        ],
+        [
+          "A",
+          "ThermalAsset"
+        ]
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "HeatRecoveryUnit"
+      ],
+      "value": [
+        [
+          "A",
+          "HeatRecoveryUnit"
+        ],
+        [
+          "A",
+          "ThermalAsset"
+        ]
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "PrimeMover"
+      ],
+      "value": [
+        [
+          "A",
+          "PrimeMover"
+        ],
+        [
+          "A",
+          "ThermalAsset"
+        ]
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "ThermalAsset"
+      ],
+      "value": [
+        [
+          "A",
+          "ThermalAsset"
+        ]
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "CycleComponent"
+      ],
+      "value": [
+        [
+          "B",
+          "CycleComponent"
+        ]
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "ExpansionMachine"
+      ],
+      "value": [
+        [
+          "B",
+          "CycleComponent"
+        ],
+        [
+          "B",
+          "ExpansionMachine"
+        ]
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "HeatSink"
+      ],
+      "value": [
+        [
+          "B",
+          "CycleComponent"
+        ],
+        [
+          "B",
+          "HeatSink"
+        ]
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "SteamTurbine"
+      ],
+      "value": [
+        [
+          "B",
+          "CycleComponent"
+        ],
+        [
+          "B",
+          "ExpansionMachine"
+        ],
+        [
+          "B",
+          "SteamTurbine"
+        ]
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "SurfaceCondenser"
+      ],
+      "value": [
+        [
+          "B",
+          "CycleComponent"
+        ],
+        [
+          "B",
+          "HeatSink"
+        ],
+        [
+          "B",
+          "SurfaceCondenser"
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "key": [
+        "A",
+        "thermal.gt",
+        "exh"
+      ],
+      "value": [
+        [
+          "A",
+          "GT01"
+        ],
+        "state",
+        "out"
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "thermal.hrsg",
+        "gas_in"
+      ],
+      "value": [
+        [
+          "A",
+          "H01"
+        ],
+        "state",
+        "in"
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "thermal.hrsg",
+        "hp_out"
+      ],
+      "value": [
+        [
+          "A",
+          "H01"
+        ],
+        "state",
+        "out"
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "thermal.hrsg",
+        "lp_out"
+      ],
+      "value": [
+        [
+          "A",
+          "H01"
+        ],
+        "state",
+        "out"
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "thermal.hrsg",
+        "rh_out"
+      ],
+      "value": [
+        [
+          "A",
+          "H01"
+        ],
+        "state",
+        "out"
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "thermal.hrsg",
+        "rh_return"
+      ],
+      "value": [
+        [
+          "A",
+          "H01"
+        ],
+        "state",
+        "in"
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "thermal.hrsg",
+        "water_return"
+      ],
+      "value": [
+        [
+          "A",
+          "H01"
+        ],
+        "state",
+        "in"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "cycle.expander",
+        "admission_high"
+      ],
+      "value": [
+        [
+          "B",
+          "ST1"
+        ],
+        "state",
+        "in"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "cycle.expander",
+        "admission_low"
+      ],
+      "value": [
+        [
+          "B",
+          "ST1"
+        ],
+        "state",
+        "in"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "cycle.expander",
+        "admission_reheat"
+      ],
+      "value": [
+        [
+          "B",
+          "ST1"
+        ],
+        "state",
+        "in"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "cycle.expander",
+        "crossover_return"
+      ],
+      "value": [
+        [
+          "B",
+          "ST1"
+        ],
+        "state",
+        "out"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "cycle.expander",
+        "tail_flow"
+      ],
+      "value": [
+        [
+          "B",
+          "ST1"
+        ],
+        "state",
+        "out"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "cycle.sink",
+        "liquid_exit"
+      ],
+      "value": [
+        [
+          "B",
+          "CD1"
+        ],
+        "state",
+        "out"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "cycle.sink",
+        "vapour_entry"
+      ],
+      "value": [
+        [
+          "B",
+          "CD1"
+        ],
+        "state",
+        "in"
+      ]
+    }
+  ],
+  "source_metadata": {
+    "canonical": {
+      "authorship": "Host-authored common canonical contract, separate from independently authored provider documents",
+      "canonical_parent": {
+        "EngineeringAsset": null,
+        "GasTurbine": "EngineeringAsset",
+        "HeatRecovery": "EngineeringAsset",
+        "HeatSink": "EngineeringAsset",
+        "SteamExpansion": "EngineeringAsset"
+      },
+      "provider_type_mappings": [
+        {
+          "canonical_type": "EngineeringAsset",
+          "local_type": "ThermalAsset",
+          "provider": "A"
+        },
+        {
+          "canonical_type": "GasTurbine",
+          "local_type": "GasTurbine",
+          "provider": "A"
+        },
+        {
+          "canonical_type": "HeatRecovery",
+          "local_type": "HeatRecoveryUnit",
+          "provider": "A"
+        },
+        {
+          "canonical_type": "EngineeringAsset",
+          "local_type": "CycleComponent",
+          "provider": "B"
+        },
+        {
+          "canonical_type": "SteamExpansion",
+          "local_type": "ExpansionMachine",
+          "provider": "B"
+        },
+        {
+          "canonical_type": "HeatSink",
+          "local_type": "HeatSink",
+          "provider": "B"
+        }
+      ]
+    },
+    "mapping": {
+      "boundaries": [
+        {
+          "canonical_boundary_id": "gt_exhaust",
+          "consumer": {
+            "local_port_id": "gas_in",
+            "namespace": "thermal.hrsg",
+            "provider_id": "A"
+          },
+          "producer": {
+            "local_port_id": "exh",
+            "namespace": "thermal.gt",
+            "provider_id": "A"
+          }
+        },
+        {
+          "canonical_boundary_id": "hp_steam",
+          "consumer": {
+            "local_port_id": "admission_high",
+            "namespace": "cycle.expander",
+            "provider_id": "B"
+          },
+          "producer": {
+            "local_port_id": "hp_out",
+            "namespace": "thermal.hrsg",
+            "provider_id": "A"
+          }
+        },
+        {
+          "canonical_boundary_id": "hot_reheat",
+          "consumer": {
+            "local_port_id": "admission_reheat",
+            "namespace": "cycle.expander",
+            "provider_id": "B"
+          },
+          "producer": {
+            "local_port_id": "rh_out",
+            "namespace": "thermal.hrsg",
+            "provider_id": "A"
+          }
+        },
+        {
+          "canonical_boundary_id": "lp_steam",
+          "consumer": {
+            "local_port_id": "admission_low",
+            "namespace": "cycle.expander",
+            "provider_id": "B"
+          },
+          "producer": {
+            "local_port_id": "lp_out",
+            "namespace": "thermal.hrsg",
+            "provider_id": "A"
+          }
+        },
+        {
+          "canonical_boundary_id": "st_exhaust",
+          "consumer": {
+            "local_port_id": "vapour_entry",
+            "namespace": "cycle.sink",
+            "provider_id": "B"
+          },
+          "producer": {
+            "local_port_id": "tail_flow",
+            "namespace": "cycle.expander",
+            "provider_id": "B"
+          }
+        },
+        {
+          "canonical_boundary_id": "cold_reheat",
+          "consumer": {
+            "local_port_id": "rh_return",
+            "namespace": "thermal.hrsg",
+            "provider_id": "A"
+          },
+          "producer": {
+            "local_port_id": "crossover_return",
+            "namespace": "cycle.expander",
+            "provider_id": "B"
+          }
+        },
+        {
+          "canonical_boundary_id": "condensate",
+          "consumer": {
+            "local_port_id": "water_return",
+            "namespace": "thermal.hrsg",
+            "provider_id": "A"
+          },
+          "producer": {
+            "local_port_id": "liquid_exit",
+            "namespace": "cycle.sink",
+            "provider_id": "B"
+          }
+        }
+      ],
+      "canonical_units": {
+        "mass_flow": "kg/h",
+        "pressure": "MPa",
+        "temperature": "degC"
+      },
+      "conversion_definitions": [
+        {
+          "constant": "273.15",
+          "from": "K",
+          "operation": "subtract",
+          "to": "degC"
+        },
+        {
+          "constant": "0.1",
+          "from": "bar",
+          "operation": "multiply",
+          "to": "MPa"
+        },
+        {
+          "constant": "1000000",
+          "from": "Pa",
+          "operation": "divide",
+          "to": "MPa"
+        },
+        {
+          "constant": "3600",
+          "from": "kg/s",
+          "operation": "multiply",
+          "to": "kg/h"
+        }
+      ],
+      "field_mappings": [
+        {
+          "canonical_quantity": "temperature",
+          "declared_unit": "degC",
+          "field_set_id": "state",
+          "local_key": "temp",
+          "provider_id": "A"
+        },
+        {
+          "canonical_quantity": "pressure",
+          "declared_unit": "bar",
+          "field_set_id": "state",
+          "local_key": "press",
+          "provider_id": "A"
+        },
+        {
+          "canonical_quantity": "mass_flow",
+          "declared_unit": "kg/h",
+          "field_set_id": "state",
+          "local_key": "flow",
+          "provider_id": "A"
+        },
+        {
+          "canonical_quantity": "temperature",
+          "declared_unit": "K",
+          "field_set_id": "state",
+          "local_key": "T",
+          "provider_id": "B"
+        },
+        {
+          "canonical_quantity": "pressure",
+          "declared_unit": "MPa",
+          "field_set_id": "state",
+          "local_key": "P",
+          "provider_id": "B"
+        },
+        {
+          "canonical_quantity": "mass_flow",
+          "declared_unit": "kg/s",
+          "field_set_id": "state",
+          "local_key": "W",
+          "provider_id": "B"
+        }
+      ],
+      "mapping_version": "1.0",
+      "provenance": {
+        "authoring_date": "2026-10-14",
+        "authorship": "Engineering-provider fixture author agent, independently assigned before representation implementation",
+        "industrial_data": false,
+        "kind": "fabricated_agent_authored_fixture",
+        "physical_measurements_included": false
+      },
+      "provider_versions": {
+        "A": "1.0",
+        "B": "1.0"
+      }
+    },
+    "providers": [
+      {
+        "equipment": [
+          {
+            "local_equipment_id": "GT01",
+            "local_type_id": "GasTurbine"
+          },
+          {
+            "local_equipment_id": "H01",
+            "local_type_id": "HRSG"
+          }
+        ],
+        "field_sets": {
+          "state": [
+            {
+              "local_key": "temp",
+              "quantity": "temperature",
+              "unit": "degC"
+            },
+            {
+              "local_key": "press",
+              "quantity": "pressure",
+              "unit": "bar"
+            },
+            {
+              "local_key": "flow",
+              "quantity": "mass_flow",
+              "unit": "kg/h"
+            }
+          ]
+        },
+        "identity_rule": [
+          "namespace",
+          "local_port_id"
+        ],
+        "native_vocabulary": "thermal equipment and control interfaces",
+        "ports": [
+          {
+            "direction": "out",
+            "field_set_id": "state",
+            "local_equipment_id": "GT01",
+            "local_port_id": "exh",
+            "namespace": "thermal.gt"
+          },
+          {
+            "direction": "in",
+            "field_set_id": "state",
+            "local_equipment_id": "H01",
+            "local_port_id": "gas_in",
+            "namespace": "thermal.hrsg"
+          },
+          {
+            "direction": "out",
+            "field_set_id": "state",
+            "local_equipment_id": "H01",
+            "local_port_id": "hp_out",
+            "namespace": "thermal.hrsg"
+          },
+          {
+            "direction": "out",
+            "field_set_id": "state",
+            "local_equipment_id": "H01",
+            "local_port_id": "rh_out",
+            "namespace": "thermal.hrsg"
+          },
+          {
+            "direction": "out",
+            "field_set_id": "state",
+            "local_equipment_id": "H01",
+            "local_port_id": "lp_out",
+            "namespace": "thermal.hrsg"
+          },
+          {
+            "direction": "in",
+            "field_set_id": "state",
+            "local_equipment_id": "H01",
+            "local_port_id": "rh_return",
+            "namespace": "thermal.hrsg"
+          },
+          {
+            "direction": "in",
+            "field_set_id": "state",
+            "local_equipment_id": "H01",
+            "local_port_id": "water_return",
+            "namespace": "thermal.hrsg"
+          }
+        ],
+        "provenance": {
+          "authoring_date": "2026-10-14",
+          "authorship": "Engineering-provider fixture author agent, independently assigned before representation implementation",
+          "industrial_data": false,
+          "kind": "fabricated_agent_authored_fixture",
+          "physical_measurements_included": false
+        },
+        "provider_id": "A",
+        "type_identity_rule": "local_type_id within provider",
+        "types": [
+          {
+            "local_type_id": "ThermalAsset",
+            "parent_type_id": null
+          },
+          {
+            "local_type_id": "PrimeMover",
+            "parent_type_id": "ThermalAsset"
+          },
+          {
+            "local_type_id": "GasTurbine",
+            "parent_type_id": "PrimeMover"
+          },
+          {
+            "local_type_id": "HeatRecoveryUnit",
+            "parent_type_id": "ThermalAsset"
+          },
+          {
+            "local_type_id": "HRSG",
+            "parent_type_id": "HeatRecoveryUnit"
+          }
+        ],
+        "version": "1.0"
+      },
+      {
+        "equipment": [
+          {
+            "local_equipment_id": "ST1",
+            "local_type_id": "SteamTurbine"
+          },
+          {
+            "local_equipment_id": "CD1",
+            "local_type_id": "SurfaceCondenser"
+          }
+        ],
+        "field_sets": {
+          "state": [
+            {
+              "local_key": "T",
+              "quantity": "temperature",
+              "unit": "K"
+            },
+            {
+              "local_key": "P",
+              "quantity": "pressure",
+              "unit": "MPa"
+            },
+            {
+              "local_key": "W",
+              "quantity": "mass_flow",
+              "unit": "kg/s"
+            }
+          ]
+        },
+        "identity_rule": [
+          "namespace",
+          "local_port_id"
+        ],
+        "native_vocabulary": "steam-cycle machinery and sink interfaces",
+        "ports": [
+          {
+            "direction": "in",
+            "field_set_id": "state",
+            "local_equipment_id": "ST1",
+            "local_port_id": "admission_high",
+            "namespace": "cycle.expander"
+          },
+          {
+            "direction": "in",
+            "field_set_id": "state",
+            "local_equipment_id": "ST1",
+            "local_port_id": "admission_reheat",
+            "namespace": "cycle.expander"
+          },
+          {
+            "direction": "in",
+            "field_set_id": "state",
+            "local_equipment_id": "ST1",
+            "local_port_id": "admission_low",
+            "namespace": "cycle.expander"
+          },
+          {
+            "direction": "out",
+            "field_set_id": "state",
+            "local_equipment_id": "ST1",
+            "local_port_id": "crossover_return",
+            "namespace": "cycle.expander"
+          },
+          {
+            "direction": "out",
+            "field_set_id": "state",
+            "local_equipment_id": "ST1",
+            "local_port_id": "tail_flow",
+            "namespace": "cycle.expander"
+          },
+          {
+            "direction": "in",
+            "field_set_id": "state",
+            "local_equipment_id": "CD1",
+            "local_port_id": "vapour_entry",
+            "namespace": "cycle.sink"
+          },
+          {
+            "direction": "out",
+            "field_set_id": "state",
+            "local_equipment_id": "CD1",
+            "local_port_id": "liquid_exit",
+            "namespace": "cycle.sink"
+          }
+        ],
+        "provenance": {
+          "authoring_date": "2026-10-14",
+          "authorship": "Engineering-provider fixture author agent, independently assigned before representation implementation",
+          "industrial_data": false,
+          "kind": "fabricated_agent_authored_fixture",
+          "physical_measurements_included": false
+        },
+        "provider_id": "B",
+        "type_identity_rule": "local_type_id within provider",
+        "types": [
+          {
+            "local_type_id": "CycleComponent",
+            "parent_type_id": null
+          },
+          {
+            "local_type_id": "ExpansionMachine",
+            "parent_type_id": "CycleComponent"
+          },
+          {
+            "local_type_id": "SteamTurbine",
+            "parent_type_id": "ExpansionMachine"
+          },
+          {
+            "local_type_id": "HeatSink",
+            "parent_type_id": "CycleComponent"
+          },
+          {
+            "local_type_id": "SurfaceCondenser",
+            "parent_type_id": "HeatSink"
+          }
+        ],
+        "version": "1.0"
+      }
+    ]
+  },
+  "types": [
+    {
+      "key": [
+        "A",
+        "GasTurbine"
+      ],
+      "value": [
+        "A",
+        "PrimeMover"
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "HRSG"
+      ],
+      "value": [
+        "A",
+        "HeatRecoveryUnit"
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "HeatRecoveryUnit"
+      ],
+      "value": [
+        "A",
+        "ThermalAsset"
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "PrimeMover"
+      ],
+      "value": [
+        "A",
+        "ThermalAsset"
+      ]
+    },
+    {
+      "key": [
+        "A",
+        "ThermalAsset"
+      ],
+      "value": null
+    },
+    {
+      "key": [
+        "B",
+        "CycleComponent"
+      ],
+      "value": null
+    },
+    {
+      "key": [
+        "B",
+        "ExpansionMachine"
+      ],
+      "value": [
+        "B",
+        "CycleComponent"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "HeatSink"
+      ],
+      "value": [
+        "B",
+        "CycleComponent"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "SteamTurbine"
+      ],
+      "value": [
+        "B",
+        "ExpansionMachine"
+      ]
+    },
+    {
+      "key": [
+        "B",
+        "SurfaceCondenser"
+      ],
+      "value": [
+        "B",
+        "HeatSink"
+      ]
+    }
+  ],
+  "versions": {
+    "A": "1.0",
+    "B": "1.0"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "backend": "rdf",
+  "case": {
+    "ambient": 15,
+    "error_contains": "boundary mismatch",
+    "expected": "reject",
+    "id": "S4_swapped_reheat_15",
+    "task": "S4",
+    "variant": "swapped_reheat"
+  },
+  "observed": {
+    "current_result_published": false,
+    "matches_frozen_oracle": true,
+    "outcome": "reject",
+    "reason": "hot_reheat: boundary mismatch",
+    "stage": "physical_boundary"
+  },
+  "wall_seconds_context_only": 0.006732207955792546
+}

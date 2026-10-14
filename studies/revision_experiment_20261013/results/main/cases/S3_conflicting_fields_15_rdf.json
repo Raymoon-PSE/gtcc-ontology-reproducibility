@@ -1,0 +1,19 @@
+{
+  "backend": "rdf",
+  "case": {
+    "ambient": 15,
+    "error_contains": "missing or conflicting fields",
+    "expected": "reject",
+    "id": "S3_conflicting_fields_15",
+    "task": "S3",
+    "variant": "conflicting_fields"
+  },
+  "observed": {
+    "current_result_published": false,
+    "matches_frozen_oracle": true,
+    "outcome": "reject",
+    "reason": "gt_exhaust: missing or conflicting fields",
+    "stage": "physical_boundary"
+  },
+  "wall_seconds_context_only": 0.00208145915530622
+}

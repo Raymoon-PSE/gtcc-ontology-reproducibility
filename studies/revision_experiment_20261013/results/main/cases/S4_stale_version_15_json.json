@@ -1,0 +1,19 @@
+{
+  "backend": "json",
+  "case": {
+    "ambient": 15,
+    "error_contains": "version mismatch",
+    "expected": "reject",
+    "id": "S4_stale_version_15",
+    "task": "S4",
+    "variant": "stale_version"
+  },
+  "observed": {
+    "current_result_published": false,
+    "matches_frozen_oracle": true,
+    "outcome": "reject",
+    "reason": "hot_reheat: version mismatch",
+    "stage": "physical_boundary"
+  },
+  "wall_seconds_context_only": 0.004840125096961856
+}

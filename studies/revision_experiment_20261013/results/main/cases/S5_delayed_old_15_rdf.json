@@ -1,0 +1,25 @@
+{
+  "backend": "rdf",
+  "case": {
+    "ambient": 15,
+    "error_contains": "previous revision",
+    "expected": "reject",
+    "id": "S5_delayed_old_15",
+    "task": "S5",
+    "variant": "delayed_old"
+  },
+  "observed": {
+    "current_result_published": true,
+    "current_revision": "B",
+    "history_revisions": [
+      "A",
+      "B"
+    ],
+    "matches_frozen_oracle": true,
+    "outcome": "reject",
+    "preserved_B_after_delayed_A": true,
+    "reason": "delayed result belongs to a previous revision",
+    "stage": "delayed_A_commit"
+  },
+  "wall_seconds_context_only": 0.1930867088958621
+}

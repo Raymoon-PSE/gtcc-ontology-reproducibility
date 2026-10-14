@@ -1,0 +1,2 @@
+# Python 3.12 used for the derived-release acceptance rerun.
+rdflib==7.6.0

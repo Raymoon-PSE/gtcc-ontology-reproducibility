@@ -1,0 +1,5 @@
+arm,change,production_files_changed,added_lines,removed_lines,resulting_source_lines,resulting_ast_functions,first_attempt_acceptance_passes,first_attempt_acceptance_total,evaluator_repair_rounds_original_suite
+rdf,change1,1,89,2,91,3,29,29,0
+rdf,change2,1,79,1,169,9,46,46,0
+json,change1,1,102,2,104,4,29,29,0
+json,change2,1,90,8,186,11,46,46,0
